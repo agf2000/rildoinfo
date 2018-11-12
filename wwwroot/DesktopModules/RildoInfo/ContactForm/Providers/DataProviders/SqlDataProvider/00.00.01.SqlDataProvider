@@ -1,0 +1,92 @@
+﻿/************************************************************/
+/*****              SqlDataProvider                     *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/***** Note: To manually execute this script you must   *****/
+/*****       perform a search and replace operation     *****/
+/*****       for {databaseOwner} and {objectQualifier}  *****/
+/*****                                                  *****/
+/************************************************************/
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_Catalogs]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_Catalogs](
+		[PortalId] [int] NOT NULL,
+		[ModuleId] [int] NOT NULL,
+		[DocId] [int] IDENTITY(1,1) NOT NULL,
+		[FileId] [int] NOT NULL,
+		[DocName] [nvarchar](100) NOT NULL,
+		[DocDesc] [nvarchar](500) NOT NULL,
+		[Downloads] [int] NOT NULL,
+		[Requests] [int] NOT NULL,
+		[CreatedByUser] [int] NOT NULL,
+		[CreatedOnDate] [datetime] NOT NULL,
+	 CONSTRAINT [PK_RIW_Catalogs] PRIMARY KEY CLUSTERED 
+	(
+		[DocId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Catalogs_Get]    Script Date: 12/05/2013 11:26:05 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_Catalogs_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_Catalogs_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Catalogs_GetList]    Script Date: 12/05/2013 11:26:05 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_Catalogs_GetList]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_Catalogs_GetList]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Catalogs_Get]    Script Date: 01/15/2013 12:16:42 ******/
+
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}RIW_Catalogs_Get] (
+
+	@DocId int
+	,@PortalId int
+
+)
+AS
+SELECT	D.[DocId]
+		,D.[DocName]
+		,D.[DocDesc]
+		,D.[FileId]
+		,F.[FileName]
+		,F.[ContentType]
+		,F.[Extension]
+		,D.[CreatedByUser]
+		,D.[CreatedOnDate]
+
+FROM {databaseOwner}[{objectQualifier}RIW_Catalogs] D
+LEFT OUTER JOIN {databaseOwner}[{objectQualifier}Files] F ON F.FileId = D.FileId
+WHERE D.[DocId] = @DocId AND D.[PortalId] = @PortalId
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Catalogs_GetList]    Script Date: 01/15/2013 12:16:42 ******/
+
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}RIW_Catalogs_GetList] (
+
+	@PortalId int
+
+)
+AS
+SELECT	D.[DocId]
+		,D.[DocName]
+		,D.[DocDesc]
+		,D.[FileId]
+		,F.[FileName]
+		,F.[ContentType]
+		,F.[Extension]
+		,D.[CreatedByUser]
+		,D.[CreatedOnDate]
+
+FROM {databaseOwner}[{objectQualifier}RIW_Catalogs] D
+LEFT OUTER JOIN {databaseOwner}[{objectQualifier}Files] F ON F.FileId = D.FileId
+WHERE D.[PortalId] = @PortalId
+GO
+
+/************************************************************/
+/*****              SqlDataProvider                     *****/
+/************************************************************/

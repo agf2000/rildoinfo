@@ -1,0 +1,2113 @@
+
+/************************************************************/
+/*****              SqlDataProvider                     *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/***** Note: To manually execute this script you must   *****/
+/*****       perform a search AND replace operation     *****/
+/*****       for {databaseOwner} AND {objectQualifier}  *****/
+/*****                                                  *****/
+/************************************************************/
+
+
+/** Create Tables **/
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIS_Agenda]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIS_Agenda](
+		[PortalId] [int] NOT NULL,
+		[AppointmentId] [int] IDENTITY(1,1) NOT NULL,
+		[ClientId] [int] NULL,
+		[UserId] [int] NULL,
+		[Subject] [nvarchar](256) NULL,
+		[Description] [nvarchar](500) NULL,
+		[StartDateTime] [smalldatetime] NULL,
+		[EndDateTime] [smalldatetime] NULL,
+		[Reminder] [nvarchar](256) NULL,
+		[RecurrenceRule] [nvarchar](1024) NULL,
+		[RecurrenceParentId] [int] NULL,
+		[Annotations] [nvarchar](1024) NULL,
+		[SentEmails] [nvarchar](500) NULL,
+		[DocId] [int] NULL,
+		[CreatedByUser] [int] NOT NULL,
+		[CreatedOnDate] [smalldatetime] NOT NULL,
+		[ModifiedByUser] [int] NOT NULL,
+		[ModifiedOnDate] [smalldatetime] NOT NULL,
+	 CONSTRAINT [PK_{objectQualifier}RIS_Agenda] PRIMARY KEY CLUSTERED 
+	(
+		[AppointmentId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+
+
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIS_AttributeOptions]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIS_AttributeOptions](
+		[PortalId] [int] NOT NULL,
+		[OptionId] [int] IDENTITY(1,1) NOT NULL,
+		[OptName] [nvarchar](30) NULL,
+		[OptTitle] [nvarchar](256) NULL,
+		[OptDescription] [nvarchar](1000) NULL,
+		[OptSelections] [nvarchar](3000) NULL,
+		[OptImageBinary] [varbinary](max) NULL,
+		[OptPreselection] [nvarchar](256) NULL,
+		[OptStatus] [char](1) NULL,
+		[OptRepeatCol] [int] NULL,
+		[OptControlType] [char](1) NULL,
+		[CreatedByUser] [int] NULL,
+	 CONSTRAINT [PK_CAT_Options] PRIMARY KEY NONCLUSTERED 
+	(
+		[OptionId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+  END
+GO
+
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIS_Brands]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIS_Brands](
+		[PortalId] [int] NOT NULL,
+		[BrandId] [int] IDENTITY(1,1) NOT NULL,
+		[BrandCode] [nvarchar](10) NULL,
+		[BrandTitle] [nvarchar](100) NULL,
+		[IsDeleted] [bit] NULL,
+		[CreatedByUser] [int] NULL,
+		[CreatedOnDate] [smalldatetime] NULL,
+		[ModifiedByUser] [int] NULL,
+		[ModifiedOnDate] [smalldatetime] NULL,
+	 CONSTRAINT [PK_{objectQualifier}RIS_Make] PRIMARY KEY CLUSTERED 
+	(
+		[BrandId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Cashiers]') AND type in (N'U'))
+	BEGIN
+		CREATE TABLE {databaseOwner}[{objectQualifier}RIS_Cashiers](
+			[PortalId] [int] NOT NULL,
+			[EstimateId] [int] NOT NULL,
+			[TotalCash] [money] NULL,
+			[TotalCheck] [money] NULL,
+			[TotalCard] [money] NULL,
+			[TotalBank] [money] NULL,
+			[CreatedByUser] [int] NOT NULL,
+			[CreatedOnDate] [smalldatetime] NOT NULL
+		) ON [PRIMARY]
+	END
+GO
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIS_Categories]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIS_Categories](
+		[PortalId] [int] NOT NULL,
+		[ModuleId] [int] NULL,
+		[CategoryId] [int] IDENTITY(1,1) NOT NULL,
+		[CatCode] [nvarchar](10) NULL,
+		[CatOrder] [int] NULL,
+		[ParentId] [int] NULL,
+		[Name] [nvarchar](256) NULL,
+		[Description] [nvarchar](256) NULL,
+		[ImageUrl] [nvarchar](256) NULL,
+		[ImageBinary] [varbinary](max) NULL,
+		[Kit] [bit] NULL,
+		[Active] [bit] NULL,
+		[IsDeleted] [bit] NULL,
+		[CreatedByUser] [int] NULL,
+		[CreatedOnDate] [smalldatetime] NULL,
+		[ModifiedByUser] [int] NULL,
+		[ModifiedOnDate] [smalldatetime] NULL,
+	 CONSTRAINT [PK_{objectQualifier}RIS_Categories] PRIMARY KEY CLUSTERED 
+	(
+		[CategoryId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+  END
+GO
+
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIS_CatPermissions]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIS_CatPermissions](
+		[CatPermissionId] [int] IDENTITY(1,1) NOT NULL,
+		[CategoryId] [int] NOT NULL,
+		[PermissionId] [int] NOT NULL,
+		[RoleId] [int] NOT NULL,
+		[AllowAccess] [bit] NOT NULL,
+	 CONSTRAINT [PK_{objectQualifier}RIS_CatPermissions] PRIMARY KEY CLUSTERED 
+	(
+		[CatPermissionId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIS_CatProducts]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIS_CatProducts](
+		[CatProdId] [int] IDENTITY(1,1) NOT NULL,
+		[CategoryId] [int] NOT NULL,
+		[ProdId] [int] NOT NULL,
+	 CONSTRAINT [PK_{objectQualifier}RIS_CatProducts] PRIMARY KEY NONCLUSTERED 
+	(
+		[CatProdId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIS_ClientAddresses]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIS_ClientAddresses](
+		[ClientAddressId] [int] IDENTITY(1,1) NOT NULL,
+		[ClientId] [int] NULL,
+		[AddressName] [nvarchar](100) NULL,
+		[Street] [nvarchar](100) NULL,
+		[Unit] [nvarchar](10) NULL,
+		[Complement] [nvarchar](100) NULL,
+		[District] [nvarchar](100) NULL,
+		[City] [nvarchar](50) NULL,
+		[Region] [nvarchar](50) NULL,
+		[PostalCode] [varchar](10) NULL,
+		[Country] [nvarchar](50) NULL,
+		[Telephone] [varchar](20) NULL,
+		[Cell] [varchar](20) NULL,
+		[Fax] [varchar](20) NULL,
+		[ViewOrder] [int] NULL,
+		[IsDeleted] [bit] NULL,
+		[CreatedByUser] [int] NULL,
+		[CreatedOnDate] [smalldatetime] NULL,
+		[ModifiedByUser] [int] NULL,
+		[ModifiedOnDate] [smalldatetime] NULL,
+	 CONSTRAINT [PK_{objectQualifier}RIS_ClientAddresses] PRIMARY KEY CLUSTERED 
+	(
+		[ClientAddressId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+	END
+GO
+
+
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIS_ClientBankRefs]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIS_ClientBankRefs](
+		[ClientBankRefId] [int] IDENTITY(1,1) NOT NULL,
+		[ClientId] [int] NOT NULL,
+		[BankRef] [nvarchar](50) NULL,
+		[BankRefAgency] [varchar](10) NULL,
+		[BankRefAccount] [varchar](20) NULL,
+		[BankRefClientSince] [smalldatetime] NULL,
+		[BankRefContact] [nvarchar](100) NULL,
+		[BankRefPhone] [varchar](20) NULL,
+		[BankRefAccountType] [nvarchar](20) NULL,
+		[BankRefCredit] [money] NULL,
+	 CONSTRAINT [PK_{objectQualifier}RIS_ClientBankRefs] PRIMARY KEY CLUSTERED 
+	(
+		[ClientBankRefId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIS_ClientCommRefs]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIS_ClientCommRefs](
+		[ClientCommRefId] [int] IDENTITY(1,1) NOT NULL,
+		[ClientId] [int] NOT NULL,
+		[CommRefBusiness] [nvarchar](100) NULL,
+		[CommRefContact] [nvarchar](50) NULL,
+		[CommRefPhone] [varchar](20) NULL,
+		[CommRefLastActivity] [smalldatetime] NULL,
+		[CommRefCredit] [money] NULL,
+	 CONSTRAINT [PK_{objectQualifier}RIS_ClientCommRefs] PRIMARY KEY CLUSTERED 
+	(
+		[ClientCommRefId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIS_ClientContacts]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIS_ClientContacts](
+		[ClientContactId] [int] IDENTITY(1,1) NOT NULL,
+		[ClientId] [int] NULL,
+		[ContactName] [nvarchar](100) NULL,
+		[DateBirth] [smalldatetime] NULL,
+		[Dept] [nvarchar](50) NULL,
+		[ContactEmail1] [nvarchar](100) NULL,
+		[ContactEmail2] [nvarchar](100) NULL,
+		[ContactPhone1] [varchar](16) NULL,
+		[ContactPhone2] [varchar](16) NULL,
+		[PhoneExt1] [varchar](5) NULL,
+		[PhoneExt2] [varchar](5) NULL,
+		[Comments] [nvarchar](256) NULL,
+		[ClientAddressId] [int] NULL,
+		[IsDeleted] [bit] NULL,
+		[CreatedByUser] [int] NULL,
+		[CreatedOnDate] [smalldatetime] NULL,
+		[ModifiedByUser] [int] NULL,
+		[ModifiedOnDate] [smalldatetime] NULL,
+	 CONSTRAINT [PK_{objectQualifier}RIS_ClientContacts] PRIMARY KEY CLUSTERED 
+	(
+		[ClientContactId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+
+
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIS_ClientDocs]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIS_ClientDocs](
+		[ClientDocId] [int] IDENTITY(1,1) NOT NULL,
+		[ClientId] [int] NOT NULL,
+		[DocName] [nvarchar](100) NULL,
+		[DocDesc] [nvarchar](500) NULL,
+		[DocUrl] [nvarchar](256) NULL,
+		[FileId] [int] NULL,
+		[CreatedByUser] [int] NULL,
+		[CreatedOnDate] [smalldatetime] NULL,
+	 CONSTRAINT [PK_{objectQualifier}RIS_ClientDocs] PRIMARY KEY CLUSTERED 
+	(
+		[ClientDocId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIS_ClientHistories]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIS_ClientHistories](
+		[HistoryId] [int] IDENTITY(1,1) NOT NULL,
+		[ClientId] [int] NULL,
+		[HistoryText] [nvarchar](500) NULL,
+		[CreatedByUser] [int] NULL,
+		[CreatedOnDate] [smalldatetime] NULL,
+	 CONSTRAINT [PK_{objectQualifier}RIS_ClientHistory] PRIMARY KEY CLUSTERED 
+	(
+		[HistoryId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIS_ClientIncomeSources]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIS_ClientIncomeSources](
+		[ClientISId] [int] IDENTITY(1,1) NOT NULL,
+		[ClientId] [int] NOT NULL,
+		[ISName] [nvarchar](100) NULL,
+		[ISEIN] [varchar](20) NULL,
+		[ISST] [varchar](20) NULL,
+		[ISCT] [varchar](20) NULL,
+		[ISPhone] [varchar](20) NULL,
+		[ISFax] [varchar](20) NULL,
+		[ISIncome] [money] NULL,
+		[ISPostalCode] [varchar](10) NULL,
+		[ISAddress] [nvarchar](100) NULL,
+		[ISAddressUnit] [varchar](10) NULL,
+		[ISComplement] [nvarchar](100) NULL,
+		[ISDistrict] [nvarchar](50) NULL,
+		[ISRegion] [nvarchar](50) NULL,
+		[ISCity] [nvarchar](50) NULL,
+		[ISProof] [bit] NULL,
+	 CONSTRAINT [PK_{objectQualifier}RIS_Client_IncomeSources] PRIMARY KEY CLUSTERED 
+	(
+		[ClientISId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIS_ClientIndustries]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIS_ClientIndustries](
+		[ClientIndustryId] [int] IDENTITY(1,1) NOT NULL,
+		[ClientId] [int] NOT NULL,
+		[IndustryId] [int] NOT NULL,
+	 CONSTRAINT [PK_{objectQualifier}RIS_ClientIndustries] PRIMARY KEY NONCLUSTERED 
+	(
+		[ClientIndustryId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIS_ClientPartners]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIS_ClientPartners](
+		[ClientPartnerId] [int] IDENTITY(1,1) NOT NULL,
+		[ClientId] [int] NOT NULL,
+		[PartnerName] [nvarchar](100) NULL,
+		[PartnerCPF] [varchar](20) NULL,
+		[PartnerIdentity] [varchar](20) NULL,
+		[PartnerPhone] [varchar](20) NULL,
+		[PartnerCell] [varchar](20) NULL,
+		[PartnerEmail] [varchar](100) NULL,
+		[PartnerQuota] [float] NULL,
+		[PartnerPostalCode] [varchar](10) NULL,
+		[PartnerAddress] [nvarchar](100) NULL,
+		[PartnerAddressUnit] [varchar](10) NULL,
+		[PartnerComplement] [nvarchar](100) NULL,
+		[PartnerDistrict] [nvarchar](50) NULL,
+		[PartnerRegion] [nvarchar](50) NULL,
+		[PartnerCity] [nvarchar](50) NULL,
+	 CONSTRAINT [PK_{objectQualifier}RIS_ClientPartners] PRIMARY KEY CLUSTERED 
+	(
+		[ClientPartnerId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIS_ClientPartnerBankRefs]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIS_ClientPartnerBankRefs](
+		[ClientPartnerBankRefId] [int] IDENTITY(1,1) NOT NULL,
+		[ClientId] [int] NOT NULL,
+		[PartnerName] [nvarchar](100) NULL,
+		[BankRef] [nvarchar](50) NULL,
+		[BankRefAgency] [varchar](10) NULL,
+		[BankRefAccount] [varchar](20) NULL,
+		[BankRefClientSince] [smalldatetime] NULL,
+		[BankRefContact] [nvarchar](100) NULL,
+		[BankRefPhone] [varchar](20) NULL,
+		[BankRefAccountType] [nvarchar](20) NULL,
+		[BankRefCredit] [money] NULL,
+	 CONSTRAINT [PK_{objectQualifier}RIS_ClientPartnerBankRefs] PRIMARY KEY CLUSTERED 
+	(
+		[ClientPartnerBankRefId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIS_ClientPersonalRefs]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIS_ClientPersonalRefs](
+		[ClientPersonalRefId] [int] IDENTITY(1,1) NOT NULL,
+		[ClientId] [int] NOT NULL,
+		[PRName] [nvarchar](100) NULL,
+		[PRPhone] [varchar](20) NULL,
+		[PREmail] [varchar](100) NULL,
+	 CONSTRAINT [PK_{objectQualifier}RIS_Client_PersonalRefs] PRIMARY KEY CLUSTERED 
+	(
+		[ClientPersonalRefId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIS_Clients]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIS_Clients](
+		[PortalId] [int] NOT NULL,
+		[ClientId] [int] IDENTITY(1,1) NOT NULL,
+		[UserId] [int] NULL,
+		[PersonType] [bit] NULL,
+		[StatusId] [varchar](10) NULL,
+		[CompanyName] [nvarchar](100) NULL,
+		[DisplayName] [nvarchar](100) NULL,
+		[DateFoun] [smalldatetime] NULL,
+		[DateRegistered] [smalldatetime] NULL,
+		[FirstName] [nvarchar](50) NULL,
+		[LastName] [nvarchar](50) NULL,
+		[Telephone] [nvarchar](500) NULL,
+		[Cell] [varchar](16) NULL,
+		[Fax] [varchar](16) NULL,
+		[Zero800s] [nvarchar](50) NULL,
+		[Email] [nvarchar](100) NULL,
+		[Cnpj] [varchar](20) NULL,
+		[Cpf] [varchar](20) NULL,
+		[Ident] [varchar](20) NULL,
+		[InsEst] [nvarchar](20) NULL,
+		[InsMun] [varchar](20) NULL,
+		[Website] [nvarchar](100) NULL,
+		[RegisterTypes] [varchar](6) NULL,
+		[HasECF] [bit] NULL,
+		[ECFRequired] [bit] NULL,
+		[Networked] [bit] NULL,
+		[PayMethods] [nvarchar](50) NULL,
+		[PayPlans] [nvarchar](50) NULL,
+		[CreditLimit] [money] NULL,
+		[PreDiscount] [varchar](10) NULL,
+		[Protested] [bit] NULL,
+		[Comments] [nvarchar](500) NULL,
+		[Scheduled] [bit] NULL,
+		[Sent] [bit] NULL,
+		[IsDeleted] [bit] NULL,
+		[ClientAddressId] [int] NULL,
+		[MonthlyIncome] [money] NULL,
+		[SalesRep] [int] NULL,
+		[GroupIds] [varchar](10) NULL,
+		[CreatedByUser] [int] NULL,
+		[CreatedOnDate] [smalldatetime] NULL,
+		[ModifiedByUser] [int] NULL,
+		[ModifiedOnDate] [smalldatetime] NULL,
+	 CONSTRAINT [PK_{objectQualifier}RIS_People] PRIMARY KEY CLUSTERED 
+	(
+		[ClientId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+
+
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIS_DiscountGroups]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIS_DiscountGroups](
+		[PortalId] [int] NOT NULL,
+		[DiscountGroupId] [int] IDENTITY(1,1) NOT NULL,
+		[DiscountTitle] [nvarchar](100) NOT NULL,
+		[DiscountDesc] [nvarchar](500) NULL,
+		[DiscountPercent] [float] NULL,
+		[DiscountValue] [float] NULL,
+		[DiscountBase] [float] NULL,
+		[IsDeleted] [bit] NULL,
+		[CreatedOnDate] [smalldatetime] NOT NULL,
+		[CreatedByUser] [int] NOT NULL,
+		[ModifiedOnDate] [smalldatetime] NOT NULL,
+		[ModifiedByUser] [int] NOT NULL,
+	 CONSTRAINT [PK_{objectQualifier}RIS_DiscountGroups] PRIMARY KEY CLUSTERED 
+	(
+		[DiscountGroupId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+
+
+
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIS_Estimates]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIS_Estimates](
+		[PortalId] [int] NOT NULL,
+		[EstimateId] [int] IDENTITY(1,1) NOT NULL,
+		[EstimateTitle] [nvarchar](100) NOT NULL,
+		[ClientId] [int] NOT NULL,
+		[Comment] [nvarchar](255) NOT NULL,
+		[Inst] [nvarchar](255) NOT NULL,
+		[ViewPrice] [bit] NOT NULL,
+		[Discount] [float] NOT NULL,
+		[TotalAmount] [money] NOT NULL,
+		[SalesRep] [int] NOT NULL,
+		[PayOption] [int] NOT NULL,
+		[PayForm] [int] NOT NULL,
+		[Guid] [nvarchar](50) NOT NULL,
+		[StatusId] [int] NOT NULL,
+		[Locked] [bit] NOT NULL,
+		[IsDeleted] [bit] NOT NULL,
+		[PayCondType] [nvarchar](50) NOT NULL,
+		[PayCondN] [int] NOT NULL,
+		[PayCondPerc] [float] NOT NULL,
+		[PayCondDisc] [float] NOT NULL,
+		[PayCondIn] [money] NOT NULL,
+		[PayCondInst] [money] NOT NULL,
+		[PayCondInterval] [int] NOT NULL,
+		[TotalPayments] [money] NOT NULL,
+		[TotalPayCond] [money] NOT NULL,
+		[CreatedByUser] [int] NOT NULL,
+		[ModifiedByUser] [int] NOT NULL,
+		[CreatedOnDate] [datetime] NOT NULL,
+		[ModifiedOnDate] [datetime] NOT NULL,
+		[CurrentTimestamp] [timestamp] NOT NULL,
+	 CONSTRAINT [PK_{objectQualifier}RIS_Estimates] PRIMARY KEY CLUSTERED 
+	(
+		[EstimateId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+
+
+
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIS_EstimateComments]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIS_EstimateComments](
+		[EstimateCommentId] [int] IDENTITY(1,1) NOT NULL,
+		[EstimateId] [int] NOT NULL,
+		[CommentText] [nvarchar](500) NULL,
+		[CreatedByUser] [int] NULL,
+		[CreatedOnDate] [smalldatetime] NULL,
+	 CONSTRAINT [PK_{objectQualifier}RIS_EstimateComments] PRIMARY KEY CLUSTERED 
+	(
+		[EstimateCommentId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+
+
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIS_EstimateItems]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIS_EstimateItems](
+		[EstimateItemId] [int] IDENTITY(1,1) NOT NULL,
+		[EstimateId] [int] NOT NULL,
+		[ProdId] [int] NOT NULL,
+		[Qty] [float] NOT NULL,
+		[EstProdOriginalPrice] [money] NULL,
+		[EstProdPrice] [money] NULL,
+		[Discount] [nvarchar](5) NULL,
+		[POSels] [nvarchar](50) NULL,
+		[POSelsText] [nvarchar](100) NULL,
+		[RemoveReasonId] [char](1) NULL,
+		[CreatedByUser] [int] NOT NULL,
+		[ModifiedByUser] [int] NULL,
+		[CreatedOnDate] [datetime] NOT NULL,
+		[ModifiedOnDate] [datetime] NULL,
+		[CurrentTimestamp] [timestamp] NULL,
+	 CONSTRAINT [PK_{objectQualifier}RIS_EstimateItems] PRIMARY KEY CLUSTERED 
+	(
+		[EstimateItemId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIS_EstimateItemsRemoved]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIS_EstimateItemsRemoved](
+		[EstimateId] [int] NULL,
+		[RemoveReasonId] [char](1) NULL,
+		[ProdId] [int] NULL,
+		[Qty] [float] NULL,
+		[CreatedByUser] [int] NULL,
+		[CreatedOnDate] [smalldatetime] NULL
+	) ON [PRIMARY]
+  END
+GO
+
+
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIS_EstimateHistories]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIS_EstimateHistories](
+		[EstimateHistoryId] [int] IDENTITY(1,1) NOT NULL,
+		[EstimateId] [int] NOT NULL,
+		[HistoryText] [nvarchar](500) NOT NULL,
+		[CreatedByUser] [int] NULL,
+		[CreatedOnDate] [smalldatetime] NULL,
+	 CONSTRAINT [PK_{objectQualifier}RIS_EstimateHistories] PRIMARY KEY CLUSTERED 
+	(
+		[EstimateHistoryId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIS_EstimateMsgs]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIS_EstimateMsgs](
+		[EstimateMsgId] [int] IDENTITY(1,1) NOT NULL,
+		[EstimateId] [int] NOT NULL,
+		[MsgText] [nvarchar](500) NULL,
+		[CreatedByUser] [int] NULL,
+		[CreatedOnDate] [smalldatetime] NULL,
+	 CONSTRAINT [PK_{objectQualifier}RIS_EstimateMsgs] PRIMARY KEY CLUSTERED 
+	(
+		[EstimateMsgId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIS_Industries]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIS_Industries](
+		[PortalId] [int] NOT NULL,
+		[IndustryId] [int] IDENTITY(1,1) NOT NULL,
+		[IndustryTitle] [nvarchar](50) NULL,
+		[IsDeleted] [bit] NULL,
+		[CreatedByUser] [int] NULL,
+		[CreatedOnDate] [smalldatetime] NULL,
+		[ModifiedByUser] [int] NULL,
+		[ModifiedOnDate] [smalldatetime] NULL,
+	 CONSTRAINT [PK_{objectQualifier}RIS_Industries] PRIMARY KEY CLUSTERED 
+	(
+		[IndustryId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIS_KitItems]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIS_KitItems](
+		[KitItemId] [int] IDENTITY(1,1) NOT NULL,
+		[KitId] [int] NOT NULL,
+		[ItemId] [int] NOT NULL,
+		[ProdId] [int] NOT NULL,
+		[Qty] [float] NOT NULL,
+		[CreatedByUser] [int] NOT NULL,
+		[CreatedOnDate] [smalldatetime] NOT NULL,
+		[ModifiedByUser] [int] NOT NULL,
+		[ModifiedOnDate] [smalldatetime] NOT NULL,
+	 CONSTRAINT [PK_RIS_KitItems] PRIMARY KEY CLUSTERED 
+	(
+		[KitItemId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIS_BrandModels]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIS_BrandModels](
+		[ModelId] [int] IDENTITY(1,1) NOT NULL,
+		[BrandId] [int] NULL,
+		[ModelTitle] [nvarchar](100) NULL,
+		[IsDeleted] [bit] NULL,
+		[CreatedByUser] [int] NULL,
+		[CreatedOnDate] [smalldatetime] NULL,
+		[ModifiedByUser] [int] NULL,
+		[ModifiedOnDate] [smalldatetime] NULL,
+	 CONSTRAINT [PK_{objectQualifier}RIS_Model] PRIMARY KEY CLUSTERED 
+	(
+		[ModelId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIS_PayConditions]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIS_PayConditions](
+		[PortalId] [int] NOT NULL,
+		[PayCondId] [int] IDENTITY(1,1) NOT NULL,
+		[PayCondTitle] [nvarchar](256) NULL,
+		[PayCondType] [int] NULL,
+		[PayCondStart] [money] NULL,
+		[PayCondN] [int] NULL,
+		[PayCondPerc] [float] NULL,
+		[PayCondIn] [float] NULL,
+		[PayCondDisc] [float] NULL,
+		[PayCondInterval] [int] NULL,
+		[GroupIds] [varchar](10) NULL,
+		[CreatedByUser] [int] NULL,
+		[CreatedOnDate] [smalldatetime] NULL,
+		[ModifiedByUser] [int] NULL,
+		[ModifiedOnDate] [smalldatetime] NULL,
+	 CONSTRAINT [PK_{objectQualifier}RIS_PayCondition] PRIMARY KEY CLUSTERED 
+	(
+		[PayCondId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIS_PayConditionsSelections]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIS_PayConditionsSelections](
+		[PayCondSelectionId] [int] IDENTITY(1,1) NOT NULL,
+		[ItemId] [int] NOT NULL,
+		[PayCondId] [int] NOT NULL,
+	 CONSTRAINT [PK_{objectQualifier}RIS_PayPlanTypes] PRIMARY KEY CLUSTERED 
+	(
+		[PayCondSelectionId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIS_PayForms]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIS_PayForms](
+		[PortalId] [int] NOT NULL,
+		[PayFormId] [int] IDENTITY(1,1) NOT NULL,
+		[PayFormTitle] [nvarchar](50) NOT NULL,
+		[IsDeleted] [bit] NULL,
+		[CreatedByUser] [int] NOT NULL,
+		[CreatedOnDate] [smalldatetime] NOT NULL,
+		[ModifiedByUser] [int] NOT NULL,
+		[ModifiedOnDate] [smalldatetime] NOT NULL,
+	 CONSTRAINT [PK_{objectQualifier}RIS_PayAcceptedForms] PRIMARY KEY CLUSTERED 
+	(
+		[PayFormId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIS_ProdOptionsSelections]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIS_ProdOptionsSelections](
+		[POSelId] [nvarchar](100) NOT NULL,
+		[POSelStock] [int] NULL,
+		[POSelImageBinary] [varbinary](max) NULL,
+		[POSelRef] [nvarchar](50) NULL,
+		[Formula] [nvarchar](20) NULL,
+	 CONSTRAINT [PK_{objectQualifier}RIS_ProdAttributesSelections] PRIMARY KEY CLUSTERED 
+	(
+		[POSelId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+  END
+GO
+
+
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIS_ProductImages]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIS_ProductImages](
+		[PortalId] [int] NOT NULL,
+		[ProdImagesId] [int] IDENTITY(1,1) NOT NULL,
+		[ProdId] [int] NOT NULL,
+		[ProdImageUrl] [nvarchar](256) NULL,
+		[ProdImageBinary] [varbinary](max) NULL,
+		[ContentLength] [int] NULL,
+		[FileName] [nvarchar](256) NULL,
+		[Extension] [varchar](50) NULL,
+		[ViewOrder] [smallint] NULL,
+		[CreatedByUser] [int] NULL,
+		[CreatedOnDate] [smalldatetime] NULL,
+		[ModifiedByUser] [int] NULL,
+		[ModifiedOnDate] [smalldatetime] NULL,
+	 CONSTRAINT [PK_{objectQualifier}RIS_ProductImages] PRIMARY KEY CLUSTERED 
+	(
+		[ProdImagesId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+  END
+GO
+
+
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIS_Products]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIS_Products](
+		[PortalId] [int] NULL,
+		[ModuleId] [int] NULL,
+		[ProdId] [int] IDENTITY(1,1) NOT NULL,
+		[ItemType] [char](1) NULL,
+		[ProdRef] [nvarchar](50) NULL,
+		[ProdName] [nvarchar](100) NULL,
+		[ProdIntro] [nvarchar](500) NULL,
+		[ProdDesc] [nvarchar](max) NULL,
+		[ProdBrand] [int] NULL,
+		[ProdModel] [int] NULL,
+		[ProdBarCode] [nvarchar](25) NULL,
+		[ProdUnit] [int] NULL,
+		[Stock] [float] NULL,
+		[ReorderPoint] [int] NULL,
+		[ServiceTime] [nvarchar](10) NULL,
+		[ServiceTech] [nvarchar](100) NULL,
+		[PubStartDate] [smalldatetime] NULL,
+		[PubEndDate] [smalldatetime] NULL,
+		[SaleStartDate] [smalldatetime] NULL,
+		[SaleEndDate] [smalldatetime] NULL,
+		[FreeShipping] [bit] NULL,
+		[Weight] [float] NULL,
+		[Length] [float] NULL,
+		[Height] [float] NULL,
+		[Width] [float] NULL,
+		[Diameter] [float] NULL,
+		[ZipOrigin] [varchar](20) NULL,
+		[CityOrigin] [nvarchar](50) NULL,
+		[Vendors] [varchar](20) NULL,
+		[IsDeleted] [bit] NULL,
+		[CreatedByUser] [int] NULL,
+		[CreatedOnDate] [smalldatetime] NULL,
+		[ModifiedByUser] [int] NULL,
+		[ModifiedOnDate] [smalldatetime] NULL,
+	 CONSTRAINT [PK_{objectQualifier}RIS_Products] PRIMARY KEY CLUSTERED 
+	(
+		[ProdId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIS_ProductsFinan]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIS_ProductsFinan](
+		[ProdId] [int] NOT NULL,
+		[Finan_Paid] [money] NULL,
+		[Finan_Paid_Discount] [money] NULL,
+		[Finan_IPI] [float] NULL,
+		[Finan_Freight] [money] NULL,
+		[Finan_ICMSFreight] [float] NULL,
+		[Finan_OtherExpenses] [money] NULL,
+		[Finan_DiffICMS] [float] NULL,
+		[Finan_TributeSubICMS] [float] NULL,
+		[Finan_ISS] [float] NULL,
+		[Finan_OtherTaxes] [float] NULL,
+		[Finan_CFOP] [varchar](50) NULL,
+		[Finan_ICMS] [float] NULL,
+		[Finan_CST] [varchar](50) NULL,
+		[Finan_MarkUp] [float] NULL,
+		[Finan_Sale_Price] [money] NULL,
+		[Finan_Special_Price] [money] NULL,
+		[Finan_SalesPerson] [float] NULL,
+		[Finan_Rep] [float] NULL,
+		[Finan_Telemarketing] [float] NULL,
+		[Finan_Tech] [float] NULL,
+		[Finan_Select] [char](1) NULL,
+		[Finan_Cost] [money] NULL,
+		[Finan_COFINS] [float] NULL,
+		[Finan_COFINSBase] [float] NULL,
+		[Finan_COFINSTributeSituation] [varchar](5) NULL,
+		[Finan_COFINSTributeSub] [float] NULL,
+		[Finan_COFINSTributeSubBase] [float] NULL,
+		[Finan_DefaultBarCode] [varchar](5) NULL,
+		[Finan_IPITributeSituation] [varchar](5) NULL,
+		[Finan_NCM] [varchar](5) NULL,
+		[Finan_PIS] [float] NULL,
+		[Finan_PISBase] [float] NULL,
+		[Finan_PISTributeSituation] [varchar](5) NULL,
+		[Finan_PISTributeSub] [float] NULL,
+		[Finan_PISTributeSubBase] [float] NULL,
+		[Finan_TributeSituationType] [nvarchar](50) NULL,
+	 CONSTRAINT [PK_{objectQualifier}RIS_ProductsFinan] PRIMARY KEY CLUSTERED 
+	(
+		[ProdId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIS_ProductsOptions]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIS_ProductsOptions](
+		[ProductOptionId] [int] IDENTITY(1,1) NOT NULL,
+		[ProdId] [int] NOT NULL,
+		[OptionId] [int] NOT NULL,
+		[ProductOptionViewOrder] [int] NULL,
+	 CONSTRAINT [PK_{objectQualifier}RIS_ProductsOptions] PRIMARY KEY NONCLUSTERED 
+	(
+		[ProductOptionId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+
+
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIS_ProductsTemplates]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIS_ProductsTemplates](
+		[PortalId] [int] NOT NULL,
+		[ProductTemplateId] [int] IDENTITY(1,1) NOT NULL,
+		[ProductTemplateName] [nvarchar](50) NULL,
+		[ProductTemplate] [nvarchar](max) NULL,
+		[CreatedByUser] [int] NULL,
+		[CreatedOnDate] [smalldatetime] NULL,
+		[ModifiedByUser] [int] NULL,
+		[ModifiedOnDate] [smalldatetime] NULL,
+	 CONSTRAINT [PK_{objectQualifier}RIS_ProductsTemplates] PRIMARY KEY CLUSTERED 
+	(
+		[ProductTemplateId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIS_ProductsTemplatesHistory]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIS_ProductsTemplatesHistory](
+		[PortalId] [int] NOT NULL,
+		[ProductTemplateHistoryId] [int] IDENTITY(1,1) NOT NULL,
+		[ProductTemplateId] [int] NOT NULL,
+		[ProductTemplateName] [nvarchar](50) NULL,
+		[ProductTemplate] [nvarchar](max) NULL,
+		[CreatedByUser] [int] NULL,
+		[CreatedOnDate] [smalldatetime] NULL,
+	 CONSTRAINT [PK_{objectQualifier}RIS_ProductsTemplatesHistory] PRIMARY KEY CLUSTERED 
+	(
+		[ProductTemplateHistoryId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIS_ProductVideos]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIS_ProductVideos](
+		[ModuleId] [int] NULL,
+		[VideoId] [int] IDENTITY(1,1) NOT NULL,
+		[ProdId] [int] NOT NULL,
+		[Src] [nvarchar](max) NOT NULL,
+		[Alt] [nvarchar](100) NULL,
+		[MediaDesc] [nvarchar](max) NULL,
+		[width] [int] NULL,
+		[height] [int] NULL,
+		[NavigateUrl] [nvarchar](250) NULL,
+		[MediaAlignment] [int] NULL,
+		[MediaLoop] [bit] NOT NULL,
+		[AutoStart] [bit] NOT NULL,
+		[NewWindow] [bit] NOT NULL,
+		[TrackClicks] [bit] NOT NULL,
+		[MediaType] [int] NOT NULL,
+	 CONSTRAINT [PK_{objectQualifier}RIS_ProductVideos] PRIMARY KEY CLUSTERED 
+	(
+		[VideoId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+
+
+
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIS_Service_Order_ProductsAndServices]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIS_Service_Order_ProductsAndServices](
+		[ProdServId] [int] IDENTITY(1,1) NOT NULL,
+		[ServiceOrderId] [int] NOT NULL,
+		[SymptomId] [int] NULL,
+		[ProdId] [int] NULL,
+		[UnitValue] [money] NOT NULL,
+		[Quantity] [float] NULL,
+		[DateStart] [smalldatetime] NULL,
+		[DateEnd] [smalldatetime] NULL,
+		[StatusId] [int] NULL,
+		[CreatedByUser] [int] NULL,
+		[CreatedOnDate] [smalldatetime] NULL,
+		[ModifiedByUser] [int] NULL,
+		[ModifiedOnDate] [smalldatetime] NULL,
+	 CONSTRAINT [PK_{objectQualifier}RIS_Service_Order_ProductsAndServices] PRIMARY KEY CLUSTERED 
+	(
+		[ProdServId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+
+
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIS_Service_Order_Symptoms]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIS_Service_Order_Symptoms](
+		[SymptomId] [int] IDENTITY(1,1) NOT NULL,
+		[ServiceOrderId] [int] NOT NULL,
+		[EquipmentDesc] [nvarchar](256) NOT NULL,
+		[SymptomText] [nvarchar](500) NOT NULL,
+		[BrandId] [int] NOT NULL,
+		[ModelId] [int] NOT NULL,
+		[Solicitor] [nvarchar](255) NOT NULL,
+		[TechId] [nvarchar](255) NOT NULL,
+		[Complete] [bit] NOT NULL,
+		[CreatedByUser] [int] NOT NULL,
+		[CreatedOnDate] [smalldatetime] NOT NULL,
+		[ModifiedByUser] [int] NOT NULL,
+		[ModifiedOnDate] [smalldatetime] NOT NULL,
+	 CONSTRAINT [PK_{objectQualifier}RIS_Service_Order_Symptoms] PRIMARY KEY CLUSTERED 
+	(
+		[SymptomId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+
+
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIS_Service_Orders]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIS_Service_Orders](
+		[PortalId] [int] NOT NULL,
+		[ServiceOrderId] [int] IDENTITY(1,1) NOT NULL,
+		[Attendant] [int] NOT NULL,
+		[ClientId] [int] NOT NULL,
+		[StatusId] [int] NOT NULL,
+		[AttendanceType] [char](1) NOT NULL,
+		[ServiceDescription] [nvarchar](256) NOT NULL,
+		[ContractNumber] [nvarchar](50) NOT NULL,
+		[ValidFor] [int] NOT NULL,
+		[ApprovalNumber] [nvarchar](20) NOT NULL,
+		[ApprovedBy] [nvarchar](100) NOT NULL,
+		[DiscountValue] [money] NOT NULL,
+		[DiscountPerc] [float] NOT NULL,
+		[DiscountType] [char](1) NOT NULL,
+		[VisitFee] [money] NOT NULL,
+		[PayCondType] [nvarchar](50) NOT NULL,
+		[PayCondN] [int] NOT NULL,
+		[PayCondPerc] [float] NOT NULL,
+		[PayCondDisc] [float] NOT NULL,
+		[PayCondIn] [money] NOT NULL,
+		[PayCondInst] [money] NOT NULL,
+		[PayCondInterval] [int] NOT NULL,
+		[TotalPayments] [money] NOT NULL,
+		[TotalPayCond] [money] NOT NULL,
+		[ClosedDate] [smalldatetime] NOT NULL,
+		[IsDeleted] [bit] NOT NULL,
+		[CreatedByUser] [int] NOT NULL,
+		[CreatedOnDate] [smalldatetime] NOT NULL,
+		[ModifiedByUser] [int] NOT NULL,
+		[ModifiedOnDate] [smalldatetime] NOT NULL,
+	 CONSTRAINT [PK_{objectQualifier}RIS_Service_Orders] PRIMARY KEY CLUSTERED 
+	(
+		[ServiceOrderId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+
+
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIS_Services]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIS_Services](
+		[ProdId] [int] NOT NULL,
+		[ServiceItems] [nvarchar](1024) NULL,
+		[ServiceTools] [nvarchar](1024) NULL,
+		[ServiceTech] [nvarchar](256) NULL,
+		[ServicePlan] [nvarchar](max) NULL,
+	 CONSTRAINT [PK_{objectQualifier}RIS_Services] PRIMARY KEY CLUSTERED 
+	(
+		[ProdId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIS_Statuses]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIS_Statuses](
+		[PortalId] [int] NOT NULL,
+		[StatusId] [int] IDENTITY(1,1) NOT NULL,
+		[StatusTitle] [nvarchar](100) NULL,
+		[StatusColor] [nvarchar](10) NULL,
+		[IsReadOnly] [bit] NULL,
+		[IsDeleted] [bit] NULL,
+		[CreatedByUser] [int] NULL,
+		[CreatedOnDate] [smalldatetime] NULL,
+		[ModifiedByUser] [int] NULL,
+		[ModifiedOnDate] [smalldatetime] NULL,
+	 CONSTRAINT [PK_{objectQualifier}RIS_Statuses] PRIMARY KEY CLUSTERED 
+	(
+		[StatusId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+
+
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIS_UnitTypes]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIS_UnitTypes](
+		[PortalId] [int] NOT NULL,
+		[UnitTypeId] [int] IDENTITY(1,1) NOT NULL,
+		[UnitTypeTitle] [nvarchar](50) NOT NULL,
+		[IsDeleted] [bit] NULL,
+		[CreatedByUser] [int] NOT NULL,
+		[CreatedOnDate] [smalldatetime] NOT NULL,
+		[ModifiedByUser] [int] NULL,
+		[ModifiedOnDate] [smalldatetime] NULL,
+	 CONSTRAINT [PK_{objectQualifier}RIS_UnitTypes] PRIMARY KEY CLUSTERED 
+	(
+		[UnitTypeId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+
+
+
+/** Drop Stored Procedures **/
+
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_EstimateItems_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_EstimateItems_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_EstimateItems_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_EstimateDetail_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_EstimateDetail_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_EstimateDetail_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Estimates_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Estimates_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Estimates_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_AppointmentsData_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_AppointmentsData_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_AppointmentsData_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Categories_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Categories_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Categories_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_KitItems_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_KitItems_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_KitItems_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_PayConds_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_PayConds_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_PayConds_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Clients_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Clients_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Clients_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Clients_GetList]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Clients_GetList]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Clients_GetList]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Products_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Products_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Products_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Products_GetByCategory]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Products_GetByCategory]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Products_GetByCategory]
+GO
+
+/****** Object:  UserDefinedFunction {databaseOwner}[{objectQualifier}RIS_fn_GetProfilePropertyValue]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_fn_GetProfilePropertyValue]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+DROP FUNCTION {databaseOwner}[{objectQualifier}RIS_fn_GetProfilePropertyValue]
+GO
+
+/****** Object:  UserDefinedFunction {databaseOwner}[{objectQualifier}RIS_fn_udf_TitleCase]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_fn_udf_TitleCase]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+DROP FUNCTION {databaseOwner}[{objectQualifier}RIS_fn_udf_TitleCase]
+GO
+
+/****** Object:  UserDefinedFunction {databaseOwner}[{objectQualifier}RIS_FV]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_FV]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+DROP FUNCTION {databaseOwner}[{objectQualifier}RIS_FV]
+GO
+
+/****** Object:  UserDefinedFunction {databaseOwner}[{objectQualifier}RIS_IPMT]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_IPMT]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+DROP FUNCTION {databaseOwner}[{objectQualifier}RIS_IPMT]
+GO
+
+/****** Object:  UserDefinedFunction {databaseOwner}[{objectQualifier}RIS_PMT]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_PMT]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+DROP FUNCTION {databaseOwner}[{objectQualifier}RIS_PMT]
+GO
+
+/****** Object:  UserDefinedFunction {databaseOwner}[{objectQualifier}RIS_PPMT]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_PPMT]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+DROP FUNCTION {databaseOwner}[{objectQualifier}RIS_PPMT]
+GO
+
+/****** Object:  Assembly FinancialFunctions Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.assemblies asms WHERE asms.name = N'FinancialFunctions' and is_user_defined = 1)
+DROP ASSEMBLY [FinancialFunctions]
+GO
+
+
+/** Create Stored Procedures **/
+
+
+/****** Object:  UserDefinedFunction {databaseOwner}[{objectQualifier}RIS_fn_GetProfilePropertyValue]    Script Date: 01/15/2013 12:16:44 ******/
+
+CREATE FUNCTION {databaseOwner}[{objectQualifier}RIS_fn_GetProfilePropertyValue] 
+( 
+	@UserId as Int, 
+	@ProfilePropertyName AS NVARCHAR(100) 
+) 
+RETURNS NVARCHAR(4000) 
+AS 
+BEGIN 
+
+DECLARE @PPValue NVARCHAR(4000) 
+
+-- If input is invalid, return null. 
+IF @UserId IS NULL 
+OR LEN(@UserId) = 0 
+OR @ProfilePropertyName IS NULL 
+OR LEN(@ProfilePropertyName) = 0 
+
+RETURN NULL 
+
+
+SELECT @PPValue = UserProfile.PropertyValue 
+FROM 
+ProfilePropertyDefinition INNER JOIN 
+UserProfile ON ProfilePropertyDefinition.PropertyDefinitionId = UserProfile.PropertyDefinitionId 
+WHERE (ProfilePropertyDefinition.PropertyName = @ProfilePropertyName) AND (UserProfile.UserId = @UserId) 
+
+Return @PPValue 
+END
+GO
+
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_EstimateItems_Get]    Script Date: 01/15/2013 12:16:42 ******/
+
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}RIS_EstimateItems_Get] (
+
+    @EstimateId int
+
+)
+AS
+
+SELECT  EI.EstimateItemId
+		,EI.POSels
+		,EI.POSelsText
+		,EI.ProdId
+		,P.ProdBarCode
+		,P.ProdUnit
+		,UT.UnitTypeTitle
+		,P.ProdName
+		,P.ProdRef
+		,P.ProdIntro
+		,P.Stock
+		,'ProdDesc' = SUBSTRING(P.[ProdDesc],1,10)
+		,F.Finan_Sale_Price
+		,F.Finan_Special_Price
+		,F.Finan_Cost
+		,F.Finan_SalesPerson
+		,F.Finan_Rep
+		,F.Finan_Tech
+		,F.Finan_Telemarketing
+		,ISNULL(EI.CreatedOnDate, '') AS CreatedOnDate
+		,ISNULL(EI.ModifiedOnDate, '') AS ModifiedOnDate
+		,ISNULL(EI.EstProdOriginalPrice, 0) AS EstProdOriginalPrice
+		,ISNULL(EI.EstProdPrice, 0) AS EstProdPrice
+		,ISNULL(EI.Discount, 0) AS Discount
+		,ISNULL(EI.Qty, 0) AS Qty
+		,(ISNULL(EI.Qty, 0) * (ISNULL(EI.EstProdPrice, 0))) AS ExtendedAmount
+		,(ISNULL(EI.Qty, 0) * (ISNULL(EI.EstProdPrice, 0))) AS TotalAmount		
+		,'UnitValue' = EI.EstProdOriginalPrice
+		,'ProdImagesId' = (SELECT TOP 1 PIM.ProdImagesId FROM {databaseOwner}[{objectQualifier}RIS_ProductImages] PIM WHERE PIM.[ProdId] = P.[ProdId] ORDER BY PIM.[ViewOrder], PIM.[ModifiedOnDate])
+FROM {databaseOwner}[{objectQualifier}RIS_EstimateItems] EI
+INNER JOIN {databaseOwner}[{objectQualifier}RIS_Products] P ON EI.ProdId = P.ProdId
+INNER JOIN {databaseOwner}[{objectQualifier}RIS_ProductsFinan] F ON EI.ProdId = F.ProdId
+INNER JOIN {databaseOwner}[{objectQualifier}RIS_UnitTypes] UT ON P.ProdUnit = UT.UnitTypeId
+WHERE  EI.EstimateId = @EstimateId
+GO
+
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Estimates_Get]    Script Date: 01/15/2013 12:16:42 ******/
+
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}RIS_Estimates_Get] (
+
+	@PortalId varchar(5) = ''
+	,@ClientId varchar(5) = ''
+	,@SalesRep varchar(5) = ''
+	,@SearchTerm nvarchar(50) = ''
+	,@PageNumber int
+	,@PageSize int
+	,@SortCol nvarchar(20) = ''
+
+)
+AS
+
+SELECT TOP(@PageSize) * 
+FROM (SELECT RowID=Row_number() OVER (ORDER BY 
+	CASE WHEN @SortCol = 'ClientId ASC' THEN C.[ClientId] END ASC
+	,CASE WHEN @SortCol = 'ClientId DESC' THEN C.[ClientId] END DESC 
+	,CASE WHEN @SortCol = 'EstimateId ASC' THEN E.[EstimateId] END ASC
+	,CASE WHEN @SortCol = 'EstimateId DESC' THEN E.[EstimateId] END DESC 
+	,CASE WHEN @SortCol = 'EstimateTitle ASC' THEN E.[EstimateTitle] END ASC
+	,CASE WHEN @SortCol = 'EstimateTitle DESC' THEN E.[EstimateTitle] END DESC
+	,CASE WHEN @SortCol = 'ModifiedOnDate ASC' THEN E.[ModifiedOnDate] END ASC
+	,CASE WHEN @SortCol = 'ModifiedOnDate DESC' THEN E.[ModifiedOnDate] END DESC
+	,CASE WHEN @SortCol = 'DisplayName ASC' THEN (CASE WHEN C.[CompanyName] <> '' THEN {databaseOwner}{objectQualifier}RIS_fn_udf_TitleCase(C.[CompanyName]) ELSE {databaseOwner}{objectQualifier}RIS_fn_udf_TitleCase(C.[FirstName]) + ' ' + {databaseOwner}{objectQualifier}RIS_fn_udf_TitleCase(C.[LastName]) END) END ASC
+	,CASE WHEN @SortCol = 'DisplayName DESC' THEN (CASE WHEN C.[CompanyName] <> '' THEN {databaseOwner}{objectQualifier}RIS_fn_udf_TitleCase(C.[CompanyName]) ELSE {databaseOwner}{objectQualifier}RIS_fn_udf_TitleCase(C.[FirstName]) + ' ' + {databaseOwner}{objectQualifier}RIS_fn_udf_TitleCase(C.[LastName]) END) END DESC)
+	,E.[PortalId]
+	,E.[EstimateId]
+	,E.[EstimateTitle]
+	,'DisplayTitle' = E.[EstimateTitle] + ' (ID:' + CAST(E.[EstimateId] AS NVARCHAR) + ')'
+	,E.[Comment]
+	,E.[ClientId]
+	,S.[StatusColor]
+	,S.[StatusTitle]
+    ,E.[ViewPrice]
+    ,E.[IsDeleted]
+	,E.[CreatedByUser]
+	,E.[CreatedOnDate]
+	,E.[ModifiedByUser]
+	,E.[ModifiedOnDate]
+	,E.[Discount]
+	,E.[StatusId]
+	,E.[TotalAmount]
+	,E.[PayCondDisc]
+	,E.[PayCondIn]
+	,E.[PayCondInst]
+	,E.[PayCondN]
+	,E.[PayCondPerc]
+	,E.[PayCondType]
+	,E.[PayCondInterval]
+	,E.[TotalPayments]
+	,E.[TotalPayCond]
+	,'CompanyName' = {databaseOwner}{objectQualifier}RIS_fn_udf_TitleCase(C.[CompanyName])
+	,'FirstName' = {databaseOwner}{objectQualifier}RIS_fn_udf_TitleCase(C.[FirstName])
+	,'LastName' = {databaseOwner}{objectQualifier}RIS_fn_udf_TitleCase(C.[LastName])
+	,'DisplayName' = CASE WHEN C.[CompanyName] <> '' THEN {databaseOwner}{objectQualifier}RIS_fn_udf_TitleCase(C.[CompanyName]) ELSE {databaseOwner}{objectQualifier}RIS_fn_udf_TitleCase(C.[FirstName]) + ' ' + {databaseOwner}{objectQualifier}RIS_fn_udf_TitleCase(C.[LastName]) END
+	,'Telephone' = CASE WHEN NOT C.[Telephone] = '' THEN '(' + SUBSTRING(C.[Telephone],1,2) + ') ' + SUBSTRING(C.[Telephone],4,4) + '-' + SUBSTRING(C.[Telephone],7,4) ELSE '' END
+	,'Cell' = CASE WHEN NOT C.[Cell] = '' THEN '(' + SUBSTRING(C.[Cell],1,2) + ') ' + SUBSTRING(C.[Cell],4,4) + '-' + SUBSTRING(C.[Cell],7,4) ELSE '' END
+	,'Fax' = CASE WHEN NOT C.[Fax] = '' THEN '(' + SUBSTRING(C.[Fax],1,2) + ') ' + SUBSTRING(C.[Fax],4,4) + '-' + SUBSTRING(C.[Fax],7,4) ELSE '' END
+	,'SalesRepName' = SP.[DisplayName]
+	FROM    {databaseOwner}[{objectQualifier}RIS_Estimates] E
+	INNER JOIN {databaseOwner}[{objectQualifier}RIS_Statuses] S ON E.[StatusId] = S.[StatusId]
+	LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIS_Clients] C ON E.[ClientId] = C.[ClientId]
+	LEFT OUTER JOIN dbo.[Users] SP ON E.[SalesRep] = SP.[UserId]
+	WHERE	(((@PortalId = '') OR (E.[PortalId] = @PortalId))
+	AND		((@ClientId = '') OR (E.[ClientId] = @ClientId))
+	AND		((@SalesRep = '') OR (E.[SalesRep] = @SalesRep))
+	AND		((@SearchTerm = '') 
+		OR (E.[EstimateId] = @SearchTerm)
+		OR (E.[EstimateTitle] LIKE '%' + @SearchTerm + '%'))
+	AND		(NOT E.[StatusId] = (SELECT [StatusId] FROM {databaseOwner}[{objectQualifier}RIS_Statuses] WHERE [StatusTitle] = 'Venda' AND [PortalId] = @PortalId)))) A 
+WHERE	A.RowID > ( ( @PageNumber - 1 ) * @PageSize )
+GO
+
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_AppointmentsData_Get]    Script Date: 01/15/2013 12:16:42 ******/
+
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}RIS_AppointmentsData_Get] (
+
+	@PortalId varchar(10) = ''
+	,@UserId varchar(10) = ''
+	,@Start smalldatetime
+	,@End smalldatetime
+
+)
+AS
+
+CREATE TABLE #T (num int)
+
+DECLARE @str varchar(50)
+SELECT @str = @UserId
+
+-- Create insert for comma delimited values
+DECLARE @sql varchar(8000)
+SELECT @sql = 'INSERT INTO #T SELECT '+
+	replace(@str,',',' union all SELECT ')
+
+-- Load values FROM comma delimited string into a table
+exec ( @sql )
+
+SELECT	AD.[AppointmentId]
+		,AD.[PortalId]
+		,AD.[ClientId]
+		,AD.[UserId]
+		,AD.[Subject]
+		,AD.[Description]
+		,AD.[StartDateTime]
+		,AD.[EndDateTime]
+		,AD.[Reminder]
+		,AD.[RecurrenceRule]
+		,AD.[RecurrenceParentId]
+		,AD.[Annotations]
+		,AD.[CreatedByUser]
+		,AD.[CreatedDate]
+		,AD.[ModifiedByUser]
+		,AD.[ModifiedDate]
+
+FROM	{databaseOwner}[{objectQualifier}RIS_AppointmentData] AD
+INNER JOIN #T ON AD.UserId = #T.num
+WHERE	(((@PortalId = '') OR (AD.[PortalId] = @PortalId))
+AND		((@Start IS NULL) OR (AD.[StartDateTime] BETWEEN @Start AND @End)))
+GO
+
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_AppointmentsData_Get]    Script Date: 01/15/2013 12:16:42 ******/
+
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}RIS_AppointmentsData_Get] (
+
+	@PortalId varchar(10) = ''
+	,@UserId varchar(10) = ''
+	,@Start smalldatetime
+	,@End smalldatetime
+
+)
+AS
+
+CREATE TABLE #T (num int)
+
+DECLARE @str varchar(50)
+SELECT @str = @UserId
+
+-- Create insert for comma delimited values
+DECLARE @sql varchar(8000)
+SELECT @sql = 'INSERT INTO #T SELECT '+
+	replace(@str,',',' union all SELECT ')
+
+-- Load values FROM comma delimited string into a table
+exec ( @sql )
+
+SELECT	AD.[AppointmentId]
+		,AD.[PortalId]
+		,AD.[ClientId]
+		,AD.[UserId]
+		,AD.[Subject]
+		,AD.[Description]
+		,AD.[StartDateTime]
+		,AD.[EndDateTime]
+		,AD.[Reminder]
+		,AD.[RecurrenceRule]
+		,AD.[RecurrenceParentId]
+		,AD.[Annotations]
+		,AD.[CreatedByUser]
+		,AD.[CreatedDate]
+		,AD.[ModifiedByUser]
+		,AD.[ModifiedDate]
+
+FROM	{databaseOwner}[{objectQualifier}RIS_AppointmentData] AD
+INNER JOIN #T ON AD.UserId = #T.num
+WHERE	(((@PortalId = '') OR (AD.[PortalId] = @PortalId))
+AND		((@Start IS NULL) OR (AD.[StartDateTime] BETWEEN @Start AND @End)))
+GO
+
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Categories_Get]    Script Date: 01/15/2013 12:16:42 ******/
+
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}RIS_Categories_Get] (
+
+	@PortalId int
+	,@filter nvarchar(10)
+	,@IsDeleted varchar(10)
+
+)
+
+AS
+
+SELECT	C.[CategoryId]
+		,C.[ModuleId]
+		,C.[CatCode]
+		,C.[CatOrder]
+		,C.[Name]
+		,C.[ImageUrl]
+		,C.[ImageBinary]
+		,C.[ParentId]
+		,C.[Description]
+		,C.[Kit]
+		,C.[Active]
+		,C.[IsDeleted]
+		,C.[CreatedByUser]
+		,C.[CreatedOnDate]
+		,C.[ModifiedByUser]
+		,C.[ModifiedOnDate]
+		,'ProductsAssigned' = (SELECT COUNT(P.[ProdId]) FROM {databaseOwner}[{objectQualifier}RIS_CatProducts] P WHERE P.[CategoryId] = C.[CategoryId])
+		,'HasSubs' = (CASE WHEN (SELECT COUNT(HS.[CategoryId]) FROM {databaseOwner}[{objectQualifier}RIS_Categories] HS WHERE HS.[ParentId] = C.[CategoryId]) > 0 THEN 'True' ELSE 'False' END)
+FROM {databaseOwner}[{objectQualifier}RIS_Categories] C
+WHERE	(((@PortalId IS NULL) OR (C.[PortalId] = @PortalId))
+AND		(C.[Name] LIKE @filter + '%' OR @filter = '')
+AND		((@IsDeleted = '') OR (C.[IsDeleted] = @IsDeleted)))
+GO
+
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_KitItems_Get]    Script Date: 01/15/2013 12:16:42 ******/
+
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}RIS_KitItems_Get] (
+
+	@KitId int
+
+)
+AS
+
+SELECT	KI.[CreatedByUser]
+		,KI.[CreatedOnDate]
+		,KI.[ItemId]
+		,KI.[KitId]
+		,KI.[KitItemId]
+		,KI.[ModifiedByUser]
+		,KI.[ModifiedOnDate]
+		,KI.[ProdId]
+		,KI.[Qty]
+		,P.[ProdId]
+		,P.[ProdName]
+		,P.[ProdIntro]
+		,'DisplayName' = P.[ProdName] + CASE WHEN PF.[Finan_Special_Price] > 0 AND GETDATE() BETWEEN P.[SaleStartDate] AND P.SaleEndDate THEN ' / R$' + CONVERT(CHAR,PF.[Finan_Special_Price]) ELSE ' / R$' + CONVERT(CHAR,PF.[Finan_Sale_Price]) END
+		,P.[ProdBarCode]
+		,P.[ProdRef]
+		,'UnitValue' = CASE WHEN PF.[Finan_Special_Price] > 0 AND GETDATE() BETWEEN P.[SaleStartDate] AND P.[SaleEndDate] THEN PF.[Finan_Special_Price] ELSE PF.[Finan_Sale_Price] END
+
+FROM {databaseOwner}[{objectQualifier}RIS_KitItems] KI
+INNER JOIN {databaseOwner}[{objectQualifier}RIS_Products] P ON KI.ProdId = P.[ProdId]
+LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIS_ProductsFinan] PF ON KI.ProdId = PF.[ProdId]
+WHERE	KI.KitId = @KitId
+GO
+
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_PayConds_Get]    Script Date: 01/15/2013 12:16:42 ******/
+
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}RIS_PayConds_Get] (
+
+	@PortalId int
+	,@PayCondType int
+	,@IsDeleted varchar(10)
+	,@PayCondStart money
+
+)
+AS
+
+SELECT	PC.[PortalId]
+	,PC.[PayCondId]
+	,PC.[PayCondType]
+	,PC.[PayCondTitle]
+	,PF.PayFormTitle
+	,PC.[PayCondStart]
+	,PC.[PayCondN]
+	,PC.[PayCondPerc]
+	,PC.[PayCondIn]
+	,PC.[PayCondDisc]
+	,PC.[PayCondInterval]
+	,PC.[GroupIds]
+	,PC.[CreatedByUser]
+	,PC.[CreatedOnDate]
+	,PC.[ModifiedByUser]
+	,PC.[ModifiedOnDate]
+	,'Parcela' = CASE WHEN @PayCondStart > 0 THEN ROUND(CASE WHEN (PC.[PayCondIn] > 0) THEN {databaseOwner}{objectQualifier}RIS_PMT(PC.[PayCondPerc]/100, (PC.[PayCondN] - 1), -(@PayCondStart - (@PayCondStart / 100 * PC.[PayCondIn])), 0, 0) ELSE {databaseOwner}{objectQualifier}RIS_PMT(PC.[PayCondPerc]/100, PC.[PayCondN], -@PayCondStart, 0, 0) END, 2) ELSE '0' END
+	,'PayIn' = ROUND(@PayCondStart / 100 * PC.[PayCondIn], 2)
+	,'TotalParcelado' = CASE WHEN @PayCondStart > 0 THEN CASE WHEN (PC.[PayCondIn] > 0) THEN ROUND({databaseOwner}{objectQualifier}RIS_PMT(PC.[PayCondPerc]/100, (PC.[PayCondN] - 1), -(@PayCondStart - (@PayCondStart / 100 * PC.[PayCondIn])), 0, 0), 2) * (PC.[PayCondN] - 1) ELSE ROUND({databaseOwner}{objectQualifier}RIS_PMT(PC.[PayCondPerc]/100, PC.[PayCondN], -@PayCondStart, 0, 0), 2) * PC.[PayCondN] END ELSE '0' END
+	,'Intervalo' = CASE WHEN (PC.[PayCondInterval] < 0) THEN 'A Vista' ELSE (CASE WHEN (PC.[PayCondInterval] > 0) THEN CONVERT(NVARCHAR,PC.[PayCondInterval]) + ' dias' ELSE 'Mensal' END) END
+	,'TotalPayCond' = CASE WHEN @PayCondStart > 0 THEN ROUND(CASE WHEN (PC.[PayCondIn] > 0) THEN (@PayCondStart / 100 * PC.[PayCondIn]) + ROUND({databaseOwner}{objectQualifier}RIS_PMT(PC.[PayCondPerc]/100, (PC.[PayCondN] - 1), -(@PayCondStart - (@PayCondStart / 100 * PC.[PayCondIn])), 0, 0), 2) * (PC.[PayCondN] - 1) ELSE @PayCondStart + ROUND({databaseOwner}{objectQualifier}RIS_PMT(PC.[PayCondPerc]/100, (PC.[PayCondN] - 1), -(@PayCondStart - (@PayCondStart / 100 * PC.[PayCondIn])), 0, 0), 2) * (PC.[PayCondN] - 1) END, 2) ELSE '0' END
+
+FROM	{databaseOwner}[{objectQualifier}RIS_PayConditions] PC
+LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIS_PayForms] PF ON PC.PayCondType = PF.PayFormId
+WHERE	(((@PortalId IS NULL) OR (PC.[PortalId] = @PortalId))
+AND		((@PayCondType IS NULL) OR (PC.[PayCondType] = @PayCondType)) 
+AND		((@PayCondStart IS NULL) OR (PC.[PayCondStart] <= @PayCondStart))
+AND		(NOT PC.[PayCondType] = 0))
+ORDER BY PC.[PayCondType]
+GO
+
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Clients_Get]    Script Date: 01/15/2013 12:16:42 ******/
+
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}RIS_Clients_Get] (
+
+	@ClientId int
+
+)
+AS
+
+SELECT	C.[ClientId]
+		,C.[UserId]
+		,C.[PersonType]
+		,C.[CompanyName]
+		,'FirstName' = {databaseOwner}{objectQualifier}RIS_fn_udf_TitleCase(C.[FirstName])
+		,'LastName' = {databaseOwner}{objectQualifier}RIS_fn_udf_TitleCase(C.[LastName])
+		,'DisplayName' = CASE WHEN C.[CompanyName] <> '' THEN {databaseOwner}{objectQualifier}RIS_fn_udf_TitleCase(C.[CompanyName]) ELSE {databaseOwner}{objectQualifier}RIS_fn_udf_TitleCase(C.[FirstName]) + ' ' + {databaseOwner}{objectQualifier}RIS_fn_udf_TitleCase(C.[LastName]) END
+		--,C.[Telephone]
+		--,C.[Cell]
+		--,C.[Fax]
+		,'Telephone' = CASE WHEN NOT C.[Telephone] = '' THEN '(' + SUBSTRING(C.[Telephone],1,2) + ') ' + SUBSTRING(C.[Telephone],3,4) + '-' + SUBSTRING(C.[Telephone],7,4) ELSE '' END
+		,'Cell' = CASE WHEN NOT C.[Cell] = '' THEN '(' + SUBSTRING(C.[Cell],1,2) + ') ' + SUBSTRING(C.[Cell],3,4) + '-' + SUBSTRING(C.[Cell],7,4) ELSE '' END
+		,'Fax' = CASE WHEN NOT C.[Fax] = '' THEN '(' + SUBSTRING(C.[Fax],1,2) + ') ' + SUBSTRING(C.[Fax],3,4) + '-' + SUBSTRING(C.[Fax],7,4) ELSE '' END
+		,'Zero800s' = CASE WHEN NOT C.[Zero800s] = '' THEN '(' + SUBSTRING(C.[Zero800s],1,2) + ') ' + SUBSTRING(C.[Zero800s],3,4) + '-' + SUBSTRING(C.[Zero800s],7,4) ELSE '' END
+		,C.[StatusId]
+		,C.[DateFoun]
+		,C.[DateRegistered]
+		,C.[Zero800s]
+		,C.[Email]
+		,C.[Cnpj]
+		,C.[Cpf]
+		,C.[Ident]
+		,C.[InsEst]
+		,C.[InsMun]
+		,C.[Website]
+		,C.[RegisterTypes]
+		,C.[HasECF]
+		,C.[ECFRequired]
+		,C.[Networked]
+		,C.[PayMethods]
+		,C.[PayPlans]
+		,C.[CreditLimit]
+		,C.[PreDiscount]
+		,C.[Protested]
+		,C.[Comments]
+		,C.[Scheduled]
+		,C.[Sent]
+		,C.[IsDeleted]
+		,C.[ClientAddressId]
+		,C.[MonthlyIncome]
+		,C.[SalesRep]
+		,C.[GroupIds]
+		,C.[CreatedByUser]
+		,C.[CreatedOnDate]
+		,C.[ModifiedByUser]
+		,C.[ModifiedOnDate]
+		,'Street' = ( SELECT TOP 1 CA.[Street] FROM {databaseOwner}[{objectQualifier}RIS_ClientAddresses] CA WHERE CA.[ClientAddressId] = C.[ClientAddressId] ORDER BY CA.[ViewOrder] )
+		,'Unit' = ( SELECT TOP 1 CA.[Unit] FROM {databaseOwner}[{objectQualifier}RIS_ClientAddresses] CA WHERE CA.[ClientAddressId] = C.[ClientAddressId] ORDER BY CA.[ViewOrder] )
+		,'Complement' = ( SELECT TOP 1 CA.[Complement] FROM {databaseOwner}[{objectQualifier}RIS_ClientAddresses] CA WHERE CA.[ClientAddressId] = C.[ClientAddressId] ORDER BY CA.[ViewOrder] )
+		,'District' = ( SELECT TOP 1 CA.[District] FROM {databaseOwner}[{objectQualifier}RIS_ClientAddresses] CA WHERE CA.[ClientAddressId] = C.[ClientAddressId] ORDER BY CA.[ViewOrder] )
+		,'City' = ( SELECT TOP 1 CA.[City] FROM {databaseOwner}[{objectQualifier}RIS_ClientAddresses] CA WHERE CA.[ClientAddressId] = C.[ClientAddressId] ORDER BY CA.[ViewOrder] )
+		,'Region' = ( SELECT TOP 1 CA.[Region] FROM {databaseOwner}[{objectQualifier}RIS_ClientAddresses] CA WHERE CA.[ClientAddressId] = C.[ClientAddressId] ORDER BY CA.[ViewOrder] )
+		,'PostalCode' = ( SELECT TOP 1 CA.[PostalCode] FROM {databaseOwner}[{objectQualifier}RIS_ClientAddresses] CA WHERE CA.[ClientAddressId] = C.[ClientAddressId] ORDER BY CA.[ViewOrder] )
+		--,'Telephone' = ( SELECT TOP 1 CA.[Telephone] FROM {databaseOwner}[{objectQualifier}RIS_ClientAddresses] CA WHERE CA.[ClientAddressId] = C.[ClientAddressId] ORDER BY CA.[ViewOrder] )
+		--,'Cell' = ( SELECT TOP 1 CA.[Cell] FROM {databaseOwner}[{objectQualifier}RIS_ClientAddresses] CA WHERE CA.[ClientAddressId] = C.[ClientAddressId] ORDER BY CA.[ViewOrder] )
+		--,'Fax' = ( SELECT TOP 1 CA.[Fax] FROM {databaseOwner}[{objectQualifier}RIS_ClientAddresses] CA WHERE CA.[ClientAddressId] = C.[ClientAddressId] ORDER BY CA.[ViewOrder] )
+		,'Locked' = (CASE WHEN (SELECT TOP 1 ClientId FROM {databaseOwner}[{objectQualifier}RIS_Estimates] WHERE ClientId = C.ClientId) > 0 THEN 'true' ELSE 'false' END)
+		,'SalesRepName' = SU.DisplayName
+		,'SalesRepEmail' = SU.Email
+		,'SalesRepPhone' = {databaseOwner}{objectQualifier}RIS_fn_GetProfilePropertyValue(SU.UserId,'Telephone')
+		,'Biography' = {databaseOwner}{objectQualifier}RIS_fn_GetProfilePropertyValue(U.UserId,'Biography')
+		,'Activities' = ( STUFF( ( SELECT ', ' + I.[IndustryTitle] FROM {databaseOwner}[{objectQualifier}RIS_Industries] I INNER JOIN {databaseOwner}[{objectQualifier}RIS_ClientIndustries] CI ON CI.[IndustryId] = I.[IndustryId] WHERE CI.[ClientId] = C.[ClientId] FOR XML PATH('') ), 1, 2, '' ) )
+FROM {databaseOwner}[{objectQualifier}RIS_Clients] C
+LEFT OUTER JOIN dbo.[Users] U ON C.UserId = U.UserId
+LEFT OUTER JOIN dbo.[Users] SU ON C.SalesRep = SU.UserId
+WHERE C.[ClientId] = @ClientId
+GO
+
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Clients_GetList]    Script Date: 01/15/2013 12:16:42 ******/
+
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}RIS_Clients_GetList] (
+
+	@PortalId int
+	,@SalesRep int
+	,@IsDeleted varchar(10)
+	,@SearchString nvarchar(50)
+	,@StatusId int
+	,@StartDate smalldatetime
+	,@EndDate smalldatetime
+	,@PageNumber int
+	,@PageSize int
+	,@SortCol nvarchar(20)
+)
+
+AS
+
+SELECT TOP(@PageSize) * 
+FROM (SELECT RowID=Row_number() OVER (ORDER BY 
+	CASE WHEN @SortCol = 'ClientId ASC' THEN C.[ClientId] END ASC
+	,CASE WHEN @SortCol = 'ClientId DESC' THEN C.[ClientId] END DESC 
+	,CASE WHEN @SortCol = 'FirstName ASC' THEN {databaseOwner}{objectQualifier}RIS_fn_udf_TitleCase(C.[FirstName]) END ASC
+	,CASE WHEN @SortCol = 'FirstName DESC' THEN {databaseOwner}{objectQualifier}RIS_fn_udf_TitleCase(C.[FirstName]) END DESC 
+	,CASE WHEN @SortCol = 'LastName ASC' THEN {databaseOwner}{objectQualifier}RIS_fn_udf_TitleCase(C.[LastName]) END ASC
+	,CASE WHEN @SortCol = 'LastName DESC' THEN {databaseOwner}{objectQualifier}RIS_fn_udf_TitleCase(C.[LastName]) END DESC
+	,CASE WHEN @SortCol = 'CompanyName ASC' THEN {databaseOwner}{objectQualifier}RIS_fn_udf_TitleCase(C.[CompanyName]) END ASC
+	,CASE WHEN @SortCol = 'CompanyName DESC' THEN {databaseOwner}{objectQualifier}RIS_fn_udf_TitleCase(C.[CompanyName]) END DESC
+	,CASE WHEN @SortCol = 'StatusTitle ASC' THEN ST.[StatusTitle] END ASC
+	,CASE WHEN @SortCol = 'StatusTitle DESC' THEN ST.[StatusTitle] END DESC
+	,CASE WHEN @SortCol = 'UserId ASC' THEN (CASE WHEN C.[UserId] > 0 THEN 'True' ELSE 'False' END) END ASC
+	,CASE WHEN @SortCol = 'UserId DESC' THEN (CASE WHEN C.[UserId] > 0 THEN 'True' ELSE 'False' END) END DESC
+	,CASE WHEN @SortCol = 'ModifiedOnDate ASC' THEN C.[ModifiedOnDate] END ASC
+	,CASE WHEN @SortCol = 'ModifiedOnDate DESC' THEN C.[ModifiedOnDate] END DESC
+	)
+	,C.[ClientId]
+	,C.[UserId]
+	,'CompanyName' = {databaseOwner}{objectQualifier}RIS_fn_udf_TitleCase(C.[CompanyName])
+	,'FirstName' = {databaseOwner}{objectQualifier}RIS_fn_udf_TitleCase(C.[FirstName])
+	,'LastName' = {databaseOwner}{objectQualifier}RIS_fn_udf_TitleCase(C.[LastName])
+	,'DisplayName' = CASE WHEN C.[CompanyName] <> '' THEN {databaseOwner}{objectQualifier}RIS_fn_udf_TitleCase(C.[CompanyName]) ELSE {databaseOwner}{objectQualifier}RIS_fn_udf_TitleCase(C.[FirstName]) + ' ' + {databaseOwner}{objectQualifier}RIS_fn_udf_TitleCase(C.[LastName]) END
+	,'Telephone' = CASE WHEN NOT C.[Telephone] = '' THEN '(' + SUBSTRING(C.[Telephone],1,2) + ') ' + SUBSTRING(C.[Telephone],3,4) + '-' + SUBSTRING(C.[Telephone],7,4) ELSE '' END
+	,'Cell' = CASE WHEN NOT C.[Cell] = '' THEN '(' + SUBSTRING(C.[Cell],1,2) + ') ' + SUBSTRING(C.[Cell],3,4) + '-' + SUBSTRING(C.[Cell],7,4) ELSE '' END
+	,'Fax' = CASE WHEN NOT C.[Fax] = '' THEN '(' + SUBSTRING(C.[Fax],1,2) + ') ' + SUBSTRING(C.[Fax],3,4) + '-' + SUBSTRING(C.[Fax],7,4) ELSE '' END
+	,'Zero800s' = CASE WHEN NOT C.[Zero800s] = '' THEN '(' + SUBSTRING(C.[Zero800s],1,2) + ') ' + SUBSTRING(C.[Zero800s],4,4) + '-' + SUBSTRING(C.[Zero800s],7,4) ELSE '' END
+	,C.[Email]
+	,C.[CNPJ]
+	,C.[Cpf]
+	,C.[SalesRep]
+	,C.[IsDeleted]
+	,C.[ModifiedOnDate]
+	,C.[GroupIds]
+	,ST.[StatusId]
+	,ST.[StatusTitle]
+	,'Locked' = (CASE WHEN (SELECT TOP 1 ClientId FROM {databaseOwner}[{objectQualifier}RIS_Estimates] WHERE ClientId = C.ClientId) > 0 THEN 'true' ELSE 'false' END)
+	,'Activities' = ( STUFF( ( SELECT ', ' + I.[IndustryTitle] FROM {databaseOwner}[{objectQualifier}RIS_Industries] I INNER JOIN {databaseOwner}[{objectQualifier}RIS_ClientIndustries] CI ON CI.[IndustryId] = I.[IndustryId] WHERE CI.[ClientId] = C.[ClientId] FOR XML PATH('') ), 1, 2, '' ) )
+	,TotalRows = Count(*) OVER()
+	FROM	{databaseOwner}[{objectQualifier}RIS_Clients] C
+	LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIS_Statuses] ST on C.StatusId = ST.StatusId
+	WHERE	(((@PortalId IS NULL) OR (C.PortalId = @PortalId))
+	AND		((@SalesRep IS NULL) OR (C.SalesRep = @SalesRep))
+	AND		((@IsDeleted = '') OR (C.IsDeleted = @IsDeleted))
+	AND		((@SearchString IS NULL)
+		OR (C.[FirstName] LIKE '%' + @SearchString + '%') 
+		OR	(C.[LastName] LIKE '%' + @SearchString + '%')
+		OR	(C.[CompanyName] LIKE '%' + @SearchString + '%')
+		OR	(C.[Email] LIKE '%' + @SearchString + '%')
+		OR	(C.[ClientId] LIKE '%' + @SearchString)))
+	AND		((@StatusId IS NULL) OR (C.StatusId = @StatusId))
+	AND		((@EndDate IS NULL) OR (C.ModifiedOnDate BETWEEN @StartDate AND @EndDate))) A 
+WHERE	A.RowID > ( ( @PageNumber - 1 ) * @PageSize )
+GO
+
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Products_Get]    Script Date: 01/15/2013 12:16:43 ******/
+
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}RIS_Products_Get] (
+
+	@PortalId VARCHAR(10) = '' 
+	,@ItemType VARCHAR(1) = ''
+	,@SearchString NVARCHAR(50) = '' 
+	,@IsDeleted VARCHAR(10)
+	,@StartDate SMALLDATETIME
+	,@EndDate SMALLDATETIME
+	,@PageNumber INT
+	,@PageSize INT
+	,@SortCol NVARCHAR(20) = ''
+)
+
+AS
+IF	((@SortCol = 'Random') AND (@SearchString = '')
+	AND (SELECT COUNT(*) FROM {databaseOwner}[{objectQualifier}RIS_Products] PS 
+		INNER JOIN {databaseOwner}[{objectQualifier}RIS_ProductsFinan] FI ON PS.[ProdId] = FI.[ProdId] 
+		WHERE (FI.[Finan_Special_Price] > 0) 
+		AND (GETDATE() >= PS.[PubStartDate]) 
+		AND (PS.[PubEndDate] >= GETDATE())
+		AND (GETDATE() >= PS.[SaleStartDate]) 
+		AND (PS.[SaleEndDate] >= GETDATE())) > 0)
+	BEGIN
+		SELECT TOP(@PageSize) * 
+		FROM (SELECT RowID=Row_number() OVER (ORDER BY 
+			CASE WHEN @SortCol = 'ProdName ASC' THEN P.[ProdName] END ASC
+			,CASE WHEN @SortCol = 'ProdName DESC' THEN P.[ProdName] END DESC 
+			,CASE WHEN @SortCol = 'ModifiedOnDate ASC' THEN P.[ModifiedOnDate] END ASC
+			,CASE WHEN @SortCol = 'ModifiedOnDate DESC' THEN P.[ModifiedOnDate] END DESC
+			,CASE WHEN @SortCol = 'Random' THEN NEWID() END)
+			,P.[PortalId]
+			,P.[ProdId]
+			,P.[ProdName]
+			,P.[ProdIntro]
+			,P.[ProdRef]
+			,P.[ProdBarCode]
+			,P.[PubStartDate] 
+			,P.[PubEndDate]
+			,P.[IsDeleted]
+			,P.[ModifiedOnDate]
+			,P.[Stock]
+			,B.BrandTitle
+			,M.ModelTitle
+			,'HasOptions' = CASE WHEN (EXISTS (SELECT 1 FROM {databaseOwner}[{objectQualifier}RIS_ProductsOptions] PO1 WHERE PO1.[ProdId] = P.[ProdId])) THEN 'True' ELSE 'False' END
+			,'HasImages' = (SELECT COUNT(*) FROM {databaseOwner}[{objectQualifier}RIS_ProductImages] PIM WHERE PIM.[ProdId] = P.[ProdId])
+			,'HasVideos' = CASE WHEN (EXISTS (SELECT 1 FROM {databaseOwner}[{objectQualifier}RIS_ProductVideos] PV WHERE PV.[ProdId] = P.[ProdId])) THEN 'True' ELSE 'False' END
+			,'ProdImageUrl' = (SELECT TOP 1 PIM.ProdImageUrl FROM {databaseOwner}[{objectQualifier}RIS_ProductImages] PIM WHERE PIM.[ProdId] = P.[ProdId] ORDER BY PIM.[ViewOrder], PIM.[ModifiedOnDate])
+			,'ProdImagesId' = (SELECT TOP 1 PIM.ProdImagesId FROM {databaseOwner}[{objectQualifier}RIS_ProductImages] PIM WHERE PIM.[ProdId] = P.[ProdId] ORDER BY PIM.[ViewOrder], PIM.[ModifiedOnDate])
+			,'Extension' = (SELECT TOP 1 PIM.Extension FROM {databaseOwner}[{objectQualifier}RIS_ProductImages] PIM WHERE PIM.[ProdId] = P.[ProdId] ORDER BY PIM.[ViewOrder], PIM.[ModifiedOnDate])
+			,'FileName' = (SELECT TOP 1 PIM.[FileName] FROM {databaseOwner}[{objectQualifier}RIS_ProductImages] PIM WHERE PIM.[ProdId] = P.[ProdId] ORDER BY PIM.[ViewOrder], PIM.[ModifiedOnDate])
+			,'HasRequiredOptions' =  CASE WHEN (EXISTS (SELECT 1 FROM {databaseOwner}[{objectQualifier}RIS_ProductsOptions] PO2 INNER JOIN {databaseOwner}[{objectQualifier}RIS_AttributeOptions] AO on PO2.[OptionId] = AO.[OptionId] WHERE PO2.[ProdId] = P.[ProdId])) THEN 'True' ELSE 'False' END
+			,'Name' = ( STUFF( ( SELECT ', ' + C.[Name] FROM {databaseOwner}[{objectQualifier}RIS_CatProducts] CP INNER JOIN {databaseOwner}[{objectQualifier}RIS_Categories] C ON C.CategoryId = CP.CategoryId WHERE CP.ProdId = P.ProdId FOR XML PATH('') ), 1, 2, '' ) )
+			,'Locked' = (CASE WHEN (SELECT TOP 1 PRODId FROM {databaseOwner}[{objectQualifier}RIS_EstimateItems] WHERE ProdId = P.ProdId) > 0 THEN 'true' ELSE 'false' END)
+			,U.[UnitTypeTitle]
+			,F.[Finan_Sale_Price]
+			,F.[Finan_Special_Price]
+			,(CASE WHEN F.[Finan_Special_Price] > 0 AND Getdate() BETWEEN P.[SaleStartDate] AND P.[SaleEndDate]
+				THEN F.[Finan_Special_Price] ELSE F.[Finan_Sale_Price] END) AS UnitValue
+			,TotalRows = Count(*) OVER()
+			FROM	{databaseOwner}[{objectQualifier}RIS_Products] P
+				LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIS_ProductsFinan] F ON P.[ProdId] = F.[ProdId] 
+				LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIS_UnitTypes] U ON P.[ProdUnit] = U.[UnitTypeId]
+				LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIS_Brands] B ON P.ProdBrand = B.BrandId
+				LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIS_BrandModels] M ON P.ProdModel = M.ModelId 
+			WHERE	((@PortalId IS NULL) OR (P.[PortalId] = @PortalId)) 
+			AND		((@ItemType = '') OR (P.[ItemType] = @ItemType))
+			AND		((@IsDeleted = '') OR (P.[IsDeleted] = @IsDeleted))
+			AND		((@EndDate IS NULL) OR (P.[ModifiedOnDate] BETWEEN @StartDate AND @EndDate))
+			AND		(F.[Finan_Special_Price] > 0 
+					AND (GETDATE() >= P.[PubStartDate]) 
+					AND (P.[PubEndDate] >= GETDATE())
+					AND (GETDATE() >= P.[SaleStartDate]) 
+					AND (P.[SaleEndDate] >= GETDATE()))) A 
+		WHERE	A.RowID > ( ( @PageNumber - 1 ) * @PageSize )
+	END
+ELSE
+	BEGIN
+		SELECT TOP(@PageSize) * 
+		FROM (SELECT RowID=Row_number() OVER (ORDER BY 
+			CASE WHEN @SortCol = 'ProdName ASC' THEN P.[ProdName] END ASC
+			,CASE WHEN @SortCol = 'ProdName DESC' THEN P.[ProdName] END DESC 
+			,CASE WHEN @SortCol = 'ModifiedOnDate ASC' THEN P.[ModifiedOnDate] END ASC
+			,CASE WHEN @SortCol = 'ModifiedOnDate DESC' THEN P.[ModifiedOnDate] END DESC
+			,CASE WHEN @SortCol = 'Random' THEN NEWID() END)
+			,P.[PortalId]
+			,P.[ProdId]
+			,P.[ProdName]
+			,P.[ProdIntro]
+			,P.[ProdRef]
+			,P.[ProdBarCode]
+			,P.[PubStartDate] 
+			,P.[PubEndDate]
+			,P.[IsDeleted]
+			,P.[ModifiedOnDate]
+			,P.[Stock]
+			,B.BrandTitle
+			,M.ModelTitle
+			,'HasOptions' = CASE WHEN (EXISTS (SELECT 1 FROM {databaseOwner}[{objectQualifier}RIS_ProductsOptions] PO1 WHERE PO1.[ProdId] = P.[ProdId])) THEN 'True' ELSE 'False' END
+			,'HasImages' = (SELECT COUNT(*) FROM {databaseOwner}[{objectQualifier}RIS_ProductImages] PIM WHERE PIM.[ProdId] = P.[ProdId])
+			,'HasVideos' = CASE WHEN (EXISTS (SELECT 1 FROM {databaseOwner}[{objectQualifier}RIS_ProductVideos] PV WHERE PV.[ProdId] = P.[ProdId])) THEN 'True' ELSE 'False' END
+			,'ProdImageUrl' = (SELECT TOP 1 PIM.ProdImageUrl FROM {databaseOwner}[{objectQualifier}RIS_ProductImages] PIM WHERE PIM.[ProdId] = P.[ProdId] ORDER BY PIM.[ViewOrder], PIM.[ModifiedOnDate])
+			,'ProdImagesId' = (SELECT TOP 1 PIM.ProdImagesId FROM {databaseOwner}[{objectQualifier}RIS_ProductImages] PIM WHERE PIM.[ProdId] = P.[ProdId] ORDER BY PIM.[ViewOrder], PIM.[ModifiedOnDate])
+			,'Extension' = (SELECT TOP 1 PIM.Extension FROM {databaseOwner}[{objectQualifier}RIS_ProductImages] PIM WHERE PIM.[ProdId] = P.[ProdId] ORDER BY PIM.[ViewOrder], PIM.[ModifiedOnDate])
+			,'FileName' = (SELECT TOP 1 PIM.[FileName] FROM {databaseOwner}[{objectQualifier}RIS_ProductImages] PIM WHERE PIM.[ProdId] = P.[ProdId] ORDER BY PIM.[ViewOrder], PIM.[ModifiedOnDate])
+			,'HasRequiredOptions' =  CASE WHEN (EXISTS (SELECT 1 FROM {databaseOwner}[{objectQualifier}RIS_ProductsOptions] PO2 INNER JOIN {databaseOwner}[{objectQualifier}RIS_AttributeOptions] AO on PO2.[OptionId] = AO.[OptionId] WHERE PO2.[ProdId] = P.[ProdId])) THEN 'True' ELSE 'False' END
+			,'Name' = ( STUFF( ( SELECT ', ' + C.[Name] FROM {databaseOwner}[{objectQualifier}RIS_CatProducts] CP INNER JOIN {databaseOwner}[{objectQualifier}RIS_Categories] C ON C.CategoryId = CP.CategoryId WHERE CP.ProdId = P.ProdId FOR XML PATH('') ), 1, 2, '' ) )
+			,'Locked' = (CASE WHEN (SELECT TOP 1 PRODId FROM {databaseOwner}[{objectQualifier}RIS_EstimateItems] WHERE ProdId = P.ProdId) > 0 THEN 'true' ELSE 'false' END)
+			,U.[UnitTypeTitle]
+			,F.[Finan_Sale_Price]
+			,F.[Finan_Special_Price]
+			,(CASE WHEN F.[Finan_Special_Price] > 0 AND Getdate() BETWEEN P.[SaleStartDate] AND P.[SaleEndDate]
+				THEN F.[Finan_Special_Price] ELSE F.[Finan_Sale_Price] END) AS UnitValue
+			,TotalRows = Count(*) OVER()
+			FROM	{databaseOwner}[{objectQualifier}RIS_Products] P
+				LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIS_ProductsFinan] F ON P.[ProdId] = F.[ProdId] 
+				LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIS_UnitTypes] U ON P.[ProdUnit] = U.[UnitTypeId]
+				LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIS_Brands] B ON P.ProdBrand = B.BrandId
+				LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIS_BrandModels] M ON P.ProdModel = M.ModelId 
+			WHERE	((@PortalId IS NULL) OR (P.[PortalId] = @PortalId)) 
+				AND		((@ItemType = '') OR (P.[ItemType] = @ItemType))
+				AND		((@SearchString = '') 
+						OR	(P.[ProdName] LIKE '%' + @SearchString + '%') 
+						OR	(P.[ProdBarCode] LIKE '%' + @SearchString + '%')
+						OR	(P.[ProdRef] LIKE '%' + @SearchString + '%')) 
+				AND	((@IsDeleted = '') OR (P.[IsDeleted] = @IsDeleted))
+				AND	((@EndDate IS NULL) OR (P.[ModifiedOnDate] BETWEEN @StartDate AND @EndDate))
+				AND (GETDATE() >= P.[PubStartDate]) 
+				AND (P.[PubEndDate] >= GETDATE())) A 
+		WHERE	A.RowID > ( ( @PageNumber - 1 ) * @PageSize )
+	END
+GO
+
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Products_GetByCategory]    Script Date: 01/15/2013 12:16:43 ******/
+
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}RIS_Products_GetByCategory] (
+
+	@PortalId VARCHAR(10) = '' 
+	,@ItemType VARCHAR(1) = ''
+	,@CategoryId INT
+	,@SearchString NVARCHAR(50) = '' 
+	,@IsDeleted VARCHAR(10)
+	,@StartDate SMALLDATETIME
+	,@EndDate SMALLDATETIME
+	,@PageNumber INT
+	,@PageSize INT
+	,@SortCol NVARCHAR(20) = ''
+)
+
+AS
+SELECT TOP(@PageSize) * 
+FROM (SELECT RowID=Row_number() OVER (ORDER BY 
+	CASE WHEN @SortCol = 'ProdName ASC' THEN P.[ProdName] END ASC
+	,CASE WHEN @SortCol = 'ProdName DESC' THEN P.[ProdName] END DESC 
+	,CASE WHEN @SortCol = 'ModifiedOnDate ASC' THEN P.[ModifiedOnDate] END ASC
+	,CASE WHEN @SortCol = 'ModifiedOnDate DESC' THEN P.[ModifiedOnDate] END DESC
+	,CASE WHEN @SortCol = 'Random' THEN NEWID() END)
+	,P.[PortalId]
+	,P.[ProdId]
+	,P.[ProdName]
+	,P.[ProdIntro]
+	,P.[ProdRef]
+	,P.[ProdBarCode]
+	,P.[PubStartDate] 
+	,P.[PubEndDate]
+	,P.[IsDeleted]
+	,P.[ModifiedOnDate]
+	,P.[Stock]
+	,B.BrandTitle
+	,M.ModelTitle
+	,'HasOptions' = CASE WHEN (EXISTS (SELECT 1 FROM {databaseOwner}[{objectQualifier}RIS_ProductsOptions] PO1 WHERE PO1.[ProdId] = P.[ProdId])) THEN 'True' ELSE 'False' END
+	,'HasImages' = (SELECT COUNT(*) FROM {databaseOwner}[{objectQualifier}RIS_ProductImages] PIM WHERE PIM.[ProdId] = P.[ProdId])
+	,'HasVideos' = CASE WHEN (EXISTS (SELECT 1 FROM {databaseOwner}[{objectQualifier}RIS_ProductVideos] PV WHERE PV.[ProdId] = P.[ProdId])) THEN 'True' ELSE 'False' END
+	,'ProdImageUrl' = (SELECT TOP 1 PIM.ProdImageUrl FROM {databaseOwner}[{objectQualifier}RIS_ProductImages] PIM WHERE PIM.[ProdId] = P.[ProdId] ORDER BY PIM.[ViewOrder], PIM.[ModifiedOnDate])
+	,'ProdImagesId' = (SELECT TOP 1 PIM.ProdImagesId FROM {databaseOwner}[{objectQualifier}RIS_ProductImages] PIM WHERE PIM.[ProdId] = P.[ProdId] ORDER BY PIM.[ViewOrder], PIM.[ModifiedOnDate])
+	,'Extension' = (SELECT TOP 1 PIM.Extension FROM {databaseOwner}[{objectQualifier}RIS_ProductImages] PIM WHERE PIM.[ProdId] = P.[ProdId] ORDER BY PIM.[ViewOrder], PIM.[ModifiedOnDate])
+	,'FileName' = (SELECT TOP 1 PIM.[FileName] FROM {databaseOwner}[{objectQualifier}RIS_ProductImages] PIM WHERE PIM.[ProdId] = P.[ProdId] ORDER BY PIM.[ViewOrder], PIM.[ModifiedOnDate])
+	,'HasRequiredOptions' =  CASE WHEN (EXISTS (SELECT 1 FROM {databaseOwner}[{objectQualifier}RIS_ProductsOptions] PO2 INNER JOIN {databaseOwner}[{objectQualifier}RIS_AttributeOptions] AO on PO2.[OptionId] = AO.[OptionId] WHERE PO2.[ProdId] = P.[ProdId])) THEN 'True' ELSE 'False' END
+	,'Name' = ( STUFF( ( SELECT ', ' + C.[Name] FROM {databaseOwner}[{objectQualifier}RIS_CatProducts] CP INNER JOIN {databaseOwner}[{objectQualifier}RIS_Categories] C ON C.CategoryId = CP.CategoryId WHERE CP.ProdId = P.ProdId FOR XML PATH('') ), 1, 2, '' ) )
+	,'Locked' = (CASE WHEN (SELECT TOP 1 PRODId FROM {databaseOwner}[{objectQualifier}RIS_EstimateItems] WHERE ProdId = P.ProdId) > 0 THEN 'true' ELSE 'false' END)
+	,U.[UnitTypeTitle]
+	,F.[Finan_Sale_Price]
+	,F.[Finan_Special_Price]
+	,(CASE WHEN F.[Finan_Special_Price] > 0 AND Getdate() BETWEEN P.[SaleStartDate] AND P.[SaleEndDate]
+		THEN F.[Finan_Special_Price] ELSE F.[Finan_Sale_Price] END) AS UnitValue
+	,TotalRows = Count(*) OVER()
+	FROM	{databaseOwner}[{objectQualifier}RIS_Products] P
+		LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIS_ProductsFinan] F ON P.[ProdId] = F.[ProdId] 
+		LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIS_UnitTypes] U ON P.[ProdUnit] = U.[UnitTypeId]
+		LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIS_Brands] B ON P.ProdBrand = B.BrandId
+		LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIS_BrandModels] M ON P.ProdModel = M.ModelId 
+		LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIS_CatProducts] CP ON P.[ProdId] = CP.[ProdId]
+	WHERE	((@PortalId IS NULL) OR (P.[PortalId] = @PortalId)) 
+		AND		((@ItemType = '') OR (P.[ItemType] = @ItemType))
+		AND		((@SearchString = '') 
+				OR	(P.[ProdName] LIKE '%' + @SearchString + '%') 
+				OR	(P.[ProdBarCode] LIKE '%' + @SearchString + '%')
+				OR	(P.[ProdRef] LIKE '%' + @SearchString + '%')) 
+		AND	(CP.[CategoryId] = @CategoryId)
+		AND	((@IsDeleted = '') OR (P.[IsDeleted] = @IsDeleted))
+		AND	((@EndDate IS NULL) OR (P.[ModifiedOnDate] BETWEEN @StartDate AND @EndDate))) A 
+WHERE	A.RowID > ( ( @PageNumber - 1 ) * @PageSize )
+GO
+
+-- First
+sp_configure 'clr enabled', 1
+RECONFIGURE WITH OVERRIdE
+GO
+
+-- Second
+CREATE ASSEMBLY FinancialFunctions
+FROM 'E:\FinancialFunctions.dll'
+GO
+
+-- Third
+CREATE Function {databaseOwner}{objectQualifier}RIS_PMT(@r FLOAT, @nper INT, @pv FLOAT, @fv FLOAT, @type INT) 
+RETURNS FLOAT EXTERNAL NAME FinancialFunctions.FinancialFunctions.PMT
+GO 
+
+CREATE Function {databaseOwner}{objectQualifier}RIS_FV(@r FLOAT, @nper INT, @c FLOAT, @pv FLOAT, @type INT) 
+RETURNS FLOAT EXTERNAL NAME FinancialFunctions.FinancialFunctions.FV
+GO 
+
+CREATE Function {databaseOwner}{objectQualifier}RIS_IPMT(@r FLOAT, @per INT, @nper INT, @pv FLOAT, @fv FLOAT, @type INT) 
+RETURNS FLOAT EXTERNAL NAME FinancialFunctions.FinancialFunctions.IPMT
+GO 
+
+CREATE Function {databaseOwner}{objectQualifier}RIS_PPMT(@r FLOAT, @per INT, @nper INT, @pv FLOAT, @fv FLOAT, @type INT) 
+RETURNS FLOAT EXTERNAL NAME FinancialFunctions.FinancialFunctions.PPMT
+GO 
+
+
+/****** Object:  UserDefinedFunction {databaseOwner}[{objectQualifier}RIS_fn_udf_TitleCase]    Script Date: 01/15/2013 12:16:44 ******/
+
+CREATE FUNCTION {databaseOwner}[{objectQualifier}RIS_fn_udf_TitleCase] 
+(
+	@InputString VARCHAR(4000)
+) 
+RETURNS VARCHAR(4000) 
+AS 
+  BEGIN 
+      DECLARE @Index INT 
+      DECLARE @Char CHAR(1) 
+      DECLARE @OutputString VARCHAR(255) 
+
+      SET @OutputString = Lower(@InputString) 
+      SET @Index = 2 
+      SET @OutputString = Stuff(@OutputString, 1, 1, Upper( 
+                          Substring(@InputString, 1, 1))) 
+
+      WHILE @Index <= Len(@InputString) 
+        BEGIN 
+            SET @Char = Substring(@InputString, @Index, 1) 
+
+            IF @Char IN ( ' ', ';', ':', '!', 
+                          '?', ',', '.', '_', 
+                          '-', '/', '&', '''', '(' ) 
+              IF @Index + 1 <= Len(@InputString) 
+                BEGIN 
+                    IF @Char != '''' 
+                        OR Upper(Substring(@InputString, @Index + 1, 1)) != 'S' 
+                      SET @OutputString = Stuff(@OutputString, @Index + 1, 1, 
+                                          Upper( 
+                                          Substring(@InputString 
+                      , @Index + 1, 1) 
+                      ) 
+                      ) 
+                END 
+
+            SET @Index = @Index + 1 
+        END 
+
+      RETURN Isnull(@OutputString, '') 
+  END
+
+
+
+/************************************************************/
+/*****              SqlDataProvider                     *****/
+/************************************************************/
+

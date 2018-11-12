@@ -1,0 +1,399 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Active.Text" xml:space="preserve">
+    <value>Ativado:</value>
+  </data>
+  <data name="BasicSettings.Text" xml:space="preserve">
+    <value>Informações Básicas</value>
+  </data>
+  <data name="CheckBox_Active.Text" xml:space="preserve">
+    <value>Marqui aqui para ativar este produto.</value>
+  </data>
+  <data name="CheckBox_ForSale.Text" xml:space="preserve">
+    <value>Marqui para mostrar preço do produto para venda direta.</value>
+  </data>
+  <data name="CheckBox_Special.Text" xml:space="preserve">
+    <value>Marqui aqui para produtos em oferta.</value>
+  </data>
+  <data name="CheckBox_UniqueProduct.Text" xml:space="preserve">
+    <value>Marqui aqui se a quantidade deste produto for sempre 1 (um).</value>
+  </data>
+  <data name="cmdCacel.Text" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="cmdDelete.Text" xml:space="preserve">
+    <value>Excluir</value>
+  </data>
+  <data name="cmdInsert.Text" xml:space="preserve">
+    <value>Inserir</value>
+  </data>
+  <data name="cmdUpdate.Text" xml:space="preserve">
+    <value>Atualizar</value>
+  </data>
+  <data name="DeleteImage.Text" xml:space="preserve">
+    <value>Tem certeza que deseja excluir esta imagem?</value>
+  </data>
+  <data name="DeleteMessage.Text" xml:space="preserve">
+    <value>Tem certeza que deseja excluir este item?</value>
+  </data>
+  <data name="DeleteProduct.Text" xml:space="preserve">
+    <value>Tem certeza que deseja excluir este produto?</value>
+  </data>
+  <data name="dnnLabel_Brands.Help" xml:space="preserve">
+    <value>Escolha a Marca do item. Caso a Marca ainda não exista, apenas digite o nome da própria, assim que salvar o item, uma nova Marca será inserida.</value>
+  </data>
+  <data name="dnnLabel_Brands.Text" xml:space="preserve">
+    <value>Marca</value>
+  </data>
+  <data name="dnnLabel_CategoriesTree.Help" xml:space="preserve">
+    <value>Escolha a(s) categoria(s) que o item pertence.</value>
+  </data>
+  <data name="dnnLabel_CategoriesTree.Text" xml:space="preserve">
+    <value>Categorias</value>
+  </data>
+  <data name="dnnLabel_City.Help" xml:space="preserve">
+    <value>Isinra o nome da cidade de onde o item partirá (Pre-preenchido com o nome da cidade correspondente ao endereço configurado na loja).</value>
+  </data>
+  <data name="dnnLabel_City.Text" xml:space="preserve">
+    <value>Cidade Origem</value>
+  </data>
+  <data name="dnnLabel_Diameter.Help" xml:space="preserve">
+    <value>Insira o diâmetro do item.</value>
+  </data>
+  <data name="dnnLabel_Diameter.Text" xml:space="preserve">
+    <value>Diâmetro</value>
+  </data>
+  <data name="dnnLabel_FreeShpping.Help" xml:space="preserve">
+    <value>Marque esta opção para que o frete não seja cobrado do cliente.</value>
+  </data>
+  <data name="dnnLabel_FreeShpping.Text" xml:space="preserve">
+    <value>Frete Grátis</value>
+  </data>
+  <data name="dnnLabel_Height.Help" xml:space="preserve">
+    <value>Insira a altura do item.</value>
+  </data>
+  <data name="dnnLabel_Height.Text" xml:space="preserve">
+    <value>Altura</value>
+  </data>
+  <data name="dnnLabel_ItemType.Help" xml:space="preserve">
+    <value>Escolha o tipo de item que está inserindo. Se é um produto ou um serviço.</value>
+  </data>
+  <data name="dnnLabel_ItemType.Text" xml:space="preserve">
+    <value>Tipo</value>
+  </data>
+  <data name="dnnLabel_Lenth.Help" xml:space="preserve">
+    <value>Insira o cumprimento do item.</value>
+  </data>
+  <data name="dnnLabel_Lenth.Text" xml:space="preserve">
+    <value>Comprimento</value>
+  </data>
+  <data name="dnnLabel_Models.Help" xml:space="preserve">
+    <value>Escolha o Modelo de acordo com a Marca. Caso o Modelo ainda não exista, apenas digite o nome da próprio, assim que salvar o item, um novo Modelo será inserido.</value>
+  </data>
+  <data name="dnnLabel_Models.Text" xml:space="preserve">
+    <value>Modelo</value>
+  </data>
+  <data name="dnnLabel_OrderQuant.Help" xml:space="preserve">
+    <value>Opções de quantidade sendo requisitada pelo visitante / cliente referente a este produto. Insira o número 1 (um) para esconder o campo de quantidade. Deixe em branco para que o visitante / cliente inisra a quantidade desejada. Ou insira uma quantidade pré-determinada separados por uma vírgula (,) para mostrar uma caixa de rolagem para o visitante / cliente.</value>
+  </data>
+  <data name="dnnLabel_OrderQuant.Text" xml:space="preserve">
+    <value>Pré-Qde</value>
+  </data>
+  <data name="dnnLabel_ProdBarCodes.Help" xml:space="preserve">
+    <value>Insira o código de barra do produto (somente números por favor).</value>
+  </data>
+  <data name="dnnLabel_ProdBarCodes.Text" xml:space="preserve">
+    <value>Cód. de Barra</value>
+  </data>
+  <data name="dnnLabel_ProdName.Help" xml:space="preserve">
+    <value>Insira o nome do item.</value>
+  </data>
+  <data name="dnnLabel_ProdName.Text" xml:space="preserve">
+    <value>Nome</value>
+  </data>
+  <data name="dnnLabel_ProdRefs.Help" xml:space="preserve">
+    <value>Insira a referência interna do item.</value>
+  </data>
+  <data name="dnnLabel_ProdRefs.Text" xml:space="preserve">
+    <value>Referência</value>
+  </data>
+  <data name="dnnLabel_PublishFrom.Help" xml:space="preserve">
+    <value>Insira a data em que o item estará sendo publicado. Deixe em branco para publica-lo imediatamente.</value>
+  </data>
+  <data name="dnnLabel_PublishFrom.Text" xml:space="preserve">
+    <value>Publicação De</value>
+  </data>
+  <data name="dnnLabel_PublishTo.Help" xml:space="preserve">
+    <value>Insira a data em que seré concluida a publicação do item.</value>
+  </data>
+  <data name="dnnLabel_PublishTo.Text" xml:space="preserve">
+    <value>Publicação Até</value>
+  </data>
+  <data name="dnnLabel_SaleEndDate.Help" xml:space="preserve">
+    <value>Insira a data em que a oferta se conclui.</value>
+  </data>
+  <data name="dnnLabel_SaleEndDate.Text" xml:space="preserve">
+    <value>Oferta Até</value>
+  </data>
+  <data name="dnnLabel_SalesPrice.Help" xml:space="preserve">
+    <value>Insira o valor de venda do item.</value>
+  </data>
+  <data name="dnnLabel_SalesPrice.Text" xml:space="preserve">
+    <value>Preço de Venda</value>
+  </data>
+  <data name="dnnLabel_SaleStartDate.Help" xml:space="preserve">
+    <value>Insira a data em que a oferta se inicia.</value>
+  </data>
+  <data name="dnnLabel_SaleStartDate.Text" xml:space="preserve">
+    <value>Oferta De</value>
+  </data>
+  <data name="dnnLabel_ServiceItems.Help" xml:space="preserve">
+    <value>&lt;strong&gt;Exemplo:&lt;/strong&gt;&lt;br /&gt;
+            Instalar Microsoft Office = 25&lt;br /&gt;
+            Instalar Anti-virus = 30&lt;br /&gt;
+            Fazer atualiza&amp;#231;&amp;#245;es = 35&lt;br /&gt;
+            (Insira a tarefa seguida de = e o tempo que&lt;br /&gt;
+            leva (em minutos) para execut&amp;#225;-la.&lt;br /&gt;
+            Pressione ENTER para separa-las por linha.)</value>
+  </data>
+  <data name="dnnLabel_ServiceItems.Text" xml:space="preserve">
+    <value>Inserir checkList</value>
+  </data>
+  <data name="dnnLabel_ServicePlan.Text" xml:space="preserve">
+    <value>Plano de execução</value>
+  </data>
+  <data name="dnnLabel_ServiceTech.Help" xml:space="preserve">
+    <value>Inserrir a profissão ou o tipo de profissional capacitado para
+exercer o serviço.</value>
+  </data>
+  <data name="dnnLabel_ServiceTech.Text" xml:space="preserve">
+    <value>Técnico</value>
+  </data>
+  <data name="dnnLabel_ServiceTools.Help" xml:space="preserve">
+    <value>&lt;strong&gt;Exemplo:&lt;/strong&gt;&lt;br /&gt;
+            CD do Microsoft Office&lt;br /&gt;
+            HD externo para backup&lt;br /&gt;
+            (Insira os materiais e ferramentas&lt;br /&gt;
+            requisitados por cada tarefa mencionada acima.&lt;br /&gt;
+            Pressione ENTER para separar por linha)</value>
+  </data>
+  <data name="dnnLabel_ServiceTools.Text" xml:space="preserve">
+    <value>Inserir materiais e ferramentas</value>
+  </data>
+  <data name="dnnLabel_SpecialPrice.Help" xml:space="preserve">
+    <value>Insira o preço do item quando em oferta.</value>
+  </data>
+  <data name="dnnLabel_SpecialPrice.Text" xml:space="preserve">
+    <value>Preço de Oferta</value>
+  </data>
+  <data name="dnnLabel_StockLabel.Help" xml:space="preserve">
+    <value>Entre a quantidade que está sendo inserida no estoque.</value>
+  </data>
+  <data name="dnnLabel_StockLabel.Text" xml:space="preserve">
+    <value>Estoque</value>
+  </data>
+  <data name="dnnLabel_StockTextBox.Help" xml:space="preserve">
+    <value>Entre a quantidade que está sendo inserida no estoque.</value>
+  </data>
+  <data name="dnnLabel_StockTextBox.Text" xml:space="preserve">
+    <value>Estoque</value>
+  </data>
+  <data name="dnnLabel_StockWarning.Help" xml:space="preserve">
+    <value>Insira a quantidade mínima para ser avisado sobre o estoque.</value>
+  </data>
+  <data name="dnnLabel_StockWarning.Text" xml:space="preserve">
+    <value>Aviso de Estoque</value>
+  </data>
+  <data name="dnnLabel_UnitTypes.Help" xml:space="preserve">
+    <value>Escolha o tipo de medida do item.</value>
+  </data>
+  <data name="dnnLabel_UnitTypes.Text" xml:space="preserve">
+    <value>Unidade</value>
+  </data>
+  <data name="dnnLabel_VideoTitle.Help" xml:space="preserve">
+    <value>Insera um título identificando este video.</value>
+  </data>
+  <data name="dnnLabel_VideoTitle.Text" xml:space="preserve">
+    <value>Título</value>
+  </data>
+  <data name="dnnLabel_VideoUrl.Help" xml:space="preserve">
+    <value>Copie e cole aqui o link compartlhado do seu vídeo no YouTube.com.</value>
+  </data>
+  <data name="dnnLabel_VideoUrl.Text" xml:space="preserve">
+    <value>Link</value>
+  </data>
+  <data name="dnnLabel_Weight.Help" xml:space="preserve">
+    <value>Favor iserir o peso bruto do produto.</value>
+  </data>
+  <data name="dnnLabel_Weight.Text" xml:space="preserve">
+    <value>Peso</value>
+  </data>
+  <data name="dnnLabel_Width.Help" xml:space="preserve">
+    <value>Insira a largura do item.</value>
+  </data>
+  <data name="dnnLabel_Width.Text" xml:space="preserve">
+    <value>Largura</value>
+  </data>
+  <data name="dnnLabel_ZipOrigin.Help" xml:space="preserve">
+    <value>Insira o CEP de onde o produto partirá (Pre-preenchido com o cep correspondente ao endereço configurado na loja).</value>
+  </data>
+  <data name="dnnLabel_ZipOrigin.Text" xml:space="preserve">
+    <value>CEP Origem</value>
+  </data>
+  <data name="FinanceSettings.Text" xml:space="preserve">
+    <value>Financeiro</value>
+  </data>
+  <data name="ForSale.Text" xml:space="preserve">
+    <value>Mostar Preço:</value>
+  </data>
+  <data name="IntroSettings.Text" xml:space="preserve">
+    <value>Introdução</value>
+  </data>
+  <data name="LoadingMsg.Text" xml:space="preserve">
+    <value>Carregando...</value>
+  </data>
+  <data name="MediaSettings.Text" xml:space="preserve">
+    <value>Mídias</value>
+  </data>
+  <data name="ProdImageInstructions.Text" xml:space="preserve">
+    <value>Imagens para este produto. Envie arquivo(s) com formato jpg ou png. Para controlar a ordem das imagens, clique, segure, e arraste a imagem para a posição desejada.</value>
+  </data>
+  <data name="ProdMedia.Help" xml:space="preserve">
+    <value>Envie ou insire um arquivo de mídia referente a este produto. Vídeos com formato wmv, avi ou jpeg são aceitos. Como também arquivos de áudio em formato mp3. Verifique que hospedagem para vídeos e áudios sejão autorizados antes de enviá-los.</value>
+  </data>
+  <data name="ProdMedia.Text" xml:space="preserve">
+    <value>Mídia:</value>
+  </data>
+  <data name="Product.Text" xml:space="preserve">
+    <value>Produto</value>
+  </data>
+  <data name="ProductDescSettings.Text" xml:space="preserve">
+    <value>Descrição</value>
+  </data>
+  <data name="Service.Text" xml:space="preserve">
+    <value>Serviço</value>
+  </data>
+  <data name="ServiceSettings.Text" xml:space="preserve">
+    <value>Serviço</value>
+  </data>
+  <data name="VideoInstructions.Text" xml:space="preserve">
+    <value>Compartilhe aqui seu vídeo no youtube. Instruções: No site do youtube.com, abaixo do vídeo, clique no botão "Compartilhar". Clique com o botão direito do seu mouse no link selecionado, e clique em copiar. Em seguida, cole o link copiado no campo "Link" abaixo.</value>
+  </data>
+</root>

@@ -1,0 +1,21 @@
+﻿<h3>Services</h3>
+<p class="Contributor">
+	AGF <br />
+	<a href="mailto:suporte@riw.com.br">suporte@riw.com.br</a><br />
+	<a href=http://www.riw.com.br>http://www.riw.com.br</a><br />
+</p>
+<hr/>
+<div class="License">
+	<h3>About the Services</h3>
+	<p class="Owner">
+		<b>Version 00.00.01</b><br /><br />
+	</p>
+	<p>Description about version.</p>
+	<h4>Bug Fixes</h4>
+	<ul>
+		<li>List</li>
+		<li>of</li>
+		<li>bug</li>
+		<li>fixes</li>
+	</ul>
+</div>

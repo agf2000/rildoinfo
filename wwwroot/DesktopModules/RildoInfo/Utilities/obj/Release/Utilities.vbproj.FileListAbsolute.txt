@@ -1,0 +1,8 @@
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\Utilities\bin\Release\RIW.Modules.Common.dll
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\Utilities\bin\Release\RIW.Modules.Common.pdb
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\Utilities\bin\Release\RIW.Modules.Common.xml
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\Utilities\obj\Release\RIW.Modules.Common.Resources.resources
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\Utilities\obj\Release\Utilities.vbproj.GenerateResource.Cache
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\Utilities\obj\Release\RIW.Modules.Common.dll
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\Utilities\obj\Release\RIW.Modules.Common.xml
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\Utilities\obj\Release\RIW.Modules.Common.pdb

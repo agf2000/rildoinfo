@@ -1,0 +1,511 @@
+/*-- Import CSS --*/
+@import "admin.css";
+@import "menu.css";
+
+
+/*========================================================*/
+/*  Default CSS                                           */
+/*========================================================*/
+
+/* ======= HTML BODY CSS  =======*/
+body {
+	margin: 0 auto;
+	background:url(images/background.jpg) center top no-repeat #FFFFFF;
+}
+
+/* Default Over-rides */
+
+.Normal, .NormalDisabled, .NormalDeleted{font-size:12px;font-weight:normal;}
+
+#dnn_ContentPane { padding: 0 10px 0 0; vertical-align: top; }
+#dnn_TopLeftPane,
+#dnn_TopRightPane { vertical-align: top; }
+#dnn_TopPane { }
+#dnn_LeftPane { padding: 0 10px 0 0; vertical-align: top; }
+#dnn_RightPane { padding: 0 10px 0 0; vertical-align: top; }
+#dnn_BottomLeftPane, #dnn_BottomRightPane { vertical-align: top; }
+#dnn_BottomLeftPane { padding: 0 10px 0 0; }
+#dnn_ContentPane, #dnn_BottomPane {
+clear:both;
+}
+
+.DNNEmptyPane { padding: 0 !important; }
+
+
+/* Login Textbox width */
+#dnn_ctr_Login_Login_DNN_txtUsername { width: 240px !important; }
+
+
+/* Remove list styles */
+ul li {
+	list-style-type: none !important;
+}
+ul li li {
+	list-style-type: none !important;
+}
+ul li li li {
+	list-style-type: none !important;
+}
+ol li {
+	list-style-type: none !important;
+}
+ol ol li {
+	list-style-type: none !important;
+}
+ol ol ol li {
+	list-style-type: none !important;
+}
+ol ul li {
+	list-style-type: none !important;
+}
+
+/* ======= DIVs CSS =======*/
+#MainWrapper		{ width:980px; margin:0 auto; }
+	#TopArea			{ padding: 0 0; }
+		.date { float: right; display: block; text-transform: capitalize; text-align: center; font-size: 9px; width: 200px; color: #fff; padding-top: 9px; }
+		.LoginArea			{ display: block; float: left; margin: 4px; }
+
+			/* LOGIN GROUP STYLES */			
+			#Login{
+			float:right;
+			padding-right: 0px;
+			margin-top: 10px;
+			height:33px;
+			border:1px solid #cfcfcf;
+			border-bottom:1px solid #999;
+			background:#eee;
+			
+			-webkit-border-radius:		3px;
+			-moz-border-radius:		 	3px;
+			border-radius: 				3px;
+			
+			-webkit-box-shadow: 0 1px 0 0px rgba(0, 0, 0, 0.2);
+			-moz-box-shadow: 	0px 1px 0 0px rgba(0, 0, 0, 0.2);
+			box-shadow: 		0px 1px 0 0px rgba(0, 0, 0, 0.2);
+
+			}
+			
+			#Login .registerGroup, 
+			#Login .registerGroup *, 
+			#Login .loginGroup, 
+			#Login .loginGroup *{
+				display:block;padding:0;margin:0;
+			} 
+		
+		
+			#Login .registerGroup,
+			#Login .loginGroup{float:left;padding:0;margin:0;} 
+			
+			#Login .registerGroup li:first-child:hover{border-left:#333;}
+			/* Register Group Styles */
+			#Login .registerGroup li{ 
+				float:left;
+				height:33px;
+				border-left:1px solid #fcfcfc; /*light*/
+				border-right:1px solid #c7c7c7; /*dark*/
+			}
+			#Login .registerGroup .buttonGroup{margin-right:0;}
+			
+			#Login .registerGroup a,
+			#Login .loginGroup a{
+				position:relative;
+				display:block;
+				padding:11px 15px;
+				min-width:15px; min-height:11px;
+				font-weight:bold;
+				font-size:11px;
+				vertical-align:middle;
+				line-height:1em;
+				
+				background:#e7e7e7 url(Images/LoginLinksBg.png) repeat-x 0 0;
+			}
+			
+			#Login .registerGroup a:hover,
+			#Login .loginGroup a:hover{
+				background:#666;
+				color:#ddd;
+				text-shadow: 0 -1px 0 #333333;
+				
+				-webkit-box-shadow: 	inset 0 0px 5px 0 #333;
+				-moz-box-shadow: 		inset 0 0px 5px 0 #333;
+				box-shadow: 			inset 0 0px 5px 0 #333; 
+			}
+			#Login .registerGroup a:active,
+			#Login .loginGroup a:active{
+				color:#fff;
+				text-shadow: 0 -1px 0 #333333;
+			}
+			
+			#Login .registerGroup a:hover,
+			#Login .loginGroup a:hover{text-decoration:none;}
+			
+			#Login .registerGroup a strong,
+			#Login .loginGroup a strong{
+				position:absolute;
+				left:0; top:0;
+				width:100%; height:100%;
+				display:block;
+				font-size:11px;
+				font-weight:bold;
+				vertical-align:baseline;
+				overflow:hidden;
+				text-indent:-9999px;
+			}
+			
+			.registerGroup .userMessages strong,
+			.registerGroup .userNotifications strong{
+				background:url(Images/userLoginSprite.png) no-repeat 15px 12px;
+			}
+			.registerGroup .userNotifications strong{ background-position:-85px 10px; }
+			.registerGroup .userMessages strong:hover{background-position:15px -40px; }
+			.registerGroup .userNotifications strong:hover{ background-position:-85px -42px;}
+			.registerGroup .userMessages strong:active{background-position:15px -91px; }
+			.registerGroup .userNotifications strong:active{ background-position:-85px -92px;}
+			
+			#Login .registerGroup a span{
+				position:absolute;
+				right:5px; top:-7px;
+				display:inline-block;
+				padding:2px 4px;
+				min-width:7px;
+				text-align:center;
+				margin-right:3px;
+				background: rgb(31,152,241); /* Old browsers */
+				font-size:9px;
+				color:#fff;
+				text-shadow: 0 1px 0 #333333;
+				
+				/*CSS3*/	
+				background: -moz-linear-gradient(top, rgba(31,152,241,1) 0%, rgba(2,111,196,1) 100%); /* FF3.6+ */
+				background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(31,152,241,1)), color-stop(100%,rgba(2,111,196,1))); /* Chrome,Safari4+ */
+				background: -webkit-linear-gradient(top, rgba(31,152,241,1) 0%,rgba(2,111,196,1) 100%); /* Chrome10+,Safari5.1+ */
+				background: -o-linear-gradient(top, rgba(31,152,241,1) 0%,rgba(2,111,196,1) 100%); /* Opera 11.10+ */
+				background: linear-gradient(top, rgba(31,152,241,1) 0%,rgba(2,111,196,1) 100%); /* W3C */
+				
+				-webkit-border-radius: 	3px;
+				-moz-border-radius: 	3px;
+				border-radius: 			3px; 
+				
+				-webkit-box-shadow: 0 1px 0 0px #222222;
+				-moz-box-shadow: 0 1px 0 0px #222222;
+				box-shadow: 0 1px 0 0px #222222; 		
+			}
+			
+			#Login .registerGroup .userProfileImg a{
+				padding:0;background:none;
+				min-width:25px;
+			}
+			#Login .registerGroup a img{
+				border:1px solid blue;
+				height:32px; width:32px;
+				background:#555;
+				
+				-webkit-box-shadow: 0 1px 0 0px rgba(0, 0, 0, 0.2);
+				-moz-box-shadow: 	0px 1px 0 0px rgba(0, 0, 0, 0.2);
+				box-shadow: 		0px 1px 0 0px rgba(0, 0, 0, 0.2); 
+			}
+			/* Login Group Styles */
+			#Login .loginGroup{
+				border-left:1px solid #fcfcfc; /*light*/		
+			} 
+			#Login .loginGroup a{padding:11px 20px; font-weight:bold; color:#666;}
+			
+			/* Login Language Group */
+			#Login .language-object{
+				float:left;
+				display:block;
+				margin:0;
+				padding:0;
+				
+				border-left:1px solid #c7c7c7; /*dark*/
+			}
+			#Login .language-object span{
+				padding:8px 0;
+				padding-right:8px;
+				margin:0;
+				float:left;
+			}
+			#Login .language-object span:first-child{
+				padding-left:8px;
+				border-left:1px solid #fcfcfc; /*light*/
+			}
+			#Login .language-object span img{
+				height:12px; width:20px;
+				opacity:0.2;
+			}
+			#Login .language-object span:hover img{opacity:1;}
+			#Login .language-object .Language.selected img{
+				opacity:1;
+				border-color:#999;
+				-webkit-border-radius: 2px;
+				border-radius: 2px; 
+				-webkit-box-shadow: 0 1px 0 0px rgba(255, 255, 255, 0.8);
+				box-shadow: 		0px 1px 0 0px rgba(255, 255, 255, 0.8); 
+			}
+
+	#menuTop			{ float:left; width:759px; background:url(images/bg_menu.png) left top no-repeat; height:45px; padding:0 150px 10px 76px; }
+	.BannerArea			{ float:left; width:980px; /*height:327px; background:url(images/banner01.png) center top no-repeat;*/ margin-bottom:0px; padding:0 0px; }
+	
+	.ContentWrapper	{ float:left; width:980px; padding:0 0px; }
+	
+	#footer		{ float:left; width:980px; background:url(images/bg_footer.png) left top no-repeat; padding-bottom:10px; }
+		.TermsArea			{ float:left; width:434px; padding:0 0 0 20px; line-height:46px; /*background:#3C6;*/ }
+		.FooterPaneArea		{ float:left; width:434px; padding:0 20px 0 0; text-align:right; font-size:0; /*background:#9CF;*/ }
+		.CopyrightArea		{ float:left; width:960px; height:28px; line-height:24px; text-align:right; padding-right:12px; }
+		
+	#Breadcrumb    { float:left; width:980px; padding-bottom:20px; }
+		#Breadcrumb label	{ float:left; width:50%; margin:0; }
+		#Breadcrumb p		{ float:left; width:50%; text-align:right; margin:0; }
+
+
+
+/* -- CONTENTS DIVs CSS --*/
+#text { float: left; }
+.alignleft  { float:left!important; text-align:left!important; }
+.alignright { float:right!important; text-align:right!important; }
+
+/* ------ CLOSE DIVs CSS ------ */
+
+
+
+
+/*-- textfield --*/
+.textfield {
+	background-color: #FFFFFF;
+	border-top: 2px solid #646464;
+	border-right: 2px solid #D9D9D9;
+	border-bottom: 2px solid #D9D9D9;
+	border-left: 2px solid #646464;
+	width: 442px;
+	height: 22px;
+	padding-left: 4px;
+	padding-top: 3px;
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 11px;
+	COLOR: #171717;
+	FONT-FAMILY: Tahoma;
+	text-decoration: none;
+}
+
+/*------------------------  End  -------------------------*/
+
+/*========================================================*/
+/*  Text For Contents                                     */
+/*========================================================*/
+
+/* --ULCategories- */
+.ULCategories, A.ULCategories, A.ULCategories:link, A.ULCategories:visited, A.ULCategories:active {
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 12px;
+	COLOR: #7a7a7a;
+	FONT-FAMILY: "Arial", Helvetica, sans-serif;
+	text-decoration: none;
+	
+	display:block;
+	white-space:nowrap;
+	line-height:30px;
+	background:url(images/UL-LI.gif) left center no-repeat;
+	border-bottom: 1px dashed #bbbbbb;
+	padding:0 0 0 20px!important;
+	margin:0!important;
+}
+
+a.ULCategories:hover {
+	text-decoration: underline;
+}
+
+
+/* --text_grey-- */
+.text_grey, A.text_grey, A.text_grey:link, A.text_grey:visited, A.text_grey:active  {
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 12px;
+	COLOR: #666666;
+	FONT-FAMILY: "Arial", Helvetica, sans-serif;
+	text-decoration: none;
+	line-height:1.5;
+}
+a.text_grey:hover {
+	text-decoration: underline;
+}
+
+
+/* --text_red-- */
+.text_red, A.text_red, A.text_red:link, A.text_red:visited, A.text_red:active  {
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 12px;
+	COLOR: #ff0349;
+	FONT-FAMILY: "Arial", Helvetica, sans-serif;
+	text-decoration: none;
+	line-height:1.5;
+}
+a.text_red:hover {
+	text-decoration: underline;
+
+}
+
+
+
+/* --text_green-- */
+.text_green, A.text_green, A.text_green:link, A.text_green:visited, A.text_green:active  {
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 12px;
+	COLOR: #90bb22;
+	FONT-FAMILY: "Arial", Helvetica, sans-serif;
+	text-decoration: none;
+	line-height:1.5;
+}
+a.text_green:hover {
+	text-decoration: underline;
+}
+
+
+
+
+/* --text_blue-- */
+.text_blue, A.text_blue, A.text_blue:link, A.text_blue:visited, A.text_blue:active  {
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 12px;
+	COLOR: #0081c2;
+	FONT-FAMILY: "Arial", Helvetica, sans-serif;
+	text-decoration: none;
+	line-height:1.5;
+}
+a.text_blue:hover {
+	text-decoration: underline;
+}
+
+
+
+
+/* --text_black-- */
+.text_black, A.text_black, A.text_black:link, A.text_black:visited, A.text_black:active  {
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 12px;
+	COLOR: #000000;
+	FONT-FAMILY: "Arial", Helvetica, sans-serif;
+	text-decoration: none;
+	line-height:1.5;
+}
+a.text_black:hover {
+	text-decoration: underline;
+}
+
+
+/* -- READ MORE -- */
+.readmore1, a.readmore1  {
+	FONT-WEIGHT:bold;
+	FONT-SIZE: 12px;
+	COLOR: #0081c2;
+	FONT-FAMILY: "Arial", Helvetica, sans-serif;
+	text-decoration: underline;
+	line-height:1.5;
+	background:url(images/bullet2.gif) left 3px no-repeat;
+	padding:0 0 0 15px;
+}
+a.readmore1:hover {
+	text-decoration: none;
+}
+
+
+/* -- READ MORE -- */
+.readmore2, a.readmore2  {
+	FONT-WEIGHT:bold;
+	FONT-SIZE: 12px;
+	COLOR: #0081c2;
+	FONT-FAMILY: "Arial", Helvetica, sans-serif;
+	text-decoration: underline;
+	line-height:30px;
+	background:url(images/bullet2.gif) left 3px no-repeat;
+	padding:0 0 0 15px;
+}
+a.readmore2:hover {
+	text-decoration: none;
+}
+
+
+
+/* -- READ MORE -- */
+.readmore3, a.readmore3  {
+	FONT-WEIGHT:bold;
+	FONT-SIZE: 12px;
+	COLOR: #ff0349;
+	FONT-FAMILY: "Arial", Helvetica, sans-serif;
+	text-decoration: underline;
+	line-height:1.5;
+}
+a.readmore3:hover {
+	text-decoration: none;
+}
+
+
+/*------------------------  End  -------------------------*/
+
+
+/*========================================================*/
+/*  Headings CSS                                          */
+/*========================================================*/
+
+H1 { FONT-WEIGHT: normal; FONT-SIZE: 24px; COLOR: #343434; padding:0; margin:0 0 10px 0; }
+H2 { FONT-WEIGHT: normal; FONT-SIZE: 20px; padding:0; margin:0 0 10px 0; }
+H3 { FONT-WEIGHT: bold;   FONT-SIZE: 16px; COLOR: #666666; padding:0; margin:0 0 10px 0; }
+H4 { FONT-WEIGHT: bold;   FONT-SIZE: 12px; COLOR: #343434; padding:0; margin:0 0 10px 0; }
+H5 { FONT-WEIGHT: bold;   FONT-SIZE: 11px; COLOR: #9dcd09; padding:0; margin:0 0 10px 0; }
+
+/*------------------------  End  -------------------------*/
+
+
+
+/*========================================================*/
+/*  Padding CSS                                           */
+/*========================================================*/
+
+.pad_left     	{ padding:0 0 0 40px; }
+.pad_right    	{ padding:0 40px 0 0; }
+
+.padBrd_left    { padding:0 0 0 40px; border-left:3px solid #f7f4ee; }
+.padBrd_mid     { padding:0 40px; }
+.padBrd_right   { padding:0 40px 0 0; border-right:3px solid #f7f4ee; }
+
+
+/*------------------------  End  -------------------------*/
+
+form { padding:0!important; margin:0!important; background:none; }
+
+.freeow h2, .freeow p { color: gray; }
+
+#flyout_hover h2 { color: Gray !important; }
+
+ul.RotatorLink { margin:-74px 0 0 0;}
+ul.RotatorLink li {margin:0;list-style:none;}
+
+/* Getting Started content */
+.getting-started-wrap .left { width: 116px; padding-top:20px;}
+.getting-started-wrap .right { width:500px;}
+a#TourStart img, a#TourVideo img { margin: 3px 3px 3px -10px; vertical-align: middle;}
+#dnnTourContainer { display:none; }
+hr.tour { border-style: solid; border-top-width: 0; color: #ccc; margin-top: 1em; }
+
+#Footer #dnn_Footer_LeftPane {float: left;margin: 0 20px 0 0;width: 430px;}
+#Footer #dnn_Footer_RightPane {float: left;width: 510px;}
+
+
+/* ------    Awesome Cyles site styles    ------ */
+/* footer */
+.left-footer { width:48%; float:left;}
+.right-footer { width:48%; float:right;}
+
+.text-t-c {
+    text-transform: capitalize !important;
+}
+
+.text-t-u {
+    text-transform: uppercase !important;
+}
+
+.text-t-n {
+    text-transform: none !important;
+}
+
+.text-t-l {
+    text-transform: lowercase !important;
+}

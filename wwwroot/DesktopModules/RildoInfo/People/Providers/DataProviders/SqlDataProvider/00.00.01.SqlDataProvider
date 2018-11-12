@@ -1,0 +1,794 @@
+﻿/************************************************************/
+/*****              SqlDataProvider                     *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/***** Note: To manually execute this script you must   *****/
+/*****       perform a search and replace operation     *****/
+/*****       for {databaseOwner} and {objectQualifier}  *****/
+/*****                                                  *****/
+/************************************************************/
+
+
+/** Create Tables **/
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_HtmlContents]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_HtmlContents](
+		[PortalId] [int] NOT NULL,
+		[ContentId] [int] IDENTITY(1,1) NOT NULL,
+		[ContentTitle] [nvarchar](255) NOT NULL,
+		[HtmlContent] [nvarchar](max) NOT NULL,
+		[CreatedByUser] [int] NOT NULL,
+		[CreatedOnDate] [smalldatetime] NOT NULL,
+		[ModifiedByUser] [int] NOT NULL,
+		[ModifiedOnDate] [smalldatetime] NOT NULL,
+	 CONSTRAINT [PK_RIW_HtmlContents] PRIMARY KEY CLUSTERED 
+	(
+		[ContentId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_Industries]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_Industries](
+		[PortalId] [int] NOT NULL,
+		[IndustryId] [int] IDENTITY(1,1) NOT NULL,
+		[IndustryTitle] [nvarchar](50) NULL,
+		[IsDeleted] [bit] NULL,
+		[CreatedByUser] [int] NULL,
+		[CreatedOnDate] [smalldatetime] NULL,
+		[ModifiedByUser] [int] NULL,
+		[ModifiedOnDate] [smalldatetime] NULL,
+	 CONSTRAINT [PK_RIW_Industries] PRIMARY KEY CLUSTERED 
+	(
+		[IndustryId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_People]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_People](
+		[PortalId] [int] NOT NULL,
+		[PersonId] [int] IDENTITY(1,1) NOT NULL,
+		[UserId] [int] NULL,
+		[PersonType] [bit] NULL,
+		[StatusId] [varchar](10) NULL,
+		[CompanyName] [nvarchar](100) NULL,
+		[DisplayName] [nvarchar](100) NULL,
+		[DateFounded] [datetime] NULL,
+		[DateRegistered] [datetime] NULL,
+		[FirstName] [nvarchar](50) NULL,
+		[LastName] [nvarchar](50) NULL,
+		[Telephone] [nvarchar](500) NULL,
+		[Cell] [varchar](16) NULL,
+		[Fax] [varchar](16) NULL,
+		[Zero800s] [nvarchar](50) NULL,
+		[Email] [nvarchar](100) NULL,
+		[EIN] [varchar](20) NULL,
+		[CPF] [varchar](20) NULL,
+		[Ident] [varchar](20) NULL,
+		[StateTax] [nvarchar](20) NULL,
+		[CityTax] [varchar](20) NULL,
+		[Website] [nvarchar](100) NULL,
+		[RegisterTypes] [varchar](6) NULL,
+		[HasECF] [bit] NULL,
+		[ECFRequired] [bit] NULL,
+		[Networked] [bit] NULL,
+		[PayMethods] [nvarchar](50) NULL,
+		[PayPlans] [nvarchar](50) NULL,
+		[CreditLimit] [money] NULL,
+		[PreDiscount] [varchar](10) NULL,
+		[Protested] [bit] NULL,
+		[Comments] [nvarchar](500) NULL,
+		[Scheduled] [bit] NULL,
+		[Sent] [bit] NULL,
+		[IsDeleted] [bit] NULL,
+		[PersonAddressId] [int] NULL,
+		[MonthlyIncome] [money] NULL,
+		[SalesRep] [int] NULL,
+		[GroupIds] [varchar](10) NULL,
+		[CreatedByUser] [int] NULL,
+		[CreatedOnDate] [datetime] NULL,
+		[ModifiedByUser] [int] NULL,
+		[ModifiedOnDate] [datetime] NULL,
+		[OldId] [int] NULL,
+	 CONSTRAINT [PK_RIW_People] PRIMARY KEY CLUSTERED 
+	(
+		[PersonId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_PeopleAddresses]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_PeopleAddresses](
+		[PersonAddressId] [int] IDENTITY(1,1) NOT NULL,
+		[PersonId] [int] NULL,
+		[AddressName] [nvarchar](100) NULL,
+		[Street] [nvarchar](100) NULL,
+		[Unit] [nvarchar](10) NULL,
+		[Complement] [nvarchar](100) NULL,
+		[District] [nvarchar](100) NULL,
+		[City] [nvarchar](50) NULL,
+		[Region] [nvarchar](50) NULL,
+		[PostalCode] [varchar](10) NULL,
+		[Country] [nvarchar](50) NULL,
+		[Telephone] [varchar](20) NULL,
+		[Cell] [varchar](20) NULL,
+		[Fax] [varchar](20) NULL,
+		[ViewOrder] [int] NULL,
+		[IsDeleted] [bit] NULL,
+		[Comment] [nvarchar](255) NULL,
+		[CreatedByUser] [int] NULL,
+		[CreatedOnDate] [smalldatetime] NULL,
+		[ModifiedByUser] [int] NULL,
+		[ModifiedOnDate] [smalldatetime] NULL,
+	 CONSTRAINT [PK_RIW_PeopleAddresses] PRIMARY KEY CLUSTERED 
+	(
+		[PersonAddressId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_PeopleContacts]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_PeopleContacts](
+		[PersonContactId] [int] IDENTITY(1,1) NOT NULL,
+		[PersonId] [int] NULL,
+		[ContactName] [nvarchar](100) NULL,
+		[DateBirth] [smalldatetime] NULL,
+		[Dept] [nvarchar](50) NULL,
+		[ContactEmail1] [nvarchar](100) NULL,
+		[ContactEmail2] [nvarchar](100) NULL,
+		[ContactPhone1] [varchar](16) NULL,
+		[ContactPhone2] [varchar](16) NULL,
+		[PhoneExt1] [varchar](5) NULL,
+		[PhoneExt2] [varchar](5) NULL,
+		[Comments] [nvarchar](256) NULL,
+		[PersonAddressId] [int] NULL,
+		[IsDeleted] [bit] NULL,
+		[CreatedByUser] [int] NULL,
+		[CreatedOnDate] [smalldatetime] NULL,
+		[ModifiedByUser] [int] NULL,
+		[ModifiedOnDate] [smalldatetime] NULL,
+	 CONSTRAINT [PK_RIW_PeopleContacts] PRIMARY KEY CLUSTERED 
+	(
+		[PersonContactId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_PeopleDocs]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_PeopleDocs](
+		[PersonDocId] [int] IDENTITY(1,1) NOT NULL,
+		[PersonId] [int] NOT NULL,
+		[DocName] [nvarchar](100) NULL,
+		[DocDesc] [nvarchar](500) NULL,
+		[DocUrl] [nvarchar](256) NULL,
+		[FileId] [int] NULL,
+		[CreatedByUser] [int] NOT NULL,
+		[CreatedOnDate] [smalldatetime] NOT NULL,
+	 CONSTRAINT [PK_RIW_PeopleDocs] PRIMARY KEY CLUSTERED 
+	(
+		[PersonDocId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_PeopleHistories]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_PeopleHistories](
+		[PersonHistoryId] [int] IDENTITY(1,1) NOT NULL,
+		[PersonId] [int] NULL,
+		[HistoryText] [nvarchar](max) NULL,
+		[Locked] [bit] NULL,
+		[CreatedByUser] [int] NULL,
+		[CreatedOnDate] [smalldatetime] NULL,
+	 CONSTRAINT [PK_RIW_PeopleHistories] PRIMARY KEY CLUSTERED 
+	(
+		[PersonHistoryId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_PeopleHistoryComments]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_PeopleHistoryComments](
+		[CommentId] [int] IDENTITY(1,1) NOT NULL,
+		[PersonHistoryId] [int] NOT NULL,
+		[CommentText] [nvarchar](500) NULL,
+		[CreatedByUser] [int] NULL,
+		[CreatedOnDate] [datetime] NULL,
+	 CONSTRAINT [PK_RIW_PeopleHistoryComments] PRIMARY KEY CLUSTERED 
+	(
+		[CommentId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_PeopleIndustries]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_PeopleIndustries](
+		[PersonIndustryId] [int] IDENTITY(1,1) NOT NULL,
+		[PersonId] [int] NOT NULL,
+		[IndustryId] [int] NOT NULL,
+	 CONSTRAINT [PK_RIW_PeopleIndustries] PRIMARY KEY NONCLUSTERED 
+	(
+		[PersonIndustryId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_ClientBankRefs]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_ClientBankRefs](
+		[ClientBankRefId] [int] IDENTITY(1,1) NOT NULL,
+		[PersonId] [int] NOT NULL,
+		[BankRef] [nvarchar](50) NULL,
+		[BankRefAgency] [varchar](10) NULL,
+		[BankRefAccount] [varchar](20) NULL,
+		[BankRefClientSince] [smalldatetime] NULL,
+		[BankRefContact] [nvarchar](100) NULL,
+		[BankRefPhone] [varchar](20) NULL,
+		[BankRefAccountType] [nvarchar](20) NULL,
+		[BankRefCredit] [money] NULL,
+	 CONSTRAINT [PK_RIW_ClientBankRefs] PRIMARY KEY CLUSTERED 
+	(
+		[ClientBankRefId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_ClientCommRefs]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_ClientCommRefs](
+		[ClientCommRefId] [int] IDENTITY(1,1) NOT NULL,
+		[PersonId] [int] NOT NULL,
+		[CommRefBusiness] [nvarchar](100) NULL,
+		[CommRefContact] [nvarchar](50) NULL,
+		[CommRefPhone] [varchar](20) NULL,
+		[CommRefLastActivity] [smalldatetime] NULL,
+		[CommRefCredit] [money] NULL,
+	 CONSTRAINT [PK_RIW_ClientCommRefs] PRIMARY KEY CLUSTERED 
+	(
+		[ClientCommRefId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_ClientIncomeSources]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_ClientIncomeSources](
+		[ClientIncomeSourceId] [int] IDENTITY(1,1) NOT NULL,
+		[PersonId] [int] NOT NULL,
+		[ISName] [nvarchar](100) NULL,
+		[ISEIN] [varchar](20) NULL,
+		[ISST] [varchar](20) NULL,
+		[ISCT] [varchar](20) NULL,
+		[ISPhone] [varchar](20) NULL,
+		[ISFax] [varchar](20) NULL,
+		[ISIncome] [money] NULL,
+		[ISPostalCode] [varchar](10) NULL,
+		[ISAddress] [nvarchar](100) NULL,
+		[ISAddressUnit] [varchar](10) NULL,
+		[ISComplement] [nvarchar](100) NULL,
+		[ISDistrict] [nvarchar](50) NULL,
+		[ISRegion] [nvarchar](50) NULL,
+		[ISCity] [nvarchar](50) NULL,
+		[ISProof] [bit] NULL,
+	 CONSTRAINT [PK_RIW_ClientIncomeSources] PRIMARY KEY CLUSTERED 
+	(
+		[ClientIncomeSourceId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_ClientPartnerBankRefs]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_ClientPartnerBankRefs](
+		[ClientPartnerBankRefId] [int] IDENTITY(1,1) NOT NULL,
+		[PersonId] [int] NOT NULL,
+		[PartnerName] [nvarchar](100) NULL,
+		[BankRef] [nvarchar](50) NULL,
+		[BankRefAgency] [varchar](10) NULL,
+		[BankRefAccount] [varchar](20) NULL,
+		[BankRefClientSince] [smalldatetime] NULL,
+		[BankRefContact] [nvarchar](100) NULL,
+		[BankRefPhone] [varchar](20) NULL,
+		[BankRefAccountType] [nvarchar](20) NULL,
+		[BankRefCredit] [money] NULL,
+	 CONSTRAINT [PK_RIW_ClientPartnerBankRefs] PRIMARY KEY CLUSTERED 
+	(
+		[ClientPartnerBankRefId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_ClientPartners]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_ClientPartners](
+		[ClientPartnerId] [int] IDENTITY(1,1) NOT NULL,
+		[PersonId] [int] NOT NULL,
+		[PartnerName] [nvarchar](100) NULL,
+		[PartnerCPF] [varchar](20) NULL,
+		[PartnerIdentity] [varchar](20) NULL,
+		[PartnerPhone] [varchar](20) NULL,
+		[PartnerCell] [varchar](20) NULL,
+		[PartnerEmail] [varchar](100) NULL,
+		[PartnerQuota] [float] NULL,
+		[PartnerPostalCode] [varchar](10) NULL,
+		[PartnerAddress] [nvarchar](100) NULL,
+		[PartnerAddressUnit] [varchar](10) NULL,
+		[PartnerComplement] [nvarchar](100) NULL,
+		[PartnerDistrict] [nvarchar](50) NULL,
+		[PartnerRegion] [nvarchar](50) NULL,
+		[PartnerCity] [nvarchar](50) NULL,
+		[PartnerCountry] [nvarchar](50) NULL,
+	 CONSTRAINT [PK_RIW_ClientPartners] PRIMARY KEY CLUSTERED 
+	(
+		[ClientPartnerId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_ClientPersonalRefs]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_ClientPersonalRefs](
+		[ClientPersonalRefId] [int] IDENTITY(1,1) NOT NULL,
+		[PersonId] [int] NOT NULL,
+		[PRName] [nvarchar](100) NULL,
+		[PRPhone] [varchar](20) NULL,
+		[PREmail] [varchar](100) NULL,
+	 CONSTRAINT [PK_RIW_ClientPersonalRefs] PRIMARY KEY CLUSTERED 
+	(
+		[ClientPersonalRefId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+
+/** Drop Stored Procedures **/
+
+
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_PeopleDocs_GetList]    Script Date: 12/05/2013 11:26:05 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_PeopleDocs_GetList]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_PeopleDocs_GetList]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Person_Get]    Script Date: 12/05/2013 11:26:05 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_Person_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_Person_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Person_Histories_GetList]    Script Date: 12/05/2013 11:26:05 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_Person_Histories_GetList]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_Person_Histories_GetList]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Person_HistoryComments_GetList]    Script Date: 12/05/2013 11:26:05 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_Person_HistoryComments_GetList]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_Person_HistoryComments_GetList]
+GO
+
+/****** Object:  UserDefinedFunction {databaseOwner}[{objectQualifier}RIW_fn_GetProfilePropertyValue]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIW_fn_GetProfilePropertyValue]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+DROP FUNCTION {databaseOwner}[{objectQualifier}RIW_fn_GetProfilePropertyValue]
+GO
+
+/****** Object:  UserDefinedFunction {databaseOwner}[{objectQualifier}RIW_fn_udf_TitleCase]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIW_fn_udf_TitleCase]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+DROP FUNCTION {databaseOwner}[{objectQualifier}RIW_fn_udf_TitleCase]
+GO
+
+/****** Object:  UserDefinedFunction {databaseOwner}[{objectQualifier}RIW_FV]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIW_FV]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+DROP FUNCTION {databaseOwner}[{objectQualifier}RIW_FV]
+GO
+
+/****** Object:  UserDefinedFunction {databaseOwner}[{objectQualifier}RIW_IPMT]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIW_IPMT]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+DROP FUNCTION {databaseOwner}[{objectQualifier}RIW_IPMT]
+GO
+
+/****** Object:  UserDefinedFunction {databaseOwner}[{objectQualifier}RIW_PMT]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIW_PMT]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+DROP FUNCTION {databaseOwner}[{objectQualifier}RIW_PMT]
+GO
+
+/****** Object:  UserDefinedFunction {databaseOwner}[{objectQualifier}RIW_PPMT]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIW_PPMT]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+DROP FUNCTION {databaseOwner}[{objectQualifier}RIW_PPMT]
+GO
+
+/****** Object:  Assembly FinancialFunctions Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.assemblies asms WHERE asms.name = N'FinancialFunctions' and is_user_defined = 1)
+DROP ASSEMBLY [FinancialFunctions]
+GO
+
+
+
+/** Create Stored Procedures **/
+
+
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_People_GetList]    Script Date: 01/15/2013 12:16:42 ******/
+
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}RIW_People_GetList] (
+
+	@PortalId int
+	,@PersonId int
+	,@SalesRep int
+	,@IsDeleted char(5)
+	,@SearchString nvarchar(50)
+	,@StatusId int
+	,@RegistrionType char(1)
+	,@StartingDate datetime
+	,@EndingDate datetime
+	,@FilterDate char(1)
+	,@PageIndex int
+	,@PageSize int
+	,@SortCol nvarchar(20)
+)
+
+AS
+
+SELECT TOP(@PageSize) * 
+FROM (SELECT RowID=Row_number() OVER (ORDER BY 
+	CASE WHEN @SortCol = 'PersonId ASC' THEN P.[PersonId] END ASC
+	,CASE WHEN @SortCol = 'PersonId DESC' THEN P.[PersonId] END DESC 
+	,CASE WHEN @SortCol = 'FirstName ASC' THEN dbo.RIW_fn_udf_TitleCase(P.[FirstName]) END ASC
+	,CASE WHEN @SortCol = 'FirstName DESC' THEN dbo.RIW_fn_udf_TitleCase(P.[FirstName]) END DESC 
+	,CASE WHEN @SortCol = 'LastName ASC' THEN dbo.RIW_fn_udf_TitleCase(P.[LastName]) END ASC
+	,CASE WHEN @SortCol = 'LastName DESC' THEN dbo.RIW_fn_udf_TitleCase(P.[LastName]) END DESC
+	,CASE WHEN @SortCol = 'CompanyName ASC' THEN dbo.RIW_fn_udf_TitleCase(P.[CompanyName]) END ASC
+	,CASE WHEN @SortCol = 'CompanyName DESC' THEN dbo.RIW_fn_udf_TitleCase(P.[CompanyName]) END DESC
+	,CASE WHEN @SortCol = 'StatusTitle ASC' THEN ST.[StatusTitle] END ASC
+	,CASE WHEN @SortCol = 'StatusTitle DESC' THEN ST.[StatusTitle] END DESC
+	,CASE WHEN @SortCol = 'UserId ASC' THEN (CASE WHEN P.[UserId] > 0 THEN 'True' ELSE 'False' END) END ASC
+	,CASE WHEN @SortCol = 'UserId DESC' THEN (CASE WHEN P.[UserId] > 0 THEN 'True' ELSE 'False' END) END DESC
+	,CASE WHEN @SortCol = 'ModifiedOnDate ASC' THEN P.[ModifiedOnDate] END ASC
+	,CASE WHEN @SortCol = 'ModifiedOnDate DESC' THEN P.[ModifiedOnDate] END DESC
+	)
+	,P.[PersonId]
+	,P.[UserId]
+	,'HasLogin' = (CASE WHEN P.[UserId] > 0 THEN 'true' ELSE 'false' END)
+	,'CompanyName' = dbo.RIW_fn_udf_TitleCase(P.[CompanyName])
+	,'FirstName' = dbo.RIW_fn_udf_TitleCase(P.[FirstName])
+	,'LastName' = dbo.RIW_fn_udf_TitleCase(P.[LastName])
+	,'DisplayName' = P.[DisplayName] --  CASE WHEN P.[CompanyName] <> '' THEN dbo.RIW_fn_udf_TitleCase(P.[CompanyName]) ELSE dbo.RIW_fn_udf_TitleCase(P.[FirstName]) + ' ' + dbo.RIW_fn_udf_TitleCase(P.[LastName]) END
+	,'Telephone' = CASE WHEN NOT P.[Telephone] = '' THEN '(' + SUBSTRING(P.[Telephone],1,2) + ') ' + SUBSTRING(P.[Telephone],3,4) + '-' + SUBSTRING(P.[Telephone],7,4) ELSE '' END
+	,'Cell' = CASE WHEN NOT P.[Cell] = '' THEN '(' + SUBSTRING(P.[Cell],1,2) + ') ' + SUBSTRING(P.[Cell],3,4) + '-' + SUBSTRING(P.[Cell],7,4) ELSE '' END
+	,'Fax' = CASE WHEN NOT P.[Fax] = '' THEN '(' + SUBSTRING(P.[Fax],1,2) + ') ' + SUBSTRING(P.[Fax],3,4) + '-' + SUBSTRING(P.[Fax],7,4) ELSE '' END
+	,'Zero800s' = CASE WHEN NOT P.[Zero800s] = '' THEN '(' + SUBSTRING(P.[Zero800s],1,2) + ') ' + SUBSTRING(P.[Zero800s],4,4) + '-' + SUBSTRING(P.[Zero800s],7,4) ELSE '' END
+	,P.[Email]
+	,P.[EIN]
+	,P.[CPF]
+	,P.[SalesRep]
+	,P.[IsDeleted]
+	,P.[ModifiedOnDate]
+	,P.[GroupIds]
+	,P.[RegisterTypes]
+	,P.[OldId]
+	,ST.[StatusId]
+	,ST.[StatusTitle]
+	,'Street' = ( SELECT TOP 1 CA.[Street] FROM {databaseOwner}[{objectQualifier}RIW_PeopleAddresses] CA WHERE CA.[PersonId] = P.[PersonId] ORDER BY CA.[ViewOrder] )
+	,'Unit' = ( SELECT TOP 1 CA.[Unit] FROM {databaseOwner}[{objectQualifier}RIW_PeopleAddresses] CA WHERE CA.[PersonId] = P.[PersonId] ORDER BY CA.[ViewOrder] )
+	,'Complement' = ( SELECT TOP 1 CA.[Complement] FROM {databaseOwner}[{objectQualifier}RIW_PeopleAddresses] CA WHERE CA.[PersonId] = P.[PersonId] ORDER BY CA.[ViewOrder] )
+	,'District' = ( SELECT TOP 1 CA.[District] FROM {databaseOwner}[{objectQualifier}RIW_PeopleAddresses] CA WHERE CA.[PersonId] = P.[PersonId] ORDER BY CA.[ViewOrder] )
+	,'City' = ( SELECT TOP 1 CA.[City] FROM {databaseOwner}[{objectQualifier}RIW_PeopleAddresses] CA WHERE CA.[PersonId] = P.[PersonId] ORDER BY CA.[ViewOrder] )
+	,'Region' = ( SELECT TOP 1 CA.[Region] FROM {databaseOwner}[{objectQualifier}RIW_PeopleAddresses] CA WHERE CA.[PersonId] = P.[PersonId] ORDER BY CA.[ViewOrder] )
+	,'PostalCode' = ( SELECT TOP 1 CA.[PostalCode] FROM {databaseOwner}[{objectQualifier}RIW_PeopleAddresses] CA WHERE CA.[PersonId] = P.[PersonId] ORDER BY CA.[ViewOrder] )
+	,'Locked' = (CASE WHEN (SELECT TOP 1 [PersonId] FROM {databaseOwner}[{objectQualifier}RIW_Estimates] WHERE [PersonId] = P.[PersonId]) > 0 THEN 'true' ELSE 'false' END)
+	,'Activities' = ( STUFF( ( SELECT ', ' + I.[IndustryTitle] FROM {databaseOwner}[{objectQualifier}RIW_Industries] I INNER JOIN {databaseOwner}[{objectQualifier}RIW_PeopleIndustries] CI ON CI.[IndustryId] = I.[IndustryId] WHERE CI.[PersonId] = P.[PersonId] FOR XML PATH('') ), 1, 2, '' ) )
+	,'SalesRepName' = SU.[DisplayName]
+	,'SalesRepEmail' = SU.[Email]
+	,'SalesRepPhone' = dbo.RIW_fn_GetProfilePropertyValue(SU.[UserId],'Telephone')
+	,TotalRows = Count(*) OVER()
+	FROM	{databaseOwner}[{objectQualifier}RIW_People] P
+	LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIW_Statuses] ST on P.[StatusId] = ST.[StatusId]
+	LEFT OUTER JOIN {databaseOwner}[{objectQualifier}Users] SU ON P.[SalesRep] = SU.[UserId]
+	WHERE	(((@PortalId IS NULL) OR (P.[PortalId] = @PortalId))
+	AND		((@SalesRep IS NULL) OR (P.[SalesRep] = @SalesRep))
+	AND		((@IsDeleted = '') OR (P.[IsDeleted] = @IsDeleted))
+	AND		((@RegistrionType = '') OR (P.[RegisterTypes] LIKE '%' + @RegistrionType + '%'))
+	AND		((@PersonId IS NULL) OR (P.[PersonId] = @PersonId))
+	AND		((@SearchString IS NULL)
+		OR (P.[FirstName] LIKE '%' + @SearchString + '%') 
+		OR	(P.[LastName] LIKE '%' + @SearchString + '%')
+		OR	(P.[CompanyName] LIKE '%' + @SearchString + '%')
+		OR	(P.[Email] LIKE '%' + @SearchString + '%')
+		OR	(P.[Telephone] LIKE '%' + @SearchString + '%')
+		OR	(P.[CPF] LIKE '%' + @SearchString + '%')
+		OR	(P.[Ident] LIKE '%' + @SearchString + '%')
+		OR	(P.[EIN] LIKE '%' + @SearchString + '%')))
+	AND		((@StatusId IS NULL) OR (P.StatusId = @StatusId))
+	AND		((@StartingDate IS NULL) OR
+			(@FilterDate = '1' AND (P.[CreatedOnDate] BETWEEN @StartingDate AND ( CASE WHEN NOT @EndingDate IS NULL THEN DATEADD(DAY,1,@EndingDate) ELSE DATEADD(DAY,1,GETDATE()) END ))) OR
+			(@FilterDate = '2' AND (P.[ModifiedOnDate] BETWEEN @StartingDate AND ( CASE WHEN NOT @EndingDate IS NULL THEN DATEADD(DAY,1,@EndingDate) ELSE DATEADD(DAY,1,GETDATE()) END ))))) A 
+WHERE	A.RowID > ( ( @PageIndex - 1 ) * @PageSize )
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Client_Docs_Get]    Script Date: 01/15/2013 12:16:42 ******/
+
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}RIW_PeopleDocs_GetList] (
+
+	@PersonId int
+
+)
+AS
+SELECT	D.[PersonDocId]
+		,D.[PersonId]
+		,D.[DocName]
+		,D.[DocDesc]
+		,D.[DocUrl]
+		,D.[FileId]
+		,F.[FileName]
+		,F.[ContentType]
+		,F.[Extension]
+		,D.[CreatedByUser]
+		,D.[CreatedOnDate]
+
+FROM {databaseOwner}[{objectQualifier}RIW_PeopleDocs] D
+LEFT OUTER JOIN {databaseOwner}[{objectQualifier}Files] F ON F.FileId = D.FileId
+WHERE D.[PersonId] = @PersonId
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Person_Get]    Script Date: 01/15/2013 12:16:42 ******/
+
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}RIW_Person_Get] (
+
+	@PersonId int
+	,@PortalId int
+	,@UserId int
+
+)
+AS
+
+SELECT	C.[PersonId]
+		,C.[UserId]
+		,C.[PersonType]
+		,C.[CompanyName]
+		,'FirstName' = dbo.RIW_fn_udf_TitleCase(C.[FirstName])
+		,'LastName' = dbo.RIW_fn_udf_TitleCase(C.[LastName])
+		,'DisplayName' = C.[DisplayName] -- CASE WHEN C.[CompanyName] <> '' THEN dbo.RIW_fn_udf_TitleCase(C.[CompanyName]) ELSE dbo.RIW_fn_udf_TitleCase(C.[FirstName]) + ' ' + dbo.RIW_fn_udf_TitleCase(C.[LastName]) END
+		--,'Telephone' = CASE WHEN NOT C.[Telephone] = '' THEN '(' + SUBSTRING(C.[Telephone],1,2) + ') ' + SUBSTRING(C.[Telephone],3,4) + '-' + SUBSTRING(C.[Telephone],7,4) ELSE '' END
+		--,'Cell' = CASE WHEN NOT C.[Cell] = '' THEN '(' + SUBSTRING(C.[Cell],1,2) + ') ' + SUBSTRING(C.[Cell],3,4) + '-' + SUBSTRING(C.[Cell],7,4) ELSE '' END
+		--,'Fax' = CASE WHEN NOT C.[Fax] = '' THEN '(' + SUBSTRING(C.[Fax],1,2) + ') ' + SUBSTRING(C.[Fax],3,4) + '-' + SUBSTRING(C.[Fax],7,4) ELSE '' END
+		--,'Zero800s' = CASE WHEN NOT C.[Zero800s] = '' THEN '(' + SUBSTRING(C.[Zero800s],1,2) + ') ' + SUBSTRING(C.[Zero800s],3,4) + '-' + SUBSTRING(C.[Zero800s],7,4) ELSE '' END
+		,C.[Telephone]
+		,C.[Cell]
+		,C.[Fax]
+		,C.[Zero800s]
+		,C.[StatusId]
+		,C.[DateFounded]
+		,C.[DateRegistered]
+		,C.[Zero800s]
+		,C.[Email]
+		,C.[EIN]
+		,C.[CPF]
+		,C.[Ident]
+		,C.[StateTax]
+		,C.[CityTax]
+		,C.[Website]
+		,C.[RegisterTypes]
+		,C.[HasECF]
+		,C.[ECFRequired]
+		,C.[Networked]
+		,C.[PayMethods]
+		,C.[PayPlans]
+		,C.[CreditLimit]
+		,C.[PreDiscount]
+		,C.[Protested]
+		,C.[Comments]
+		,C.[Scheduled]
+		,C.[Sent]
+		,C.[IsDeleted]
+		,C.[PersonAddressId]
+		,C.[MonthlyIncome]
+		,C.[SalesRep]
+		,C.[GroupIds]
+		,C.[CreatedByUser]
+		,C.[CreatedOnDate]
+		,C.[ModifiedByUser]
+		,C.[ModifiedOnDate]
+		,C.[OldId]
+		,'Street' = ( SELECT TOP 1 CA.[Street] FROM {databaseOwner}[{objectQualifier}RIW_PeopleAddresses] CA WHERE CA.[PersonId] = C.[PersonId] ORDER BY CA.[ViewOrder] )
+		,'Unit' = ( SELECT TOP 1 CA.[Unit] FROM {databaseOwner}[{objectQualifier}RIW_PeopleAddresses] CA WHERE CA.[PersonId] = C.[PersonId] ORDER BY CA.[ViewOrder] )
+		,'Complement' = ( SELECT TOP 1 CA.[Complement] FROM {databaseOwner}[{objectQualifier}RIW_PeopleAddresses] CA WHERE CA.[PersonId] = C.[PersonId] ORDER BY CA.[ViewOrder] )
+		,'District' = ( SELECT TOP 1 CA.[District] FROM {databaseOwner}[{objectQualifier}RIW_PeopleAddresses] CA WHERE CA.[PersonId] = C.[PersonId] ORDER BY CA.[ViewOrder] )
+		,'City' = ( SELECT TOP 1 CA.[City] FROM {databaseOwner}[{objectQualifier}RIW_PeopleAddresses] CA WHERE CA.[PersonId] = C.[PersonId] ORDER BY CA.[ViewOrder] )
+		,'Region' = ( SELECT TOP 1 CA.[Region] FROM {databaseOwner}[{objectQualifier}RIW_PeopleAddresses] CA WHERE CA.[PersonId] = C.[PersonId] ORDER BY CA.[ViewOrder] )
+		,'PostalCode' = ( SELECT TOP 1 CA.[PostalCode] FROM {databaseOwner}[{objectQualifier}RIW_PeopleAddresses] CA WHERE CA.[PersonId] = C.[PersonId] ORDER BY CA.[ViewOrder] )
+		--,'Telephone' = ( SELECT TOP 1 CA.[Telephone] FROM {databaseOwner}[{objectQualifier}RIW_PeopleAddresses] CA WHERE CA.[PersonId] = C.[PersonId] ORDER BY CA.[ViewOrder] )
+		--,'Cell' = ( SELECT TOP 1 CA.[Cell] FROM {databaseOwner}[{objectQualifier}RIW_PeopleAddresses] CA WHERE CA.[PersonId] = C.[PersonId] ORDER BY CA.[ViewOrder] )
+		--,'Fax' = ( SELECT TOP 1 CA.[Fax] FROM {databaseOwner}[{objectQualifier}RIW_PeopleAddresses] CA WHERE CA.[PersonId] = C.[PersonId] ORDER BY CA.[ViewOrder] )
+		,'Locked' = (CASE WHEN (SELECT TOP 1 PersonId FROM {databaseOwner}[{objectQualifier}RIW_Estimates] WHERE PersonId = C.PersonId) > 0 THEN 'true' ELSE 'false' END)
+		,'SalesRepName' = SU.DisplayName
+		,'SalesRepEmail' = SU.Email
+		,'SalesRepPhone' = dbo.RIW_fn_GetProfilePropertyValue(SU.UserId,'Telephone')
+		,'Biography' = dbo.RIW_fn_GetProfilePropertyValue(U.UserId,'Biography')
+		,'Activities' = ( STUFF( ( SELECT ', ' + I.[IndustryTitle] FROM {databaseOwner}[{objectQualifier}RIW_Industries] I INNER JOIN {databaseOwner}[{objectQualifier}RIW_PeopleIndustries] CI ON CI.[IndustryId] = I.[IndustryId] WHERE CI.[PersonId] = C.[PersonId] FOR XML PATH('') ), 1, 2, '' ) )
+FROM {databaseOwner}[{objectQualifier}RIW_People] C
+LEFT OUTER JOIN {databaseOwner}[{objectQualifier}Users] U ON C.UserId = U.UserId
+LEFT OUTER JOIN {databaseOwner}[{objectQualifier}Users] SU ON C.SalesRep = SU.UserId
+WHERE	(((@PortalId IS NULL) OR (C.[PortalId] = @PortalId))
+AND		((@PersonId IS NULL) OR (C.[PersonId] = @PersonId))
+AND		((@UserId IS NULL) OR (C.[UserId] = @UserId)))
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Person_Histories_Get]    Script Date: 01/15/2013 12:16:42 ******/
+
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}RIW_Person_Histories_GetList] (
+
+	@PersonId int
+
+)
+AS
+
+SELECT	PH.[PersonHistoryId]
+		,PH.[HistoryText]
+		,PH.[CreatedByUser]
+		,PH.[CreatedOnDate]
+		,PH.[Locked]
+		,U.[DisplayName]
+		,'Avatar' = F.[Folder] + F.[FileName]
+
+FROM {databaseOwner}[{objectQualifier}RIW_PeopleHistories] PH
+LEFT OUTER JOIN {databaseOwner}[{objectQualifier}Users] AS U ON PH.[CreatedByUser] = U.[UserID]
+LEFT OUTER JOIN {databaseOwner}[{objectQualifier}Files] AS F ON dbo.RIW_fn_GetProfilePropertyValue(U.[UserId],'Photo') = CONVERT(VARCHAR, F.[FileId])
+WHERE  PH.[PersonId] = @PersonId
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Person_HistoryComments_GetList]    Script Date: 01/15/2013 12:16:42 ******/
+
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}RIW_Person_HistoryComments_GetList] (
+
+	@PersonHistoryId int
+
+)
+AS
+
+SELECT	HC.[CommentId]
+		,HC.[PersonHistoryId]
+		,HC.[CommentText]
+		,HC.[CreatedByUser]
+		,HC.[CreatedOnDate]
+		,U.[DisplayName]
+		,'Avatar' = F.[Folder] + F.[FileName]
+
+FROM {databaseOwner}[{objectQualifier}RIW_PeopleHistoryComments] HC
+INNER JOIN {databaseOwner}[{objectQualifier}Users] AS U ON HC.[CreatedByUser] = U.[UserID]
+LEFT OUTER JOIN {databaseOwner}[{objectQualifier}Files] AS F ON dbo.RIW_fn_GetProfilePropertyValue(U.[UserId],'Photo') = CONVERT(VARCHAR, F.[FileId])
+--INNER JOIN (SELECT MAX([CreatedOnDate]) AS DATE FROM {databaseOwner}[{objectQualifier}RIW_EstimateMessageComments]) a ON MC.[CreatedOnDate] = a.date
+WHERE	((HC.[PersonHistoryId] = @PersonHistoryId))
+--AND		((@CreatedOnDate IS NULL) OR (DATEDIFF(SECOND,@CreatedOnDate,MC.[CreatedOnDate]) > -1)))
+ORDER BY HC.[CreatedOnDate] DESC
+GO
+
+/****** Object:  UserDefinedFunction {databaseOwner}[{objectQualifier}RIW_fn_udf_TitleCase]    Script Date: 01/15/2013 12:16:44 ******/
+
+CREATE FUNCTION {databaseOwner}[{objectQualifier}RIW_fn_udf_TitleCase] 
+(
+	@InputString VARCHAR(4000)
+) 
+RETURNS VARCHAR(4000) 
+AS 
+  BEGIN 
+      DECLARE @Index INT 
+      DECLARE @Char CHAR(1) 
+      DECLARE @OutputString VARCHAR(255) 
+
+      SET @OutputString = Lower(@InputString) 
+      SET @Index = 2 
+      SET @OutputString = Stuff(@OutputString, 1, 1, Upper( 
+                          Substring(@InputString, 1, 1))) 
+
+      WHILE @Index <= Len(@InputString) 
+        BEGIN 
+            SET @Char = Substring(@InputString, @Index, 1) 
+
+            IF @Char IN ( ' ', ';', ':', '!', 
+                          '?', ',', '.', '_', 
+                          '-', '/', '&', '''', '(' ) 
+              IF @Index + 1 <= Len(@InputString) 
+                BEGIN 
+                    IF @Char != '''' 
+                        OR Upper(Substring(@InputString, @Index + 1, 1)) != 'S' 
+                      SET @OutputString = Stuff(@OutputString, @Index + 1, 1, 
+                                          Upper( 
+                                          Substring(@InputString 
+                      , @Index + 1, 1) 
+                      ) 
+                      ) 
+                END 
+
+            SET @Index = @Index + 1 
+        END 
+
+      RETURN Isnull(@OutputString, '') 
+  END
+GO
+
+
+/****** Object:  UserDefinedFunction {databaseOwner}[{objectQualifier}RIW_fn_GetProfilePropertyValue]    Script Date: 01/15/2013 12:16:44 ******/
+
+CREATE FUNCTION {databaseOwner}[{objectQualifier}RIW_fn_GetProfilePropertyValue] 
+( 
+	@UserId as Int, 
+	@ProfilePropertyName AS NVARCHAR(100) 
+) 
+RETURNS NVARCHAR(4000) 
+AS 
+BEGIN 
+
+DECLARE @PPValue NVARCHAR(4000) 
+
+-- If input is invalid, return null. 
+IF @UserId IS NULL 
+OR LEN(@UserId) = 0 
+OR @ProfilePropertyName IS NULL 
+OR LEN(@ProfilePropertyName) = 0 
+
+RETURN NULL 
+
+
+SELECT @PPValue = UserProfile.PropertyValue 
+FROM 
+ProfilePropertyDefinition INNER JOIN 
+UserProfile ON ProfilePropertyDefinition.PropertyDefinitionId = UserProfile.PropertyDefinitionId 
+WHERE (ProfilePropertyDefinition.PropertyName = @ProfilePropertyName) AND (UserProfile.UserId = @UserId) 
+
+Return @PPValue 
+END
+GO
+
+-- First
+sp_configure 'clr enabled', 1
+RECONFIGURE WITH OVERRIdE
+GO
+
+-- Second
+CREATE ASSEMBLY FinancialFunctions
+FROM 'J:\FinancialFunctions.dll'
+GO
+
+-- Third
+CREATE Function {databaseOwner}{objectQualifier}RIW_PMT(@r FLOAT, @nper INT, @pv FLOAT, @fv FLOAT, @type INT) 
+RETURNS FLOAT EXTERNAL NAME FinancialFunctions.FinancialFunctions.PMT
+GO 
+
+CREATE Function {databaseOwner}{objectQualifier}RIW_FV(@r FLOAT, @nper INT, @c FLOAT, @pv FLOAT, @type INT) 
+RETURNS FLOAT EXTERNAL NAME FinancialFunctions.FinancialFunctions.FV
+GO 
+
+CREATE Function {databaseOwner}{objectQualifier}RIW_IPMT(@r FLOAT, @per INT, @nper INT, @pv FLOAT, @fv FLOAT, @type INT) 
+RETURNS FLOAT EXTERNAL NAME FinancialFunctions.FinancialFunctions.IPMT
+GO 
+
+CREATE Function {databaseOwner}{objectQualifier}RIW_PPMT(@r FLOAT, @per INT, @nper INT, @pv FLOAT, @fv FLOAT, @type INT) 
+RETURNS FLOAT EXTERNAL NAME FinancialFunctions.FinancialFunctions.PPMT
+GO 
+
+/************************************************************/
+/*****              SqlDataProvider                     *****/
+/************************************************************/

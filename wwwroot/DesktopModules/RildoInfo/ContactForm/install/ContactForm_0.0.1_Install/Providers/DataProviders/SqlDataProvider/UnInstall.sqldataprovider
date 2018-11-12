@@ -1,0 +1,14 @@
+﻿
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_Catalogs]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIW_Catalogs]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Catalogs_Get]    Script Date: 11/21/2013 07:59:24 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_Catalogs_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_Catalogs_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Catalogs_GetList]    Script Date: 11/21/2013 07:59:24 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_Catalogs_GetList]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_Catalogs_GetList]
+GO

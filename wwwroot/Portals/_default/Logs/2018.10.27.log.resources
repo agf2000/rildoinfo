@@ -1,0 +1,272 @@
+2018-10-27 18:19:12,502 [WINDOWS-O83ISME][Thread:19][ERROR] RIW.Modules.WebAPI.ReportsController - System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keyword 'AS'.
+Incorrect syntax near ','.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(SqlConnection connection, SqlTransaction transaction, CommandType commandType, String commandText, SqlParameter[] commandParameters, SqlConnectionOwnership connectionOwnership)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(String connectionString, CommandType commandType, String commandText)
+   at RIW.Modules.WebAPI.SqlDataProvider.RunReport(String sql) in D:\Projects\RILDOINFO\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Providers\DataProviders\SqlDataProvider\SqlDataProvider.vb:line 515
+   at RIW.Modules.WebAPI.Components.Repositories.ReportsRepository.RunReport(String sql) in D:\Projects\RILDOINFO\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Repositories\ReportsRepository.vb:line 67
+   at RIW.Modules.WebAPI.ReportsController.RunReport(Int32 reportId, String date1, String date2, String dateField, Int32 detailId, Int32 portalId, String personId, String productId, String statusIds, String salesRepId, String registerType, String credit, String done) in D:\Projects\RILDOINFO\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Controllers\ReportsController.vb:line 105
+ClientConnectionId:4b6f97c1-b985-4e4c-b6ce-05076eddb126
+Error Number:156,State:1,Class:15
+2018-10-27 18:19:56,845 [WINDOWS-O83ISME][Thread:6][ERROR] RIW.Modules.WebAPI.ReportsController - System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keyword 'AS'.
+Incorrect syntax near ','.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(SqlConnection connection, SqlTransaction transaction, CommandType commandType, String commandText, SqlParameter[] commandParameters, SqlConnectionOwnership connectionOwnership)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(String connectionString, CommandType commandType, String commandText)
+   at RIW.Modules.WebAPI.SqlDataProvider.RunReport(String sql) in D:\Projects\RILDOINFO\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Providers\DataProviders\SqlDataProvider\SqlDataProvider.vb:line 515
+   at RIW.Modules.WebAPI.Components.Repositories.ReportsRepository.RunReport(String sql) in D:\Projects\RILDOINFO\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Repositories\ReportsRepository.vb:line 67
+   at RIW.Modules.WebAPI.ReportsController.RunReport(Int32 reportId, String date1, String date2, String dateField, Int32 detailId, Int32 portalId, String personId, String productId, String statusIds, String salesRepId, String registerType, String credit, String done) in D:\Projects\RILDOINFO\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Controllers\ReportsController.vb:line 105
+ClientConnectionId:4b6f97c1-b985-4e4c-b6ce-05076eddb126
+Error Number:156,State:1,Class:15
+2018-10-27 18:20:51,210 [WINDOWS-O83ISME][Thread:16][ERROR] RIW.Modules.WebAPI.ReportsController - System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keyword 'AS'.
+Incorrect syntax near ','.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(SqlConnection connection, SqlTransaction transaction, CommandType commandType, String commandText, SqlParameter[] commandParameters, SqlConnectionOwnership connectionOwnership)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(String connectionString, CommandType commandType, String commandText)
+   at RIW.Modules.WebAPI.SqlDataProvider.RunReport(String sql) in D:\Projects\RILDOINFO\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Providers\DataProviders\SqlDataProvider\SqlDataProvider.vb:line 515
+   at RIW.Modules.WebAPI.Components.Repositories.ReportsRepository.RunReport(String sql) in D:\Projects\RILDOINFO\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Repositories\ReportsRepository.vb:line 67
+   at RIW.Modules.WebAPI.ReportsController.RunReport(Int32 reportId, String date1, String date2, String dateField, Int32 detailId, Int32 portalId, String personId, String productId, String statusIds, String salesRepId, String registerType, String credit, String done) in D:\Projects\RILDOINFO\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Controllers\ReportsController.vb:line 105
+ClientConnectionId:4b6f97c1-b985-4e4c-b6ce-05076eddb126
+Error Number:156,State:1,Class:15
+2018-10-27 18:35:47,745 [WINDOWS-O83ISME][Thread:84][ERROR] RIW.Modules.WebAPI.ReportsController - System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keyword 'AS'.
+Incorrect syntax near ','.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(SqlConnection connection, SqlTransaction transaction, CommandType commandType, String commandText, SqlParameter[] commandParameters, SqlConnectionOwnership connectionOwnership)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(String connectionString, CommandType commandType, String commandText)
+   at RIW.Modules.WebAPI.SqlDataProvider.RunReport(String sql) in D:\Projects\RILDOINFO\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Providers\DataProviders\SqlDataProvider\SqlDataProvider.vb:line 515
+   at RIW.Modules.WebAPI.Components.Repositories.ReportsRepository.RunReport(String sql) in D:\Projects\RILDOINFO\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Repositories\ReportsRepository.vb:line 67
+   at RIW.Modules.WebAPI.ReportsController.RunReport(Int32 reportId, String date1, String date2, String dateField, Int32 detailId, Int32 portalId, String personId, String productId, String statusIds, String salesRepId, String registerType, String credit, String done) in D:\Projects\RILDOINFO\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Controllers\ReportsController.vb:line 105
+ClientConnectionId:e5a85099-9a3a-4ea9-b2e8-c92c597b8bad
+Error Number:156,State:1,Class:15
+2018-10-27 18:37:57,624 [WINDOWS-O83ISME][Thread:70][ERROR] RIW.Modules.WebAPI.ReportsController - System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keyword 'AS'.
+Incorrect syntax near ','.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(SqlConnection connection, SqlTransaction transaction, CommandType commandType, String commandText, SqlParameter[] commandParameters, SqlConnectionOwnership connectionOwnership)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(String connectionString, CommandType commandType, String commandText)
+   at RIW.Modules.WebAPI.SqlDataProvider.RunReport(String sql) in D:\Projects\RILDOINFO\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Providers\DataProviders\SqlDataProvider\SqlDataProvider.vb:line 515
+   at RIW.Modules.WebAPI.Components.Repositories.ReportsRepository.RunReport(String sql) in D:\Projects\RILDOINFO\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Repositories\ReportsRepository.vb:line 67
+   at RIW.Modules.WebAPI.ReportsController.RunReport(Int32 reportId, String date1, String date2, String dateField, Int32 detailId, Int32 portalId, String personId, String productId, String statusIds, String salesRepId, String registerType, String credit, String done) in D:\Projects\RILDOINFO\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Controllers\ReportsController.vb:line 105
+ClientConnectionId:e5a85099-9a3a-4ea9-b2e8-c92c597b8bad
+Error Number:156,State:1,Class:15
+2018-10-27 18:59:44,296 [WINDOWS-O83ISME][Thread:59][ERROR] RIW.Modules.WebAPI.ReportsController - System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near 'DINHEIRO'.
+Unclosed quotation mark after the character string ' GROUP BY E.ESTIMATEID'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(SqlConnection connection, SqlTransaction transaction, CommandType commandType, String commandText, SqlParameter[] commandParameters, SqlConnectionOwnership connectionOwnership)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(String connectionString, CommandType commandType, String commandText)
+   at RIW.Modules.WebAPI.SqlDataProvider.RunReport(String sql) in D:\Projects\RILDOINFO\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Providers\DataProviders\SqlDataProvider\SqlDataProvider.vb:line 515
+   at RIW.Modules.WebAPI.Components.Repositories.ReportsRepository.RunReport(String sql) in D:\Projects\RILDOINFO\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Repositories\ReportsRepository.vb:line 67
+   at RIW.Modules.WebAPI.ReportsController.RunReport(Int32 reportId, String date1, String date2, String dateField, Int32 detailId, Int32 portalId, String personId, String productId, String statusIds, String salesRepId, String registerType, String credit, String done) in D:\Projects\RILDOINFO\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Controllers\ReportsController.vb:line 105
+ClientConnectionId:4336382a-0f1b-4a9a-913a-7a599b3d3267
+Error Number:102,State:1,Class:15
+2018-10-27 19:01:07,316 [WINDOWS-O83ISME][Thread:10][ERROR] RIW.Modules.WebAPI.ReportsController - System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near 'DINHEIRO'.
+Unclosed quotation mark after the character string ' GROUP BY E.ESTIMATEID'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(SqlConnection connection, SqlTransaction transaction, CommandType commandType, String commandText, SqlParameter[] commandParameters, SqlConnectionOwnership connectionOwnership)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(String connectionString, CommandType commandType, String commandText)
+   at RIW.Modules.WebAPI.SqlDataProvider.RunReport(String sql) in D:\Projects\RILDOINFO\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Providers\DataProviders\SqlDataProvider\SqlDataProvider.vb:line 515
+   at RIW.Modules.WebAPI.Components.Repositories.ReportsRepository.RunReport(String sql) in D:\Projects\RILDOINFO\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Repositories\ReportsRepository.vb:line 67
+   at RIW.Modules.WebAPI.ReportsController.RunReport(Int32 reportId, String date1, String date2, String dateField, Int32 detailId, Int32 portalId, String personId, String productId, String statusIds, String salesRepId, String registerType, String credit, String done) in D:\Projects\RILDOINFO\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Controllers\ReportsController.vb:line 105
+ClientConnectionId:4336382a-0f1b-4a9a-913a-7a599b3d3267
+Error Number:102,State:1,Class:15
+2018-10-27 19:04:18,068 [WINDOWS-O83ISME][Thread:15][ERROR] RIW.Modules.WebAPI.ReportsController - System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near 'DINHEIRO'.
+Unclosed quotation mark after the character string ' AND E.STATUSID IN (6, 10) GROUP BY E.ESTIMATEID'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(SqlConnection connection, SqlTransaction transaction, CommandType commandType, String commandText, SqlParameter[] commandParameters, SqlConnectionOwnership connectionOwnership)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(String connectionString, CommandType commandType, String commandText)
+   at RIW.Modules.WebAPI.SqlDataProvider.RunReport(String sql) in D:\Projects\RILDOINFO\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Providers\DataProviders\SqlDataProvider\SqlDataProvider.vb:line 515
+   at RIW.Modules.WebAPI.Components.Repositories.ReportsRepository.RunReport(String sql) in D:\Projects\RILDOINFO\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Repositories\ReportsRepository.vb:line 67
+   at RIW.Modules.WebAPI.ReportsController.RunReport(Int32 reportId, String date1, String date2, String dateField, Int32 detailId, Int32 portalId, String personId, String productId, String statusIds, String salesRepId, String registerType, String credit, String done) in D:\Projects\RILDOINFO\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Controllers\ReportsController.vb:line 105
+ClientConnectionId:6a9bd282-ee88-4c37-9394-936c13ef61fb
+Error Number:102,State:1,Class:15
+2018-10-27 19:06:24,286 [WINDOWS-O83ISME][Thread:24][ERROR] RIW.Modules.WebAPI.ReportsController - System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near 'DINHEIRO'.
+Unclosed quotation mark after the character string ' AND E.STATUSID IN (6, 10) GROUP BY E.ESTIMATEID'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(SqlConnection connection, SqlTransaction transaction, CommandType commandType, String commandText, SqlParameter[] commandParameters, SqlConnectionOwnership connectionOwnership)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(String connectionString, CommandType commandType, String commandText)
+   at RIW.Modules.WebAPI.SqlDataProvider.RunReport(String sql) in D:\Projects\RILDOINFO\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Providers\DataProviders\SqlDataProvider\SqlDataProvider.vb:line 515
+   at RIW.Modules.WebAPI.Components.Repositories.ReportsRepository.RunReport(String sql) in D:\Projects\RILDOINFO\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Repositories\ReportsRepository.vb:line 67
+   at RIW.Modules.WebAPI.ReportsController.RunReport(Int32 reportId, String date1, String date2, String dateField, Int32 detailId, Int32 portalId, String personId, String productId, String statusIds, String salesRepId, String registerType, String credit, String done) in D:\Projects\RILDOINFO\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Controllers\ReportsController.vb:line 105
+ClientConnectionId:7cbe1c08-9707-4dfa-891d-48f14002f9a9
+Error Number:102,State:1,Class:15
+2018-10-27 19:08:13,527 [WINDOWS-O83ISME][Thread:7][ERROR] RIW.Modules.WebAPI.ReportsController - System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near ')'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(SqlConnection connection, SqlTransaction transaction, CommandType commandType, String commandText, SqlParameter[] commandParameters, SqlConnectionOwnership connectionOwnership)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(String connectionString, CommandType commandType, String commandText)
+   at RIW.Modules.WebAPI.SqlDataProvider.RunReport(String sql) in D:\Projects\RILDOINFO\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Providers\DataProviders\SqlDataProvider\SqlDataProvider.vb:line 515
+   at RIW.Modules.WebAPI.Components.Repositories.ReportsRepository.RunReport(String sql) in D:\Projects\RILDOINFO\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Repositories\ReportsRepository.vb:line 67
+   at RIW.Modules.WebAPI.ReportsController.RunReport(Int32 reportId, String date1, String date2, String dateField, Int32 detailId, Int32 portalId, String personId, String productId, String statusIds, String salesRepId, String registerType, String credit, String done) in D:\Projects\RILDOINFO\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Controllers\ReportsController.vb:line 105
+ClientConnectionId:4c1ea21a-8425-4f3f-b2c4-4ee32daa878e
+Error Number:102,State:1,Class:15
+2018-10-27 19:24:56,792 [WINDOWS-O83ISME][Thread:49][ERROR] RIW.Modules.WebAPI.ReportsController - System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near 'DINHEIRO'.
+Unclosed quotation mark after the character string ' AND E.STATUSID IN (6, 10) GROUP BY E.ESTIMATEID'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(SqlConnection connection, SqlTransaction transaction, CommandType commandType, String commandText, SqlParameter[] commandParameters, SqlConnectionOwnership connectionOwnership)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(String connectionString, CommandType commandType, String commandText)
+   at RIW.Modules.WebAPI.SqlDataProvider.RunReport(String sql) in D:\Projects\RILDOINFO\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Providers\DataProviders\SqlDataProvider\SqlDataProvider.vb:line 515
+   at RIW.Modules.WebAPI.Components.Repositories.ReportsRepository.RunReport(String sql) in D:\Projects\RILDOINFO\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Repositories\ReportsRepository.vb:line 67
+   at RIW.Modules.WebAPI.ReportsController.RunReport(Int32 reportId, String date1, String date2, String dateField, Int32 detailId, Int32 portalId, String personId, String productId, String statusIds, String salesRepId, String registerType, String credit, String done) in D:\Projects\RILDOINFO\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Controllers\ReportsController.vb:line 105
+ClientConnectionId:dc19bf36-65d4-4339-b4d9-c46741fd57da
+Error Number:102,State:1,Class:15
+2018-10-27 19:26:04,446 [WINDOWS-O83ISME][Thread:14][ERROR] RIW.Modules.WebAPI.ReportsController - System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near 'DINHEIRO'.
+Unclosed quotation mark after the character string ' AND E.STATUSID IN (6, 10) GROUP BY E.ESTIMATEID'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(SqlConnection connection, SqlTransaction transaction, CommandType commandType, String commandText, SqlParameter[] commandParameters, SqlConnectionOwnership connectionOwnership)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(String connectionString, CommandType commandType, String commandText)
+   at RIW.Modules.WebAPI.SqlDataProvider.RunReport(String sql) in D:\Projects\RILDOINFO\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Providers\DataProviders\SqlDataProvider\SqlDataProvider.vb:line 515
+   at RIW.Modules.WebAPI.Components.Repositories.ReportsRepository.RunReport(String sql) in D:\Projects\RILDOINFO\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Repositories\ReportsRepository.vb:line 67
+   at RIW.Modules.WebAPI.ReportsController.RunReport(Int32 reportId, String date1, String date2, String dateField, Int32 detailId, Int32 portalId, String personId, String productId, String statusIds, String salesRepId, String registerType, String credit, String done) in D:\Projects\RILDOINFO\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Controllers\ReportsController.vb:line 105
+ClientConnectionId:dc19bf36-65d4-4339-b4d9-c46741fd57da
+Error Number:102,State:1,Class:15
+2018-10-27 19:26:43,217 [WINDOWS-O83ISME][Thread:47][ERROR] RIW.Modules.WebAPI.ReportsController - System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near 'DINHEIRO'.
+Unclosed quotation mark after the character string ' AND E.STATUSID IN (6, 10) GROUP BY E.ESTIMATEID'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(SqlConnection connection, SqlTransaction transaction, CommandType commandType, String commandText, SqlParameter[] commandParameters, SqlConnectionOwnership connectionOwnership)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(String connectionString, CommandType commandType, String commandText)
+   at RIW.Modules.WebAPI.SqlDataProvider.RunReport(String sql) in D:\Projects\RILDOINFO\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Providers\DataProviders\SqlDataProvider\SqlDataProvider.vb:line 515
+   at RIW.Modules.WebAPI.Components.Repositories.ReportsRepository.RunReport(String sql) in D:\Projects\RILDOINFO\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Repositories\ReportsRepository.vb:line 67
+   at RIW.Modules.WebAPI.ReportsController.RunReport(Int32 reportId, String date1, String date2, String dateField, Int32 detailId, Int32 portalId, String personId, String productId, String statusIds, String salesRepId, String registerType, String credit, String done) in D:\Projects\RILDOINFO\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Controllers\ReportsController.vb:line 105
+ClientConnectionId:dc19bf36-65d4-4339-b4d9-c46741fd57da
+Error Number:102,State:1,Class:15

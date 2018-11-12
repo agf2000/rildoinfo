@@ -1,0 +1,229 @@
+<dotnetnuke type="Package" version="5.0">
+  <packages>
+    <package name="RIW_Estimate" type="Module" version="00.00.01">
+      <friendlyName>RIW Estimate</friendlyName>
+      <description>AGF RIW Estimate module.</description>
+      <iconFile>DesktopModules/RildoInfo/Store/Content/Images/ri-logo.png</iconFile>
+      <owner>
+        <name>AGF</name>
+        <organization>AGF</organization>
+        <url>http://www.riw.com.br</url>
+        <email>suporte@riw.com.br</email>
+      </owner>
+      <license src="license.txt" />
+      <releaseNotes src="releasenotes.txt" />
+      <dependencies>
+        <dependency type="coreversion">07.00.02</dependency>
+      </dependencies>
+      <components>
+        <component type="Module">
+          <desktopModule>
+            <moduleName>RIW_Estimate</moduleName>
+            <foldername>Store</foldername>
+            <businessControllerClass />
+            <supportedFeatures />
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>RIW Estimate</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey />
+                    <controlSrc>DesktopModules/RildoInfo/Store/Views/Estimate.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>Options</controlKey>
+                    <controlSrc>DesktopModules/RildoInfo/Store/Views/Estimate_Options.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>RIW Estimate Options</controlTitle>
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                </moduleControls>
+                <permissions>
+                  <permission code="RIW_Estimate_VIEWPERMISSION" key="INSERTPERMISSION" name="Insert New Item" />
+                  <permission code="RIW_Estimate_VIEWPERMISSION" key="EDITPERMISSION" name="Edit Item" />
+                  <permission code="RIW_Estimate_VIEWPERMISSION" key="EXCLUDEPERMISSION" name="Exclude Item" />
+                </permissions>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+        </component>
+        <component type="ResourceFile">
+          <resourceFiles>
+            <basePath>DesktopModules\RildoInfo\Store</basePath>
+            <resourceFile>
+              <name>Resources.zip</name>
+            </resourceFile>
+          </resourceFiles>
+        </component>
+        <component type="Assembly">
+          <assemblies>
+            <assembly>
+              <name>RIW.Modules.Store.dll</name>
+              <path>bin</path>
+            </assembly>
+          </assemblies>
+        </component>
+      </components>
+    </package>
+    <package name="RIW_Categories" type="Module" version="00.00.01">
+      <friendlyName>RIW Categories</friendlyName>
+      <description>AGF RIW Categories module.</description>
+      <iconFile>DesktopModules/RildoInfo/Store/Content/Images/ri-logo.png</iconFile>
+      <owner>
+        <name>AGF</name>
+        <organization>AGF</organization>
+        <url>http://www.riw.com.br</url>
+        <email>suporte@riw.com.br</email>
+      </owner>
+      <license src="license.txt" />
+      <releaseNotes src="releasenotes.txt" />
+      <dependencies>
+        <dependency type="coreversion">07.00.02</dependency>
+      </dependencies>
+      <components>
+        <component type="Module">
+          <desktopModule>
+            <moduleName>RIW_Categories</moduleName>
+            <foldername>Store</foldername>
+            <businessControllerClass />
+            <supportedFeatures />
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>RIW Categories</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey />
+                    <controlSrc>DesktopModules/RildoInfo/Store/Views/Categories.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>Options</controlKey>
+                    <controlSrc>DesktopModules/RildoInfo/Store/Views/Categories_Options.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>RIW Categories Options</controlTitle>
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                </moduleControls>
+                <permissions>
+                  <permission code="RIW_Categories_VIEWPERMISSION" key="INSERTPERMISSION" name="Insert New Item" />
+                  <permission code="RIW_Categories_VIEWPERMISSION" key="EDITPERMISSION" name="Edit Item" />
+                  <permission code="RIW_Categories_VIEWPERMISSION" key="EXCLUDEPERMISSION" name="Exclude Item" />
+                </permissions>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+        </component>
+        <component type="ResourceFile">
+          <resourceFiles>
+            <basePath>DesktopModules\RildoInfo\Store</basePath>
+            <resourceFile>
+              <name>Resources.zip</name>
+            </resourceFile>
+          </resourceFiles>
+        </component>
+        <component type="Assembly">
+          <assemblies>
+            <assembly>
+              <name>RIW.Modules.Store.dll</name>
+              <path>bin</path>
+            </assembly>
+          </assemblies>
+        </component>
+      </components>
+    </package>
+    <package name="RIW_Products" type="Module" version="00.00.01">
+      <friendlyName>RIW Products</friendlyName>
+      <description>AGF RIW Products module.</description>
+      <iconFile>DesktopModules/RildoInfo/Store/Content/Images/ri-logo.png</iconFile>
+      <owner>
+        <name>AGF</name>
+        <organization>AGF</organization>
+        <url>http://www.riw.com.br</url>
+        <email>suporte@riw.com.br</email>
+      </owner>
+      <license src="license.txt" />
+      <releaseNotes src="releasenotes.txt" />
+      <dependencies>
+        <dependency type="coreversion">07.00.02</dependency>
+      </dependencies>
+      <components>
+        <component type="Module">
+          <desktopModule>
+            <moduleName>RIW_Products</moduleName>
+            <foldername>Store</foldername>
+            <businessControllerClass />
+            <supportedFeatures />
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>RIW Products</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey />
+                    <controlSrc>DesktopModules/RildoInfo/Store/Views/Products.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>Options</controlKey>
+                    <controlSrc>DesktopModules/RildoInfo/Store/Views/Products_Options.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>RIW Products Options</controlTitle>
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                </moduleControls>
+                <permissions>
+                  <permission code="RIW_Products_VIEWPERMISSION" key="INSERTPERMISSION" name="Insert New Item" />
+                  <permission code="RIW_Products_VIEWPERMISSION" key="EDITPERMISSION" name="Edit Item" />
+                  <permission code="RIW_Products_VIEWPERMISSION" key="EXCLUDEPERMISSION" name="Exclude Item" />
+                </permissions>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+        </component>
+        <component type="ResourceFile">
+          <resourceFiles>
+            <basePath>DesktopModules\RildoInfo\Store</basePath>
+            <resourceFile>
+              <name>Resources.zip</name>
+            </resourceFile>
+          </resourceFiles>
+        </component>
+        <component type="Assembly">
+          <assemblies>
+            <assembly>
+              <name>RIW.Modules.Store.dll</name>
+              <path>bin</path>
+            </assembly>
+          </assemblies>
+        </component>
+      </components>
+    </package>
+  </packages>
+</dotnetnuke>

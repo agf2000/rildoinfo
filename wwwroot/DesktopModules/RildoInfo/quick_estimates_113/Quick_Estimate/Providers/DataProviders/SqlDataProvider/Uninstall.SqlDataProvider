@@ -1,0 +1,18 @@
+﻿/************************************************************/
+/*****              SqlDataProvider                     *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/***** Note: To manually execute this script you must   *****/
+/*****       perform a search and replace operation     *****/
+/*****       for {databaseOwner} and {objectQualifier}  *****/
+/*****                                                  *****/
+/************************************************************/
+
+
+/****** Drop Tables ******/
+
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIW_Cashiers]    Script Date: 12/05/2013 11:23:49 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_Cashiers]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIW_Cashiers]
+GO

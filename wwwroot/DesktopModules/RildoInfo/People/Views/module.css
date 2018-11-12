@@ -1,0 +1,700 @@
+
+.collapse.in {
+    overflow: visible;
+}
+
+.padd7 {
+    padding: 7px;
+}
+
+.invalid {
+    color: red;
+    background-color: #ffc !important;
+}
+
+    .invalid.k-state-selected {
+        color: yellow;
+        background-color: #13688C !important;
+    }
+
+ul.buttons {
+    margin: 1em 0;
+    border-top: #ccc double;
+    padding: 1em 0 0 0;
+    margin-left: 150px !important;
+}
+
+.btn-primary, .btn-info, .btn-primary, .btn-success, .btn-warning, .btn-danger {
+    background-image: none !important;
+    filter: none !important;
+}
+
+table.k-editor .k-content {
+    resize: vertical;
+}
+
+.font-size-small {
+    font-size: 0.8em;
+}
+
+.font-size-medium {
+    font-size: 1.0em;
+}
+
+.font-size-large {
+    font-size: 1.2em;
+}
+
+#actionsMenu,
+#chkDeleted,
+#btnDeleteSelectedPerson,
+#btnRemoveSelectedPerson,
+#btnRestoreSelectedPerson,
+#btnDeleteSelected,
+#btnRemoveSelected,
+#btnRestoreSelected,
+#liCPF,
+#liIdent,
+#personForm,
+#personAddresses,
+#personContacts,
+#personMenu,
+#liEIN,
+#liST,
+#liCT,
+#liPhone,
+#liCell,
+#liFax,
+#liCompanyName,
+#liWebsite,
+#liZero0800,
+#liIndustries,
+#btnRestorePerson,
+#btnDeletePerson,
+#btnRemovePerson,
+#btnRemovePersonContact,
+#addressRegionTextBox,
+#btnDeletePersonAddress,
+#btnRestorePersonAddress,
+#personDocuments,
+#editRefs,
+/*#editBankRefs,*/
+#editComRefs,
+/*#editPartners,*/
+/*#editPartnerBanks,*/
+#divDisplayName,
+#btnCopyPartner,
+#btnRemoveIncomeSource,
+#btnRemovePersonalRef,
+#btnRemoveBankRef,
+#btnRemoveCommRef,
+.btnReturn,
+#btnRemovePartnerBankRef,
+#btnRemovePartner,
+#editLogin,
+#userPhoto,
+#personFinance,
+#btnReturnContact,
+#contactsWindow,
+#btnCopyIncomeSource,
+#image-browser,
+#moduleTitle,
+#btnAssist,
+#btnFinance,
+/*#btnCommunicate,*/
+#actionsMenu li:nth-child(5),
+#btnHistory,
+#btnEdit,
+#btnRemovePropaganda,
+#btnCheckEmail,
+#liSalesPersons,
+#dlgDeleteConfirm,
+#scheduledItems,
+.markdown-buttons,
+.markdown-preview,
+#btnDeleteUser,
+#btnRemoveUser,
+#btnRestoreUser,
+#userGroups,
+#selectedProductsGrid,
+#ddlRegions {
+    display: none;
+}
+
+a {
+    cursor: pointer;
+}
+
+.k-grid tbody .k-button, .k-ie8 .k-grid tbody button.k-button {
+    min-width: 0 !important;
+}
+
+/*.k-grid-content {
+    max-height: 270px;
+}*/
+
+.historyGrid.k-grid .k-header {
+    display: none;
+}
+
+.controls .inline {
+    padding-top: 5px;
+}
+
+.alert h4 {
+    margin: 0 0 5px 0 !important;
+}
+
+.fa {
+    margin-top: 2px;
+}
+
+.padded {
+    padding: 7px;
+}
+
+address, .well {
+    margin: 0 10px 0 0 !important;
+}
+
+.control-group, #selectedProductsGrid, #lvPersonAddresses {
+    margin-bottom: 10px !important;
+}
+
+.control-label {
+    width: 140px !important;
+}
+
+    .control-label label {
+        font-size: 12px !important;
+    }
+
+.controls {
+    margin-left: 150px !important;
+}
+
+.form-actions {
+    padding: 10px 20px 15px 10px !important;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+}
+
+    .form-actions .btn {
+        margin-right: 7px !important;
+    }
+
+.required:after {
+    display: inline-block;
+    margin: 0 0 0 5px;
+    font-size: 16px;
+    color: #F00;
+    content: "*";
+}
+
+/*.container-fluid {
+    padding: 0 !important;
+    margin: 0 !important;
+}*/
+
+.confirmDialog {
+    padding-top: 5px;
+}
+
+.k-upload-files li {
+    line-height: 35px !important;
+}
+
+/*.k-state-active, .k-state-active:hover, .k-active-filter, .k-tabstrip .k-state-active {
+    border-color: #666 !important;
+}*/
+
+#personForm {
+    padding-top: 10px;
+}
+
+#divPeopleManager ul li {
+    vertical-align: bottom !important;
+}
+
+/*#ulToolbar ul {
+    float: left;
+    margin: 0 5px 5px 0 !important;
+}*/
+
+#ulToolbar li, .ulToolbar li {
+    float: left;
+    margin: 0 10px 0 0 !important;
+}
+
+    #ulToolbar li:nth-child(10) {
+        float: right;
+    }
+
+    #ulToolbar li:nth-child(9) {
+        float: right;
+    }
+
+    #ulToolbar li:nth-child(8) {
+        float: right;
+    }
+
+#divPeopleManager .k-datepicker {
+    width: 120px !important;
+}
+
+#divPeopleManager strong {
+    display: inline-block;
+    width: 110px;
+    text-align: right;
+}
+
+/*#divPeopleManager .k-dropdown:first-child {
+    width: 155px !important;
+}*/
+
+#searchTerm {
+    width: 140px !important;
+}
+
+.k-grid-toolbar {
+    padding: .50em .28em .50em .28em !important;
+}
+
+.k-listview {
+    border: none !important;
+}
+
+.k-window {
+    z-index: 1001 !important;
+}
+
+    .k-window div.k-window-content {
+        /* padding-top: 10px; */
+        margin: 0 5px;
+        overflow: hidden;
+    }
+
+    .k-window .k-loading-mask {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+    }
+
+.k-widget.k-multiselect {
+    width: 200px;
+    vertical-align: bottom;
+    display: inline-block;
+}
+
+/*.k-widget.k-multiselect span {
+        color: #666 !important;
+    }*/
+
+#propagandaTextArea .k-window div.k-window-content {
+    overflow: auto;
+}
+
+.posHelp {
+    position: absolute;
+    top: 0;
+    right: 10px;
+}
+
+.personDetails {
+    margin-bottom: 10px;
+}
+
+    .personDetails .k-content {
+        margin: 0;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        /*min-height: 300px !important;*/
+    }
+
+    /*.personDetails .contacts {
+        min-height: 260px;
+    }*/
+
+    /*.personDetails .k-header {
+        display: none;
+    }*/
+
+    .personDetails h3 {
+        margin: 5px 0;
+        padding: 0;
+        font: bold 16px Vollkorn;
+    }
+
+.activities {
+    height: 35px;
+}
+
+#actionsMenu {
+    margin-top: 10px;
+}
+
+#personMenu {
+    margin-top: 10px;
+}
+
+    #personMenu .jqx-menu-item-selected, #actionsMenu .jqx-menu-item-selected {
+        background-color: #FF8C00;
+        color: #fff !important;
+    }
+
+/*#editPerson .dnnFormItem .k-textbox {
+    width: 51% !important;
+}
+
+#editPerson #unitTextBox, #clientAddresses #addressUnitTextBox, #editIncomes #iSUnitTextBox, #editPartners #partnerUnitTextBox {
+    width: 50px !important;
+}*/
+
+/*#liPhone1 .k-numerictextbox, #liPhone2 .k-numerictextbox {
+    width: 80px !important;
+}
+
+    #liPhone1 .k-numerictextbox input, #liPhone2 .k-numerictextbox input {
+        width: 63px !important;
+    }*/
+
+.documentsBox .nailthumb-container {
+    margin: 4px auto;
+    text-align: center;
+}
+
+.documentsBox img {
+    margin: 4px auto;
+    text-align: center;
+}
+
+#emailSubjectTextBox {
+    width: 52% !important;
+}
+
+#loginTextBox {
+    width: 300px;
+}
+
+/*fieldset .k-grid .k-header {
+    display: none;
+}*/
+
+#agendaHistoryTextArea {
+    width: 60%;
+}
+
+#divPropagandas {
+    margin-top: 10px;
+}
+
+    #divPropagandas .k-dropdown {
+        width: 25% !important;
+    }
+
+/*#calShedule {
+    text-transform: capitalize;
+}
+
+    #calShedule .k-content .k-state-hover,
+    #calShedule .k-content .k-state-focused {
+        font-weight: bold;
+        border-color: transparent;
+    }
+
+    #calShedule .k-state-selected, #calShedule .k-state-selected.k-state-focused {
+        font-weight: bold;
+    }
+
+    #calShedule .k-content .k-link {
+        padding: 0;
+    }
+
+    #calShedule th {
+        color: #8cbabf;
+    }
+
+    #calShedule td.k-other-month .k-link {
+        color: #8cbabf;
+    }
+
+    #calShedule th,
+    #calShedule td {
+        text-align: center;
+    }*/
+
+/* Template Days */
+.exhibition, .party, .cocktail {
+    /*width: 40px;
+    height: 40px;*/
+    margin: auto;
+    /*-webkit-border-radius: 100px;
+    -moz-border-radius: 100px;*/
+    /*border-radius: 50%;*/
+    /*line-height: 40px;*/
+}
+
+/*.exhibition {
+    background-color: #fff;
+    color: #000;
+}*/
+
+.party {
+    background-color: #70c114;
+    color: #000;
+}
+
+/*.cocktail {
+    background-color: #00a1e8;
+    color: #000;
+}*/
+
+/*#scheduledItems {
+    border: 1px solid #7cacc1;
+    margin-bottom: 5px;
+    padding: 5px;
+    max-height: 50px;
+    overflow: auto;
+}*/
+
+.k-addFile {
+    background-position: -288px -96px;
+}
+
+    .k-addFile.k-state-hover {
+        background-position: -288px -96px;
+    }
+
+/*.k-window {
+    z-index: 1001 !important;
+}
+
+    .k-window .k-loading-mask {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+    }
+
+    .k-window .pull-left {
+        margin: 7px 0;
+        width: 70%;
+    }
+
+    .k-window .browser-image-header {
+        border: 1px solid #99CCCC;
+        background-color: #F5F5F5;
+        padding: 0 5px;
+    }
+
+    .k-window ul li {
+        margin: 3px;
+    }
+
+    .k-window li img {
+        float: left;
+        margin-right: 3px;
+    }
+
+    .k-window li label {
+        display: inline-block;
+        width: 95px;
+        text-align: right;
+        font-weight: bold;
+    }*/
+
+.truncate {
+    width: 120px;
+    white-space: nowrap;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    float: right;
+}
+
+#image-browser .k-autocomplete {
+    width: 200px !important;
+}
+
+#fileUrlAddress {
+    width: 50% !important;
+}
+
+#fileUrlAddressTitle, #propagandaName {
+    width: 50% !important;
+}
+
+#propagandaName {
+    width: 500px !important;
+}
+
+#filesArea {
+    border-left: 1px solid #99CCCC;
+    border-right: 1px solid #99CCCC;
+    border-bottom: 1px solid #99CCCC;
+    height: 290px;
+    margin-bottom: 10px;
+    overflow: auto;
+    padding: 5px 5px 0 5px;
+    font-size: 11px;
+}
+
+    #filesArea ul {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    #filesArea li {
+        float: left;
+        padding: 5px 0 0 5px;
+        min-width: 190px;
+        min-height: 80px;
+        border: 1px solid #b0cece;
+        margin: 5px;
+        border-radius: 6px;
+    }
+
+        #filesArea li.selected {
+            padding: 5px 0 0 5px;
+            background-color: #FF8C00;
+            border-radius: 6px;
+            color: #FFF;
+        }
+
+.browser-image-header a {
+    margin-top: 10px;
+}
+
+.isDeleted {
+    text-decoration: line-through;
+}
+
+/*input.required, textarea.required, input.required:hover, textarea.required:hover, .required > input {
+    padding: 5px 0 5px 5px !important;
+    border-left: 5px solid red !important;
+}
+
+.requiredCombo .k-input {
+    padding-right: -5px !important;
+    border-left: 5px solid red !important;
+}*/
+
+#productHistoryTextArea textarea {
+    width: 550px !important;
+    height: 220px !important;
+}
+
+#lvPersonDocs, #clientFinanceTabs, #risHistory, #personContacts, #personAddresses, #editMsg, #personDocuments, #userPhoto, #editLogin, #personContacts, #personAddresses, #divPropagandas, #divAgenda {
+    margin-top: 10px;
+}
+
+#liEditor ul /*, #lvPersonAddresses ul, #lvPersonContacts ul, #lvIncomeSources ul, #lvPersonalRefs ul, #lvBankRefs ul, #lvCommRefs ul, #lvClientPartners ul, #lvPartnerBankRefs ul, */ ol {
+    padding: 0 !important;
+}
+
+.commentTextArea {
+    margin: 5px 0 6px 0 !important;
+    width: 100%;
+    border: 1px solid #B4BBCD;
+    border-radius: 4px;
+    padding-left: 5px;
+    /*height: 40px;*/
+}
+
+.publishContainer {
+    width: 65%;
+    text-align: right;
+    background-color: #F2F2F2;
+    border: 1px solid #B4BBCD;
+    -moz-border-image: none;
+    -o-border-image: none;
+    -webkit-border-image: none;
+    border-image: none;
+    padding: 1em 1.2em;
+    margin-bottom: 2em;
+}
+
+.publishComment {
+    text-align: right;
+    width: 100%;
+    display: none;
+}
+
+.msgHolder {
+    overflow: auto;
+}
+
+    .msgHolder, .postHolder, .msgHolder p {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+        .msgHolder img {
+            float: left;
+            margin-right: 7px !important;
+        }
+
+        .msgHolder a {
+            text-decoration: none;
+            color: #015BA7;
+        }
+
+            .msgHolder a:hover {
+                text-decoration: underline;
+            }
+
+        .postHolder ul {
+            padding: 0;
+            margin: 0;
+        }
+
+.postHolder {
+    padding: 5px !important;
+    border-bottom: solid 1px #E6E6E6;
+    margin: 5px !important;
+    list-style: none;
+    min-height: 40px;
+    /*overflow: auto;
+    max-height: 200px;*/
+}
+
+    .postHolder .timeago {
+        color: #7D7D84;
+        font-size: 0.95em;
+    }
+
+    .postHolder a {
+        font-weight: bold;
+    }
+
+.postFooter {
+    margin-left: 55px !important;
+}
+
+    .postFooter span {
+        color: #7D7D84;
+    }
+
+    .postFooter a {
+        font-weight: normal;
+    }
+
+.commentHolder {
+    clear: both;
+    background-color: #EEF1F6;
+    padding: 5px;
+    border-bottom: 1px solid #DEE5EA;
+    border-top: 1px solid white;
+    list-style: none;
+    min-height: 50px;
+}
+
+#userGroupsGrid {
+    margin-top: 10px;
+}

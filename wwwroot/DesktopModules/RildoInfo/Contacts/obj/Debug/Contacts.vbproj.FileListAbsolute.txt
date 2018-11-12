@@ -1,0 +1,7 @@
+E:\Projects\RIW\DNN7X\wwwroot\bin\RIW.Modules.Contacts.dll
+E:\Projects\RIW\DNN7X\wwwroot\bin\RIW.Modules.Contacts.pdb
+E:\Projects\RIW\DNN7X\wwwroot\bin\RIW.Modules.Contacts.xml
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\Contacts\obj\Debug\Contacts.vbprojResolveAssemblyReference.cache
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\Contacts\obj\Debug\RIW.Modules.Contacts.dll
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\Contacts\obj\Debug\RIW.Modules.Contacts.xml
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\Contacts\obj\Debug\RIW.Modules.Contacts.pdb

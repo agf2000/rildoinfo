@@ -1,0 +1,99 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+RIW.Modules.StoreAdmin
+</name>
+</assembly>
+<members>
+<member name="T:RIW.Modules.StoreAdmin.Templates">
+	<summary>
+ The View class displays the content
+ 
+ Typically your view control would be used to display content or functionality in your module.
+ 
+ View may be the only control you have in your project depending on the complexity of your module
+ 
+ Because the control inherits from StoreAdminModuleBase you have access to any custom properties
+ defined there, as well as properties from DNN such as PortalId, ModuleId, TabId, UserId and many more.
+ 
+ </summary>
+</member><member name="T:RIW.Modules.StoreAdmin.PayForms">
+	<summary>
+ The View class displays the content
+ 
+ Typically your view control would be used to display content or functionality in your module.
+ 
+ View may be the only control you have in your project depending on the complexity of your module
+ 
+ Because the control inherits from StoreAdminModuleBase you have access to any custom properties
+ defined there, as well as properties from DNN such as PortalId, ModuleId, TabId, UserId and many more.
+ 
+ </summary>
+</member><member name="T:RIW.Modules.StoreAdmin.Smtp">
+	<summary>
+ The View class displays the content
+ 
+ Typically your view control would be used to display content or functionality in your module.
+ 
+ View may be the only control you have in your project depending on the complexity of your module
+ 
+ Because the control inherits from StoreAdminModuleBase you have access to any custom properties
+ defined there, as well as properties from DNN such as PortalId, ModuleId, TabId, UserId and many more.
+ 
+ </summary>
+</member><member name="T:RIW.Modules.StoreAdmin.StoreContacts">
+	<summary>
+ The View class displays the content
+ 
+ Typically your view control would be used to display content or functionality in your module.
+ 
+ View may be the only control you have in your project depending on the complexity of your module
+ 
+ Because the control inherits from StoreAdminModuleBase you have access to any custom properties
+ defined there, as well as properties from DNN such as PortalId, ModuleId, TabId, UserId and many more.
+ 
+ </summary>
+</member><member name="T:RIW.Modules.StoreAdmin.MainPortal">
+	<summary>
+ The View class displays the content
+ 
+ Typically your view control would be used to display content or functionality in your module.
+ 
+ View may be the only control you have in your project depending on the complexity of your module
+ 
+ Because the control inherits from StoreAdminModuleBase you have access to any custom properties
+ defined there, as well as properties from DNN such as PortalId, ModuleId, TabId, UserId and many more.
+ 
+ </summary>
+</member><member name="T:RIW.Modules.StoreAdmin.Statuses">
+	<summary>
+ The View class displays the content
+ 
+ Typically your view control would be used to display content or functionality in your module.
+ 
+ View may be the only control you have in your project depending on the complexity of your module
+ 
+ Because the control inherits from StoreAdminModuleBase you have access to any custom properties
+ defined there, as well as properties from DNN such as PortalId, ModuleId, TabId, UserId and many more.
+ 
+ </summary>
+</member><member name="T:RIW.Modules.StoreAdmin.Components.FeatureController">
+	<summary>
+ The Controller class for StoreAdmin
+ 
+ The FeatureController class is defined as the BusinessController in the manifest file (.dnn)
+ DotNetNuke will poll this class to find out which Interfaces the class implements. 
+ 
+ The IPortable interface is used to import/export content from a DNN module
+ 
+ The ISearchable interface is used by DNN to index the content of a module
+ 
+ The IUpgradeable interface allows module developers to execute code during the upgrade 
+ process for a module.
+ 
+ Below you will find stubbed out implementations of each, uncomment and populate with your own data
+ </summary>
+</member>
+</members>
+</doc>

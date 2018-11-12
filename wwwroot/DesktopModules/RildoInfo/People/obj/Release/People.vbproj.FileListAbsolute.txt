@@ -1,0 +1,12 @@
+E:\Projects\RIStore\RIStore_7x\wwwroot\bin\RIW.Modules.People.dll
+E:\Projects\RIStore\RIStore_7x\wwwroot\bin\RIW.Modules.People.pdb
+E:\Projects\RIStore\RIStore_7x\wwwroot\bin\RIW.Modules.People.xml
+E:\Projects\RIStore\RIStore_7x\wwwroot\DesktopModules\RildoInfo\People\obj\Release\RIW.Modules.People.dll
+E:\Projects\RIStore\RIStore_7x\wwwroot\DesktopModules\RildoInfo\People\obj\Release\RIW.Modules.People.xml
+E:\Projects\RIStore\RIStore_7x\wwwroot\DesktopModules\RildoInfo\People\obj\Release\RIW.Modules.People.pdb
+E:\Projects\RIW\DNN7X\wwwroot\bin\RIW.Modules.People.dll
+E:\Projects\RIW\DNN7X\wwwroot\bin\RIW.Modules.People.pdb
+E:\Projects\RIW\DNN7X\wwwroot\bin\RIW.Modules.People.xml
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\People\obj\Release\RIW.Modules.People.dll
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\People\obj\Release\RIW.Modules.People.xml
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\People\obj\Release\RIW.Modules.People.pdb

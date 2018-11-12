@@ -1,0 +1,143 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+RIW.Modules.ContactForm
+</name>
+</assembly>
+<members>
+<member name="T:RIW.Modules.ContactForm.DataProvider">
+ -----------------------------------------------------------------------------
+ <summary>
+ An abstract class for the data access layer
+ </summary>
+	<remarks>
+	</remarks>
+	<history>
+	</history>
+ -----------------------------------------------------------------------------
+
+</member><member name="M:RIW.Modules.ContactForm.ContactFormController.updateTabModuleSettings(System.Collections.Generic.List{RIW.Modules.ContactForm.ContactFormController.StorePortalModuleSetting})">
+	<summary>
+ Updates tab module settings
+ </summary>
+	<param name="tabSettings"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.ContactForm.ContactFormController.getDoc(System.Int32,System.Int32)">
+	<summary>
+ Gets doc
+ </summary>
+	<param name="docId">Doc ID</param>
+	<param name="portalId">Portal ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.ContactForm.ContactFormController.getDocs(System.Int32)">
+	<summary>
+ Gets list of docs
+ </summary>
+	<param name="portalId">Person Doc ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.ContactForm.ContactFormController.postFile">
+	<summary>
+ Saves person documents
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.ContactForm.ContactFormController.removeDoc(System.Int32,System.Int32)">
+	<summary>
+ Removes a person Doc
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<param name="docId">Doc ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="T:RIW.Modules.ContactForm.ContactFormController.StorePortalModuleSetting">
+	<summary>
+ Store / Portal / Module Settings Variables
+ </summary>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.ContactForm.Settings.LoadSettings">
+ -----------------------------------------------------------------------------
+ <summary>
+ LoadSettings loads the settings from the Database and displays them
+ </summary>
+	<remarks>
+	</remarks>
+	<history>
+	</history>
+ -----------------------------------------------------------------------------
+
+</member><member name="M:RIW.Modules.ContactForm.Settings.UpdateSettings">
+ -----------------------------------------------------------------------------
+ <summary>
+ UpdateSettings saves the modified settings to the Database
+ </summary>
+	<remarks>
+	</remarks>
+	<history>
+	</history>
+ -----------------------------------------------------------------------------
+
+</member><member name="T:RIW.Modules.ContactForm.Settings">
+ -----------------------------------------------------------------------------
+ <summary>
+ The Settings class manages Module Settings
+ 
+ Typically your settings control would be used to manage settings for your module.
+ There are two types of settings, ModuleSettings, and TabModuleSettings.
+ 
+ ModuleSettings apply to all "copies" of a module on a site, no matter which page the module is on. 
+ 
+ TabModuleSettings apply only to the current module on the current page, if you copy that module to
+ another page the settings are not transferred.
+ 
+ If you happen to save both TabModuleSettings and ModuleSettings, TabModuleSettings overrides ModuleSettings.
+ 
+ Below we have some examples of how to access these settings but you will need to uncomment to use.
+ 
+ Because the control inherits from ContactFormSettingsBase you have access to any custom properties
+ defined there, as well as properties from DNN such as PortalId, ModuleId, TabId, UserId and many more.
+ </summary>
+ -----------------------------------------------------------------------------
+
+</member><member name="T:RIW.Modules.ContactForm.SqlDataProvider">
+ -----------------------------------------------------------------------------
+ <summary>
+ SQL Server implementation of the abstract DataProvider class
+ 
+ This concreted data provider class provides the implementation of the abstract methods 
+ from data dataprovider.cs
+ 
+ In most cases you will only modify the Public methods region below.
+ </summary>
+ -----------------------------------------------------------------------------
+
+</member><member name="T:RIW.Modules.ContactForm.View">
+	<summary>
+ The View class displays the content
+ 
+ Typically your view control would be used to display content or functionality in your module.
+ 
+ View may be the only control you have in your project depending on the complexity of your module
+ 
+ Because the control inherits from ContactFormModuleBase you have access to any custom properties
+ defined there, as well as properties from DNN such as PortalId, ModuleId, TabId, UserId and many more.
+ 
+ </summary>
+</member><member name="T:RIW.Modules.ContactForm.Edit">
+	<summary>
+ The View class displays the content
+ 
+ Typically your view control would be used to display content or functionality in your module.
+ 
+ View may be the only control you have in your project depending on the complexity of your module
+ 
+ Because the control inherits from ContactFormModuleBase you have access to any custom properties
+ defined there, as well as properties from DNN such as PortalId, ModuleId, TabId, UserId and many more.
+ 
+ </summary>
+</member>
+</members>
+</doc>

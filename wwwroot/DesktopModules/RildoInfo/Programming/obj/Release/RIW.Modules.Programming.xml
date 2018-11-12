@@ -1,0 +1,31 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+RIW.Modules.Programming
+</name>
+</assembly>
+<members>
+<member name="F:RIW.Modules.Programming.View.btnSubmit">
+	<summary>
+btnSubmit control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="T:RIW.Modules.Programming.View">
+	<summary>
+ The View class displays the content
+ 
+ Typically your view control would be used to display content or functionality in your module.
+ 
+ View may be the only control you have in your project depending on the complexity of your module
+ 
+ Because the control inherits from ProgrammingModuleBase you have access to any custom properties
+ defined there, as well as properties from DNN such as PortalId, ModuleId, TabId, UserId and many more.
+ 
+ </summary>
+</member>
+</members>
+</doc>

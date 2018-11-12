@@ -1,0 +1,162 @@
+<dotnetnuke type="Package" version="5.0">
+  <packages>
+    <package name="RIW.Telerik.Web" type="Library" version="07.02.00">
+      <friendlyName>Rildo Informatica Aplicativos Web</friendlyName>
+      <description>Provides Modules for DotNetNuke.</description>
+      <dependencies/>
+      <owner>
+        <name>AGF</name>
+        <organization>Rildo Informatica Ltda</organization>
+        <url>www.riw.com.br</url>
+        <email>suporte@riw.com.br</email>
+      </owner>
+      <components>
+        <component type="Assembly">
+          <assemblies>
+            <assembly>
+              <path>bin</path>
+              <name>Microsoft.AspNet.SignalR.Core.dll</name>
+              <version>1.1.21022.0</version>
+            </assembly>
+            <assembly>
+              <path>bin</path>
+              <name>Microsoft.AspNet.SignalR.Owin.dll</name>
+              <version>1.1.21022.0</version>
+            </assembly>
+            <assembly>
+              <path>bin</path>
+              <name>Microsoft.AspNet.SignalR.SystemWeb.dll</name>
+              <version>1.1.21022.0</version>
+            </assembly>
+            <assembly>
+              <path>bin</path>
+              <name>Microsoft.CompilerServices.AsyncTargetingPack.Net4.dll</name>
+              <version>1.0.0.0</version>
+            </assembly>
+            <assembly>
+              <path>bin</path>
+              <name>Microsoft.Owin.Host.SystemWeb.dll</name>
+              <version>1.0.20312.147</version>
+            </assembly>
+            <assembly>
+              <path>bin</path>
+              <name>Owin.dll</name>
+              <version>1.0.0.0</version>
+            </assembly>
+            <assembly>
+              <path>bin</path>
+              <name>ImageResizer.dll</name>
+              <version>3.4.2.549</version>
+            </assembly>
+            <assembly>
+              <path>bin</path>
+              <name>ImageResizer.Plugins.DiskCache.dll</name>
+              <version>3.4.2.549</version>
+            </assembly>
+            <assembly>
+              <path>bin</path>
+              <name>ImageResizer.Plugins.SimpleFilters.dll</name>
+              <version>3.4.2.549</version>
+            </assembly>
+            <assembly>
+              <path>bin</path>
+              <name>ImageResizer.Plugins.SqlReader.dll</name>
+              <version>3.4.2.549</version>
+            </assembly>
+            <assembly>
+              <path>bin</path>
+              <name>ImageResizer.Plugins.Watermark.dll</name>
+              <version>3.4.2.549</version>
+            </assembly>
+            <assembly>
+              <path>bin</path>
+              <name>Ionic.Zip.dll</name>
+              <version>1.9.1.8</version>
+            </assembly>
+            <assembly>
+              <path>bin</path>
+              <name>itextsharp.dll</name>
+              <version>5.1.1.0</version>
+            </assembly>
+            <assembly>
+              <path>bin</path>
+              <name>Microsoft.Threading.Tasks.dll</name>
+              <version>1.0.165.0</version>
+            </assembly>
+            <assembly>
+              <path>bin</path>
+              <name>Microsoft.Threading.Tasks.Extensions.Desktop.dll</name>
+              <version>1.0.165.0</version>
+            </assembly>
+            <assembly>
+              <path>bin</path>
+              <name>Microsoft.Threading.Tasks.Extensions.dll</name>
+              <version>1.0.165.0</version>
+            </assembly>
+            <assembly>
+              <path>bin</path>
+              <name>System.Threading.Tasks.dll</name>
+              <version>2.5.19.0</version>
+            </assembly>
+            <assembly>
+              <path>bin</path>
+              <name>RIW.Modules.Common.dll</name>
+              <version>1.0.0.0</version>
+            </assembly>
+          </assemblies>
+        </component>
+        <component type="Config">
+          <config>
+            <configFile>web.config</configFile>
+            <install>
+              <configuration>
+                <nodes>
+				  <node path="/configuration/system.web/compilation" action="updateattribute" name="optimizeCompilations" value="true" />
+				  <node path="/configuration/system.web/httpRuntime" action="updateattribute" name="shutdownTimeout" value="1200" />
+				  <node path="/configuration/system.web/httpRuntime" action="updateattribute" name="executionTimeout" value="9000" />
+				  <node path="/configuration/system.web/httpRuntime" action="updateattribute" name="maxRequestLength" value="122880" />
+				  <node path="/configuration/system.web/httpRuntime" action="updateattribute" name="requestLengthDiskThreshold" value="12288" />
+				  <node path="/configuration/configSections" action="add">
+                    <section name="resizer" type="ImageResizer.ResizerSection,ImageResizer" requirePermission="false" />
+                  </node>
+                  <node path="/configuration/system.webServer/modules" action="add">
+                    <add name="ImageResizingModule" type="ImageResizer.InterceptModule" />
+                  </node>
+                  <node path="/configuration/system.web/httpModules" action="add">
+                    <add name="ImageResizingModule" type="ImageResizer.InterceptModule" />
+                  </node>
+                  <node path="/configuration/system.web/membership/providers" action="update" key="name" collision="overwrite">
+					<add name="AspNetSqlMembershipProvider" type="System.Web.Security.SqlMembershipProvider" connectionStringName="SiteSqlServer" enablePasswordRetrieval="true" enablePasswordReset="true" requiresQuestionAndAnswer="false" minRequiredPasswordLength="7" minRequiredNonalphanumericCharacters="0" requiresUniqueEmail="false" passwordFormat="Encrypted" applicationName="DotNetNuke" description="Stores and retrieves membership data from the local Microsoft SQL Server database" />
+                  </node>
+				  <node path="/configuration" action="add">
+                    <resizer>
+						<plugins>
+							<add name="SimpleFilters" />
+							<add name="PrettyGifs" />
+							<add name="DiskCache" />
+							<add name="Watermark" />
+							<add name="SqlReader" prefix="~/databaseimages/" connectionString="SiteSqlServer" idType="int" blobQuery="SELECT ProductImageBinary FROM RIW_ProductImage WHERE ProductImageId=@id" modifiedQuery="Select ModifiedOnDate, CreatedOnDate From RIW_ProductImage WHERE ProductImageId=@id" existsQuery="Select COUNT(ProductImageId) From RIW_ProductImage WHERE ProductImageId=@id" requireImageExtension="false" cacheUnmodifiedFiles="true" extensionPartOfId="false" checkForModifiedFiles="true" vpp="true" untrustedData="false" />
+						</plugins>
+						<watermarks>
+							<text name="filltext45" text="#{text}" angle="38" align="middlecenter" fill="true" font="Courier New" />
+							<text name="filltext" text="#{text}" align="middlecenter" fill="true" font="Courier New" />
+							<text name="glow" text="#{text}" align="middlecenter" glowWidth="10" glowColor="ff8833" fill="true" font="Courier New" />
+							<text name="glowfilltext45L" text="#{text}" align="middlecenter" glowWidth="10" glowColor="ff8833" fill="true" font="Courier New" />
+							<text name="outglow" text="#{text}" align="middlecenter" outlineWidth="2" outlineColor="white" glowWidth="10" glowColor="ffffff" fill="true" font="Courier New" />
+						</watermarks>
+					</resizer>
+                  </node>
+                </nodes>
+              </configuration>
+            </install>
+            <uninstall>
+              <configuration>
+                <nodes />
+              </configuration>
+            </uninstall>
+          </config>
+        </component>
+      </components>
+    </package>
+  </packages>
+</dotnetnuke>

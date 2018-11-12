@@ -1,0 +1,6 @@
+E:\Projects\RIStore\RIStore_7x\wwwroot\bin\RIW.Modules.Services.dll
+E:\Projects\RIStore\RIStore_7x\wwwroot\bin\RIW.Modules.Services.pdb
+E:\Projects\RIStore\RIStore_7x\wwwroot\bin\RIW.Modules.Services.xml
+E:\Projects\RIStore\RIStore_7x\wwwroot\DesktopModules\RildoInfo\Services\obj\Release\RIW.Modules.Services.dll
+E:\Projects\RIStore\RIStore_7x\wwwroot\DesktopModules\RildoInfo\Services\obj\Release\RIW.Modules.Services.xml
+E:\Projects\RIStore\RIStore_7x\wwwroot\DesktopModules\RildoInfo\Services\obj\Release\RIW.Modules.Services.pdb

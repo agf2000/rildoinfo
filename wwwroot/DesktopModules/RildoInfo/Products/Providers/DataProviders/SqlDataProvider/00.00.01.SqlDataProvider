@@ -1,0 +1,1197 @@
+﻿/************************************************************/
+/*****              SqlDataProvider                     *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/***** Note: To manually execute this script you must   *****/
+/*****       perform a search and replace operation     *****/
+/*****       for {databaseOwner} and {objectQualifier}  *****/
+/*****                                                  *****/
+/************************************************************/
+
+
+/** Create Tables **/
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_BrandModels]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_BrandModels](
+		[ModelId] [int] IDENTITY(1,1) NOT NULL,
+		[BrandId] [int] NULL,
+		[ModelTitle] [nvarchar](100) NULL,
+		[IsDeleted] [bit] NULL,
+		[CreatedByUser] [int] NULL,
+		[CreatedOnDate] [smalldatetime] NULL,
+		[ModifiedByUser] [int] NULL,
+		[ModifiedOnDate] [smalldatetime] NULL,
+	 CONSTRAINT [PK_RIW_BrandModels] PRIMARY KEY CLUSTERED 
+	(
+		[ModelId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_Brands]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_Brands](
+		[PortalId] [int] NOT NULL,
+		[BrandId] [int] IDENTITY(1,1) NOT NULL,
+		[BrandCode] [nvarchar](10) NULL,
+		[BrandTitle] [nvarchar](100) NULL,
+		[IsDeleted] [bit] NULL,
+		[CreatedByUser] [int] NULL,
+		[CreatedOnDate] [smalldatetime] NULL,
+		[ModifiedByUser] [int] NULL,
+		[ModifiedOnDate] [smalldatetime] NULL,
+	 CONSTRAINT [PK_RIW_Brands] PRIMARY KEY CLUSTERED 
+	(
+		[BrandId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_ProductDoc]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_ProductDoc](
+		[DocId] [int] IDENTITY(1,1) NOT NULL,
+		[ProductId] [int] NULL,
+		[DocPath] [nvarchar](150) NULL,
+		[ListOrder] [int] NULL,
+		[Hidden] [bit] NULL,
+		[FileName] [nvarchar](50) NULL,
+		[FileExt] [nvarchar](5) NULL,
+	 CONSTRAINT [PK_RIW_ProductDoc] PRIMARY KEY CLUSTERED 
+	(
+		[DocId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_ProductDocLang]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_ProductDocLang](
+		[DocId] [int] NOT NULL,
+		[Lang] [nchar](5) NOT NULL,
+		[DocDesc] [nvarchar](200) NULL,
+	 CONSTRAINT [PK_RIW_ProductDocLang] PRIMARY KEY CLUSTERED 
+	(
+		[DocId] ASC,
+		[Lang] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_ProductFinance]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_ProductFinance](
+		[ProductId] [int] NOT NULL,
+		[Finan_Paid] [money] NULL,
+		[Finan_Paid_Discount] [money] NULL,
+		[Finan_IPI] [float] NULL,
+		[Finan_Freight] [money] NULL,
+		[Finan_ICMSFreight] [float] NULL,
+		[Finan_OtherExpenses] [money] NULL,
+		[Finan_DiffICMS] [float] NULL,
+		[Finan_TributeSubICMS] [float] NULL,
+		[Finan_ISS] [float] NULL,
+		[Finan_OtherTaxes] [float] NULL,
+		[Finan_CFOP] [varchar](4) NULL,
+		[Finan_ICMS] [float] NULL,
+		[Finan_CST] [varchar](3) NULL,
+		[Finan_MarkUp] [float] NULL,
+		[Finan_Sale_Price] [money] NULL,
+		[Finan_Special_Price] [money] NULL,
+		[Finan_Dealer_Price] [money] NULL,
+		[Finan_Manager] [float] NULL,
+		[Finan_SalesPerson] [float] NULL,
+		[Finan_Rep] [float] NULL,
+		[Finan_Telemarketing] [float] NULL,
+		[Finan_Tech] [float] NULL,
+		[Finan_Select] [char](1) NULL,
+		[Finan_Cost] [money] NULL,
+		[Finan_COFINS] [float] NULL,
+		[Finan_COFINSBase] [float] NULL,
+		[Finan_COFINSTributeSituation] [varchar](5) NULL,
+		[Finan_COFINSTributeSub] [float] NULL,
+		[Finan_COFINSTributeSubBase] [float] NULL,
+		[Finan_DefaultBarCode] [varchar](5) NULL,
+		[Finan_IPITributeSituation] [varchar](5) NULL,
+		[Finan_NCM] [varchar](8) NULL,
+		[Finan_PIS] [float] NULL,
+		[Finan_PISBase] [float] NULL,
+		[Finan_PISTributeSituation] [varchar](5) NULL,
+		[Finan_PISTributeSub] [float] NULL,
+		[Finan_PISTributeSubBase] [float] NULL,
+		[Finan_TributeSituationType] [nvarchar](20) NULL,
+	 CONSTRAINT [PK_RIW_ProductFinance] PRIMARY KEY CLUSTERED 
+	(
+		[ProductId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_ProductImage]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_ProductImage](
+		[PortalId] [int] NOT NULL,
+		[ProductImageId] [int] IDENTITY(1,1) NOT NULL,
+		[ProductId] [int] NOT NULL,
+		[ProductImageUrl] [nvarchar](256) NULL,
+		[ProductImageBinary] [varbinary](max) NULL,
+		[ContentLength] [int] NULL,
+		[FileName] [nvarchar](256) NULL,
+		[Extension] [varchar](50) NULL,
+		[ListOrder] [smallint] NULL,
+		[CreatedByUser] [int] NOT NULL,
+		[CreatedOnDate] [smalldatetime] NOT NULL,
+		[ModifiedByUser] [int] NOT NULL,
+		[ModifiedOnDate] [smalldatetime] NOT NULL,
+	 CONSTRAINT [PK_RIW_ProductImages] PRIMARY KEY CLUSTERED 
+	(
+		[ProductImageId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_ProductImageLang]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_ProductImageLang](
+		[ImageId] [int] NOT NULL,
+		[Lang] [nchar](5) NOT NULL,
+		[ImageDesc] [nvarchar](200) NULL,
+	 CONSTRAINT [PK_RIW_ProductImageLang] PRIMARY KEY CLUSTERED 
+	(
+		[ImageId] ASC,
+		[Lang] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_ProductLang]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_ProductLang](
+		[ProductId] [int] NOT NULL,
+		[Lang] [char](5) NOT NULL,
+		[Summary] [nvarchar](1000) NULL,
+		[Description] [nvarchar](max) NULL,
+		[Manufacturer] [nvarchar](50) NULL,
+		[ProductName] [nvarchar](150) NULL,
+		[SEOName] [nvarchar](150) NULL,
+		[SEOSummary] [nvarchar](1000) NULL,
+		[TagWords] [nvarchar](255) NULL,
+		[SEOPageTitle] [nvarchar](150) NULL,
+	 CONSTRAINT [PK_RIW_ProductLang] PRIMARY KEY CLUSTERED 
+	(
+		[ProductId] ASC,
+		[Lang] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_ProductOption]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_ProductOption](
+		[OptionId] [int] IDENTITY(1,1) NOT NULL,
+		[ProductId] [int] NULL,
+		[ListOrder] [int] NULL,
+		[attributes] [nvarchar](256) NULL,
+		[QtyStockSet] [float] NULL,
+	 CONSTRAINT [PK_RIW_ProductOption] PRIMARY KEY CLUSTERED 
+	(
+		[OptionId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_ProductOptionLang]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_ProductOptionLang](
+		[OptionId] [int] NOT NULL,
+		[Lang] [nchar](5) NOT NULL,
+		[OptionDesc] [nvarchar](50) NULL,
+	 CONSTRAINT [PK_RIW_ProductOptionLang] PRIMARY KEY CLUSTERED 
+	(
+		[OptionId] ASC,
+		[Lang] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_ProductOptionValue]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_ProductOptionValue](
+		[OptionValueId] [int] IDENTITY(1,1) NOT NULL,
+		[OptionId] [int] NULL,
+		[AddedCost] [money] NULL,
+		[ListOrder] [int] NULL,
+		[attributes] [nvarchar](256) NULL,
+		[QtyStockSet] [float] NULL,
+	 CONSTRAINT [PK_RIW_ProductOptionValue] PRIMARY KEY CLUSTERED 
+	(
+		[OptionValueId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_ProductOptionValueLang]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_ProductOptionValueLang](
+		[OptionValueId] [int] NOT NULL,
+		[Lang] [nchar](5) NOT NULL,
+		[OptionValueDesc] [nvarchar](50) NULL,
+	 CONSTRAINT [PK_RIW_ProductOptionValueLang] PRIMARY KEY CLUSTERED 
+	(
+		[OptionValueId] ASC,
+		[Lang] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_ProductRelated]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_ProductRelated](
+		[RelatedId] [int] IDENTITY(1,1) NOT NULL,
+		[PortalId] [int] NULL,
+		[ProductId] [int] NULL,
+		[RelatedProductId] [int] NULL,
+		[DiscountAmt] [numeric](16, 2) NULL,
+		[DiscountPercent] [numeric](16, 2) NULL,
+		[ProductQty] [int] NULL,
+		[MaxQty] [int] NULL,
+		[RelatedType] [int] NULL,
+		[Disabled] [bit] NULL,
+		[NotAvailable] [bit] NULL,
+		[BiDirectional] [bit] NULL,
+	 CONSTRAINT [PK_RIW_ProductRelated] PRIMARY KEY CLUSTERED 
+	(
+		[RelatedId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_Products]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_Products](
+		[ProductId] [int] IDENTITY(1,1) NOT NULL,
+		[PortalId] [int] NOT NULL,
+		[ItemType] [char](1) NULL,
+		[Featured] [bit] NOT NULL,
+		[Archived] [bit] NOT NULL,
+		[CreatedByUser] [int] NOT NULL,
+		[CreatedOnDate] [datetime] NOT NULL,
+		[IsDeleted] [bit] NOT NULL,
+		[ProductRef] [nvarchar](20) NULL,
+		[Barcode] [nvarchar](20) NULL,
+		[ModifiedByUser] [int] NOT NULL,
+		[ModifiedOnDate] [datetime] NOT NULL,
+		[IsHidden] [bit] NOT NULL,
+		[DealerOnly] [bit] NOT NULL,
+		[QtyStockSet] [float] NULL,
+		[ReorderPoint] [int] NULL,
+		[ShowPrice] [bit] NOT NULL,
+		[Brand] [nvarchar](20) NULL,
+		[BrandModel] [nvarchar](20) NULL,
+		[ProductUnit] [int] NULL,
+		[SaleStartDate] [datetime] NULL,
+		[SaleEndDate] [datetime] NULL,
+		[Vendors] [varchar](20) NULL,
+		[Weight] [float] NULL,
+		[Length] [float] NULL,
+		[Height] [float] NULL,
+		[Width] [float] NULL,
+		[Diameter] [float] NULL,
+		[ZIPOrigin] [varchar](20) NULL,
+		[CityOrigin] [nvarchar](50) NULL,
+		[ServiceTime] [nvarchar](10) NULL,
+		[ServiceTech] [nvarchar](100) NULL,
+		[OldId] [int] NULL,
+	 CONSTRAINT [PK_RIW_Products] PRIMARY KEY CLUSTERED 
+	(
+		[ProductId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_ProductVideo]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_ProductVideo](
+		[ModuleId] [int] NULL,
+		[VideoId] [int] IDENTITY(1,1) NOT NULL,
+		[ProductId] [int] NOT NULL,
+		[Src] [nvarchar](max) NOT NULL,
+		[Alt] [nvarchar](100) NULL,
+		[MediaDesc] [nvarchar](max) NULL,
+		[width] [int] NULL,
+		[height] [int] NULL,
+		[NavigateUrl] [nvarchar](250) NULL,
+		[MediaAlignment] [int] NULL,
+		[MediaLoop] [bit] NOT NULL,
+		[AutoStart] [bit] NOT NULL,
+		[NewWindow] [bit] NOT NULL,
+		[TrackClicks] [bit] NOT NULL,
+		[MediaType] [int] NOT NULL,
+	 CONSTRAINT [PK_RIW_ProductVideos] PRIMARY KEY CLUSTERED 
+	(
+		[VideoId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_Services]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_Services](
+		[ProductId] [int] NOT NULL,
+		[ServiceItems] [nvarchar](1024) NULL,
+		[ServiceTools] [nvarchar](1024) NULL,
+		[ServiceTech] [nvarchar](256) NULL,
+		[ServicePlan] [nvarchar](max) NULL,
+	 CONSTRAINT [PK_RIW_Services] PRIMARY KEY CLUSTERED 
+	(
+		[ProductId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_ShippingRates]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_ShippingRates](
+		[ItemId] [int] IDENTITY(1,1) NOT NULL,
+		[Range1] [decimal](16, 2) NULL,
+		[Range2] [decimal](16, 2) NULL,
+		[ObjectId] [int] NULL,
+		[ShipCost] [decimal](16, 2) NULL,
+		[ShipType] [char](3) NULL,
+		[Disable] [bit] NULL,
+		[Description] [nvarchar](50) NULL,
+		[ProductWeight] [decimal](16, 2) NULL,
+		[ProductHeight] [decimal](16, 2) NULL,
+		[ProductLength] [decimal](16, 2) NULL,
+		[ProductWidth] [decimal](16, 2) NULL,
+		[PortalID] [int] NULL,
+		[ShipMethodID] [int] NULL,
+	 CONSTRAINT [PK_RIW_ShippingRates] PRIMARY KEY CLUSTERED 
+	(
+		[ItemId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_ShippingMethod]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_ShippingMethod](
+		[ShipMethodID] [int] IDENTITY(1,1) NOT NULL,
+		[PortalID] [int] NOT NULL,
+		[MethodName] [nvarchar](50) NULL,
+		[MethodDesc] [nvarchar](256) NULL,
+		[SortOrder] [int] NULL,
+		[TemplateName] [nvarchar](50) NULL,
+		[Disabled] [bit] NULL,
+		[URLtracker] [nvarchar](256) NULL,
+		[Dealer] [bit] NULL,
+		[NonDealer] [bit] NULL,
+	 CONSTRAINT [PK_RIW_ShippingMethod] PRIMARY KEY CLUSTERED 
+	(
+		[ShipMethodID] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_UnitTypes]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_UnitTypes](
+		[PortalId] [int] NOT NULL,
+		[UnitTypeId] [int] IDENTITY(1,1) NOT NULL,
+		[UnitTypeAbbv] [nvarchar](5) NOT NULL,
+		[UnitTypeTitle] [nvarchar](50) NOT NULL,
+		[IsDeleted] [bit] NOT NULL,
+		[CreatedByUser] [int] NOT NULL,
+		[CreatedOnDate] [smalldatetime] NOT NULL,
+		[ModifiedByUser] [int] NOT NULL,
+		[ModifiedOnDate] [smalldatetime] NOT NULL,
+	 CONSTRAINT [PK_RIW_UnitTypes] PRIMARY KEY CLUSTERED 
+	(
+		[UnitTypeId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+
+/** Drop Stored Procedures **/
+
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Products_Get]    Script Date: 12/05/2013 11:26:05 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_Products_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_Products_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Products_GetList]    Script Date: 12/05/2013 11:26:05 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_Products_GetList]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_Products_GetList]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_ProductModel_Get]    Script Date: 12/05/2013 11:26:05 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_ProductModel_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_ProductModel_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_ProductModel_GetList]    Script Date: 12/05/2013 11:26:05 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_ProductModel_GetList]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_ProductModel_GetList]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_ProductOption_Get]    Script Date: 12/05/2013 11:26:05 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_ProductOption_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_ProductOption_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_ProductOption_GetList]    Script Date: 12/05/2013 11:26:05 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_ProductOption_GetList]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_ProductOption_GetList]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_ProductOptionValue_Get]    Script Date: 12/05/2013 11:26:05 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_ProductOptionValue_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_ProductOptionValue_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_ProductOptionValue_GetList]    Script Date: 12/05/2013 11:26:05 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_ProductOptionValue_GetList]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_ProductOptionValue_GetList]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_ProductRelated_Get]    Script Date: 12/05/2013 11:26:05 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_ProductRelated_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_ProductRelated_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_ProductRelated_GetList]    Script Date: 12/05/2013 11:26:05 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_ProductRelated_GetList]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_ProductRelated_GetList]
+GO
+
+
+
+/** Create Stored Procedures **/
+
+
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Products_Get]    Script Date: 12/05/2013 11:26:06 ******/
+
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}RIW_Products_Get] (
+
+	@ProductId int
+	,@Lang char(5)
+
+)
+AS 
+  BEGIN 
+	  DECLARE @listStr VARCHAR(MAX)
+	  --SELECT @listStr = COALESCE(@listStr+',' ,'') + '<a id="cat_' + CONVERT(NVARCHAR,PC.[CategoryId]) + '" onclick="my.openCat(this.id)">' + CL.[CategoryName] + '</a>' FROM {databaseOwner}[{objectQualifier}RIW_ProductCategory] PC INNER JOIN {databaseOwner}[{objectQualifier}RIW_CategoryLang] AS CL ON PC.[CategoryId] = CL.[CategoryId] WHERE PC.[ProductId] = @ProductId
+	  SELECT @listStr = COALESCE(@listStr+',' ,'') + CL.[CategoryName] FROM dbo.[RIW_ProductCategory] PC INNER JOIN {databaseOwner}[{objectQualifier}RIW_CategoryLang] AS CL ON PC.[CategoryId] = CL.[CategoryId] WHERE PC.[ProductId] = @ProductId
+	  SELECT P.[ProductId]
+			 ,P.[PortalId]
+			 ,[Barcode]
+			 ,[ItemType]
+			 ,[ProductUnit]
+			 ,[Featured]
+			 ,[Archived]
+			 ,[ReorderPoint]
+			 ,[ShowPrice]
+			 ,P.[CreatedByUser]
+			 ,P.[CreatedOnDate]
+			 ,P.[ModifiedByUser]
+			 ,P.[ModifiedOnDate]
+			 ,[SaleStartDate]
+			 ,[SaleEndDate]
+			 ,P.[IsDeleted]
+			 ,[ProductRef]
+			 ,PL.[Lang]
+			 ,[Summary]
+			 ,[Brand]
+			 ,[BrandModel]
+			 ,[Description]
+			 ,[Manufacturer]
+			 ,[Vendors]
+			 ,[Weight]
+			 ,[Height]
+			 ,[Width]
+			 ,[Length]
+			 ,[Diameter]
+			 ,[ZIPOrigin]
+			 ,[CityOrigin]
+			 ,PF.[Finan_Manager]
+			 ,PF.[Finan_Cost]
+			 ,PF.[Finan_Paid]
+			 ,PF.[Finan_Paid_Discount]
+			 ,PF.[Finan_SalesPerson]
+			 ,PF.[Finan_Rep]
+			 ,PF.[Finan_Tech]
+			 ,PF.[Finan_Telemarketing]
+			 ,PF.[Finan_Special_Price]
+			 ,PF.[Finan_Sale_Price]
+			 ,PF.[Finan_DefaultBarCode]
+			 ,PF.[Finan_TributeSituationType]
+			 ,PF.[Finan_ICMS]
+			 ,PF.[Finan_PISTributeSituation]
+			 ,PF.[Finan_PISBase]
+			 ,PF.[Finan_PIS]
+			 ,PF.[Finan_PISTributeSubBase]
+			 ,PF.[Finan_PISTributeSub]
+			 ,PF.[Finan_COFINSTributeSituation]
+			 ,PF.[Finan_COFINSBase]
+			 ,PF.[Finan_COFINS]
+			 ,PF.[Finan_COFINSTributeSubBase]
+			 ,PF.[Finan_COFINSTributeSub]
+			 ,PF.[Finan_NCM]
+			 ,PF.[Finan_CST]
+			 ,ISNULL((SELECT COUNT(PIMG.[ProductImageId]) FROM {databaseOwner}[{objectQualifier}RIW_ProductImage] AS PIMG WHERE PIMG.[ProductId] = P.[ProductId]), 0) AS ProductImagesCount
+			 ,ISNULL((SELECT COUNT(PO.[OptionId]) FROM {databaseOwner}[{objectQualifier}RIW_ProductOption] AS PO WHERE PO.[ProductId] = P.[ProductId]), 0) AS ProductOptionsCount
+			 ,ISNULL((SELECT COUNT(PR.[RelatedId]) FROM {databaseOwner}[{objectQualifier}RIW_ProductRelated] AS PR WHERE PR.[ProductId] = P.[ProductId]), 0) AS ProductsRelatedCount
+			 ,(CASE WHEN Getdate() BETWEEN P.[SaleStartDate] AND P.[SaleEndDate]
+				THEN ISNULL(PF.[Finan_Special_Price], 0) ELSE ISNULL(PF.[Finan_Sale_Price], 0) END) AS UnitValue
+			 ,'CategoriesNames' = @listStr
+			 ,(CASE WHEN (SELECT COUNT(*) FROM {databaseOwner}[{objectQualifier}RIW_EstimateItems] WHERE ProductId = P.ProductId) > 0 THEN 1 ELSE 0 END) AS Locked
+			 ,'QtyStockSet' = (CASE WHEN EXISTS 
+				(SELECT 1 FROM {databaseOwner}[{objectQualifier}RIW_ProductOption] PO WHERE P.[ProductId] = PO.[ProductId])
+				THEN 
+					 Isnull((SELECT Sum(POV.[QtyStockSet]) 
+							 FROM   {databaseOwner}[{objectQualifier}RIW_ProductOption] POV
+							 WHERE  POV.[ProductId] = P.[ProductId]), 0) + [QtyStockSet]
+				ELSE
+					[QtyStockSet]
+				END)
+			 ,(SELECT TOP 1 [ProductImageURL] 
+			  FROM   {databaseOwner}[{objectQualifier}RIW_ProductImage] AS I 
+			  WHERE  [ProductId] = P.[ProductId] 
+			  ORDER  BY [ListOrder]) AS ProductImageURL
+			 ,(SELECT TOP 1 [ImageDesc] 
+			  FROM {databaseOwner}[{objectQualifier}RIW_ProductImage] AS I 
+			  INNER JOIN {databaseOwner}[{objectQualifier}RIW_ProductImageLang] AS IL 
+			  ON IL.[ImageId] = I.[ProductImageId] AND IL.[Lang] = PL.[Lang] 
+			  WHERE  [ProductId] = P.[ProductId] 
+			  ORDER  BY [ListOrder]) AS ImageDesc
+			 ,(SELECT TOP 1 PIMG.[Extension] 
+			  FROM   {databaseOwner}[{objectQualifier}RIW_ProductImage] AS PIMG 
+			  WHERE  [ProductId] = P.[ProductId] 
+			  ORDER  BY [ListOrder]) AS Extension
+			 --,(SELECT TOP 1 I.[ProductImageId] 
+			 -- FROM {databaseOwner}[{objectQualifier}RIW_ProductImage] AS I 
+			 -- INNER JOIN {databaseOwner}[{objectQualifier}RIW_ProductImageLang] AS IL 
+			 -- ON IL.[ImageId] = I.[ProductImageId] AND IL.[Lang] = PL.[Lang] 
+			 -- WHERE  [ProductId] = P.[ProductId] 
+			 -- ORDER  BY [ListOrder]) AS ProductImageId
+			 ,(SELECT TOP 1 ProductImageId
+			  FROM {databaseOwner}[{objectQualifier}RIW_ProductImage]
+			  WHERE [ProductId] = P.[ProductId]
+			  ORDER BY [ListOrder]) AS ProductImageId
+			 ,PL.[ProductName]
+			 ,PL.[SEOName]
+			 ,PL.[TagWords]
+			 ,PL.[SEOSummary]
+			 ,P.[IsHidden]
+			 ,UT.[UnitTypeTitle]
+			 ,UT.[UnitTypeAbbv]
+	  FROM   {databaseOwner}[{objectQualifier}RIW_Products] AS P 
+			 INNER JOIN {databaseOwner}[{objectQualifier}RIW_ProductFinance] AS PF
+					 ON P.[ProductId] = PF.[ProductId]
+			 INNER JOIN {databaseOwner}[{objectQualifier}RIW_ProductLang] AS PL 
+					 ON P.[ProductId] = PL.[ProductId] 
+						AND PL.[Lang] = @Lang 
+			 INNER JOIN {databaseOwner}[{objectQualifier}RIW_UnitTypes] AS UT
+					 ON P.ProductUnit = UT.UnitTypeId
+	  WHERE  P.[ProductId] = @ProductId 
+  END
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Products_GetList]    Script Date: 12/05/2013 11:26:06 ******/
+
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}RIW_Products_GetList] (
+
+	@PortalId int
+	,@CategoryId int
+	,@Lang char(5)
+	,@Filter nvarchar(50)
+	,@GetArchived bit
+	,@FeaturedOnly bit
+	,@OrderBy nvarchar(50)
+	,@OrderDESC varchar(5)
+	,@ReturnLimit nvarchar(5)
+	,@PageIndex int
+	,@PageSize int
+	,@OnSale nvarchar(5)
+	,@SearchDescription bit
+	,@IsDealer bit
+	,@GetDeleted nvarchar(5)
+	,@ProviderList char(1)
+	,@CategoryList nvarchar(1000)
+	,@ExcludeFeatured bit
+
+)
+AS 
+  BEGIN 
+	  DECLARE @SQL nvarchar(4000) 
+
+	  -- clean up filter 
+	  SET @Filter = Replace(@Filter, '''', '''''') 
+	  SET @SQL = ' SELECT ' 
+
+	  IF @ReturnLimit > 0 
+		BEGIN 
+			SET @SQL = @SQL + ' top ' + @ReturnLimit 
+		END 
+
+	  SET @SQL = @SQL + ' row,ProductId,PortalId,ItemType,Featured,Archived,CreatedByUser,CreatedOnDate,ModifiedByUser,ModifiedOnDate,IsDeleted,ProductRef,Lang,Summary,[Description],Manufacturer,ProductImagesCount,ProductOptionsCount,ProductsRelatedCount,CategoriesNames,Finan_Manager,Finan_Cost,Finan_SalesPerson,Finan_Rep,Finan_Tech,Finan_Telemarketing,Finan_Special_Price,Finan_Sale_Price,UnitValue,Barcode,QtyStockSet,ProductImageId,Extension,ProductName,ReorderPoint,ShowPrice,UnitTypeTitle,UnitTypeAbbv,Locked,SEOName,TagWords,IsHidden,ProductUnit,Weight,Length,Height,Width,Diameter,ZipOrigin,CityOrigin,OldId,TotalRows '
+	SET @SQL = @SQL + ' FROM ' 
+	SET @SQL = @SQL + ' (select ROW_NUMBER() OVER (' 
+
+	IF @OrderBy = 'ProductId' 
+	  BEGIN 
+		  IF @OrderDESC = 'desc' 
+			SET @SQL = @SQL 
+					   + ' order by P.ProductId DESC' 
+		  ELSE 
+			SET @SQL = @SQL 
+					   + ' order by P.ProductId' 
+	  END 
+
+	IF @OrderBy = 'ProductRef' 
+	  BEGIN 
+		  IF @OrderDESC = 'desc'
+			SET @SQL = @SQL 
+					   + ' order by P.ProductRef DESC' 
+		  ELSE 
+			SET @SQL = @SQL 
+					   + ' order by P.ProductRef' 
+	  END 
+
+	IF @OrderBy = 'ProductName' 
+	  BEGIN 
+		  IF @OrderDESC = 'desc'
+			SET @SQL = @SQL 
+					   + ' order by PL.ProductName DESC,P.ProductRef DESC' 
+		  ELSE 
+			SET @SQL = @SQL 
+					   + ' order by PL.ProductName,P.ProductRef' 
+	  END 
+
+	IF @OrderBy = 'UnitValue' 
+	  BEGIN 
+		  IF @OrderDESC = 'desc'
+			SET @SQL = @SQL 
+					   + ' order by {databaseOwner}{objectQualifier}RIW_FGetProductBasePrice(P.ProductId) DESC,PL.ProductName DESC,P.ProductRef DESC'
+		  ELSE 
+			SET @SQL = @SQL 
+					   + ' order by {databaseOwner}{objectQualifier}RIW_FGetProductBasePrice(P.ProductId),PL.ProductName,P.ProductRef'
+	  END 
+
+	IF @OrderBy = 'CreatedOnDate' 
+	  BEGIN 
+		  IF @OrderDESC = 'desc'
+			SET @SQL = @SQL + ' order by P.CreatedOnDate DESC' 
+		  ELSE 
+			SET @SQL = @SQL + ' order by P.CreatedOnDate' 
+	  END 
+
+	IF @OrderBy = 'ModifiedOnDate' 
+	  BEGIN 
+		  IF @OrderDESC = 'desc'
+			SET @SQL = @SQL + ' order by P.[ModifiedOnDate] DESC' 
+		  ELSE 
+			SET @SQL = @SQL + ' order by P.[ModifiedOnDate]' 
+	  END 
+
+	IF @OrderBy = '' 
+	  BEGIN 
+		  SET @SQL = @SQL + ' order by PL.ProductName,P.ProductRef' 
+	  END 
+
+	SET @SQL = @SQL + ') AS row, ' 
+	SET @SQL = @SQL + ' P.ProductId,' 
+	SET @SQL = @SQL + ' P.PortalId,' 
+	SET @SQL = @SQL + ' ItemType,' 
+	SET @SQL = @SQL + ' Featured,' 
+	SET @SQL = @SQL + ' Archived,' 
+	SET @SQL = @SQL + ' P.CreatedByUser,' 
+	SET @SQL = @SQL + ' P.CreatedOnDate,' 
+	SET @SQL = @SQL + ' P.ModifiedByUser,' 
+	SET @SQL = @SQL + ' P.ModifiedOnDate,' 
+	SET @SQL = @SQL + ' P.IsDeleted,' 
+	SET @SQL = @SQL + ' ProductRef,' 
+	SET @SQL = @SQL + ' Lang,' 
+	SET @SQL = @SQL + ' Summary,' 
+	SET @SQL = @SQL + ' Description,' 
+	SET @SQL = @SQL + ' Manufacturer,'
+	SET @SQL = @SQL + ' ReorderPoint,'
+	SET @SQL = @SQL + ' ShowPrice,'
+	SET @SQL = @SQL + ' OldId,'
+	SET @SQL = @SQL + ' ISNULL((SELECT COUNT(PI.[ProductId]) FROM {databaseOwner}[{objectQualifier}RIW_ProductImage] AS PI WHERE PI.[ProductId] = P.[ProductId]), 0) AS ProductImagesCount, '
+	SET @SQL = @SQL + ' ISNULL((SELECT COUNT(PO.[OptionId]) FROM {databaseOwner}[{objectQualifier}RIW_ProductOption] AS PO WHERE PO.[ProductId] = P.[ProductId]), 0) AS ProductOptionsCount, '
+	SET @SQL = @SQL + ' ISNULL((SELECT COUNT(PR.[RelatedId]) FROM {databaseOwner}[{objectQualifier}RIW_ProductRelated] AS PR WHERE PR.[ProductId] = P.[ProductId]), 0) AS ProductsRelatedCount, '
+	SET @SQL = @SQL + ' ( STUFF( ( SELECT '''', ''c_'' + CONVERT(VARCHAR,PC.[CategoryId]) + '':'' + CL.[CategoryName] FROM {databaseOwner}[{objectQualifier}RIW_ProductCategory] PC INNER JOIN {databaseOwner}[{objectQualifier}RIW_CategoryLang] AS CL ON PC.[CategoryId] = CL.[CategoryId] WHERE PC.[ProductId] = P.ProductId FOR XML PATH('''') ), 1, 2, '''' ) ) as CategoriesNames,'
+	SET @SQL = @SQL + ' Finan_Manager, Finan_Cost, Finan_SalesPerson, Finan_Rep, Finan_Tech, Finan_Telemarketing, Finan_Special_Price, Finan_Sale_Price,'
+	SET @SQL = @SQL + ' (CASE WHEN Getdate() BETWEEN P.[SaleEndDate] AND P.[SaleStartDate] THEN ISNULL(PF.[Finan_Special_Price], 0) ELSE ISNULL(PF.[Finan_Sale_Price], 0) END) AS UnitValue,' 
+	SET @SQL = @SQL + ' Barcode,'
+	SET @SQL = @SQL + ' (CASE WHEN EXISTS (SELECT 1 FROM {databaseOwner}[{objectQualifier}RIW_ProductOption] PO WHERE P.[ProductId] = PO.[ProductId]) THEN Isnull((SELECT Sum(POV.[QtyStockSet]) FROM {databaseOwner}[{objectQualifier}RIW_ProductOption] POV WHERE  POV.[ProductId] = P.[ProductId]), 0) + [QtyStockSet] ELSE [QtyStockSet] END) as QtyStockSet,'
+	SET @SQL = @SQL + ' (SELECT TOP 1 ProductImageId FROM {databaseOwner}[{objectQualifier}RIW_ProductImage] WHERE [ProductId] = P.[ProductId] ORDER BY [ListOrder]) AS ProductImageId,'
+	SET @SQL = @SQL + ' (SELECT TOP 1 Extension FROM {databaseOwner}[{objectQualifier}RIW_ProductImage] WHERE [ProductId] = P.[ProductId] ORDER BY [ListOrder]) AS Extension,'
+	---SET @SQL = @SQL + ' (select top 1 ProductImageUrl from {databaseOwner}{objectQualifier}RIW_ProductImage AS I where productid = P.ProductId order by listorder) as ProductImageURL,'
+	---SET @SQL = @SQL + ' (select top 1 ImageDesc from {databaseOwner}{objectQualifier}RIW_ProductImage AS I inner join {databaseOwner}{objectQualifier}RIW_ProductImageLang as IL on IL.ImageId = I.ImageId and IL.Lang = PL.Lang where productid = P.ProductId order by listorder) as ImageDesc,'
+	SET @SQL = @SQL + ' PL.ProductName, UT.UnitTypeTitle, UT.UnitTypeAbbv, ' 
+	SET @SQL = @SQL + ' (CASE WHEN (SELECT COUNT(*) FROM {databaseOwner}[{objectQualifier}RIW_EstimateItems] WHERE ProductId = P.ProductId) > 0 THEN 1 ELSE 0 END) AS Locked,' 
+	SET @SQL = @SQL + ' SEOName, TagWords, IsHidden, ProductUnit, Weight, Length, Height, Width, Diameter, ZipOrigin, CityOrigin, TotalRows = Count(*) OVER() ' 
+	SET @SQL = @SQL + ' from {databaseOwner}[{objectQualifier}RIW_Products] as P' 
+	SET @SQL = @SQL + ' inner join {databaseOwner}{objectQualifier}RIW_ProductFinance as PF on P.ProductId = PF.ProductId'
+	SET @SQL = @SQL + ' left outer join {databaseOwner}{objectQualifier}RIW_UnitTypes as UT on P.ProductUnit = UT.UnitTypeId'
+	SET @SQL = @SQL + ' inner join {databaseOwner}{objectQualifier}RIW_ProductLang as PL on P.ProductId = PL.ProductId and PL.Lang = '''   
+			   + @Lang + '''' 
+	SET @SQL = @SQL + ' where P.PortalId = ' 
+			   + CONVERT(nvarchar(5), @PortalId) 
+			   
+	IF (( @OnSale = 'True' ))
+	  BEGIN
+		  SET @SQL = @SQL + ' and Getdate() BETWEEN P.[SaleStartDate] AND P.[SaleEndDate] '
+	  END
+
+	IF (( @CategoryId > 0 
+		   OR @CategoryList != '' )) 
+	  BEGIN 
+		  SET @SQL = @SQL + ' and EXISTS (select ProductId from {databaseOwner}{objectQualifier}RIW_ProductCategory as PC where PC.ProductId = P.ProductId and PC.CategoryId in ('
+
+		  IF ( @CategoryId > 0 ) 
+			BEGIN 
+				SET @SQL = @SQL + CONVERT(nvarchar(10), @CategoryId) 
+
+				IF ( @CategoryList != '' ) 
+				  SET @SQL = @SQL + ',' 
+			END 
+
+		  SET @SQL = @SQL + @CategoryList 
+		  SET @SQL = @SQL + ')) ' 
+	  END 
+
+	IF (@ProviderList != '' )
+	  BEGIN 		
+		  --SET @SQL = @SQL + ' and P.Vendors in (' + @ProviderList + ') ' 
+		  SET @SQL = @SQL + ' and P.Vendors like (''%' + @ProviderList + '%'') ' 
+		  --SET @SQL = @SQL + ' and CHARINDEX('','' + P.Vendors + '','','',' + @ProviderList + ','') > 0'
+	  END 
+
+	IF @IsDealer = 0 
+	  BEGIN 
+		  SET @SQL = @SQL + ' and P.DealerOnly = 0 '
+	  END 
+
+	IF @FeaturedOnly = 1 
+	  BEGIN 
+		  SET @SQL = @SQL + ' and P.Featured = 1 ' 
+	  END 
+
+	IF @ExcludeFeatured = 1 
+	  BEGIN 
+		  SET @SQL = @SQL + ' and P.Featured != 1 ' 
+	  END 
+
+	IF @GetArchived = 0 
+	  BEGIN 
+		  SET @SQL = @SQL + ' and not P.Archived = 1 and not P.IsHidden = 1'
+	  END 
+
+	IF @GetDeleted != ''
+	  BEGIN 
+		  IF @GetDeleted = 'True' 
+			SET @SQL = @SQL 
+					   + ' and P.IsDeleted = 1' 
+		  ELSE 
+			SET @SQL = @SQL 
+					   + ' and P.IsDeleted = 0' 
+	  END 
+
+	IF @Filter != '' 
+	  BEGIN 
+		  DECLARE @Filter1 nvarchar(50) 
+
+		  -- Search for whole filter 
+		  IF Charindex('+', @Filter) = 0 
+			BEGIN 
+				SET @Filter1 = @Filter 
+			END 
+		  ELSE 
+			BEGIN 
+				-- Search for first filter 
+				SET @Filter1 = Substring(@Filter, 1, Charindex('+', @Filter) - 1) 
+			END 
+
+		  SET @SQL = @SQL 
+					 + ' and (PL.ProductName collate Latin1_General_CI_AI like ''%' 
+					 + @Filter1 
+					 + '%'' or P.ProductRef collate Latin1_General_CI_AI like ''%' 
+					 + @Filter1 
+					 + '%'' or P.Barcode collate Latin1_General_CI_AI like ''%' 
+					 + @Filter1 
+					 + '%'' or PL.Summary collate Latin1_General_CI_AI like ''%' 
+					 + @Filter1 
+					 + '%'' or PL.Manufacturer collate Latin1_General_CI_AI like ''%' 
+					 + @Filter1 
+					 + '%'' or PL.TagWords collate Latin1_General_CI_AI like ''%' 
+					 + @Filter1 + '%'' ' 
+
+		  IF @SearchDescription = 1 
+			BEGIN 
+				SET @SQL = @SQL + ' or PL.Description collate Latin1_General_CI_AI like ''%' 
+						   + @Filter1 + '%'' ' 
+			END 
+
+		  SET @SQL = @SQL + ')' 
+
+		  -- Search for second word 
+		  IF Charindex('+', @Filter) > 0 
+			BEGIN 
+				SET @Filter1 = Substring(@Filter, Charindex('+', @Filter) + 1, Charindex('+', @Filter))
+				SET @SQL = @SQL 
+						   + ' and (PL.ProductName collate Latin1_General_CI_AI like ''%' 
+						   + @Filter1 
+						   + '%'' or P.ProductRef collate Latin1_General_CI_AI like ''%' 
+						   + @Filter1 
+						   + '%'' or P.Barcode collate Latin1_General_CI_AI like ''%' 
+						   + @Filter1 
+						   + '%'' or PL.Summary collate Latin1_General_CI_AI like ''%' 
+						   + @Filter1 
+						   + '%'' or PL.Manufacturer collate Latin1_General_CI_AI like ''%' 
+						   + @Filter1 
+						   + '%'' or PL.TagWords collate Latin1_General_CI_AI like ''%' 
+						   + @Filter1 + '%'' ' 
+
+				IF @SearchDescription = 1 
+				  BEGIN 
+					  SET @SQL = @SQL + ' or PL.Description collate Latin1_General_CI_AI like ''%'
+								 + @Filter1 + '%'' ' 
+				  END 
+
+				SET @SQL = @SQL + ')' 
+			END 
+	  END 
+
+	SET @SQL = @SQL + ') AS RIW_ProductsPage ' 
+
+	IF @PageSize > 0 
+	  BEGIN 
+		  SET @SQL = @SQL + ' WHERE Row between ((' 
+					 + CONVERT(nvarchar(15), (@PageIndex - 1)) 
+					 + ' * ' + CONVERT(nvarchar(15), @PageSize) 
+					 + ') + 1) and ' 
+					 + CONVERT(nvarchar(15), (@PageIndex*@PageSize)) 
+	  END 
+
+	EXEC Sp_executesql 
+	  @SQL 
+END
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_ProductModel_Get]    Script Date: 12/05/2013 11:26:06 ******/
+
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}RIW_ProductModel_Get] (
+
+	@ModelId int
+	,@Lang nchar(5)
+
+)
+AS 
+  BEGIN 
+	  SELECT M.[ModelId], 
+			 M.[ProductId], 
+			 M.[ListOrder], 
+			 M.[UnitCost], 
+			 M.[Barcode], 
+			 M.[ModelRef], 
+			 M.[Deleted], 
+			 ML.[Lang], 
+			 ML.[ModelName], 
+			 [QtyRemaining], 
+			 [QtyTrans], 
+			 [QtyTransDate], 
+			 PL.[ProductName], 
+			 P.[PortalId], 
+			 Isnull(SR.[ProductWeight], 0) AS Weight, 
+			 Isnull(SR.[ProductHeight], 0) AS Height, 
+			 Isnull(SR.[ProductLength], 0) AS Length, 
+			 Isnull(SR.[ProductWidth], 0)  AS Width, 
+			 M.[QtyStockSet], 
+			 M.[DealerCost], 
+			 M.[DealerOnly], 
+			 M.[PurchaseCost], 
+			 ML.[Extra], 
+			 M.[Allow] 
+	  FROM   {databaseOwner}[{objectQualifier}RIW_ProductModel] AS M 
+			 INNER JOIN {databaseOwner}[{objectQualifier}RIW_Products] AS P 
+					 ON P.[ProductId] = M.[ProductId] 
+			 LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIW_ProductModelLang] AS ML 
+						  ON ML.[ModelId] = M.[ModelId] 
+							 AND ML.[Lang] = @Lang 
+			 LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIW_ProductLang] AS PL 
+						  ON PL.[ProductId] = M.[ProductId] 
+							 AND PL.[Lang] = @Lang 
+			 LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIW_ShippingRates] AS SR 
+						  ON SR.[ObjectId] = M.[ModelId] 
+							 AND [ShipType] = 'PRD' 
+							 AND SR.[Disable] = 0 
+	  WHERE  M.[ModelId] = @ModelID 
+  END
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_ProductModel_GetList]    Script Date: 12/05/2013 11:26:06 ******/
+
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}RIW_ProductModel_GetList] (
+
+	@PortalId int
+	,@ProductId int
+	,@Lang nchar(5)
+	,@IsDealer bit
+	
+) 
+AS 
+  BEGIN 
+	  SELECT M.[ModelId], 
+			 M.[ProductId], 
+			 M.[ListOrder], 
+			 M.[UnitCost], 
+			 M.[Barcode], 
+			 M.[ModelRef], 
+			 M.[Deleted], 
+			 ML.[Lang], 
+			 ML.[ModelName], 
+			 [QtyRemaining], 
+			 [QtyTrans], 
+			 [QtyTransDate], 
+			 PL.[ProductName], 
+			 P.[PortalId], 
+			 Isnull(SR.[ProductWeight], 0) AS Weight, 
+			 Isnull(SR.[ProductHeight], 0) AS Height, 
+			 Isnull(SR.[ProductLength], 0) AS Length, 
+			 Isnull(SR.[ProductWidth], 0)  AS Width, 
+			 M.[QtyStockSet], 
+			 M.[DealerCost], 
+			 M.[DealerOnly], 
+			 M.[PurchaseCost], 
+			 ML.[Extra], 
+			 M.[Allow] 
+	  FROM   {databaseOwner}[{objectQualifier}RIW_ProductModel] AS M 
+			 INNER JOIN {databaseOwner}[{objectQualifier}RIW_Products] AS P 
+					 ON P.[ProductId] = M.[ProductId] 
+			 LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIW_ProductModelLang] AS ML 
+						  ON ML.[ModelId] = M.[ModelId] 
+							 AND ML.[Lang] = @Lang 
+			 LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIW_ProductLang] AS PL 
+						  ON PL.[ProductId] = M.[ProductId] 
+							 AND PL.[Lang] = @Lang 
+			 LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIW_ShippingRates] AS SR 
+						  ON SR.[Objectid] = M.[ModelId] 
+							 AND [ShipType] = 'PRD' 
+							 AND SR.[disable] = 0 
+	  WHERE  M.[ProductId] = @ProductID 
+			 AND ( P.[PortalId] = @PortalID 
+					OR @PortalID = -1 ) 
+			 AND ( @IsDealer = 1 
+					OR [DealerOnly] = 0 ) 
+	  ORDER  BY M.[ListOrder] 
+  END 
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_ProductOption_Get]    Script Date: 12/05/2013 11:26:06 ******/
+
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}RIW_ProductOption_Get] (
+
+	@OptionId int
+	,@Lang nchar(5)
+
+)
+AS 
+  BEGIN 
+	  SELECT O.[OptionId], 
+			 O.[ProductId], 
+			 O.[ListOrder], 
+			 OL.[Lang], 
+			 OL.[OptionDesc], 
+			 O.[attributes] 
+	  FROM   {databaseOwner}[{objectQualifier}RIW_ProductOption] AS O 
+			 LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIW_ProductOptionLang] AS OL 
+						  ON OL.[OptionId] = O.[OptionId] 
+							 AND OL.[Lang] = @Lang 
+	  WHERE  O.[OptionId] = @OptionID 
+  END 
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_ProductOption_GetList]    Script Date: 12/05/2013 11:26:06 ******/
+
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}RIW_ProductOption_GetList] (
+
+	@ProductId int
+	,@Lang nchar(5)
+
+)
+AS 
+  BEGIN 
+	  SELECT O.[OptionId], 
+			 O.[ProductId], 
+			 O.[ListOrder], 
+			 OL.[Lang], 
+			 OL.[OptionDesc], 
+			 O.[QtyStockSet],
+			 O.[attributes] 
+	  FROM   {databaseOwner}[{objectQualifier}RIW_ProductOption] AS O 
+			 LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIW_ProductOptionLang] AS OL 
+						  ON OL.[OptionId] = O.[OptionId] 
+							 AND OL.[Lang] = @Lang 
+		--     LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIW_ProductOptionValue] AS OV
+						  --ON OL.[OptionId] = OV.[OptionId]
+	  WHERE  O.[ProductId] = @ProductID 
+	  ORDER  BY O.[ListOrder] 
+  END 
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_ProductOptionValue_Get]    Script Date: 12/05/2013 11:26:06 ******/
+
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}RIW_ProductOptionValue_Get] (
+
+	@OptionValueID int
+	,@Lang nchar(5)
+
+)
+AS 
+  BEGIN 
+	  SELECT OV.[OptionValueId], 
+			 OV.[OptionId], 
+			 OV.[AddedCost], 
+			 OV.[ListOrder], 
+			 OVL.[Lang], 
+			 OVL.[OptionValueDesc] 
+	  FROM   {databaseOwner}[{objectQualifier}RIW_ProductOptionValue] AS OV 
+			 LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIW_ProductOptionValueLang] AS OVL 
+						  ON OVL.[OptionValueId] = OV.[OptionValueId] 
+							 AND OVL.[Lang] = @Lang 
+	  WHERE  OV.[OptionValueId] = @OptionValueID 
+  END 
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_ProductOptionValue_GetList]    Script Date: 12/05/2013 11:26:06 ******/
+
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}RIW_ProductOptionValue_GetList] (
+
+	@OptionID int
+	,@Lang nchar(5)
+
+)
+AS 
+  BEGIN 
+	  SELECT OV.[OptionValueId], 
+			 OV.[OptionId], 
+			 OV.[AddedCost], 
+			 OV.[ListOrder], 
+			 OVL.[Lang], 
+			 OVL.[OptionValueDesc] ,
+			 OV.[QtyStockSet]
+	  FROM   {databaseOwner}[{objectQualifier}RIW_ProductOptionValue] AS OV 
+			 LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIW_ProductOptionValueLang] AS OVL 
+						  ON OVL.[OptionValueId] = OV.[OptionValueId] 
+							 AND OVL.[Lang] = @Lang 
+	  WHERE  OV.[OptionId] = @OptionID 
+	  ORDER  BY OV.[ListOrder] 
+  END 
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_ProductRelated_Get]    Script Date: 12/05/2013 11:26:06 ******/
+
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}RIW_ProductRelated_Get] (
+
+	@RelatedID int
+
+)
+AS 
+  BEGIN 
+	  SELECT PR.[BiDirectional], 
+			 PR.[Disabled], 
+			 PR.[DiscountAmt], 
+			 PR.[DiscountPercent], 
+			 PR.[MaxQty], 
+			 PR.[NotAvailable], 
+			 PR.[PortalId], 
+			 PR.[ProductId], 
+			 PR.[ProductQty], 
+			 PR.[RelatedId], 
+			 PR.[RelatedProductId], 
+			 PR.[RelatedType] 
+	  FROM   {databaseOwner}[{objectQualifier}RIW_ProductRelated] PR 
+	  WHERE  RelatedID = @relatedid 
+  END 
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_ProductRelated_GetList]    Script Date: 12/05/2013 11:26:06 ******/
+
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}RIW_ProductRelated_GetList] (
+
+	@PortalId int,
+	@ProductId int,
+	@Lang char(5),
+	@RelatedType int,
+	@GetAll bit
+	
+)
+AS
+BEGIN
+	SELECT PR.*
+	,RP.[ProductRef] AS RelatedProductRef
+	,RP.[Barcode] AS RelatedProductBarcode
+	,RP.[ProductUnit] AS RelatedProductUnit
+	,RP.[ItemType] AS RelatedProductItemType
+	,RPL.[Summary] AS RelatedProductSummary
+	,(SELECT TOP 1 ProductImageId FROM {databaseOwner}[{objectQualifier}RIW_ProductImage] WHERE [ProductId] = PR.[RelatedProductId] ORDER BY [ListOrder]) AS RelatedProductImageId
+	,(SELECT TOP 1 Extension FROM {databaseOwner}[{objectQualifier}RIW_ProductImage] WHERE [ProductId] = PR.[RelatedProductId] ORDER BY [ListOrder]) AS RelatedExtension
+	--,(CASE WHEN EXISTS (SELECT 1 FROM {databaseOwner}[{objectQualifier}RIW_ProductOption] PO WHERE PR.[RelatedProductId] = PO.[ProductId])	THEN Isnull((SELECT Sum(POV.[QtyStockSet]) FROM   {databaseOwner}[{objectQualifier}RIW_ProductOption] POV WHERE  POV.[ProductId] = PR.[ProductId]), 0) ELSE [QtyStockSet] END) as RelatedQtyStockSet
+	,(CASE WHEN EXISTS (SELECT 1 FROM {databaseOwner}[{objectQualifier}RIW_ProductOption] PO WHERE @ProductId = PO.[ProductId])	THEN Isnull((SELECT Sum(POV.[QtyStockSet]) FROM   {databaseOwner}[{objectQualifier}RIW_ProductOption] POV WHERE  POV.[ProductId] = @ProductId), 0) ELSE [QtyStockSet] END) as RelatedQtyStockSet
+	,(STUFF((SELECT '', '' + CONVERT(VARCHAR,PC.[CategoryId]) + ':' + CL.[CategoryName] FROM {databaseOwner}[{objectQualifier}RIW_ProductCategory] PC INNER JOIN {databaseOwner}[{objectQualifier}RIW_CategoryLang] AS CL ON PC.[CategoryId] = CL.[CategoryId] WHERE PC.[ProductId] = @ProductId FOR XML PATH('')), 1, 2, '')) as RelatedCategoryNames
+	,CASE WHEN PF.[Finan_Special_Price] > 0 
+		AND GETDATE() BETWEEN RP.[SaleStartDate] AND RP.[SaleEndDate]
+		 THEN PF.[Finan_Special_Price] ELSE PF.[Finan_Sale_Price] END AS RelatedUnitValue
+	,PF.[Finan_Sale_Price] AS RelatedFinan_Sale_Price
+	,PF.[Finan_Special_Price] AS RelatedFinan_Special_Price
+	,RP.[ShowPrice] AS RelatedShowPrice
+	,RPL.[ProductName] AS RelatedProductName
+	,Finan_Manager AS RelatedFinan_Manager
+	,Finan_Cost AS RelatedFinan_Cost
+	,Finan_SalesPerson AS RelatedFinan_SalesPerson
+	,Finan_Rep AS RelatedFinan_Rep
+	,Finan_Tech AS RelatedFinan_Tech
+	,Finan_Telemarketing AS RelatedFinan_Telemarketing
+	FROM {databaseOwner}[{objectQualifier}RIW_ProductRelated] AS PR
+	LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIW_Products] AS RP ON PR.[RelatedProductID] = RP.[ProductId]
+	LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIW_ProductFinance] AS PF ON PR.[RelatedProductID] = PF.[ProductId]
+	LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIW_ProductLang] AS RPL ON RPL.[ProductId] = RP.[ProductId] AND RPL.[Lang] = @Lang
+	WHERE PR.[ProductId] = @ProductID
+	AND (PR.[Disabled] = 0 OR @GetAll = 1)
+	AND (PR.[NotAvailable] = 0 OR @GetAll = 1)
+	AND ([RelatedType] = @RelatedType OR @RelatedType = -1)
+	AND RP.[Archived] = 0
+	AND RP.[IsDeleted] = 0
+END
+GO
+
+/************************************************************/
+/*****              SqlDataProvider                     *****/
+/************************************************************/

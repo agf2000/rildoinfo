@@ -1,0 +1,365 @@
+<dotnetnuke type="Package" version="5.0">
+  <packages>
+    <package name="RIW_People_Manager" type="Module" version="00.00.01">
+      <friendlyName>RIW People Manager</friendlyName>
+      <description>AGF RIW People Manager module.</description>
+      <iconFile>DesktopModules/RildoInfo/People/Content/Images/ri-logo.png</iconFile>
+      <owner>
+        <name>AGF</name>
+        <organization>AGF</organization>
+        <url>http://www.riw.com.br</url>
+        <email>suporte@riw.com.br</email>
+      </owner>
+      <license src="License.txt"></license>
+      <releaseNotes src="ReleaseNotes.txt"></releaseNotes>
+      <dependencies>
+        <dependency type="CoreVersion">07.01.01</dependency>
+      </dependencies>
+      
+      <components>
+        <component type="Script">
+          <scripts>
+            <basePath>DesktopModules\RildoInfo\People</basePath>
+            <script type="Install">
+              <path>Providers\DataProviders\SqlDataProvider</path>
+              <name>00.00.01.SqlDataProvider</name>
+              <version>00.00.01</version>
+            </script>
+            <script type="UnInstall">
+              <path>Providers\DataProviders\SqlDataProvider</path>
+              <name>Uninstall.SqlDataProvider</name>
+              <version>00.00.01</version>
+            </script>
+          </scripts>
+        </component>
+
+        <component type="ResourceFile">
+          <resourceFiles>
+            <basePath>DesktopModules/RildoInfo/People</basePath>
+            <resourceFile>
+              <name>Resources.zip</name>
+            </resourceFile>
+          </resourceFiles>
+        </component>
+
+        <component type="Module">
+          <desktopModule>
+            <moduleName>RIW_People_Manager</moduleName>
+            <foldername>People</foldername>
+            <businessControllerClass>RIW.Modules.People.Components.FeatureController</businessControllerClass>
+            <supportedFeatures />
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>RIW People Manager</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey />
+                    <controlSrc>DesktopModules/RildoInfo/People/Views/Manage_People.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>Assist</controlKey>
+                    <controlSrc>DesktopModules/RildoInfo/People/Views/Client_Assistance.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>Comm</controlKey>
+                    <controlSrc>DesktopModules/RildoInfo/People/Views/Communicate_Person.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>Edit</controlKey>
+                    <controlSrc>DesktopModules/RildoInfo/People/Views/Edit_Person.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>Editor</controlKey>
+                    <controlSrc>DesktopModules/RildoInfo/People/Views/Edit_Propaganda.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>Finance</controlKey>
+                    <controlSrc>DesktopModules/RildoInfo/People/Views/Client_Finance.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>Log</controlKey>
+                    <controlSrc>DesktopModules/RildoInfo/People/Views/Person_History.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                </moduleControls>
+                <permissions>
+                  <permission code="RIW_People_MANAGEPERMISSION" key="INSERTPERMISSION" name="Insert New Item" />
+                  <permission code="RIW_People_MANAGEPERMISSION" key="EDITPERMISSION" name="Edit Item" />
+                  <permission code="RIW_People_MANAGEPERMISSION" key="EXCLUDEPERMISSION" name="Exclude Item" />
+                </permissions>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+        </component>
+        <component type="Assembly">
+          <assemblies>
+            <assembly>
+              <name>RIW.Modules.People.dll</name>
+              <path>bin</path>
+            </assembly>
+          </assemblies>
+        </component>
+      </components>
+    </package>
+    <package name="RIW_My_Profile" type="Module" version="00.00.01">
+      <friendlyName>RIW My Profile</friendlyName>
+      <description>AGF RIW My Profile module.</description>
+      <iconFile>DesktopModules/RildoInfo/People/Content/Images/ri-logo.png</iconFile>
+      <owner>
+        <name>AGF</name>
+        <organization>AGF</organization>
+        <url>http://www.riw.com.br</url>
+        <email>suporte@riw.com.br</email>
+      </owner>      
+      <components>
+        <component type="Module">
+          <desktopModule>
+            <moduleName>RIW_My_Profile</moduleName>
+            <foldername>People</foldername>
+            <businessControllerClass />
+            <supportedFeatures />
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>RIW My Profile</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey />
+                    <controlSrc>DesktopModules/RildoInfo/People/Views/Profile.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                </moduleControls>
+                <permissions>
+                  <permission code="RIW_My_ProfilePERMISSION" key="INSERTPERMISSION" name="Insert New Item" />
+                  <permission code="RIW_My_ProfilePERMISSION" key="EDITPERMISSION" name="Edit Item" />
+                  <permission code="RIW_My_ProfilePERMISSION" key="EXCLUDEPERMISSION" name="Exclude Item" />
+                </permissions>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+        </component>
+        <component type="Assembly">
+          <assemblies>
+            <assembly>
+              <name>RIW.Modules.People.dll</name>
+              <path>bin</path>
+            </assembly>
+          </assemblies>
+        </component>
+      </components>
+    </package>
+    <package name="RIW_People_Registration" type="Module" version="00.00.01">
+      <friendlyName>RIW People Registration</friendlyName>
+      <description>AGF RIW People Registration module.</description>
+      <iconFile>DesktopModules/RildoInfo/People/Content/Images/ri-logo.png</iconFile>
+      <owner>
+        <name>AGF</name>
+        <organization>AGF</organization>
+        <url>http://www.riw.com.br</url>
+        <email>suporte@riw.com.br</email>
+      </owner>
+      <components>
+        <component type="Module">
+          <desktopModule>
+            <moduleName>RIW_People_Registration</moduleName>
+            <foldername>People</foldername>
+            <businessControllerClass />
+            <supportedFeatures />
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>RIW People Registration</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey />
+                    <controlSrc>DesktopModules/RildoInfo/People/Views/Registration.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                </moduleControls>
+                <permissions>
+                  <permission code="RIW_People_RegPERMISSION" key="INSERTPERMISSION" name="Insert New Item" />
+                  <permission code="RIW_People_RegPERMISSION" key="EDITPERMISSION" name="Edit Item" />
+                  <permission code="RIW_People_RegPERMISSION" key="EXCLUDEPERMISSION" name="Exclude Item" />
+                </permissions>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+        </component>
+        <component type="Assembly">
+          <assemblies>
+            <assembly>
+              <name>RIW.Modules.People.dll</name>
+              <path>bin</path>
+            </assembly>
+          </assemblies>
+        </component>
+      </components>
+    </package>
+    <package name="RIW_Users_Manager" type="Module" version="00.00.01">
+      <friendlyName>RIW Users Manager</friendlyName>
+      <description>AGF RIW Users Manager module.</description>
+      <iconFile>DesktopModules/RildoInfo/People/Content/Images/ri-logo.png</iconFile>
+      <owner>
+        <name>AGF</name>
+        <organization>AGF</organization>
+        <url>http://www.riw.com.br</url>
+        <email>suporte@riw.com.br</email>
+      </owner>
+      <components>
+        <component type="Module">
+          <desktopModule>
+            <moduleName>RIW_Users_Manager</moduleName>
+            <foldername>People</foldername>
+            <businessControllerClass />
+            <supportedFeatures />
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>RIW Users Manager</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey />
+                    <controlSrc>DesktopModules/RildoInfo/People/Views/Manage_Users.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>User</controlKey>
+                    <controlSrc>DesktopModules/RildoInfo/People/Views/Edit_User.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>Editar Colaborador(a)</controlTitle>
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                </moduleControls>
+                <permissions>
+                  <permission code="RIW_User_EditPERMISSION" key="INSERTPERMISSION" name="Insert New Item" />
+                  <permission code="RIW_User_EditPERMISSION" key="EDITPERMISSION" name="Edit Item" />
+                  <permission code="RIW_User_EditPERMISSION" key="EXCLUDEPERMISSION" name="Exclude Item" />
+                </permissions>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+        </component>
+        <component type="Assembly">
+          <assemblies>
+            <assembly>
+              <name>RIW.Modules.People.dll</name>
+              <path>bin</path>
+            </assembly>
+          </assemblies>
+        </component>
+      </components>
+    </package>
+    <package name="RIW_Person_Account" type="Module" version="00.00.01">
+      <friendlyName>RIW Person Account</friendlyName>
+      <description>AGF RIW Person Account module.</description>
+      <iconFile>DesktopModules/RildoInfo/People/Content/Images/ri-logo.png</iconFile>
+      <owner>
+        <name>AGF</name>
+        <organization>AGF</organization>
+        <url>http://www.riw.com.br</url>
+        <email>suporte@riw.com.br</email>
+      </owner>
+      <components>
+        <component type="Module">
+          <desktopModule>
+            <moduleName>RIW_Person_Account</moduleName>
+            <foldername>People</foldername>
+            <businessControllerClass />
+            <supportedFeatures />
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>RIW Person Account</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey />
+                    <controlSrc>DesktopModules/RildoInfo/People/Views/Account.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                </moduleControls>
+                <permissions>
+                  <permission code="RIW_Person_AccountPERMISSION" key="INSERTPERMISSION" name="Insert New Item" />
+                  <permission code="RIW_Person_AccountPERMISSION" key="EDITPERMISSION" name="Edit Item" />
+                  <permission code="RIW_Person_AccountPERMISSION" key="EXCLUDEPERMISSION" name="Exclude Item" />
+                </permissions>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+        </component>
+        <component type="Assembly">
+          <assemblies>
+            <assembly>
+              <name>RIW.Modules.People.dll</name>
+              <path>bin</path>
+            </assembly>
+          </assemblies>
+        </component>
+      </components>
+    </package>
+  </packages>
+</dotnetnuke>

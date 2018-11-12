@@ -1,0 +1,5 @@
+J:\Projects\RIW\DNN7X\wwwroot\bin\RIW.Modules.Carousel.dll
+J:\Projects\RIW\DNN7X\wwwroot\bin\RIW.Modules.Carousel.pdb
+J:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\Carousel\obj\Debug\Carousel.vbprojResolveAssemblyReference.cache
+J:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\Carousel\obj\Debug\RIW.Modules.Carousel.dll
+J:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\Carousel\obj\Debug\RIW.Modules.Carousel.pdb

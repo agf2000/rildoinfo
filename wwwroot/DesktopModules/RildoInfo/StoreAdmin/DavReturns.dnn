@@ -1,0 +1,43 @@
+<dotnetnuke type="Package" version="5.0">
+  <packages>
+    <package name="RIW_Dav_Returns" type="Module" version="00.00.01">
+      <friendlyName>RIW DAV Returns</friendlyName>
+      <description>RIW DAV Returns module.</description>
+      <iconFile>DesktopModules/RildoInfo/Store_Manager/Content/Images/ri-logo.png</iconFile>
+      <owner>
+        <name>AGF</name>
+        <organization>riw.com.br</organization>
+        <url>http://www.riw.com.br</url>
+        <email>suporte@riw.com.br</email>
+      </owner>      
+      <components>
+        <component type="Module">
+          <desktopModule>
+            <moduleName>RIW_Dav_Returns</moduleName>
+            <foldername>StoreAdmin</foldername>
+            <businessControllerClass />
+            <supportedFeatures />
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>RIW DAV Returns</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey />
+                    <controlSrc>DesktopModules/RildoInfo/StoreAdmin/Views/DavReturns.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                </moduleControls>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+        </component>
+      </components>
+    </package>
+  </packages>
+</dotnetnuke>

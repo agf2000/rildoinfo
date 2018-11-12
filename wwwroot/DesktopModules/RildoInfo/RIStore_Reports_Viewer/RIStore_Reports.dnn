@@ -1,0 +1,79 @@
+<dotnetnuke type="Package" version="5.0">
+  <packages>
+    <package name="RIStore_Reports_Viewer" type="Module" version="00.00.01">
+      <friendlyName>RIStore Reports Viewer</friendlyName>
+      <description>RIStore Reports Viewer module by AGF.</description>
+      <iconFile>desktopmodules/rildoinfo/ristoredataservices/content/images/ri-logo.png</iconFile>
+      <owner>
+        <name>AGF</name>
+        <organization>Rildo Informatica.net</organization>
+        <url>http://web.rildoinformatica.net</url>
+        <email>giovanni@riw.com.br</email>
+      </owner>
+      <dependencies>
+        <dependency type="CoreVersion">06.02.05</dependency>
+      </dependencies>
+
+      <components>
+        <component type="ResourceFile">
+          <resourceFiles>
+            <basePath>DesktopModules/RildoInfo/RIStore_Reports_Viewer</basePath>
+            <resourceFile>
+              <name>Resources.zip</name>
+            </resourceFile>
+          </resourceFiles>
+        </component>
+
+        <component type="Module">
+          <desktopModule>
+            <moduleName>RIStore Reports Viewer</moduleName>
+            <foldername>RIStore_Reports_Viewer</foldername>
+            <businessControllerClass />
+            <supportedFeatures />
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>RIStore Reports Viewer</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey />
+                    <controlSrc>DesktopModules/RildoInfo/RIStore_Reports_Viewer/Views/View.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>Edit</controlKey>
+                    <controlSrc>DesktopModules/RildoInfo/RIStore_Reports_Viewer/Views/Edit.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                </moduleControls>
+                <permissions>
+                  <permission code="REPVPERMISSION" key="INSERTPERMISSION" name="Insert New Item" />
+                  <permission code="REPVPERMISSION" key="EDITPERMISSION" name="Edit Item" />
+                  <permission code="REPVPERMISSION" key="EXCLUDEPERMISSION" name="Exclude Item" />
+                </permissions>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+        </component>
+        <component type="Assembly">
+          <assemblies>
+            <basePath>bin</basePath>
+            <assembly>
+              <name>RI.Modules.RIStore_Reports_Viewer.dll</name>
+            </assembly>
+          </assemblies>
+        </component>
+      </components>
+    </package>
+  </packages>
+</dotnetnuke>

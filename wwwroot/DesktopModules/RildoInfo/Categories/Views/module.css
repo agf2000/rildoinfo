@@ -1,0 +1,145 @@
+
+label {
+    font-size: 12px !important;
+}
+
+/* Remove list styles */
+/*ul li {
+    list-style-type: none !important;
+}
+
+    ul li li {
+        list-style-type: none !important;
+    }
+
+        ul li li li {
+            list-style-type: none !important;
+        }
+
+ol li {
+    list-style-type: none !important;
+}
+
+ol ol li {
+    list-style-type: none !important;
+}
+
+ol ol ol li {
+    list-style-type: none !important;
+}
+
+ol ul li {
+    list-style-type: none !important;
+}*/
+
+.padded {
+    padding: 7px;
+}
+
+.required:after {
+    display: inline-block;
+    margin: 5px 0 0 5px;
+    font-size: 16px;
+    color: #F00;
+    content: "*";
+}
+
+.btn-primary, .btn-info, .btn-primary, .btn-success, .btn-warning, .btn-danger {
+    background-image: none !important;
+    filter: none !important;
+}
+
+/* .jqx-dropdownlist-state-normal-placeholder {
+    padding-top: 5px !important;
+    padding-left: 5px !important;
+    color: #999 !important;
+    font-style: italic !important;
+} */
+
+/*.dnnInputFileWrapper .dnnSecondaryAction {
+    display: none;
+}
+
+.k-upload .k-upload-button {
+    width: 200px;
+}
+
+.k-upload {
+    float: left;
+}
+
+.k-dropzone {
+    float: left;
+}*/
+
+#btnCancel,
+#btnRemove,
+#permissionEdit,
+#seoEdit,
+#productsEdit,
+#extraEdit {
+    display: none;
+}
+
+#editCategoryMenu.k-menu {
+    margin-top: 10px;
+}
+
+#basicEdit, #seoEdit, #extraEdit, #productsEdit {
+    padding: 10px 0 0 25px !important;
+}
+
+#treeViewCategories {
+    max-height: 400px;
+    overflow: auto;
+}
+
+#mainCategories {
+    max-height: 300px;
+    overflow: auto;
+}
+
+/*#orderTextBox .k-textbox, .k-dropdown-wrap, .k-numeric-wrap {
+    height: 33px !important;
+}
+
+#orderTextBox .k-textbox, .k-numeric-wrap {
+    height: 34px !important;
+    width: 100px;
+}
+
+#basicEdit .dnnFormItem:nth-child(3) input[type="text"] {
+    margin: 1px 0 0 1px !important;
+    height: 30px !important;
+    width: 95% !important;
+    padding: 0 !important;
+}
+
+#productsEdit {
+    margin-top: 15px;
+}
+
+.k-autocomplete {
+    height: 48px !important;
+    width: 300px !important;
+}
+
+.k-autocomplete input {
+    margin: 1px 0 0 1px !important;
+    height: 44px !important;
+    width: 296px !important;
+}*/
+
+#availCategoriesButton .icon {
+    top: 20%;
+}
+
+#categoryProductsGrid .k-button {
+    min-width: 0 !important;
+    padding-right: 0;
+}
+
+.jqx-tree-item-selected {
+    background: #FF6600 !important;
+    color: #FFFFFF !important;
+}

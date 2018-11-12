@@ -1,0 +1,6 @@
+E:\Projects\RIStore\RIStore_7x\wwwroot\bin\RI.Modules.RIStore_Categories.dll
+E:\Projects\RIStore\RIStore_7x\wwwroot\bin\RI.Modules.RIStore_Categories.pdb
+E:\Projects\RIStore\RIStore_7x\wwwroot\bin\RI.Modules.RIStore_Categories.xml
+E:\Projects\RIStore\RIStore_7x\wwwroot\DesktopModules\RildoInfo\RIStore_Categories\obj\Release\RI.Modules.RIStore_Categories.dll
+E:\Projects\RIStore\RIStore_7x\wwwroot\DesktopModules\RildoInfo\RIStore_Categories\obj\Release\RI.Modules.RIStore_Categories.xml
+E:\Projects\RIStore\RIStore_7x\wwwroot\DesktopModules\RildoInfo\RIStore_Categories\obj\Release\RI.Modules.RIStore_Categories.pdb

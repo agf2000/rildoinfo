@@ -1,0 +1,270 @@
+
+ul, ol {
+    margin: 0px !important;
+}
+
+label {
+    font-size: 12px !important;
+}
+
+ul li {
+    list-style-type: none !important;
+}
+
+    ul li li {
+        list-style-type: none !important;
+    }
+
+        ul li li li {
+            list-style-type: none !important;
+        }
+
+ol li {
+    list-style-type: none !important;
+}
+
+ol ol li {
+    list-style-type: none !important;
+}
+
+ol ol ol li {
+    list-style-type: none !important;
+}
+
+ol ul li {
+    list-style-type: none !important;
+}
+
+#newPayCond,
+#newStatus,
+#newIndustry,
+#newGroup,
+#filesWindow {
+    display: none;
+}
+
+#newPayCond {
+    margin-top: 20px;
+}
+
+.isDeleted {
+    text-decoration: line-through;
+}
+
+.padded {
+    padding: 7px;
+}
+
+.k-grid tbody .k-button, .k-ie8 .k-grid tbody button.k-button {
+    min-width: 0 !important;
+}
+
+#industriesGrid th.k-header:nth-child(2),
+#industriesGrid th.k-header:nth-child(3),
+#industriesGrid th.k-header:nth-child(4),
+#industriesGrid th.k-header:nth-child(5) {
+    text-align: center;
+}
+
+.collapse.in {
+    overflow: visible;
+}
+
+.btn-primary, .btn-info, .btn-primary, .btn-success, .btn-warning, .btn-danger {
+    background-image: none !important;
+    filter: none !important;
+}
+
+.k-state-active, .k-state-active:hover, .k-active-filter, .k-tabstrip .k-state-active {
+    border-color: #666 !important;
+}
+
+.font-size-small {
+    font-size: 0.8em;
+}
+
+.font-size-medium {
+    font-size: 1.0em;
+}
+
+.font-size-large {
+    font-size: 1.2em !important;
+}
+
+.alert h4 {
+    margin: 0 0 5px 0 !important;
+}
+
+.fa {
+    margin-top: 2px;
+}
+
+.form-actions {
+    padding-top: 10px !important;
+    padding-bottom: 15px !important;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+}
+
+    .form-actions .btn {
+        margin-right: 7px !important;
+    }
+
+.control-group {
+    margin-bottom: 10px !important;
+}
+
+#ulToolbar li {
+    list-style-type: none;
+}
+
+#discountGroupsGrid h5 {
+    margin: 0 !important;
+    padding: 0 !important;
+    vertical-align: middle;
+}
+
+.browser-image-header {
+    border: 1px solid #99CCCC;
+    background-color: #F5F5F5;
+    padding: 0 5px;
+}
+
+.truncate {
+    width: 120px;
+    white-space: nowrap;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    float: right;
+}
+
+#filesArea {
+    border-left: 1px solid #99CCCC;
+    border-right: 1px solid #99CCCC;
+    border-bottom: 1px solid #99CCCC;
+    height: 290px;
+    margin-bottom: 10px;
+    overflow: auto;
+    padding: 5px 5px 0 5px;
+    font-size: 11px;
+}
+
+    #filesArea ul {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    #filesArea li {
+        float: left;
+        padding: 5px 0 0 5px;
+        min-width: 190px;
+        min-height: 80px;
+        border: 1px solid #b0cece;
+        margin: 5px;
+        border-radius: 6px;
+    }
+
+        #filesArea li.selected {
+            padding: 5px 0 0 5px;
+            background-color: #FF8C00;
+            border-radius: 6px;
+            color: #FFF;
+        }
+
+#divIndicators fieldset {
+    font-family: sans-serif !important;
+    background: #ddd !important;
+    margin-bottom: 20px !important;
+}
+
+#divIndicators fieldset legend {
+    color: #fff !important;
+    padding: 0 10px !important;
+    border-radius: 2px !important;
+    box-shadow: 0 0 0 2px #ddd !important;
+    margin: 0 0 10px 20px !important;
+    width: 85% !important;
+}
+
+.indicators {
+    font-size: 150% !important;
+}
+
+.k-datepicker {
+    width: 110px !important;
+}
+
+.negative {
+    color: #f00;
+}
+
+.positive {
+    color: #237201;
+}
+
+.select2-container .select2-choice {
+    height: 26px !important;
+    width: 240px !important;
+    border: 1px solid #83bdd5 !important;
+}
+
+.select2-container.select2-drop-above .select2-choice {
+ border-bottom-color: #83bdd5 !important;
+}
+
+.select2-drop {
+    border: 1px solid #83bdd5 !important;
+}
+
+.select2-drop-auto-width {
+    border: 1px solid #83bdd5 !important;
+}
+
+.select2-drop.select2-drop-above {
+    border-top: 1px solid #83bdd5 !important;
+}
+
+.select2-drop-active {
+    border: 1px solid #83bdd5 !important;
+    border-top: none !important;
+}
+
+.select2-drop.select2-drop-above.select2-drop-active {
+    border-top: 1px solid #d4f1fc !important;
+}
+
+.select2-container .select2-choice .select2-arrow {
+    width: 26px !important;
+    border-left: 1px solid #83bdd5 !important;
+    background: #e4f7fe !important;
+}
+
+.select2-container .select2-choice .select2-arrow b {
+    background: url('/desktopmodules/rildoinfo/webapi/content/kendo/2015.3.930/styles/BlueOpal/sprite.png') no-repeat 5px -27px !important;
+}
+
+.select2-search input {
+    border: 1px solid #83bdd5 !important;
+}
+
+.select2-container-active .select2-choice,
+.select2-container-active .select2-choices {
+    border: 1px solid #83bdd5 !important;
+}
+
+.select2-dropdown-open.select2-drop-above .select2-choice,
+.select2-dropdown-open.select2-drop-above .select2-choices {
+    border: 1px solid #83bdd5 !important;
+}
+
+.select2-dropdown-open .select2-choice .select2-arrow {
+    background: none !important;
+    border: none !important;
+}
+
+.select2-dropdown-open .select2-choice .select2-arrow b {
+    background-position: 6px 5px !important;
+}

@@ -1,0 +1,8 @@
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\bin\Programming.dll
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\bin\Programming.pdb
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\bin\Programming.xml
+E:\Projects\RIW\DNN7X\wwwroot\bin\RIW.Modules.Programming.dll
+E:\Projects\RIW\DNN7X\wwwroot\bin\RIW.Modules.Programming.pdb
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\Programming\obj\Debug\RIW.Modules.Programming.dll
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\Programming\obj\Debug\RIW.Modules.Programming.pdb
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\Programming\obj\Debug\Programming.vbprojResolveAssemblyReference.cache

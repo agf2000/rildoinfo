@@ -1,0 +1,7 @@
+E:\Projects\RIW\DNN7X\wwwroot\bin\RIW.Modules.HomePage.dll
+E:\Projects\RIW\DNN7X\wwwroot\bin\RIW.Modules.HomePage.pdb
+E:\Projects\RIW\DNN7X\wwwroot\bin\RIW.Modules.HomePage.xml
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\HomePage\obj\Debug\HomePage.vbprojResolveAssemblyReference.cache
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\HomePage\obj\Debug\RIW.Modules.HomePage.dll
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\HomePage\obj\Debug\RIW.Modules.HomePage.xml
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\HomePage\obj\Debug\RIW.Modules.HomePage.pdb

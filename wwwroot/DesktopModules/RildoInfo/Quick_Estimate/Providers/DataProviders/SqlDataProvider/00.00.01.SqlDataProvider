@@ -1,0 +1,31 @@
+﻿/************************************************************/
+/*****              SqlDataProvider                     *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/***** Note: To manually execute this script you must   *****/
+/*****       perform a search and replace operation     *****/
+/*****       for {databaseOwner} and {objectQualifier}  *****/
+/*****                                                  *****/
+/************************************************************/
+
+/** Create Tables **/
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_Cashiers]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_Cashiers](
+		[PortalId] [int] NOT NULL,
+		[CashierId] [int] IDENTITY(1,1) NOT NULL,
+		[EstimateId] [int] NOT NULL,
+		[TotalCash] [money] NULL,
+		[TotalCheck] [money] NULL,
+		[TotalCard] [money] NULL,
+		[TotalBank] [money] NULL,
+		[CreatedByUser] [int] NOT NULL,
+		[CreatedOnDate] [smalldatetime] NOT NULL
+	) ON [PRIMARY]
+  END
+GO
+
+/************************************************************/
+/*****              SqlDataProvider                     *****/
+/************************************************************/

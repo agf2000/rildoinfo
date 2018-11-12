@@ -1,0 +1,297 @@
+﻿/************************************************************/
+/*****              SqlDataProvider                     *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/***** Note: To manually execute this script you must   *****/
+/*****       perform a search and replace operation     *****/
+/*****       for {databaseOwner} and {objectQualifier}  *****/
+/*****                                                  *****/
+/************************************************************/
+
+/** Create Tables **/
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_Categories]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_Categories](
+		[CategoryId] [int] IDENTITY(1,1) NOT NULL,
+		[PortalId] [int] NOT NULL,
+		[Archived] [bit] NOT NULL,
+		[CreatedByUser] [int] NOT NULL,
+		[CreatedOnDate] [datetime] NOT NULL,
+		[ParentCategoryId] [int] NULL,
+		[ListOrder] [int] NULL,
+		[ProductTemplate] [nvarchar](50) NULL,
+		[ListItemTemplate] [nvarchar](50) NULL,
+		[ListAltItemTemplate] [nvarchar](50) NULL,
+		[Hidden] [bit] NULL,
+		[ImageFile] [int] NULL,
+		[ImageURL] [nvarchar](256) NULL,
+		[ModifiedByUser] [int] NOT NULL,
+		[ModifiedOnDate] [datetime] NOT NULL,
+	 CONSTRAINT [PK_RIW_Categories] PRIMARY KEY CLUSTERED 
+	(
+		[CategoryId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_CategoryLang]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_CategoryLang](
+		[CategoryId] [int] NOT NULL,
+		[Lang] [nchar](5) NOT NULL,
+		[CategoryName] [nvarchar](50) NULL,
+		[CategoryDesc] [nvarchar](500) NULL,
+		[Message] [ntext] NULL,
+		[SEOName] [nvarchar](256) NULL,
+		[MetaDescription] [nvarchar](256) NULL,
+		[MetaKeywords] [nvarchar](300) NULL,
+		[SEOPageTitle] [nvarchar](150) NULL,
+	 CONSTRAINT [PK_RIW_CategoryLang] PRIMARY KEY CLUSTERED 
+	(
+		[CategoryId] ASC,
+		[Lang] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_CategoryPermission]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_CategoryPermission](
+		[CategoryPermissionId] [int] IDENTITY(1,1) NOT NULL,
+		[CategoryId] [int] NOT NULL,
+		[PermissionId] [int] NOT NULL,
+		[RoleId] [int] NOT NULL,
+		[AllowAccess] [bit] NOT NULL,
+	 CONSTRAINT [PK_RIW_CategoryPermission] PRIMARY KEY CLUSTERED 
+	(
+		[CategoryPermissionId] ASC,
+		[CategoryId] ASC,
+		[PermissionId] ASC,
+		[RoleId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_ProductCategory]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_ProductCategory](
+		[ProductCategoryId] [int] IDENTITY(1,1) NOT NULL,
+		[ProductId] [int] NOT NULL,
+		[CategoryId] [int] NOT NULL,
+	 CONSTRAINT [PK_RIW_ProductCategory] PRIMARY KEY CLUSTERED 
+	(
+		[ProductCategoryId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+
+/** Drop Stored Procedures **/
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Category_Get]    Script Date: 12/05/2013 11:26:05 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_Category_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_Category_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Category_GetList]    Script Date: 12/05/2013 11:26:05 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_Category_GetList]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_Category_GetList]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_ProductCategories_GetAssigned]    Script Date: 12/05/2013 11:26:05 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_ProductCategories_GetAssigned]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_ProductCategories_GetAssigned]
+GO
+
+
+/** Create Stored Procedures **/
+
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Category_Get]    Script Date: 12/05/2013 11:26:06 ******/
+
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}RIW_Category_Get] (
+
+	@CategoryId int
+	,@Lang nchar(5)
+
+)
+AS
+  BEGIN
+	  SELECT C.[CategoryId],
+			 CL.[Lang],
+			 CL.[CategoryName],
+			 CL.[CategoryDesc],
+			 CL.[Message],
+			 C.[PortalId],
+			 C.[Archived],
+			 C.[Hidden],
+			 C.[CreatedByUser],
+			 C.[CreatedOnDate],
+			 C.[ModifiedByUser],
+			 C.[ModifiedOnDate],
+			 C.[ParentCategoryId],
+			 PCL.[CategoryName] AS ParentName,
+			 C.[ListOrder],
+			 C.[ProductTemplate],
+			 (SELECT Count(PC.[ProductId])
+			  FROM   {databaseOwner}[{objectQualifier}RIW_ProductCategory] AS PC
+			  WHERE  PC.[CategoryId] = C.[CategoryId]) AS ProductCount,
+			 C.[ListItemTemplate],
+			 C.[ImageURL],
+			 C.[ListAltItemTemplate],
+			 CL.[SEOPageTitle],
+			 CL.[SEOName],
+			 CL.[MetaDescription],
+			 CL.[MetaKeywords]
+	  FROM   {databaseOwner}[{objectQualifier}RIW_Categories] AS C
+			 INNER JOIN {databaseOwner}[{objectQualifier}RIW_CategoryLang] AS CL
+					 ON CL.[CategoryId] = C.[CategoryId]
+						AND CL.[Lang] = @Lang
+			 LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIW_Categories] AS PC
+						  ON C.[ParentCategoryId] = PC.[CategoryId]
+			 LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIW_CategoryLang] AS PCL
+						  ON PCL.[CategoryId] = PC.[CategoryId]
+							 AND PCL.[Lang] = @Lang
+	  WHERE  C.[CategoryId] = @CategoryId
+  END 
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Category_GetList]    Script Date: 12/05/2013 11:26:06 ******/
+
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}RIW_Category_GetList] (
+
+	@PortalID int
+	,@Lang nchar(5)
+	,@ParentCategoryID int
+	,@Filter nvarchar(50)
+	,@Archived bit
+	,@IncludeIsArchived bit
+	
+)
+AS
+  BEGIN
+	  IF @ParentCategoryID = -1
+		BEGIN
+			SELECT C.[CategoryId]
+				   ,CL.[Lang]
+				   ,CL.[CategoryName]
+				   ,CL.[CategoryDesc]
+				   ,CL.[Message]
+				   ,C.[PortalId]
+				   ,C.[Archived]
+				   ,C.[Hidden]
+				   ,C.[CreatedByUser]
+				   ,C.[CreatedOnDate]
+				   ,C.[ModifiedByUser]
+				   ,C.[ModifiedOnDate]
+				   ,C.[ParentCategoryId]
+				   ,PCL.[CategoryName] AS ParentName
+				   ,C.[ListOrder]
+				   ,C.[ProductTemplate]
+				   ,C.[ListItemTemplate]
+				   ,C.[ListAltItemTemplate]
+				   --,C.[ImageBinary]
+				   ,C.[ImageURL]
+				   ,CL.[SEOPageTitle]
+				   ,CL.[SEOName]
+				   ,CL.[MetaDescription]
+				   ,CL.[MetaKeywords]
+				   ,(SELECT Count(PC.[ProductId])
+					FROM   {databaseOwner}[{objectQualifier}RIW_ProductCategory] AS PC
+					WHERE  PC.[CategoryId] = C.[CategoryId]) AS ProductCount
+				   --,'SubCategories' = CASE WHEN C.[ParentCategoryId] > 0 THEN 'True' ELSE 'False' END
+			FROM   {databaseOwner}[{objectQualifier}RIW_Categories] AS C
+				   LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIW_CategoryLang] AS CL
+								ON CL.[CategoryId] = C.[CategoryId]
+								   AND CL.[Lang] = @Lang
+				   LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIW_Categories] AS PC
+								ON C.[ParentCategoryId] = PC.[CategoryId]
+				   LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIW_CategoryLang] AS PCL
+								ON PCL.[CategoryId] = PC.[CategoryId]
+								   AND PCL.[Lang] = @Lang
+			WHERE  C.[PortalId] = @PortalID
+				   AND ( C.[Archived] = @Archived
+						  OR @IncludeIsArchived = 1 )
+				   AND ( Isnull(C.[Hidden], 0) = 0
+						  OR @IncludeIsArchived = 1 )
+			ORDER  BY PC.[ListOrder],
+					  PCL.[CategoryName],
+					  C.[ListOrder],
+					  CL.[CategoryName]
+		END
+	  ELSE
+		BEGIN
+			SELECT C.[CategoryId],
+				   CL.[Lang],
+				   CL.[CategoryName],
+				   CL.[CategoryDesc],
+				   CL.[Message],
+				   C.[PortalId],
+				   C.[Archived],
+				   C.[Hidden],
+				   C.[CreatedByUser],
+				   C.[CreatedOnDate],
+				   C.[ParentCategoryId],
+				   PCL.[CategoryName] AS ParentName,
+				   C.[ListOrder],
+				   C.[ProductTemplate],
+				   (SELECT Count(PC.[ProductId])
+					FROM   {databaseOwner}[{objectQualifier}RIW_ProductCategory] AS PC
+					WHERE  PC.[CategoryId] = C.[CategoryId]) AS ProductCount,
+				   C.[ListItemTemplate],
+				   C.[ImageURL],
+				   C.[ListAltItemTemplate],
+				   CL.[SEOPageTitle],
+				   CL.[SEOName],
+				   CL.[MetaDescription],
+				   CL.[MetaKeywords]
+			FROM   {databaseOwner}[{objectQualifier}RIW_Categories] AS C
+				   LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIW_CategoryLang] AS CL
+								ON CL.[CategoryId] = C.[CategoryId]
+								   AND CL.[Lang] = @Lang
+				   LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIW_Categories] AS PC
+								ON C.[ParentCategoryId] = PC.[CategoryId]
+				   LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIW_CategoryLang] AS PCL
+								ON PCL.[CategoryId] = PC.[CategoryId]
+								   AND PCL.[Lang] = @Lang
+			WHERE  C.[PortalId] = @PortalID
+				   AND C.[ParentCategoryId] = @ParentCategoryID
+				   AND ( C.[Archived] = @Archived
+						  OR @IncludeIsArchived = 1 )
+				   AND ( Isnull(C.[Hidden], 0) = 0
+						  OR @IncludeIsArchived = 1 )
+			ORDER  BY C.[ListOrder],
+					  CL.[CategoryName]
+		END
+  END
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_ProductCategories_GetAssigned]    Script Date: 12/05/2013 11:26:06 ******/
+
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}RIW_ProductCategories_GetAssigned] (
+
+	@ProductID int
+
+)
+AS
+BEGIN
+
+SELECT	PC.[ProductId]
+		,PC.[CategoryId]
+		,CL.[CategoryName]
+FROM {databaseOwner}[{objectQualifier}RIW_ProductCategory] AS PC
+LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIW_CategoryLang] AS CL ON CL.[CategoryId] = PC.[CategoryId]
+INNER JOIN {databaseOwner}[{objectQualifier}RIW_Categories] AS C ON C.[CategoryID] = PC.[CategoryId]
+WHERE PC.[ProductId] = @ProductID
+ORDER BY C.[ListOrder]
+END
+GO
+
+/************************************************************/
+/*****              SqlDataProvider                     *****/
+/************************************************************/

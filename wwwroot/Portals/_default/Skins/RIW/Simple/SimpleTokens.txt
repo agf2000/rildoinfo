@@ -1,0 +1,31 @@
+<ul class="nav nav-tabs nav-stacked">
+[*>NODE]
+</ul>
+[>NODE]
+    <li class="[?NODE][/?][?SELECTED]active[/?]">
+    [?ENABLED]
+        <a href="[=URL]">[=TEXT] [?NODE][/?]</a>
+    [?ELSE]
+        <a href="#">[=TEXT] [?NODE][/?]</a>
+    [/?]
+    </li>
+[/>]
+
+<script type="text/javascript">
+(function($){
+	$().ready(function(){
+		$("#dnn_pnav > li > ul li").mouseover(function(e){
+			var subMenu = $(">ul", $(this));
+			if(subMenu.length > 0){
+				var offset = subMenu.offset();
+				var rightEage = offset.left + subMenu.outerWidth();
+				if(rightEage > $(window).width()){
+					subMenu.css("left", (parseInt(subMenu.css("left")) - (subMenu.outerWidth() + $(this).width())) + "px");
+				}
+			}
+
+			e.stopPropagation();
+		});
+	});
+})(jQuery);
+</script>

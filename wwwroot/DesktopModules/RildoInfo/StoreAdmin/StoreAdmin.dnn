@@ -1,0 +1,521 @@
+<dotnetnuke type="Package" version="5.0">
+  <packages>
+    <package name="RIW_StoreAdmin" type="Module" version="00.00.01">
+      <friendlyName>RIW Store Admin</friendlyName>
+      <description>RIW AGF Store Admin module.</description>
+      <iconFile>DesktopModules/RildoInfo/StoreAdmin/Content/Images/ri-logo.png</iconFile>
+      <owner>
+        <name>AGF</name>
+        <organization>riw.com.br</organization>
+        <url>http://www.riw.com.br</url>
+        <email>suporte@riw.com.br</email>
+      </owner>
+      <license src="License.txt"></license>
+      <releaseNotes src="ReleaseNotes.txt"></releaseNotes>
+      <dependencies>
+        <dependency type="CoreVersion">07.00.02</dependency>
+      </dependencies>
+      
+      <components>
+        <component type="Script">
+          <scripts>
+            <basePath>DesktopModules\RildoInfo\StoreAdmin</basePath>
+            <script type="Install">
+              <path>Providers\DataProviders\SqlDataProvider</path>
+              <name>00.00.01.SqlDataProvider</name>
+              <version>00.00.01</version>
+            </script>
+            <script type="UnInstall">
+              <path>Providers\DataProviders\SqlDataProvider</path>
+              <name>Uninstall.SqlDataProvider</name>
+              <version>00.00.01</version>
+            </script>
+          </scripts>
+        </component>
+
+        <component type="ResourceFile">
+          <resourceFiles>
+            <basePath>DesktopModules/RildoInfo/StoreAdmin</basePath>
+            <resourceFile>
+              <name>Resources.zip</name>
+            </resourceFile>
+          </resourceFiles>
+        </component>
+
+        <component type="Module">
+          <desktopModule>
+            <moduleName>RIW_Store_Admin</moduleName>
+            <foldername>StoreAdmin</foldername>
+            <businessControllerClass />
+            <supportedFeatures />
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>RIW Store Admin</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey />
+                    <controlSrc>DesktopModules/RildoInfo/StoreAdmin/Views/View.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                </moduleControls>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+        </component>
+        <component type="Assembly">
+          <assemblies>
+            <assembly>
+              <name>RIW.Modules.StoreAdmin.dll</name>
+              <path>bin</path>
+            </assembly>
+          </assemblies>
+        </component>
+      </components>
+    </package>
+    <package name="RIW_StoreAdmin_Estimates" type="Module" version="00.00.01">
+      <friendlyName>RIW Store Admin Estimates</friendlyName>
+      <description>RIW AGF Store Admin Estimates module.</description>
+      <iconFile>DesktopModules/RildoInfo/StoreAdmin/Content/Images/ri-logo.png</iconFile>
+      <owner>
+        <name>AGF</name>
+        <organization>riw.com.br</organization>
+        <url>http://www.riw.com.br</url>
+        <email>suporte@riw.com.br</email>
+      </owner>
+      <components>
+        <component type="Module">
+          <desktopModule>
+            <moduleName>RIW_Store_Admin_Estimates</moduleName>
+            <foldername>StoreAdmin</foldername>
+            <businessControllerClass />
+            <supportedFeatures />
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>RIW Store Admin Estimates</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey />
+                    <controlSrc>DesktopModules/RildoInfo/StoreAdmin/Views/Estimates.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                </moduleControls>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+        </component>
+      </components>
+    </package>
+    <package name="RIW_StoreAdmin_MainPortal" type="Module" version="00.00.01">
+      <friendlyName>RIW Store Admin Main Portal</friendlyName>
+      <description>RIW AGF Store Admin Main Portal module.</description>
+      <iconFile>DesktopModules/RildoInfo/StoreAdmin/Content/Images/ri-logo.png</iconFile>
+      <owner>
+        <name>AGF</name>
+        <organization>riw.com.br</organization>
+        <url>http://www.riw.com.br</url>
+        <email>suporte@riw.com.br</email>
+      </owner>
+      <components>
+        <component type="Module">
+          <desktopModule>
+            <moduleName>RIW_Store_Admin_MainPortal</moduleName>
+            <foldername>StoreAdmin</foldername>
+            <businessControllerClass />
+            <supportedFeatures />
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>RIW Store Admin Main Portal</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey />
+                    <controlSrc>DesktopModules/RildoInfo/StoreAdmin/Views/MainPortal.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>FileManager</controlKey>
+                    <controlSrc>DesktopModules/RildoInfo/StoreAdmin/Views/FileManager.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                </moduleControls>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+        </component>
+      </components>
+    </package>
+    <package name="RIW_StoreAdmin_PayForms" type="Module" version="00.00.01">
+      <friendlyName>RIW Store Admin Pay Forms</friendlyName>
+      <description>RIW AGF Store Admin Pay Forms module.</description>
+      <iconFile>DesktopModules/RildoInfo/StoreAdmin/Content/Images/ri-logo.png</iconFile>
+      <owner>
+        <name>AGF</name>
+        <organization>riw.com.br</organization>
+        <url>http://www.riw.com.br</url>
+        <email>suporte@riw.com.br</email>
+      </owner>
+      <components>
+        <component type="Module">
+          <desktopModule>
+            <moduleName>RIW_Store_Admin_PayForms</moduleName>
+            <foldername>StoreAdmin</foldername>
+            <businessControllerClass />
+            <supportedFeatures />
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>RIW Store Admin Pay Forms</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey />
+                    <controlSrc>DesktopModules/RildoInfo/StoreAdmin/Views/PayForms.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                </moduleControls>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+        </component>
+      </components>
+    </package>
+    <package name="RIW_StoreAdmin_Registration" type="Module" version="00.00.01">
+      <friendlyName>RIW Store Admin Registration</friendlyName>
+      <description>RIW AGF Store Admin Registration module.</description>
+      <iconFile>DesktopModules/RildoInfo/StoreAdmin/Content/Images/ri-logo.png</iconFile>
+      <owner>
+        <name>AGF</name>
+        <organization>riw.com.br</organization>
+        <url>http://www.riw.com.br</url>
+        <email>suporte@riw.com.br</email>
+      </owner>
+      <components>
+        <component type="Module">
+          <desktopModule>
+            <moduleName>RIW_Store_Admin_Registration</moduleName>
+            <foldername>StoreAdmin</foldername>
+            <businessControllerClass />
+            <supportedFeatures />
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>RIW Store Admin Registration</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey />
+                    <controlSrc>DesktopModules/RildoInfo/StoreAdmin/Views/Registration.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                </moduleControls>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+        </component>
+      </components>
+    </package>
+    <package name="RIW_StoreAdmin_Sales" type="Module" version="00.00.01">
+      <friendlyName>RIW Store Admin Sales</friendlyName>
+      <description>RIW AGF Store Admin Sales module.</description>
+      <iconFile>DesktopModules/RildoInfo/StoreAdmin/Content/Images/ri-logo.png</iconFile>
+      <owner>
+        <name>AGF</name>
+        <organization>riw.com.br</organization>
+        <url>http://www.riw.com.br</url>
+        <email>suporte@riw.com.br</email>
+      </owner>
+      <components>
+        <component type="Module">
+          <desktopModule>
+            <moduleName>RIW_Store_Admin_Sales</moduleName>
+            <foldername>StoreAdmin</foldername>
+            <businessControllerClass />
+            <supportedFeatures />
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>RIW Store Admin Sales</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey />
+                    <controlSrc>DesktopModules/RildoInfo/StoreAdmin/Views/Sales.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                </moduleControls>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+        </component>
+      </components>
+    </package>
+    <package name="RIW_StoreAdmin_SMTP" type="Module" version="00.00.01">
+      <friendlyName>RIW Store Admin SMTP</friendlyName>
+      <description>RIW AGF Store Admin SMTP module.</description>
+      <iconFile>DesktopModules/RildoInfo/StoreAdmin/Content/Images/ri-logo.png</iconFile>
+      <owner>
+        <name>AGF</name>
+        <organization>riw.com.br</organization>
+        <url>http://www.riw.com.br</url>
+        <email>suporte@riw.com.br</email>
+      </owner>
+      <components>
+        <component type="Module">
+          <desktopModule>
+            <moduleName>RIW_Store_Admin_SMTP</moduleName>
+            <foldername>StoreAdmin</foldername>
+            <businessControllerClass />
+            <supportedFeatures />
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>RIW Store Admin SMTP</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey />
+                    <controlSrc>DesktopModules/RildoInfo/StoreAdmin/Views/SMTP.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                </moduleControls>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+        </component>
+      </components>
+    </package>
+    <package name="RIW_StoreAdmin_Statuses" type="Module" version="00.00.01">
+      <friendlyName>RIW Store Admin Statuses</friendlyName>
+      <description>RIW AGF Store Admin Statuses module.</description>
+      <iconFile>DesktopModules/RildoInfo/StoreAdmin/Content/Images/ri-logo.png</iconFile>
+      <owner>
+        <name>AGF</name>
+        <organization>riw.com.br</organization>
+        <url>http://www.riw.com.br</url>
+        <email>suporte@riw.com.br</email>
+      </owner>
+      <components>
+        <component type="Module">
+          <desktopModule>
+            <moduleName>RIW_Store_Admin_Statuses</moduleName>
+            <foldername>StoreAdmin</foldername>
+            <businessControllerClass />
+            <supportedFeatures />
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>RIW Store Admin Statuses</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey />
+                    <controlSrc>DesktopModules/RildoInfo/StoreAdmin/Views/Statuses.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                </moduleControls>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+        </component>
+      </components>
+    </package>
+    <package name="RIW_StoreAdmin_Contacts" type="Module" version="00.00.01">
+      <friendlyName>RIW Store Admin Contacts</friendlyName>
+      <description>RIW AGF Store Admin Contacts module.</description>
+      <iconFile>DesktopModules/RildoInfo/StoreAdmin/Content/Images/ri-logo.png</iconFile>
+      <owner>
+        <name>AGF</name>
+        <organization>riw.com.br</organization>
+        <url>http://www.riw.com.br</url>
+        <email>suporte@riw.com.br</email>
+      </owner>
+      <components>
+        <component type="Module">
+          <desktopModule>
+            <moduleName>RIW_Store_Admin_Contacts</moduleName>
+            <foldername>StoreAdmin</foldername>
+            <businessControllerClass />
+            <supportedFeatures />
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>RIW Store Admin Contacts</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey />
+                    <controlSrc>DesktopModules/RildoInfo/StoreAdmin/Views/StoreContacts.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                </moduleControls>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+        </component>
+      </components>
+    </package>
+    <package name="RIW_StoreAdmin_Painel" type="Module" version="00.00.01">
+      <friendlyName>RIW Store Admin Painel</friendlyName>
+      <description>RIW AGF Store Admin Painel module.</description>
+      <iconFile>DesktopModules/RildoInfo/StoreAdmin/Content/Images/ri-logo.png</iconFile>
+      <owner>
+        <name>AGF</name>
+        <organization>riw.com.br</organization>
+        <url>http://www.riw.com.br</url>
+        <email>suporte@riw.com.br</email>
+      </owner>
+      <components>
+        <component type="Module">
+          <desktopModule>
+            <moduleName>RIW_Store_Admin_Painel</moduleName>
+            <foldername>StoreAdmin</foldername>
+            <businessControllerClass />
+            <supportedFeatures />
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>RIW Store Admin Painel</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey />
+                    <controlSrc>DesktopModules/RildoInfo/StoreAdmin/Views/Painel.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                </moduleControls>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+        </component>
+      </components>
+    </package>
+    <package name="RIW_StoreAdmin_Store" type="Module" version="00.00.01">
+      <friendlyName>RIW Store Admin Store</friendlyName>
+      <description>RIW AGF Store Admin Store module.</description>
+      <iconFile>DesktopModules/RildoInfo/StoreAdmin/Content/Images/ri-logo.png</iconFile>
+      <owner>
+        <name>AGF</name>
+        <organization>riw.com.br</organization>
+        <url>http://www.riw.com.br</url>
+        <email>suporte@riw.com.br</email>
+      </owner>
+      <components>
+        <component type="Module">
+          <desktopModule>
+            <moduleName>RIW_Store_Admin_Store</moduleName>
+            <foldername>StoreAdmin</foldername>
+            <businessControllerClass />
+            <supportedFeatures />
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>RIW Store Admin Store</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey />
+                    <controlSrc>DesktopModules/RildoInfo/StoreAdmin/Views/Store.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                </moduleControls>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+        </component>
+      </components>
+    </package>
+    <package name="RIW_StoreAdmin_Sync" type="Module" version="00.00.01">
+      <friendlyName>RIW Store Admin Syncronization</friendlyName>
+      <description>RIW AGF Store Admin Syncronization module.</description>
+      <iconFile>DesktopModules/RildoInfo/StoreAdmin/Content/Images/ri-logo.png</iconFile>
+      <owner>
+        <name>AGF</name>
+        <organization>riw.com.br</organization>
+        <url>http://www.riw.com.br</url>
+        <email>suporte@riw.com.br</email>
+      </owner>      
+      <components>
+        <component type="Module">
+          <desktopModule>
+            <moduleName>RIW_Store_Admin_Sync</moduleName>
+            <foldername>StoreAdmin</foldername>
+            <businessControllerClass />
+            <supportedFeatures />
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>RIW Store Admin Sync</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey />
+                    <controlSrc>DesktopModules/RildoInfo/StoreAdmin/Views/Sync.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                </moduleControls>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+        </component>
+      </components>
+    </package>
+  </packages>
+</dotnetnuke>

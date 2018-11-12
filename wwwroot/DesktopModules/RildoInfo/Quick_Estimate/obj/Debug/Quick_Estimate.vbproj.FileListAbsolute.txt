@@ -1,0 +1,14 @@
+E:\Projects\RIW\DNN7X\wwwroot\bin\RIW.Modules.Quick_Estimate.dll
+E:\Projects\RIW\DNN7X\wwwroot\bin\RIW.Modules.Quick_Estimate.pdb
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\Quick_Estimate\obj\Debug\RIW.Modules.Quick_Estimate.dll
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\Quick_Estimate\obj\Debug\RIW.Modules.Quick_Estimate.pdb
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\Quick_Estimate\obj\Debug\Quick_Estimate.vbprojResolveAssemblyReference.cache
+J:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\Quick_Estimate\obj\Debug\Quick_Estimate.vbprojResolveAssemblyReference.cache
+J:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\Quick_Estimate\obj\Debug\RIW.Modules.Quick_Estimate.dll
+J:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\Quick_Estimate\obj\Debug\RIW.Modules.Quick_Estimate.pdb
+J:\Projects\RIW\DNN7X\wwwroot\bin\RIW.Modules.Quick_Estimate.dll
+J:\Projects\RIW\DNN7X\wwwroot\bin\RIW.Modules.Quick_Estimate.pdb
+J:\Projects\RIW\wwwroot\DesktopModules\RildoInfo\Quick_Estimate\obj\Debug\RIW.Modules.Quick_Estimate.dll
+J:\Projects\RIW\wwwroot\DesktopModules\RildoInfo\Quick_Estimate\obj\Debug\RIW.Modules.Quick_Estimate.pdb
+J:\Projects\RIW\wwwroot\bin\RIW.Modules.Quick_Estimate.dll
+J:\Projects\RIW\wwwroot\bin\RIW.Modules.Quick_Estimate.pdb

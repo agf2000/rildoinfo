@@ -1,0 +1,1 @@
+﻿<%@ Control Language="vb" AutoEventWireup="true" CodeBehind="Manage_HomePage.ascx.vb" Inherits="RIW.Modules.HomePage.Manage_HomePage" %>

@@ -1,0 +1,41 @@
+
+#reportsViewer  {
+    padding-top: 10px;
+}
+
+#reportsViewer ul {
+    margin: 0;
+    padding: 0;
+}
+
+#reportsViewer fieldset label {
+    display: inline-block;
+    width: 65px;
+    font-weight: bold;
+}
+
+.divReports .k-dropdown {
+    width: 250px;
+}
+
+#reportsViewer fieldset {
+    margin: 20px 0;
+}
+
+#reportsViewer fieldset legend {
+    font: bold 16px arial;
+}
+
+#reportsViewer ul li {
+    float: left;
+    margin: 0 30px 10px 0px;
+    line-height: 35px;
+}
+
+#reportsViewer .k-autocomplete {
+    width: 275px;
+}
+
+#reportsViewer .k-datepicker {
+    width: 120px;
+}

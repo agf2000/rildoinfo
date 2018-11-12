@@ -1,0 +1,406 @@
+﻿<dotnetnuke type="Package" version="5.0">
+  <packages>
+    <package name="RIW_Invoices_Manager" type="Module" version="00.00.01">
+      <friendlyName>RIW Invoices Manager</friendlyName>
+      <description>RIW Invoices Manager module by AGF.</description>
+      <iconFile>desktopmodules/rildoinfo/store_manager/content/images/ri-logo.png</iconFile>
+      <owner>
+        <name>AGF</name>
+        <organization>Rildo Informatica.net</organization>
+        <url>http://web.rildoinformatica.net</url>
+        <email>giovanni@riw.com.br</email>
+      </owner>
+      <license src="License.txt"></license>
+      <releaseNotes src="ReleaseNotes.txt"></releaseNotes>
+      <dependencies>
+        <dependency type="CoreVersion">07.00.02</dependency>
+      </dependencies>
+
+      <components>
+        <component type="Script">
+          <scripts>
+            <basePath>DesktopModules\RildoInfo\Store_Manager</basePath>
+            <script type="Install">
+              <path>Providers\DataProviders\SqlDataProvider</path>
+              <name>00.00.01.SqlDataProvider</name>
+              <version>00.00.01</version>
+            </script>
+            <script type="UnInstall">
+              <path>Providers\DataProviders\SqlDataProvider</path>
+              <name>Uninstall.SqlDataProvider</name>
+              <version>00.00.01</version>
+            </script>
+          </scripts>
+        </component>
+
+        <component type="ResourceFile">
+          <resourceFiles>
+            <basePath>DesktopModules/RildoInfo/Store_Manager</basePath>
+            <resourceFile>
+              <name>Resources.zip</name>
+            </resourceFile>
+          </resourceFiles>
+        </component>
+
+        <component type="Module">
+          <desktopModule>
+            <moduleName>RIW_Invoices_Manager</moduleName>
+            <foldername>Store_Manager</foldername>
+            <businessControllerClass />
+            <supportedFeatures />
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>RIW Invoices Manager</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey />
+                    <controlSrc>DesktopModules/RildoInfo/Store_Manager/Views/Invoices_Manager.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>Notal Fiscal</controlKey>
+                    <controlSrc>DesktopModules/RildoInfo/Store_Manager/Views/Edit_Invoice.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                </moduleControls>
+                <permissions>
+                  <permission code="RIW_Invoices_ManagerPERMISSION" key="INSERTPERMISSION" name="Insert New Item" />
+                  <permission code="RIW_Invoices_ManagerPERMISSION" key="EDITPERMISSION" name="Edit Item" />
+                  <permission code="RIW_Invoices_ManagerPERMISSION" key="EXCLUDEPERMISSION" name="Exclude Item" />
+                </permissions>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+        </component>
+        <component type="Assembly">
+          <assemblies>
+            <assembly>
+              <name>RIW.Modules.Store_Manager.dll</name>
+              <path>bin</path>
+            </assembly>
+          </assemblies>
+        </component>
+      </components>
+    </package>
+    <package name="RIW_Edit_Invoice" type="Module" version="00.00.01">
+      <friendlyName>RIW Edit Invoice</friendlyName>
+      <description>RIW Edit Invoice module by AGF.</description>
+      <iconFile>desktopmodules/rildoinfo/store_manager/content/images/ri-logo.png</iconFile>
+      <owner>
+        <name>AGF</name>
+        <organization>Rildo Informatica.net</organization>
+        <url>http://web.rildoinformatica.net</url>
+        <email>giovanni@riw.com.br</email>
+      </owner>
+      <components>
+        <component type="Module">
+          <desktopModule>
+            <moduleName>RIW_Edit_Invoice</moduleName>
+            <foldername>Store_Manager</foldername>
+            <businessControllerClass />
+            <supportedFeatures />
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>RIW Edit Invoice</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey />
+                    <controlSrc>DesktopModules/RildoInfo/Store_Manager/Views/Edit_Invoice.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                </moduleControls>
+                <permissions>
+                  <permission code="RIW_Edit_InvoicePERMISSION" key="INSERTPERMISSION" name="Insert New Item" />
+                  <permission code="RIW_Edit_InvoicePERMISSION" key="EDITPERMISSION" name="Edit Item" />
+                  <permission code="RIW_Edit_InvoicePERMISSION" key="EXCLUDEPERMISSION" name="Exclude Item" />
+                </permissions>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+        </component>
+        <component type="Assembly">
+          <assemblies>
+            <assembly>
+              <name>RIW.Modules.Store_Manager.dll</name>
+              <path>bin</path>
+            </assembly>
+          </assemblies>
+        </component>
+      </components>
+    </package>
+    <package name="RIW_Payments_Manager" type="Module" version="00.00.01">
+      <friendlyName>RIW Payments Manager</friendlyName>
+      <description>RIW Payments Manager module by AGF.</description>
+      <iconFile>desktopmodules/rildoinfo/store_manager/content/images/ri-logo.png</iconFile>
+      <owner>
+        <name>AGF</name>
+        <organization>Rildo Informatica.net</organization>
+        <url>http://web.rildoinformatica.net</url>
+        <email>giovanni@riw.com.br</email>
+      </owner>
+      <dependencies>
+        <dependency type="CoreVersion">06.02.05</dependency>
+      </dependencies>
+      <components>
+        <component type="Module">
+          <desktopModule>
+            <moduleName>RIW_Payments_Manager</moduleName>
+            <foldername>Store_Manager</foldername>
+            <businessControllerClass />
+            <supportedFeatures />
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>RIW Payments Manager</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey />
+                    <controlSrc>DesktopModules/RildoInfo/Store_Manager/Views/Payments_Manager.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>Edit</controlKey>
+                    <controlSrc>DesktopModules/RildoInfo/Store_Manager/Views/Edit_Payment.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>Calendar</controlKey>
+                    <controlSrc>DesktopModules/RildoInfo/Store_Manager/Views/Calendar.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                </moduleControls>
+                <permissions>
+                  <permission code="PMTMPERMISSION" key="INSERTPERMISSION" name="Insert New Item" />
+                  <permission code="PMTMPERMISSION" key="EDITPERMISSION" name="Edit Item" />
+                  <permission code="PMTMPERMISSION" key="EXCLUDEPERMISSION" name="Exclude Item" />
+                </permissions>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+        </component>
+        <component type="Assembly">
+          <assemblies>
+            <assembly>
+              <name>RIW.Modules.Store_Manager.dll</name>
+              <path>bin</path>
+            </assembly>
+          </assemblies>
+        </component>
+      </components>
+    </package>
+    <package name="RIW_Agenda" type="Module" version="00.00.01">
+      <friendlyName>RIW Agenda</friendlyName>
+      <description>RIW Agenda module by AGF.</description>
+      <iconFile>desktopmodules/rildoinfo/store_manager/content/images/ri-logo.png</iconFile>
+      <owner>
+        <name>AGF</name>
+        <organization>Rildo Informatica.net</organization>
+        <url>http://web.rildoinformatica.net</url>
+        <email>giovanni@riw.com.br</email>
+      </owner>
+      <components>
+        <component type="Module">
+          <desktopModule>
+            <moduleName>RIW_Agenda</moduleName>
+            <foldername>Store_Manager</foldername>
+            <businessControllerClass />
+            <supportedFeatures />
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>RIW Agenda</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey />
+                    <controlSrc>DesktopModules/RildoInfo/Store_Manager/Views/Agenda.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                </moduleControls>
+                <permissions>
+                  <permission code="RIW_AgendaPERMISSION" key="INSERTPERMISSION" name="Insert New Item" />
+                  <permission code="RIW_AgendaPERMISSION" key="EDITPERMISSION" name="Edit Item" />
+                  <permission code="RIW_AgendaPERMISSION" key="EXCLUDEPERMISSION" name="Exclude Item" />
+                </permissions>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+        </component>
+      </components>
+    </package>
+    <package name="RIW_Edit_Payment" type="Module" version="00.00.01">
+      <friendlyName>RIW Edit Payment</friendlyName>
+      <description>RIW Edit Payment module by AGF.</description>
+      <iconFile>desktopmodules/rildoinfo/store_manager/content/images/ri-logo.png</iconFile>
+      <owner>
+        <name>AGF</name>
+        <organization>Rildo Informatica.net</organization>
+        <url>http://web.rildoinformatica.net</url>
+        <email>giovanni@riw.com.br</email>
+      </owner>
+      <components>
+        <component type="Module">
+          <desktopModule>
+            <moduleName>RIW_Edit_Payment</moduleName>
+            <foldername>Store_Manager</foldername>
+            <businessControllerClass />
+            <supportedFeatures />
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>RIW Edit Payment</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey />
+                    <controlSrc>DesktopModules/RildoInfo/Store_Manager/Views/Edit_Payment.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                </moduleControls>
+                <permissions>
+                  <permission code="RIW_Edit_PaymentPERMISSION" key="INSERTPERMISSION" name="Insert New Item" />
+                  <permission code="RIW_Edit_PaymentPERMISSION" key="EDITPERMISSION" name="Edit Item" />
+                  <permission code="RIW_Edit_PaymentPERMISSION" key="EXCLUDEPERMISSION" name="Exclude Item" />
+                </permissions>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+        </component>
+        <component type="Assembly">
+          <assemblies>
+            <assembly>
+              <name>RIW.Modules.Store_Manager.dll</name>
+              <path>bin</path>
+            </assembly>
+          </assemblies>
+        </component>
+      </components>
+    </package>
+    <package name="RIW_Store_Manager_DavReturns" type="Module" version="00.00.01">
+      <friendlyName>RIW Store Manager DAV Returns</friendlyName>
+      <description>RIW AGF Store Manager DAV Returns module.</description>
+      <iconFile>DesktopModules/RildoInfo/Store_Manager/Content/Images/ri-logo.png</iconFile>
+      <owner>
+        <name>AGF</name>
+        <organization>riw.com.br</organization>
+        <url>http://www.riw.com.br</url>
+        <email>suporte@riw.com.br</email>
+      </owner>
+      <components>
+        <component type="Module">
+          <desktopModule>
+            <moduleName>RIW_Store_Manager_DavReturns</moduleName>
+            <foldername>Store_Manager</foldername>
+            <businessControllerClass />
+            <supportedFeatures />
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>RIW Store Manager DAV Returns</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey />
+                    <controlSrc>DesktopModules/RildoInfo/Store_Manager/Views/DavReturns.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                </moduleControls>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+        </component>
+      </components>
+    </package>
+    <package name="RIW_Finances" type="Module" version="00.00.01">
+      <friendlyName>RIW Finances</friendlyName>
+      <description>RIW Finances module by AGF.</description>
+      <iconFile>desktopmodules/rildoinfo/store_manager/content/images/ri-logo.png</iconFile>
+      <owner>
+        <name>AGF</name>
+        <organization>Rildo Informatica.net</organization>
+        <url>http://web.rildoinformatica.net</url>
+        <email>giovanni@riw.com.br</email>
+      </owner>
+      <dependencies>
+        <dependency type="CoreVersion">06.02.05</dependency>
+      </dependencies>
+      <components>
+        <component type="Module">
+          <desktopModule>
+            <moduleName>RIW_Finances</moduleName>
+            <foldername>Store_Manager</foldername>
+            <businessControllerClass />
+            <supportedFeatures />
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>RIW Finances</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey />
+                    <controlSrc>DesktopModules/RildoInfo/Store_Manager/Views/Finances.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                </moduleControls>
+                <permissions>
+                  <permission code="RIW_FinancesPERMISSION" key="INSERTPERMISSION" name="Insert New Item" />
+                  <permission code="RIW_FinancesPERMISSION" key="EDITPERMISSION" name="Edit Item" />
+                  <permission code="RIW_FinancesPERMISSION" key="EXCLUDEPERMISSION" name="Exclude Item" />
+                </permissions>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+        </component>
+      </components>
+    </package>
+  </packages>
+</dotnetnuke>

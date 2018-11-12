@@ -1,0 +1,62 @@
+2015-10-07 07:32:57,012 [QUAD][Thread:24][ERROR] RIW.Modules.WebAPI.ReportsController - System.Data.SqlClient.SqlException (0x80131904): Column 'riw_estimates.CashAmount' is invalid in the select list because it is not contained in either an aggregate function or the GROUP BY clause.
+The column 'ChequeAmount' was specified multiple times for 't'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(SqlConnection connection, SqlTransaction transaction, CommandType commandType, String commandText, SqlParameter[] commandParameters, SqlConnectionOwnership connectionOwnership)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(String connectionString, CommandType commandType, String commandText)
+   at RIW.Modules.WebAPI.SqlDataProvider.RunReport(String sql) in J:\Projects\RIW\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Providers\DataProviders\SqlDataProvider\SqlDataProvider.vb:line 527
+   at RIW.Modules.WebAPI.Components.Repositories.ReportsRepository.RunReport(String sql) in J:\Projects\RIW\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Repositories\ReportsRepository.vb:line 67
+   at RIW.Modules.WebAPI.ReportsController.RunReport(Int32 reportId, String date1, String date2, Int32 detailId, Int32 portalId, String personId, String productId, String statusId, String salesRepId, String registerType) in J:\Projects\RIW\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Controllers\ReportsController.vb:line 99
+ClientConnectionId:42f8bc2d-fe28-4dcb-8178-0d8f87a0df37
+Error Number:8120,State:1,Class:16
+2015-10-07 07:33:13,910 [QUAD][Thread:31][ERROR] RIW.Modules.WebAPI.ReportsController - System.Data.SqlClient.SqlException (0x80131904): Column 'riw_estimates.CashAmount' is invalid in the select list because it is not contained in either an aggregate function or the GROUP BY clause.
+The column 'ChequeAmount' was specified multiple times for 't'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(SqlConnection connection, SqlTransaction transaction, CommandType commandType, String commandText, SqlParameter[] commandParameters, SqlConnectionOwnership connectionOwnership)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(String connectionString, CommandType commandType, String commandText)
+   at RIW.Modules.WebAPI.SqlDataProvider.RunReport(String sql) in J:\Projects\RIW\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Providers\DataProviders\SqlDataProvider\SqlDataProvider.vb:line 527
+   at RIW.Modules.WebAPI.Components.Repositories.ReportsRepository.RunReport(String sql) in J:\Projects\RIW\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Repositories\ReportsRepository.vb:line 67
+   at RIW.Modules.WebAPI.ReportsController.RunReport(Int32 reportId, String date1, String date2, Int32 detailId, Int32 portalId, String personId, String productId, String statusId, String salesRepId, String registerType) in J:\Projects\RIW\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Controllers\ReportsController.vb:line 99
+ClientConnectionId:42f8bc2d-fe28-4dcb-8178-0d8f87a0df37
+Error Number:8120,State:1,Class:16
+2015-10-07 08:56:14,030 [QUAD][Thread:9][ERROR] RIW.Modules.WebAPI.ReportsController - System.Data.SqlClient.SqlException (0x80131904): Column 'riw_estimates.CashAmount' is invalid in the select list because it is not contained in either an aggregate function or the GROUP BY clause.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(SqlConnection connection, SqlTransaction transaction, CommandType commandType, String commandText, SqlParameter[] commandParameters, SqlConnectionOwnership connectionOwnership)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(String connectionString, CommandType commandType, String commandText)
+   at RIW.Modules.WebAPI.SqlDataProvider.RunReport(String sql) in J:\Projects\RIW\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Providers\DataProviders\SqlDataProvider\SqlDataProvider.vb:line 527
+   at RIW.Modules.WebAPI.Components.Repositories.ReportsRepository.RunReport(String sql) in J:\Projects\RIW\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Repositories\ReportsRepository.vb:line 67
+   at RIW.Modules.WebAPI.ReportsController.RunReport(Int32 reportId, String date1, String date2, Int32 detailId, Int32 portalId, String personId, String productId, String statusId, String salesRepId, String registerType) in J:\Projects\RIW\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Controllers\ReportsController.vb:line 99
+ClientConnectionId:094bf8b4-cefe-4bb3-a5be-da3617c61f5f
+Error Number:8120,State:1,Class:16

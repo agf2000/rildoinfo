@@ -1,0 +1,8 @@
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\Store_Manager\bin\RIW.Modules.Store_Manager.dll
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\Store_Manager\bin\RIW.Modules.Store_Manager.pdb
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\Store_Manager\bin\RIW.Modules.Store_Manager.xml
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\Store_Manager\obj\Release\RIW.Modules.Store_Manager.Resources.resources
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\Store_Manager\obj\Release\Store_Manager.vbproj.GenerateResource.Cache
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\Store_Manager\obj\Release\RIW.Modules.Store_Manager.dll
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\Store_Manager\obj\Release\RIW.Modules.Store_Manager.xml
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\Store_Manager\obj\Release\RIW.Modules.Store_Manager.pdb

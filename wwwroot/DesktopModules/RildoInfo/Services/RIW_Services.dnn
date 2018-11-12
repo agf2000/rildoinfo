@@ -1,0 +1,79 @@
+<dotnetnuke type="Package" version="6.0">
+  <packages>
+    <package name="RIW_Services" type="Module" version="0.0.1">
+      <friendlyName>RIW Services</friendlyName>
+      <description>
+        <![CDATA[<p>RIW Services.</p>]]>
+      </description>
+      <iconFile>desktopmodules/rildoinfo/services/content/images/ri-logo.png</iconFile>
+      <owner>
+        <name>AGF</name>
+        <organization>RIW</organization>
+        <url><![CDATA[<a href="http://www.riw.com.br" target="_blank">http://www.riw.com.br</a>]]></url>
+        <email><![CDATA[<a href="mailto:suporte@riw.com.br" target="_blank">suporte@riw.com.br</a>]]></email>
+      </owner>
+      <license src="license.txt" />
+      <releaseNotes src="releasenotes.txt" />
+      <dependencies>
+        <dependency type="coreversion">07.00.02</dependency>
+      </dependencies>
+      <components>
+        <component type="Script">
+          <scripts>
+            <basePath>DesktopModules\RildoInfo\Services</basePath>
+            <script type="Install">
+              <path>Providers\DataProviders\SqlDataProvider</path>
+              <name>00.00.01.SqlDataProvider</name>
+              <version>00.00.01</version>
+            </script>
+            <script type="UnInstall">
+              <path>Providers\DataProviders\SqlDataProvider</path>
+              <name>Uninstall.SqlDataProvider</name>
+              <version>00.00.01</version>
+            </script>
+          </scripts>
+        </component>
+        <component type="Module">
+          <desktopModule>
+            <moduleName>RIW_Services</moduleName>
+            <foldername>Services</foldername>
+            <businessControllerClass />
+            <supportedFeatures />
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>RIW Services</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+          <eventMessage>
+            <processorType>DotNetNuke.Entities.Modules.EventMessageProcessor, DotNetNuke</processorType>
+            <processorCommand>UpgradeModule</processorCommand>
+            <attributes>
+              <businessControllerClass>RIW.Modules.Services.ModuleUpgrade</businessControllerClass>
+              <desktopModuleID>[DESKTOPMODULEID]</desktopModuleID>
+              <upgradeVersionsList>00.00.01</upgradeVersionsList>
+            </attributes>
+          </eventMessage>
+        </component>
+        <component type="Assembly">
+          <assemblies>
+            <basePath>bin</basePath>
+            <assembly>
+              <name>RIW.Modules.Services.dll</name>
+              <version>00.00.01</version>
+            </assembly>
+          </assemblies>
+        </component>
+        <component type="ResourceFile">
+          <resourceFiles>
+            <basePath>DesktopModules\RildoInfo\Services</basePath>
+            <resourceFile>
+              <name>Resources.zip</name>
+            </resourceFile>
+          </resourceFiles>
+        </component>
+      </components>
+    </package>
+  </packages>
+</dotnetnuke>

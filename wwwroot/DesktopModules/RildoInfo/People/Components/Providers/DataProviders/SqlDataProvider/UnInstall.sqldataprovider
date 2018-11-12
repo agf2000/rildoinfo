@@ -1,0 +1,120 @@
+﻿/************************************************************/
+/*****              SqlDataProvider                     *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/***** Note: To manually execute this script you must   *****/
+/*****       perform a search and replace operation     *****/
+/*****       for {databaseOwner} and {objectQualifier}  *****/
+/*****                                                  *****/
+/************************************************************/
+
+
+/****** Drop Stored Procedures ******/
+
+
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_People_GetList]    Script Date: 12/05/2013 11:26:05 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_People_GetList]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_People_GetList]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_PeopleDocs_GetList]    Script Date: 12/05/2013 11:26:05 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_PeopleDocs_GetList]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_PeopleDocs_GetList]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Person_Get]    Script Date: 12/05/2013 11:26:05 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_Person_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_Person_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Person_Histories_GetList]    Script Date: 12/05/2013 11:26:05 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_Person_Histories_GetList]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_Person_Histories_GetList]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Person_HistoryComments_GetList]    Script Date: 12/05/2013 11:26:05 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_Person_HistoryComments_GetList]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_Person_HistoryComments_GetList]
+GO
+
+
+
+/****** Drop Tables ******/
+
+
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIW_HtmlContents]    Script Date: 12/05/2013 11:23:49 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_HtmlContents]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIW_HtmlContents]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIW_Industries]    Script Date: 12/05/2013 11:23:49 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_Industries]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIW_Industries]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIW_People]    Script Date: 12/05/2013 11:23:49 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_People]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIW_People]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIW_PeopleAddresses]    Script Date: 12/05/2013 11:23:49 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_PeopleAddresses]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIW_PeopleAddresses]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIW_PeopleContacts]    Script Date: 12/05/2013 11:23:49 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_PeopleContacts]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIW_PeopleContacts]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIW_PeopleDocs]    Script Date: 12/05/2013 11:23:49 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_PeopleDocs]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIW_PeopleDocs]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIW_PeopleHistories]    Script Date: 12/05/2013 11:23:49 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_PeopleHistories]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIW_PeopleHistories]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIW_PeopleHistoryComments]    Script Date: 12/05/2013 11:23:49 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_PeopleHistoryComments]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIW_PeopleHistoryComments]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIW_PeopleIndustries]    Script Date: 12/05/2013 11:23:49 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_PeopleIndustries]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIW_PeopleIndustries]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIW_ClientBankRefs]    Script Date: 12/05/2013 11:23:49 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_ClientBankRefs]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIW_ClientBankRefs]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIW_ClientCommRefs]    Script Date: 12/05/2013 11:23:49 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_ClientCommRefs]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIW_ClientCommRefs]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIW_ClientIncomeSources]    Script Date: 12/05/2013 11:23:49 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_ClientIncomeSources]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIW_ClientIncomeSources]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIW_ClientPartnerBankRefs]    Script Date: 12/05/2013 11:23:49 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_ClientPartnerBankRefs]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIW_ClientPartnerBankRefs]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIW_ClientPartners]    Script Date: 12/05/2013 11:23:49 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_ClientPartners]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIW_ClientPartners]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIW_ClientPersonalRefs]    Script Date: 12/05/2013 11:23:49 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_ClientPersonalRefs]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIW_ClientPersonalRefs]
+GO

@@ -1,0 +1,36 @@
+.well {
+	width: 600px;
+}
+
+#myCarousel {
+    height: 300px;
+    width: 600px;
+}
+
+#myCarousel .item {
+}
+
+#myCarousel .carousel-indicators {
+	width: 535px;
+}
+
+#myCarousel .carousel-indicators li {
+	
+}
+
+#myCarousel img {
+	margin-bottom: 10px;
+}
+
+#myCarousel .item-price{
+	margin: 7px 5px;
+	display: inline-block;
+	border-radius: 5px;
+	font-size: 13px;
+	font-weight: bold;
+   background:#16cbe6;
+   color:#fff;
+   width:70px;
+   text-align:center;
+   padding: 5px 3px;
+}

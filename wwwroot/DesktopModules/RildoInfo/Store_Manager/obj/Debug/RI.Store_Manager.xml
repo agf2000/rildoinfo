@@ -1,0 +1,673 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+RI.Store_Manager
+</name>
+</assembly>
+<members>
+<member name="P:My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_ItemType">
+	<summary>
+dnnLabel_ItemType control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_CategoriesTree">
+	<summary>
+dnnLabel_CategoriesTree control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_ProdName">
+	<summary>
+dnnLabel_ProdName control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_ProdRefs">
+	<summary>
+dnnLabel_ProdRefs control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_ProdBarCodes">
+	<summary>
+dnnLabel_ProdBarCodes control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_UnitTypes">
+	<summary>
+dnnLabel_UnitTypes control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_ProsClients">
+	<summary>
+dnnLabel_ProsClients control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_Brands">
+	<summary>
+dnnLabel_Brands control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_Models">
+	<summary>
+dnnLabel_Models control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_StockLabel">
+	<summary>
+dnnLabel_StockLabel control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_StockTextBox">
+	<summary>
+dnnLabel_StockTextBox control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_StockWarning">
+	<summary>
+dnnLabel_StockWarning control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_FreeShpping">
+	<summary>
+dnnLabel_FreeShpping control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_PublishFrom">
+	<summary>
+dnnLabel_PublishFrom control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_PublishTo">
+	<summary>
+dnnLabel_PublishTo control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_SaleStartDate">
+	<summary>
+dnnLabel_SaleStartDate control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_SaleEndDate">
+	<summary>
+dnnLabel_SaleEndDate control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_VideoTitle">
+	<summary>
+dnnLabel_VideoTitle control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_VideoUrl">
+	<summary>
+dnnLabel_VideoUrl control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_wDiscount">
+	<summary>
+dnnLabel_wDiscount control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_NetCost">
+	<summary>
+dnnLabel_NetCost control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_Taxes">
+	<summary>
+dnnLabel_Taxes control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_Commission">
+	<summary>
+dnnLabel_Commission control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_Markup">
+	<summary>
+dnnLabel_Markup control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_SalePrice">
+	<summary>
+dnnLabel_SalePrice control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnLabel_SpecialPrice">
+	<summary>
+dnLabel_SpecialPrice control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_ValueMarkup">
+	<summary>
+dnnLabel_ValueMarkup control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_Cost">
+	<summary>
+dnnLabel_Cost control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_Discount">
+	<summary>
+dnnLabel_Discount control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_Freight">
+	<summary>
+dnnLabel_Freight control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_iCMSFreight">
+	<summary>
+dnnLabel_iCMSFreight control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_Other">
+	<summary>
+dnnLabel_Other control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_VDiscount">
+	<summary>
+dnnLabel_VDiscount control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_VFreight">
+	<summary>
+dnnLabel_VFreight control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_vICMSFreight">
+	<summary>
+dnnLabel_vICMSFreight control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_VOther">
+	<summary>
+dnnLabel_VOther control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_IPI">
+	<summary>
+dnnLabel_IPI control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_Difference">
+	<summary>
+dnnLabel_Difference control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_ST">
+	<summary>
+dnnLabel_ST control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_ISS">
+	<summary>
+dnnLabel_ISS control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_OtherTaxes">
+	<summary>
+dnnLabel_OtherTaxes control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_VIPI">
+	<summary>
+dnnLabel_VIPI control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_VDifference">
+	<summary>
+dnnLabel_VDifference control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_VST">
+	<summary>
+dnnLabel_VST control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_VISS">
+	<summary>
+dnnLabel_VISS control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_VOtherTaxes">
+	<summary>
+dnnLabel_VOtherTaxes control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_Seller">
+	<summary>
+dnnLabel_Seller control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_Rep">
+	<summary>
+dnnLabel_Rep control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_Telemarketing">
+	<summary>
+dnnLabel_Telemarketing control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_Tech">
+	<summary>
+dnnLabel_Tech control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_VSeller">
+	<summary>
+dnnLabel_VSeller control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_VRep">
+	<summary>
+dnnLabel_VRep control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_VTelemarketing">
+	<summary>
+dnnLabel_VTelemarketing control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_VTech">
+	<summary>
+dnnLabel_VTech control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_DefaultBarType">
+	<summary>
+dnnLabel_DefaultBarType control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_TributeSituationType">
+	<summary>
+dnnLabel_TributeSituationType control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_PISTributeSituation">
+	<summary>
+dnnLabel_PISTributeSituation control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_COFINSTributeSituation">
+	<summary>
+dnnLabel_COFINSTributeSituation control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_IPIST">
+	<summary>
+dnnLabel_IPIST control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_CST">
+	<summary>
+dnnLabel_CST control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_PISBase">
+	<summary>
+dnnLabel_PISBase control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_PIS">
+	<summary>
+dnnLabel_PIS control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_PISTributeSubBase">
+	<summary>
+dnnLabel_PISTributeSubBase control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_PISTributeSub">
+	<summary>
+dnnLabel_PISTributeSub control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_ICMS">
+	<summary>
+dnnLabel_ICMS control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_NCM">
+	<summary>
+dnnLabel_NCM control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_CFOP">
+	<summary>
+dnnLabel_CFOP control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_COFINSTributeSubBase">
+	<summary>
+dnnLabel_COFINSTributeSubBase control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_COFINSTributeSub">
+	<summary>
+dnnLabel_COFINSTributeSub control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_COFINSBase">
+	<summary>
+dnnLabel_COFINSBase control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_COFINS">
+	<summary>
+dnnLabel_COFINS control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_Weight">
+	<summary>
+dnnLabel_Weight control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_Lenth">
+	<summary>
+dnnLabel_Lenth control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_Height">
+	<summary>
+dnnLabel_Height control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_Width">
+	<summary>
+dnnLabel_Width control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_Diameter">
+	<summary>
+dnnLabel_Diameter control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_ZipOrigin">
+	<summary>
+dnnLabel_ZipOrigin control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Store_Manager.Edit_Product_Service.dnnLabel_City">
+	<summary>
+dnnLabel_City control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="P:My.MyWebExtension.Computer">
+	<summary>
+ Returns information about the host computer.
+ </summary>
+</member><member name="P:My.MyWebExtension.User">
+	<summary>
+ Returns information for the current Web user.
+ </summary>
+</member><member name="P:My.MyWebExtension.Request">
+	<summary>
+ Returns Request object.
+ </summary>
+</member><member name="P:My.MyWebExtension.Response">
+	<summary>
+ Returns Response object.
+ </summary>
+</member><member name="P:My.MyWebExtension.Log">
+	<summary>
+ Returns the Asp log object.
+ </summary>
+</member><member name="T:My.MyWebExtension">
+	<summary>
+ Module used to define the properties that are available in the My Namespace for Web projects.
+ </summary>
+	<remarks></remarks>
+</member>
+</members>
+</doc>

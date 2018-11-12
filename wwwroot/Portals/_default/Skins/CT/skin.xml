@@ -1,0 +1,337 @@
+<Objects>
+
+<!-- ==================== LOGO ==================== -->
+	<Object>
+		<Token>[LOGO]</Token>
+		<Settings>
+			<Setting>
+				<Name>BorderWidth</Name>
+				<Value>0</Value>
+			</Setting>
+		</Settings>
+	</Object>
+<!-- ============================================== -->	
+
+<!-- ================= SOLPARTMENU ================ -->		
+	<Object>
+		<Token>[SOLPARTMENU]</Token>
+		<Settings>
+  			<Setting>
+    			<Name>display</Name>
+    			<Value>horizontal</Value>
+  			</Setting>
+			<Setting>
+    			<Name>rootmenuitembreadcrumbcssclass</Name>
+    			<Value>MainMenu_MenuSelectedRoot</Value>
+  			</Setting>
+			<Setting>
+    			<Name>CSSNodeSelectedRoot</Name>
+    			<Value>MainMenu_MenuSelectedRoot</Value>
+  			</Setting>
+			<Setting>
+    			<Name>rootmenuitemlefthtml</Name>
+    			<Value>&lt;div&gt;&lt;div&gt;&lt;div&gt;</Value>
+  			</Setting>
+			<Setting>
+    			<Name>rootmenuitemrighthtml</Name>
+    			<Value>&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</Value>
+  			</Setting>
+			<Setting>
+    			<Name>rootmenuitemcssclass</Name>
+    			<Value>MainMenu_MenuItem</Value>
+  			</Setting>
+			<Setting>
+    			<Name>submenuitemselectedcssclass</Name>
+    			<Value>MainMenu_MenuItemAct</Value>
+  			</Setting>
+			<Setting>
+    			<Name>submenuitemactivecssclass</Name>
+    			<Value>MainMenu_SubMenuItemActive</Value>
+  			</Setting>
+			<Setting>
+    			<Name>rootmenuitemselectedcssclass</Name>
+    			<Value>MainMenu_MenuSelected</Value>
+  			</Setting>
+			<Setting>
+    			<Name>userootbreadcrumbarrow</Name>
+    			<Value>false</Value>
+  			</Setting>
+			<Setting>
+    			<Name>usesubmenubreadcrumbarrow</Name>
+    			<Value>false</Value>
+  			</Setting>
+			<Setting>
+    			<Name>rootbreadcrumbarrow</Name>
+    			<Value>false</Value>
+  			</Setting>
+			<Setting>
+    			<Name>submenubreadcrumbarrow</Name>
+    			<Value>false</Value>
+  			</Setting>
+			<Setting>
+    			<Name>usearrows</Name>
+    			<Value>false</Value>
+  			</Setting>
+			<Setting>
+    			<Name>separator</Name>
+    			<Value><![CDATA[<img alt="" BORDER="0" src="images/nav-sep.gif"/>]]></Value>
+  			</Setting>
+		</Settings>
+	</Object>
+<!-- ============================================== -->
+
+
+<!-- ================= NAV MENU ================ -->		
+	<Object>
+		<Token>[NAV]</Token>
+		<Settings>
+  			<Setting>
+    			<Name>ProviderName</Name>
+    			<Value>DNNMenuNavigationProvider</Value>
+  			</Setting>
+			<Setting>
+    			<Name>IndicateChildren</Name>
+    			<Value>false</Value>
+  			</Setting>
+			<Setting>
+    			<Name>ControlOrientation</Name>
+    			<Value>Horizontal</Value>
+  			</Setting>
+			<Setting>
+    			<Name>CSSNodeRoot</Name>
+    			<Value>main_dnnmenu_rootitem</Value>
+  			</Setting>
+            <Setting>
+    			<Name>CSSNodeHoverRoot</Name>
+    			<Value>main_dnnmenu_rootitem_hover</Value>
+  			</Setting>
+            <Setting>
+    			<Name>CSSNodeSelectedRoot</Name>
+    			<Value>main_dnnmenu_rootitem_selected</Value>
+  			</Setting>
+            <Setting>
+    			<Name>CSSBreadCrumbRoot</Name>
+    			<Value>main_dnnmenu_rootitem_selected</Value>
+  			</Setting>
+            <Setting>
+    			<Name>CSSContainerSub</Name>
+    			<Value>main_dnnmenu_submenu</Value>
+  			</Setting>
+            <Setting>
+    			<Name>CSSNodeHoverSub</Name>
+    			<Value>main_dnnmenu_itemhover</Value>
+  			</Setting>
+            <Setting>
+    			<Name>CSSNodeSelectedSub</Name>
+    			<Value>main_dnnmenu_itemselected</Value>
+  			</Setting>
+            <Setting>
+    			<Name>CSSContainerRoot</Name>
+    			<Value>main_dnnmenu_container</Value>
+  			</Setting>
+            <Setting>
+    			<Name>CSSControl</Name>
+    			<Value>main_dnnmenu_bar</Value>
+  			</Setting>
+            <Setting>
+    			<Name>CSSNode</Name>
+    			<Value>main_dnnmenu_bar</Value>
+  			</Setting>
+            <Setting>
+    			<Name>CSSBreak</Name>
+    			<Value>main_dnnmenu_break</Value>
+  			</Setting>
+		</Settings>
+	</Object>
+<!-- ============================================== -->
+
+
+<!-- ==================== LOGIN =================== -->		
+	<Object>
+		<Token>[LOGIN]</Token>
+		<Settings>
+  			<Setting>
+    			<Name>CssClass</Name>
+    			<Type>String</Type>
+    			<Help>Sets the CSS class used to render this skin object</Help>
+    			<Value>login-register</Value>
+  			</Setting>
+ 			<Setting>
+    			<Name>Text</Name>
+    			<Type>String</Type>
+    			<Help>Overrides the default text for "Login"</Help>
+    			<Value></Value>
+  			</Setting>
+  			<Setting>
+   				<Name>LogoffText</Name>
+    			<Type>String</Type>
+    			<Help>Overrides the default text for "Logout"</Help>
+    			<Value></Value>
+  			</Setting>
+		</Settings>
+	</Object>
+<!-- ============================================== -->
+	
+<!-- =================== REGISTER ================= -->
+<Object>
+  		<Token>[USER]</Token>
+		<Settings>
+			<Setting>
+    			<Name>CssClass</Name>
+    			<Type>String</Type>
+    			<Help>Sets the CSS class used to render this skin object</Help>
+    			<Value>login-register</Value>
+  			</Setting>
+  			<Setting>
+    			<Name>Text</Name>
+    			<Type>String</Type>
+    			<Help>Overides the default text for the User link</Help>
+    			<Value></Value>
+  			</Setting>
+  			<Setting>
+    			<Name>URL</Name>
+    			<Type>String</Type>
+    			<Help>URL of login page</Help>
+    			<Value></Value>
+  			</Setting>
+		</Settings>
+	</Object>
+<!-- ============================================== -->
+	
+<!-- ==================== SEARCH ================== -->
+	<Object>
+    	<Token>[SEARCH]</Token>
+    	<Settings>
+      		<Setting>
+        		<Name>Submit</Name>
+        		<Value><![CDATA[<img alt="" class="searchborder" src="images/button-search.gif"/>]]></Value>
+      		</Setting>
+     		<Setting>
+        		<Name>ShowSite</Name>
+        		<Value>False</Value>
+      		</Setting>
+      		<Setting>
+       			<Name>ShowWeb</Name>
+        		<Value>False</Value>
+      		</Setting>
+	  		<Setting>
+				<Name>BorderWidth</Name>
+				<Value>0</Value>
+	  		</Setting>
+			<Setting>
+				<Name>hspace</Name>
+				<Value>-1</Value>
+	  		</Setting>
+			<Setting>
+				<Name>align</Name>
+				<Value>absmiddle</Value>
+	  		</Setting>
+    	</Settings>
+	</Object>
+<!-- ============================================== -->
+	
+<!-- ================= BREADCRUMB ================= -->	
+	<Object>
+		<Token>[BREADCRUMB]</Token>
+		<Settings>
+			<Setting>
+				<Name>Separator</Name>
+				<Value> ... </Value>
+			</Setting>
+			<Setting>
+				<Name>CssClass</Name>
+				<Value>breadcrum</Value>
+			</Setting>
+			<Setting>
+				<Name>RootLevel</Name>
+				<Value>0</Value>
+			</Setting>
+		</Settings>
+	</Object>
+<!-- ============================================== -->
+	
+<!-- ==================== DATE ==================== -->
+	<Object>
+		<Token>[CURRENTDATE]</Token>
+		<Settings>
+			<Setting>
+				<Name>CssClass</Name>
+				<Value>date</Value>
+			</Setting>
+			<Setting>
+				<Name>DateFormat</Name>
+				<Value>dd MMMM, yyyy</Value>
+			</Setting>
+		</Settings>
+	</Object>
+<!-- ============================================== -->
+	
+<!-- ==================== LINKS =================== -->	
+	<Object>
+		<Token>[LINKS]</Token>
+		<Settings>
+			<Setting>
+				<Name>Level</Name>
+				<Value>root</Value>
+			</Setting>
+			<Setting>
+				<Name>CssClass</Name>
+				<Value>links</Value>
+			</Setting>
+			<Setting>
+				<Name>Separator</Name>
+				<Value> | </Value>
+			</Setting>
+			<Setting>
+				<Name>Alignment</Name>
+				<Value>Horizontal</Value>
+			</Setting>
+		</Settings>
+	</Object>
+<!-- ============================================== -->
+	
+<!-- =================== PRIVACY ================== -->	
+	<Object>
+		<Token>[PRIVACY]</Token>
+		<Settings>
+			<Setting>
+				<Name>Text</Name>
+				<Value>Privacy Policy</Value>
+			</Setting>
+			<Setting>
+				<Name>CssClass</Name>
+				<Value>terms-privacy</Value>
+			</Setting>
+		</Settings>
+	</Object>
+<!-- ============================================== -->
+	
+<!-- ==================== TERMS =================== -->	
+	<Object>
+		<Token>[TERMS]</Token>
+		<Settings>
+			<Setting>
+				<Name>Text</Name>
+				<Value>Terms of Use</Value>
+			</Setting>
+			<Setting>
+				<Name>CssClass</Name>
+				<Value>terms-privacy</Value>
+			</Setting>
+		</Settings>
+	</Object>
+<!-- ============================================== -->
+	
+<!-- ================== COPYRIGHT ================= -->	
+	<Object>
+		<Token>[COPYRIGHT]</Token>
+		<Settings>
+			<Setting>
+				<Name>CssClass</Name>
+				<Value>copy-right</Value>
+			</Setting>
+		</Settings>
+	</Object>
+<!-- ============================================== -->
+
+</Objects>

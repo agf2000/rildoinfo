@@ -1,0 +1,3537 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+RIW.Modules.Services
+</name>
+</assembly>
+<members>
+<member name="M:RIW.Modules.Services.IStatusesRepository.addStatus(RIW.Modules.Services.Models.Status)">
+	<summary>
+ Adds a new status
+ </summary>
+	<param name="status">Status Model</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IStatusesRepository.getStatuses(System.Int32,System.String)">
+	<summary>
+ Gets a list of statuses by portal id
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<param name="isDeleted"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IStatusesRepository.getStatus(System.Int32,System.Int32)">
+	<summary>
+ Gets status
+ </summary>
+	<param name="statusId">Status ID</param>
+	<param name="portalId">Portal ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IStatusesRepository.getStatus(System.String,System.Int32)">
+	<summary>
+ Gets status
+ </summary>
+	<param name="statusName">Status Name</param>
+	<param name="portalId">Portal ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IStatusesRepository.updateStatus(RIW.Modules.Services.Models.Status)">
+	<summary>
+ Updates a status
+ </summary>
+	<param name="status">Status Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IStatusesRepository.removeStatus(System.Int32,System.Int32)">
+	<summary>
+ Removes status
+ </summary>
+	<param name="statusId">Status ID</param>
+	<param name="portalId">Portal ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IStatusesRepository.removeStatus(RIW.Modules.Services.Models.Status)">
+	<summary>
+ Removes status
+ </summary>
+	<param name="status">Status Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.UnitTypesController.getUnitTypes(System.Int32,System.String)">
+	<summary>
+ Gets a list of unit types by portal id
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<param name="isDeleted">Optional IsDeleted</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.UnitTypesController.getUnitType(System.Int32)">
+	<summary>
+ Gets unitType
+ </summary>
+	<param name="unitTypeId">UnitType ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.UnitTypesController.updateUnitType(RIW.Modules.Services.Models.UnitType)">
+	<summary>
+ Adds a new unitType
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.UnitTypesController.removeUnitType(System.Int32)">
+	<summary>
+ Removes unitType
+ </summary>
+	<param name="unitTypeId">UnitType ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.EstimatesController.GetEstimates(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.String,System.String,System.String,System.Int32,System.String)">
+	<summary>
+ Gets a list of estimates
+ </summary>
+	<param name="portalId"></param>
+	<param name="personId"></param>
+	<param name="salesRep"></param>
+	<param name="statusId"></param>
+	<param name="sDate"></param>
+	<param name="eDate"></param>
+	<param name="filter"></param>
+	<param name="isDeleted"></param>
+	<param name="pageIndex"></param>
+	<param name="pageSize"></param>
+	<param name="orderBy"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.EstimatesController.GetEstimate(System.Int32,System.Int32)">
+	<summary>
+ Gets an estimate by estimate id
+ </summary>
+	<param name="estimateId">Estimate ID</param>
+	<param name="portalId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.EstimatesController.GetEstimateItems(System.Int32,System.Int32,System.String)">
+	<summary>
+ Gets list of estimate items by estimate id
+ </summary>
+	<param name="estimateId">Estimate ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.EstimatesController.addEstimate(RIW.Modules.Services.EstimatesController.EstimateItemsRequest)">
+	<summary>
+ Adds an estimate
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.EstimatesController.addEstimateItem(RIW.Modules.Services.EstimatesController.EstimateItemsRequest)">
+	<summary>
+ Adds a quick estimate item
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.EstimatesController.addEstimateItems(RIW.Modules.Services.EstimatesController.EstimateItemsRequest)">
+	<summary>
+ Adds a quick estimate item
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.EstimatesController.removeEstimateItems(RIW.Modules.Services.EstimatesController.EstimateItemsRequest)">
+	<summary>
+ Removes an estimate item
+ </summary>
+	<param name="jsonData"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.EstimatesController.updateEstimateItems(RIW.Modules.Services.EstimatesController.EstimateItemsRequest)">
+	<summary>
+ Updates a quick estimate item
+ </summary>
+	<param name="jsonData"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.EstimatesController.syncEstimateItems(RIW.Modules.Services.EstimatesController.EstimateItemsRequest)">
+	<summary>
+ Updates a quick estimate item
+ </summary>
+	<param name="jsonData"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.EstimatesController.updateEstimateClient(RIW.Modules.Services.Models.Estimate)">
+	<summary>
+ Updates estimate client id
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.EstimatesController.UpdateEstimateAmount(System.Int32,System.String,System.Int32,System.DateTime)">
+	<summary>
+ Updates estimate total amount
+ </summary>
+	<param name="eId">Estimate ID</param>
+	<param name="amt">Amount</param>
+	<param name="uId">Modified By User User ID</param>
+	<param name="md">Modified Date</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.EstimatesController.updateEstimateTerm(RIW.Modules.Services.Models.Estimate)">
+	<summary>
+ Updates estimate pay form and condition
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.EstimatesController.updateEstimateConfig(RIW.Modules.Services.Models.Estimate)">
+	<summary>
+ Updates estimate pay form and condition
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.EstimatesController.updateEstimatePayCond(RIW.Modules.Services.Models.Estimate)">
+	<summary>
+ Updates estimate pay form and condition
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.EstimatesController.cancelEstimatePayCond(RIW.Modules.Services.Models.Estimate)">
+	<summary>
+ Updates estimate pay form and condition
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.EstimatesController.updateStatus(RIW.Modules.Services.Models.Estimate)">
+	<summary>
+ Updates estimate status
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.EstimatesController.AddCashier(System.Int32,System.Int32,System.String,System.String,System.String,System.String,System.Int32,System.DateTime)">
+	<summary>
+ Adds a quick sales
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<param name="eId">Estimate ID</param>
+	<param name="totalCash">Total Cash Received</param>
+	<param name="totalCheck">Total Received in Check</param>
+	<param name="totalCard">Total Received in Credit Card</param>
+	<param name="totalBank">Total Bank Pay Created</param>
+	<param name="uId">Created By User User ID</param>
+	<param name="cd">Created Date</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.EstimatesController.getHistories(System.Int32)">
+	<summary>
+ Gets list estimate history
+ </summary>
+	<param name="estimateId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.EstimatesController.addHistory(RIW.Modules.Services.Models.EstimateHistory)">
+	<summary>
+ Adds estimate history
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.EstimatesController.getMessages(System.Int32)">
+	<summary>
+ Gets list estimate history
+ </summary>
+	<param name="estimateId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.EstimatesController.updateMessage(RIW.Modules.Services.Models.EstimateMessage)">
+	<summary>
+ Adds or updates estimate message
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.EstimatesController.removeMessage(System.Int32,System.Int32,System.String)">
+	<summary>
+ Removes estimate message
+ </summary>
+	<param name="estimateMessageId"></param>
+	<param name="estimateId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.EstimatesController.updateMessageComment(RIW.Modules.Services.EstimatesController.MessageComment)">
+	<summary>
+ Adds or updates estimate message comment
+ </summary>
+	<param name="MessageComment"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.EstimatesController.removeMessageComment(System.Int32,System.Int32,System.String)">
+	<summary>
+ Removes estimate message comment
+ </summary>
+	<param name="commentId"></param>
+	<param name="estimateMessageId"></param>
+	<param name="connId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.EstimatesController.updateHistoryComment(RIW.Modules.Services.EstimatesController.HistoryComment)">
+	<summary>
+ Adds or updates estimate message comment
+ </summary>
+	<param name="historyComment"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.EstimatesController.removeHistoryComment(System.Int32,System.Int32,System.String)">
+	<summary>
+ Removes estimate message comment
+ </summary>
+	<param name="commentId"></param>
+	<param name="estimateHistoryId"></param>
+	<param name="connId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.EstimatesController.takeProductStock(System.Collections.Generic.List{RIW.Modules.Services.Models.Product})">
+	<summary>
+ Removes product from stock
+ </summary>
+	<param name="products"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.EstimatesController.returnProductStock(System.Collections.Generic.List{RIW.Modules.Services.Models.Product})">
+	<summary>
+ Returns product to stock
+ </summary>
+	<param name="products"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.EstimatesController.downloadEstimatePdf(RIW.Modules.Services.EstimatesController.EstimatePdf)">
+	<summary>
+ Downloads estimate pdf
+ </summary>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.EstimatesController.sendEstimatePdf(RIW.Modules.Services.EstimatesController.EstimatePdf)">
+	<summary>
+ Generate Estimate PDF
+ </summary>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.EstimatesController.sendEstimateNotification(RIW.Modules.Services.EstimatesController.EstimatePdf)">
+	<summary>
+ Sends client notification about estimate being updated
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.EstimatesController.deleteEstimate(RIW.Modules.Services.Models.Estimate)">
+	<summary>
+ Deletes an estimate
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPersonIndustriesRepository.getPersonIndustries(System.Int32)">
+	<summary>
+ Gets a list of industries by person id
+ </summary>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPersonIndustriesRepository.addPersonIndustry(RIW.Modules.Services.Models.PersonIndustry)">
+	<summary>
+ Adds a new person industry
+ </summary>
+	<param name="personIndustry">Person Industry Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPersonIndustriesRepository.removePersonIndustries(System.Int32)">
+	<summary>
+ Removes person industries by person id
+ </summary>
+	<param name="personId">Person ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPersonIndustriesRepository.removePersonIndustry(RIW.Modules.Services.Models.PersonIndustry)">
+	<summary>
+ Removes a person industry
+ </summary>
+	<param name="personIndustry">Person Industry Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.BrandModelsController.GetBrandModels(System.Int32,System.Int32)">
+	<summary>
+ Gets a list of models by brand id
+ </summary>
+	<param name="brandId">Brand ID</param>
+	<param name="portalId">Portal ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.BrandModelsController.GetBrandModel(System.Int32,System.Int32)">
+	<summary>
+ Gets model by Model id
+ </summary>
+	<param name="modelId">Model ID</param>
+	<param name="brandId">Brand ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.BrandModelsController.UpdateBrandModel(RIW.Modules.Services.Models.BrandModel)">
+	<summary>
+ Adds or updates a brand model
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.BrandModelsController.RemoveBrandModel(System.Int32,System.Int32)">
+	<summary>
+ Removes model
+ </summary>
+	<param name="modelId">Model ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ProductsController.getProducts(System.Int32,System.Int32,System.String,System.Boolean,System.Boolean,System.String,System.String,System.Int32,System.Int32,System.String,System.Boolean,System.Boolean,System.String,System.Boolean,System.String,System.String,System.String)">
+	<summary>
+ Gets products list
+ </summary>
+	<param name="portalId"></param>
+	<param name="categoryId"></param>
+	<param name="lang"></param>
+	<param name="getArchived"></param>
+	<param name="featuredOnly"></param>
+	<param name="orderDesc"></param>
+	<param name="returnLimit"></param>
+	<param name="pageIndex"></param>
+	<param name="pageSize"></param>
+	<param name="searchDesc"></param>
+	<param name="isDealer"></param>
+	<param name="excludeFeatured"></param>
+	<param name="filter"></param>
+	<param name="categoryList"></param>
+	<param name="orderBy"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ProductsController.getProduct(System.Int32,System.String)">
+	<summary>
+ Gets product info by product id
+ </summary>
+	<param name="productId">Product ID</param>
+	<param name="lang">Product Language</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ProductsController.getProductImages(System.Int32)">
+	<summary>
+ Gets product images by product id
+ </summary>
+	<param name="productId">Product ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ProductsController.updateProduct(RIW.Modules.Services.Models.Product)">
+	<summary>
+ Adds or updates a product
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ProductsController.updateProductStock(System.Collections.Generic.List{RIW.Modules.Services.Models.Product})">
+	<summary>
+ Adds or updates a product
+ </summary>
+	<param name="products"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ProductsController.updateProductSEO(RIW.Modules.Services.Models.ProductLang)">
+	<summary>
+ Adds or updates a product
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ProductsController.updateProductDescription(RIW.Modules.Services.Models.Product)">
+	<summary>
+ Updates a product description
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ProductsController.updateProductFinance(RIW.Modules.Services.Models.ProductFinance)">
+	<summary>
+ Updates product finance
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ProductsController.updateProductSpecialOffer(RIW.Modules.Services.ProductsController.ProductSpecialOffer)">
+	<summary>
+ Updates product special offer
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ProductsController.deleteProduct(RIW.Modules.Services.Models.Product)">
+	<summary>
+ Disables a product
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ProductsController.restoreProduct(RIW.Modules.Services.Models.Product)">
+	<summary>
+ Restores a product
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ProductsController.removeProduct(System.Int32,System.String)">
+	<summary>
+ Removes product
+ </summary>
+	<param name="productId"></param>
+	<param name="lang"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ProductsController.getProductsRelated(System.Int32,System.Int32,System.String,System.Int32,System.Boolean)">
+	<summary>
+ Gets list of products related
+ </summary>
+	<param name="portalId"></param>
+	<param name="productId"></param>
+	<param name="lang"></param>
+	<param name="relatedType"></param>
+	<param name="getAll"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ProductsController.addProductRelated(RIW.Modules.Services.Models.ProductRelated)">
+	<summary>
+ Adds product related
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ProductsController.removeRelatedProduct(System.Collections.Generic.List{RIW.Modules.Services.Models.ProductRelated})">
+	<summary>
+ Removes product related
+ </summary>
+	<param name="relatedProducts"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ProductsController.removeProductsRelated(System.Collections.Generic.List{RIW.Modules.Services.Models.ProductRelated})">
+	<summary>
+ Removes all related products
+ </summary>
+	<param name="productsRelated"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ProductsController.getProductOptions(System.Int32,System.String)">
+	<summary>
+ Gets list of product attributes
+ </summary>
+	<param name="productId"></param>
+	<param name="lang"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ProductsController.addProductOption(RIW.Modules.Services.Models.ProductOption)">
+	<summary>
+ Adds product attribute
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ProductsController.updateProductOption(System.Collections.Generic.List{RIW.Modules.Services.Models.ProductOption})">
+	<summary>
+ Adds or updates product attribute
+ </summary>
+	<param name="productOptions"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ProductsController.removeProductOption(System.Int32,System.String)">
+	<summary>
+ Removes product attribute
+ </summary>
+	<param name="productOptionId"></param>
+	<param name="lang"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ProductsController.getProductOptionValues(System.Int32,System.String)">
+	<summary>
+ Gets list of product attribute's values
+ </summary>
+	<param name="optionId"></param>
+	<param name="lang"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ProductsController.addProductOptionValue(RIW.Modules.Services.Models.ProductOptionValue)">
+	<summary>
+ Adds product attribute value
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ProductsController.updateProductOptionValue(System.Collections.Generic.List{RIW.Modules.Services.Models.ProductOptionValue})">
+	<summary>
+ Updates product attribute value
+ </summary>
+	<param name="productOptionValues"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ProductsController.UpdateProductShipping(RIW.Modules.Services.Models.Product)">
+	<summary>
+ Updates product dimentions for shipping purposes
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ProductsController.removeProductOptionValue(System.Int32,System.String)">
+	<summary>
+ Removes product attribute's option
+ </summary>
+	<param name="productOptionValueId"></param>
+	<param name="lang"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ProductsController.removeProductCategory(System.Int32)">
+	<summary>
+ Removes product from category
+ </summary>
+	<param name="productId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ProductsController.removeProductsCategory(System.Int32)">
+	<summary>
+ Removes categories from product
+ </summary>
+	<param name="categoryId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ProductsController.addProductCategories(System.Int32,System.String)">
+	<summary>
+ Adds product to list of categories
+ </summary>
+	<param name="productId"></param>
+	<param name="categories"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ProductsController.addProductCategory(RIW.Modules.Services.Models.ProductCategory)">
+	<summary>
+ Adds product to category
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ProductsController.UpdateProductImageOrder(System.Collections.Generic.List{RIW.Modules.Services.Models.ProductImage})">
+	<summary>
+ Updates image view order
+ </summary>
+	<param name="ProductImages"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ProductsController.removeProductImage(System.Int32)">
+	<summary>
+ Removes product image
+ </summary>
+	<param name="productImageId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ProductsController.GetProductFinance(System.Int32)">
+	<summary>
+ Gets product finance info
+ </summary>
+	<param name="productId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ProductsController.getProductVideos(System.Int32)">
+	<summary>
+ Gets product videos
+ </summary>
+	<param name="productId">Product ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ProductsController.addProductVideo(RIW.Modules.Services.Models.ProductVideo)">
+	<summary>
+ Adds product video
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ProductsController.removeProductVideo(System.Int32)">
+	<summary>
+ Removes product video
+ </summary>
+	<param name="productVideoId">Product ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.AccountsController.GetAccounts(System.Int32)">
+	<summary>
+ Gets a list of accounts by portal id
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.AccountsController.UpdateAccount(System.Int32,System.String,System.Int32,System.DateTime,System.Int32)">
+	<summary>
+ Adds ou updates an account
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<param name="accId">Account ID</param>
+	<param name="AccName">Brand Title</param>
+	<param name="uId">Created By User User ID</param>
+	<param name="cd">Created Date</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.AccountsController.RemoveAccount(System.Int32,System.Int32)">
+	<summary>
+ Removes an account
+ </summary>
+	<param name="accId">Account ID</param>
+	<param name="portalId">Portal ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IBrandModelsRepository.AddBrandModel(RIW.Modules.Services.Models.BrandModel)">
+	<summary>
+ Adds a new brandModel
+ </summary>
+	<param name="brandModel">BrandModel Model</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IBrandModelsRepository.GetBrandModel(System.Int32,System.Int32)">
+	<summary>
+ Gets a brandModel
+ </summary>
+	<param name="modelId">Model ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IBrandModelsRepository.GetBrandModels(System.Int32)">
+	<summary>
+ Gets list of brandModels bt brand id
+ </summary>
+	<param name="brandId">Brand ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IBrandModelsRepository.UpdateBrandModel(RIW.Modules.Services.Models.BrandModel)">
+	<summary>
+ Adds a new brandModel
+ </summary>
+	<param name="brandModel">BrandModel Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IBrandModelsRepository.RemoveBrandModel(System.Int32,System.Int32)">
+	<summary>
+ Removes brandModel
+ </summary>
+	<param name="brandModelId">BrandModel ID</param>
+	<param name="portalId">Portal ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IBrandModelsRepository.RemoveBrandModels(System.Int32)">
+	<summary>
+ Removes brandModel
+ </summary>
+	<param name="brandId">Brand ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IBrandModelsRepository.RemoveBrandModel(RIW.Modules.Services.Models.BrandModel)">
+	<summary>
+ Removes brandModel
+ </summary>
+	<param name="brandModel">BrandModel Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.ValidatePerson(System.String)">
+	<summary>
+ Checks for an existing email from the client's table
+ </summary>
+	<param name="email"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.getPeople(System.Int32,System.Int32,System.String,System.Int32,System.Int32,System.String,System.String,System.Int32,System.String,System.String,System.String)">
+	<summary>
+ Gets list of clients
+ </summary>
+	<param name="salesRep">Sales Person ID</param>
+	<param name="isDeleted">Has been set as deleted</param>
+	<param name="sTerm">Persons Search Term</param>
+	<param name="statusId">Status ID</param>
+	<param name="sDate">Start ModifiedOnDate</param>
+	<param name="eDate">End Modified Date Range</param>
+	<param name="pageIndex">Page Number</param>
+	<param name="pageSize">Page Size</param>
+	<param name="orderBy">Sorting Order</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.getPerson(System.Int32,System.Int32)">
+	<summary>
+ Gets client info
+ </summary>
+	<param name="personId">Person ID</param>
+	<param name="portalId">Portal ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.updatePerson(RIW.Modules.Services.Models.Person)">
+	<summary>
+ Adds or updates a person account
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.deletePerson(RIW.Modules.Services.Models.Person)">
+	<summary>
+ Deletes a person
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.removePerson(System.Int32,System.Int32,System.Int32)">
+	<summary>
+ Removes a person by person id
+ </summary>
+	<param name="personId">Person ID</param>
+	<param name="userId">User ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.restorePerson(RIW.Modules.Services.Models.Person)">
+	<summary>
+ Restores a person
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.generateUserPassword(RIW.Modules.Services.PeopleController.userPassword)">
+	<summary>
+ Generates new random user password
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.getUserPhoto(System.Int32,System.Int32)">
+	<summary>
+ Gets user photo by user id
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<param name="userId">User ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.removeUserPhoto(RIW.Modules.Services.PeopleController.userPhoto)">
+	<summary>
+ Removes user photo
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.getPersonIndustries(System.Int32)">
+	<summary>
+ Get person inndustries
+ </summary>
+	<param name="personId">Person ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.getPersonAddresses(System.Int32)">
+	<summary>
+ Gets person addresses
+ </summary>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.getPersonAddress(System.Int32,System.Int32)">
+	<summary>
+ Gets client address
+ </summary>
+	<param name="personAddressId">Person Address ID</param>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.updatePersonAddress(RIW.Modules.Services.Models.PersonAddress)">
+	<summary>
+ Adds or updates client address
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.deletePersonAddress(RIW.Modules.Services.Models.PersonAddress)">
+	<summary>
+ Disabled a person address
+ </summary>
+	<param name="dto">Person Address Model</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.restorePersonAddress(RIW.Modules.Services.Models.PersonAddress)">
+	<summary>
+ Restores a person address
+ </summary>
+	<param name="dto">Person Address Model</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.removePersonAddress(System.Int32,System.Int32)">
+	<summary>
+ Removes a person address
+ </summary>
+	<param name="personAddressId">Person Address ID</param>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.getPersonContacts(System.Int32)">
+	<summary>
+ Gets client contacts by client id
+ </summary>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.getPersonContact(System.Int32,System.Int32)">
+	<summary>
+ Gets client contact
+ </summary>
+	<param name="personContactId">Person Contact ID</param>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.updatePersonContact(RIW.Modules.Services.Models.PersonContact)">
+	<summary>
+ Adds or updates client contact
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.removePersonContact(System.Int32,System.Int32)">
+	<summary>
+ Removes a client contact
+ </summary>
+	<param name="personContactId">Person Contact ID</param>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.getPersonDocs(System.Int32)">
+	<summary>
+ Gets client docs by client id
+ </summary>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.getPersonDoc(System.Int32,System.Int32)">
+	<summary>
+ Gets client doc
+ </summary>
+	<param name="cDId">Person Doc ID</param>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.postFile">
+	<summary>
+ Saves person documents
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.removePersonDoc(System.Int32,System.Int32)">
+	<summary>
+ Removes a person Doc
+ </summary>
+	<param name="personDocId">Person Doc ID</param>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.updateClientFinance(RIW.Modules.Services.Models.Person)">
+	<summary>
+ Updates client finance
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.getClientIncomeSources(System.Int32)">
+	<summary>
+ Gets client income sources
+ </summary>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.getClientIncomeSource(System.Int32,System.Int32)">
+	<summary>
+ Gets client income source
+ </summary>
+	<param name="clientIncomeSourceId">Person Income Source ID</param>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.updateClientIncomeSource(RIW.Modules.Services.Models.ClientIncomeSource)">
+	<summary>
+ Updates client income source
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.removeClientIncomeSource(System.Int32,System.Int32)">
+	<summary>
+ Removes a client income source
+ </summary>
+	<param name="clientIncomeSourceId">Person Income Source ID</param>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.getClientPersonalRefs(System.Int32)">
+	<summary>
+ Gets client personal references
+ </summary>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.getClientPersonalRef(System.Int32,System.Int32)">
+	<summary>
+ Gets client personal reference
+ </summary>
+	<param name="clientPersonalRefId">Person Personal Ref ID</param>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.updateClientPersonalRef(RIW.Modules.Services.Models.ClientPersonalRef)">
+	<summary>
+ Adds or updates client personal reference
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.removeClientPersonalRef(System.Int32,System.Int32)">
+	<summary>
+ Removes a client personal reference
+ </summary>
+	<param name="clientPersonalRefId">Person Personal Reference Source ID</param>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.getClientBankRefs(System.Int32)">
+	<summary>
+ Gets client bank references
+ </summary>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.getClientBankRef(System.Int32,System.Int32)">
+	<summary>
+ Gets client bank reference
+ </summary>
+	<param name="clientBankRefId">Person Bank Ref ID</param>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.updateClientBankRef(RIW.Modules.Services.Models.ClientBankRef)">
+	<summary>
+ Updates client bank reference
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.removeClientBankReference(System.Int32,System.Int32)">
+	<summary>
+ Removes a client bank reference
+ </summary>
+	<param name="clientBankReferenceId">Person Bank Reference Source ID</param>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.getClientCommRefs(System.Int32)">
+	<summary>
+ Gets client commerce references
+ </summary>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.getClientCommRef(System.Int32,System.Int32)">
+	<summary>
+ Gets client commerce reference
+ </summary>
+	<param name="clientCommRefId">Person Commerce Ref ID</param>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.updateClientCommRef(RIW.Modules.Services.Models.ClientCommRef)">
+	<summary>
+ Adds or updates client commerce reference
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.removeClientCommRef(System.Int32,System.Int32)">
+	<summary>
+ Removes a client commerce reference
+ </summary>
+	<param name="clientCommReferenceId">Person Commerce Reference Source ID</param>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.getClientPartners(System.Int32)">
+	<summary>
+ Gets client partners
+ </summary>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.getClientPartner(System.Int32,System.Int32)">
+	<summary>
+ Gets client partner
+ </summary>
+	<param name="clientPartnerId">Person Partner ID</param>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.updateClientPartner(RIW.Modules.Services.Models.ClientPartner)">
+	<summary>
+ Adds or updates client partner
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.removeClientPartner(System.Int32,System.Int32)">
+	<summary>
+ Removes a client partner
+ </summary>
+	<param name="clientPartnerId">Person Partner ID</param>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.getClientPartnerBankRefs(System.Int32)">
+	<summary>
+ Gets client partner bank references
+ </summary>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.getClientPartnerBankRef(System.Int32,System.Int32)">
+	<summary>
+ Gets client partner bank reference
+ </summary>
+	<param name="clientPartnerBankReferenceId">Person Partner Bank Ref ID</param>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.updateClientPartnerBankRef(RIW.Modules.Services.Models.ClientPartnerBankRef)">
+	<summary>
+ Updates client partner bank reference
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.removeClientPartnerBankReference(System.Int32,System.Int32)">
+	<summary>
+ Removes a client's partner bank reference
+ </summary>
+	<param name="clientPartnerBankRefId">Person Partner Bank Reference Source ID</param>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.updatePersonUserLogin(RIW.Modules.Services.Models.Person)">
+	<summary>
+ Updates person login and or email
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.getHistory(System.Int32)">
+	<summary>
+ Gets client history by client id
+ </summary>
+	<param name="personId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.updateHistory(RIW.Modules.Services.Models.PersonHistory)">
+	<summary>
+ Adds or updates estimate message
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.updateHistoryComment(RIW.Modules.Services.PeopleController.HistoryComment)">
+	<summary>
+ Adds or updates person history comment
+ </summary>
+	<param name="historyComment"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.removeHistoryComment(System.Int32,System.Int32,System.String)">
+	<summary>
+ Removes person history comment
+ </summary>
+	<param name="commentId"></param>
+	<param name="personHistoryId"></param>
+	<param name="connId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.updatePersonStatus(RIW.Modules.Services.Models.Person)">
+	<summary>
+ Updates person status  and adds person history
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.UpdateClientSent(RIW.Modules.Services.Models.Person)">
+	<summary>
+ Updates person sent and adds person history
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.removeUserPhoto(System.Int32,System.Int32,System.String)">
+	<summary>
+ Removes user photo
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<param name="uId">User ID</param>
+	<param name="fileName">File Name</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.getUsers(System.Collections.Generic.IEnumerable{DotNetNuke.Entities.Users.UserInfo})">
+	<summary>
+ Gets list of users by portal id
+ </summary>
+	<param name="users"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.getUsersByRoleGroup(System.Int32,System.String)">
+	<summary>
+ Gets list of users by portal id and role group name
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<param name="roleGroupName">Role Group Name</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.getUsersByRoleName(System.Int32,System.String)">
+	<summary>
+ Gets list of users by portal id and role name
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<param name="roleName">Role Name</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PeopleController.getUser(System.Int32,System.Int32)">
+	<summary>
+ Gets user info
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<param name="userId">User ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ICashiersRepository.AddCashier(RIW.Modules.Services.Models.Cashier)">
+	<summary>
+ Adds a quick sales
+ </summary>
+	<param name="sale">Cashier Model</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPersonAddressesRepository.getPersonAddresses(System.Int32)">
+	<summary>
+ Gets a list of person addresses
+ </summary>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPersonAddressesRepository.getPersonAddress(System.Int32,System.Int32)">
+	<summary>
+ Gets a person address by id
+ </summary>
+	<param name="PersonAddressId">PersonAddress ID</param>
+	<param name="personId">Personl ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPersonAddressesRepository.addPersonAddress(RIW.Modules.Services.Models.PersonAddress)">
+	<summary>
+ Adds a person address
+ </summary>
+	<param name="personAddress">Person Address Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPersonAddressesRepository.updatePersonAddress(RIW.Modules.Services.Models.PersonAddress)">
+	<summary>
+ Updates a person address
+ </summary>
+	<param name="personAddress">Person Address Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPersonAddressesRepository.removePersonAddress(System.Int32,System.Int32)">
+	<summary>
+ Removes person address by person id
+ </summary>
+	<param name="personId">Person ID</param>
+	<param name="personAddressId">Person Address ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPersonAddressesRepository.removePersonAddresses(System.Int32)">
+	<summary>
+ Remove all person addresses
+ </summary>
+	<param name="personId">Person ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPersonAddressesRepository.removePersonAddress(RIW.Modules.Services.Models.PersonAddress)">
+	<summary>
+ Removes a person address
+ </summary>
+	<param name="personAddress">Person Address Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IClientCommRefsRepository.getClientCommRefs(System.Int32)">
+	<summary>
+ Gets a list of client commerce references by client id
+ </summary>
+	<param name="personId">Client ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IClientCommRefsRepository.getClientCommRef(System.Int32,System.Int32)">
+	<summary>
+ Gets a client commerce reference by id
+ </summary>
+	<param name="clientCommRefId">ClientCommRef ID</param>
+	<param name="personId">Clientl ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IClientCommRefsRepository.addClientCommRef(RIW.Modules.Services.Models.ClientCommRef)">
+	<summary>
+ Adds a client commerce reference
+ </summary>
+	<param name="clientCommRef">Client Commerce Reference Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IClientCommRefsRepository.updateClientCommRef(RIW.Modules.Services.Models.ClientCommRef)">
+	<summary>
+ Updates a client commerce reference
+ </summary>
+	<param name="clientCommRef">Client Commerce Reference Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IClientCommRefsRepository.RemoveClientCommRef(System.Int32,System.Int32)">
+	<summary>
+ Removes client commerce reference by client id
+ </summary>
+	<param name="personId">Client ID</param>
+	<param name="clientCommRefId">Client Commerce Reference ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IClientCommRefsRepository.removeClientCommRefs(System.Int32)">
+	<summary>
+ Remove all client commerce reference
+ </summary>
+	<param name="personId">Client ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IClientCommRefsRepository.removeClientCommRef(RIW.Modules.Services.Models.ClientCommRef)">
+	<summary>
+ Removes a client commerce reference
+ </summary>
+	<param name="clientCommRef">Client Commerce Reference Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.HtmlContentsController.getHtmlContentList(System.Int32)">
+	<summary>
+ Gets list of html content
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.HtmlContentsController.getHtmlContent(System.Int32,System.Int32)">
+	<summary>
+ Gets html content
+ </summary>
+	<param name="portalId"></param>
+	<param name="contentId">Content ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.HtmlContentsController.updateHtmlContent(RIW.Modules.Services.Models.HtmlContent)">
+	<summary>
+ Adds or updates html content
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ListsController.GetCountryList">
+	<summary>
+ Anonymous REST API that returns list of coutries in DNN
+ </summary>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ListsController.GetRegionList(System.String)">
+	<summary>
+ GET: /Regions/{code}
+ </summary>
+	<param name="code"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PayFormsController.getPayForms(System.Int32,System.String)">
+	<summary>
+ Gets list of payment forms by portal id
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PayFormsController.getPayForm(System.Int32,System.Int32)">
+	<summary>
+ Gets payment form by id
+ </summary>
+	<param name="payFormId">Pay Form ID</param>
+	<param name="portalId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PayFormsController.updatePayForm(System.Int32,System.String,System.Int32,System.DateTime,System.Int32)">
+	<summary>
+ Adds payment form
+ </summary>
+	<param name="pfId">Payment Form ID</param>
+	<param name="portalId">Portal ID</param>
+	<param name="pfTitle">Payment Form Title</param>
+	<param name="uId">Creator ID</param>
+	<param name="cd">Created Date</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PayFormsController.removePayForm(System.Int32)">
+	<summary>
+ Removes payment form by id
+ </summary>
+	<param name="pfId">Payment Form ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPersonContactsRepository.getPersonContacts(System.Int32)">
+	<summary>
+ Gets a list of person contacts by person id
+ </summary>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPersonContactsRepository.getPersonContact(System.Int32,System.Int32)">
+	<summary>
+ Gets a person contact by id
+ </summary>
+	<param name="personContactId">PersonContact ID</param>
+	<param name="personId">Personl ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPersonContactsRepository.getPersonContact(System.String,System.Int32)">
+	<summary>
+ Gets a person contact by id
+ </summary>
+	<param name="contactEmail">PersonContact Email</param>
+	<param name="portalId">Personl ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPersonContactsRepository.addPersonContact(RIW.Modules.Services.Models.PersonContact)">
+	<summary>
+ Adds a person contact
+ </summary>
+	<param name="personContact">Person Contact Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPersonContactsRepository.updatePersonContact(RIW.Modules.Services.Models.PersonContact)">
+	<summary>
+ Updates a person contact
+ </summary>
+	<param name="personContact">Person Contact Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPersonContactsRepository.removePersonContact(System.Int32,System.Int32)">
+	<summary>
+ Removes person contact by person id
+ </summary>
+	<param name="personId">Person ID</param>
+	<param name="personContactId">Person Contact ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPersonContactsRepository.removePersonContacts(System.Int32)">
+	<summary>
+ Remove all person contact
+ </summary>
+	<param name="personId">Person ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPersonContactsRepository.removePersonContact(RIW.Modules.Services.Models.PersonContact)">
+	<summary>
+ Removes a person contact
+ </summary>
+	<param name="personContact">Person Contact Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IClientIncomeSourcesRepository.GetClientIncomeSources(System.Int32)">
+	<summary>
+ Gets a list of client income sources by client id
+ </summary>
+	<param name="personId">Client ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IClientIncomeSourcesRepository.GetClientIncomeSource(System.Int32,System.Int32)">
+	<summary>
+ Gets a client income source by id
+ </summary>
+	<param name="clientIncomeSourceId">Client Income Source ID</param>
+	<param name="personId">Clientl ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IClientIncomeSourcesRepository.AddClientIncomeSource(RIW.Modules.Services.Models.ClientIncomeSource)">
+	<summary>
+ Adds a client income source
+ </summary>
+	<param name="clientIncomeSource">Client Income Source Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IClientIncomeSourcesRepository.UpdateClientIncomeSource(RIW.Modules.Services.Models.ClientIncomeSource)">
+	<summary>
+ Updates a client income source
+ </summary>
+	<param name="clientIncomeSource">Client Income Source Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IClientIncomeSourcesRepository.RemoveClientIncomeSource(System.Int32,System.Int32)">
+	<summary>
+ Removes client income source by client id
+ </summary>
+	<param name="personId">Client ID</param>
+	<param name="clientIncomeSourceId">Client Income Source ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IClientIncomeSourcesRepository.RemoveClientIncomeSources(System.Int32)">
+	<summary>
+ Remove all client income source
+ </summary>
+	<param name="personId">Client ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IClientIncomeSourcesRepository.RemoveClientIncomeSource(RIW.Modules.Services.Models.ClientIncomeSource)">
+	<summary>
+ Removes a client income source
+ </summary>
+	<param name="clientIncomeSource">Client Income Source Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPeopleRepository.getPeople(System.Int32,System.Int32,System.String,System.String,System.Int32,System.String,System.DateTime,System.DateTime,System.Int32,System.Int32,System.String)">
+	<summary>
+ Gets list of clients
+ </summary>
+	<param name="PortalId">Portal ID</param>
+	<param name="SalesRep">Sales Rep</param>
+	<param name="IsDeleted">Is Deleted</param>
+	<param name="SearchString">Search Term</param>
+	<param name="StatusId">Status ID</param>
+	<param name="StartDate">Modified Date start Range</param>
+	<param name="EndDate">Modified Date end Range</param>
+	<param name="PageIndex">Page Number</param>
+	<param name="PageSize">Page Size</param>
+	<param name="OrderBy">Order BY</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPeopleRepository.getPerson(System.Int32,System.Int32,System.Int32)">
+	<summary>
+ Gets client info by client id
+ </summary>
+	<param name="personId">Client ID</param>
+	<param name="portalId">Portal ID</param>
+	<param name="userId">UserId</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPeopleRepository.addPerson(RIW.Modules.Services.Models.Person)">
+	<summary>
+ Adds client
+ </summary>
+	<param name="client">Client Model</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPeopleRepository.updatePerson(RIW.Modules.Services.Models.Person)">
+	<summary>
+ Updates a client
+ </summary>
+	<param name="client">Client Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPeopleRepository.removePerson(System.Int32,System.Int32,System.Int32)">
+	<summary>
+ Deletes a client
+ </summary>
+	<param name="personId">Client ID</param>
+	<param name="cUserId">Client's User ID</param>
+	<param name="portalId">POrtal ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPeopleRepository.removePerson(RIW.Modules.Services.Models.Person)">
+	<summary>
+ Deletes a client
+ </summary>
+	<param name="client">Client Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IProductsRepository.getProductsCategory(System.Int32)">
+	<summary>
+ Gets products from product category
+ </summary>
+	<param name="categoryId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IProductsRepository.addProduct(RIW.Modules.Services.Models.Product)">
+	<summary>
+ Adds product
+ </summary>
+	<param name="product">Product Model</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IProductsRepository.updateProduct(RIW.Modules.Services.Models.Product)">
+	<summary>
+ Updates product
+ </summary>
+	<param name="product">Product Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IProductsRepository.addProductLang(RIW.Modules.Services.Models.ProductLang)">
+	<summary>
+ Adds product
+ </summary>
+	<param name="productLang">Product Language Model</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IProductsRepository.updateProductLang(RIW.Modules.Services.Models.ProductLang)">
+	<summary>
+ Updates product
+ </summary>
+	<param name="ProductLang">Product Language Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IProductsRepository.getProducts(System.Int32,System.Int32,System.String,System.String,System.Boolean,System.Boolean,System.String,System.String,System.String,System.Int32,System.Int32,System.String,System.Boolean,System.Boolean,System.String,System.String,System.Boolean)">
+	<summary>
+ Gets list of products
+ </summary>
+	<param name="portalId"></param>
+	<param name="categoryId"></param>
+	<param name="lang"></param>
+	<param name="filter"></param>
+	<param name="getArchived"></param>
+	<param name="featuredOnly"></param>
+	<param name="orderBy"></param>
+	<param name="orderDesc"></param>
+	<param name="returnLimit"></param>
+	<param name="pageIndex"></param>
+	<param name="pageSize"></param>
+	<param name="searchDesc"></param>
+	<param name="isDealer"></param>
+	<param name="getDeleted"></param>
+	<param name="categoryList"></param>
+	<param name="excludeFeatured"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IProductsRepository.getProduct(System.Int32,System.String)">
+	<summary>
+ Gets product
+ </summary>
+	<param name="productId">Product ID</param>
+	<param name="lang">Language</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IProductsRepository.getProductLang(System.Int32,System.String)">
+	<summary>
+ Gets product Language
+ </summary>
+	<param name="productId">Product ID</param>
+	<param name="lang">Language</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IProductsRepository.getProductImages(System.Int32)">
+	<summary>
+ Gets product images by product id
+ </summary>
+	<param name="productId">Product ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IProductsRepository.addProductCategories(System.Int32,System.String)">
+	<summary>
+ Adds product to categories
+ </summary>
+	<param name="product"></param>
+	<param name="productCats"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IProductsRepository.addProductCategory(System.Int32,System.Int32)">
+	<summary>
+ Add product to category
+ </summary>
+	<param name="productId"></param>
+	<param name="categoryId"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IProductsRepository.getProductCategories(System.Int32)">
+	<summary>
+ Get list of product categories
+ </summary>
+	<param name="productId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IProductsRepository.CopyProductToLanguages(RIW.Modules.Services.Models.ProductLang,System.String,System.Boolean)">
+	<summary>
+ Copies option model languages
+ </summary>
+	<param name="objInfo"></param>
+	<param name="Lang"></param>
+	<param name="ForceOverwrite"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IProductsRepository.updateProductOption(RIW.Modules.Services.Models.ProductOption)">
+	<summary>
+ Updates product option
+ </summary>
+	<param name="productOption">Product Option</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IProductsRepository.updateProductOptionLang(RIW.Modules.Services.Models.ProductOptionLang)">
+	<summary>
+ Updates product option language
+ </summary>
+	<param name="productOptionLang">Product Option Language</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IProductsRepository.addProductOption(RIW.Modules.Services.Models.ProductOption)">
+	<summary>
+ Adds product option
+ </summary>
+	<param name="productOption"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IProductsRepository.addProductOptionLang(RIW.Modules.Services.Models.ProductOptionLang)">
+	<summary>
+ Adds product option language
+ </summary>
+	<param name="productOptionLang"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IProductsRepository.getProductOption(System.Int32,System.String)">
+	<summary>
+ Gets product option
+ </summary>
+	<param name="optionId">Option ID</param>
+	<param name="lang">Language</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IProductsRepository.getProductOptions(System.Int32,System.String)">
+	<summary>
+ Gets list product options
+ </summary>
+	<param name="productId"></param>
+	<param name="lang"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IProductsRepository.CopyOptionToLanguages(RIW.Modules.Services.Models.ProductOptionLang,System.String,System.Boolean)">
+	<summary>
+ Copies option model languages
+ </summary>
+	<param name="objInfo"></param>
+	<param name="Lang"></param>
+	<param name="ForceOverwrite"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IProductsRepository.updateProductOptionValue(RIW.Modules.Services.Models.ProductOptionValue)">
+	<summary>
+ Updates product option value
+ </summary>
+	<param name="productOptionValue">Product Option</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IProductsRepository.updateProductOptionValueLang(RIW.Modules.Services.Models.ProductOptionValueLang)">
+	<summary>
+ Updates product option value language
+ </summary>
+	<param name="productOptionValueLang">Product Option Value Language</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IProductsRepository.addProductOptionValue(RIW.Modules.Services.Models.ProductOptionValue)">
+	<summary>
+ Adds product option value
+ </summary>
+	<param name="productOptionValue"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IProductsRepository.addProductOptionValueLang(RIW.Modules.Services.Models.ProductOptionValueLang)">
+	<summary>
+ Adds product option value language
+ </summary>
+	<param name="productOptionValueLang"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IProductsRepository.getProductOptionValue(System.Int32,System.String)">
+	<summary>
+ Gets product option value
+ </summary>
+	<param name="optionValueId">Option Value ID</param>
+	<param name="lang">Language</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IProductsRepository.getProductOptionValues(System.Int32,System.String)">
+	<summary>
+ Gets list product option values
+ </summary>
+	<param name="optionId"></param>
+	<param name="lang"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IProductsRepository.CopyOptionValueToLanguages(RIW.Modules.Services.Models.ProductOptionValueLang,System.String,System.Boolean)">
+	<summary>
+ Copies option value model languages
+ </summary>
+	<param name="objInfo"></param>
+	<param name="Lang"></param>
+	<param name="ForceOverwrite"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IProductsRepository.updateProductRelated(RIW.Modules.Services.Models.ProductRelated)">
+	<summary>
+ Updates product related
+ </summary>
+	<param name="productRelated">Product Related</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IProductsRepository.addProductRelated(RIW.Modules.Services.Models.ProductRelated)">
+	<summary>
+ Adds product related
+ </summary>
+	<param name="related"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IProductsRepository.getProductRelated(System.Int32)">
+	<summary>
+ Gets product related
+ </summary>
+	<param name="productRelatedId">Option Related ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IProductsRepository.getProductsRelated(System.Int32,System.Int32,System.String,System.Int32,System.Boolean)">
+	<summary>
+ Gets products related
+ </summary>
+	<param name="portalId"></param>
+	<param name="productId"></param>
+	<param name="lang"></param>
+	<param name="relatedType"></param>
+	<param name="getAll"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IProductsRepository.getProductFinance(System.Int32)">
+	<summary>
+ Gets product finance
+ </summary>
+	<param name="productId">Product ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IProductsRepository.removeProductCategory(System.Int32)">
+	<summary>
+ Remove product category
+ </summary>
+	<param name="productId"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IProductsRepository.removeProductsCategory(System.Int32)">
+	<summary>
+ Remove product category
+ </summary>
+	<param name="categoryId"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IProductsRepository.removeProductCategory(RIW.Modules.Services.Models.ProductCategory)">
+	<summary>
+ Removes product category
+ </summary>
+	<param name="productCategory"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IProductsRepository.removeProductOptionValues(System.Int32,System.String)">
+	<summary>
+ Removes all attribute's values
+ </summary>
+	<param name="optionId"></param>
+	<param name="lang"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IProductsRepository.removeProductOptionValueLangs(System.Int32,System.String)">
+	<summary>
+ Removes all attribute's values langs
+ </summary>
+	<param name="optionId"></param>
+	<param name="lang"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IProductsRepository.addProductImage(RIW.Modules.Services.Models.ProductImage)">
+	<summary>
+ Adds product image
+ </summary>
+	<param name="productImage"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IProductsRepository.getProductImage(System.Int32)">
+	<summary>
+ Gets a productImage
+ </summary>
+	<param name="productImageId"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IProductsRepository.updateProductImage(RIW.Modules.Services.Models.ProductImage)">
+	<summary>
+ Updates image view order
+ </summary>
+	<param name="productImage"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IProductsRepository.removeProductImage(System.Int32)">
+	<summary>
+ Removes a product image
+ </summary>
+	<param name="productImageId"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IProductsRepository.removeProductImage(RIW.Modules.Services.Models.ProductImage)">
+	<summary>
+ Removes a product image
+ </summary>
+	<param name="productImage"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IProductsRepository.updateProductFinance(RIW.Modules.Services.Models.ProductFinance)">
+	<summary>
+ Updates product finance
+ </summary>
+	<param name="productFinance"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IProductsRepository.getProductVideos(System.Int32)">
+	<summary>
+ Gets list of product videos
+ </summary>
+	<param name="productId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IProductsRepository.removeProductVideo(System.Int32)">
+	<summary>
+ Removes product video
+ </summary>
+	<param name="videoId"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IProductsRepository.removeProductVideos(System.Int32)">
+	<summary>
+ Removes product video
+ </summary>
+	<param name="productId"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IProductsRepository.removeProductVideo(RIW.Modules.Services.Models.ProductVideo)">
+	<summary>
+ Removes product video
+ </summary>
+	<param name="productVideo"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IProductsRepository.addProductVideo(RIW.Modules.Services.Models.ProductVideo)">
+	<summary>
+ Adds product video
+ </summary>
+	<param name="productVideo"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IAccountsRepository.GetAccounts(System.Int32)">
+	<summary>
+ Gets a list of creditor account by portal id
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IAccountsRepository.GetAccount(System.Int32,System.Int32)">
+	<summary>
+ Gets a creditor account by id
+ </summary>
+	<param name="accountId">Account ID</param>
+	<param name="portalId">Portal ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IAccountsRepository.UpdateAccount(RIW.Modules.Services.Models.Account)">
+	<summary>
+ Updates a creditor account info
+ </summary>
+	<param name="t">Account Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IAccountsRepository.AddAccount(RIW.Modules.Services.Models.Account)">
+	<summary>
+ Adds a new creditor account
+ </summary>
+	<param name="t">Account Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IAccountsRepository.RemoveAccount(System.Int32,System.Int32)">
+	<summary>
+ Removes a creditor account by id
+ </summary>
+	<param name="accountId">Account ID</param>
+	<param name="portalId">POrtal ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IAccountsRepository.RemoveAccount(RIW.Modules.Services.Models.Account)">
+	<summary>
+ Removes a creditor account
+ </summary>
+	<param name="t">Account Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IAccountsRepository.GetAccountsBalance(System.String,System.String)">
+	<summary>
+ Gets a total balance
+ </summary>
+	<param name="portalId">POrtal ID</param>
+	<param name="account">Account ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IEstimatesRepository.getEstimates(System.Int32,System.Int32,System.Int32,System.Int32,System.DateTime,System.DateTime,System.String,System.String,System.Int32,System.Int32,System.String)">
+	<summary>
+ Gets a list of estimates
+ </summary>
+	<param name="portalId"></param>
+	<param name="personId"></param>
+	<param name="salesRep"></param>
+	<param name="statusId"></param>
+	<param name="sDate"></param>
+	<param name="eDate"></param>
+	<param name="filter"></param>
+	<param name="isDeleted"></param>
+	<param name="pageIndex"></param>
+	<param name="pageSize"></param>
+	<param name="orderBy"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IEstimatesRepository.getEstimateItems(System.Int32,System.Int32,System.String)">
+	<summary>
+ Gets a list of estimate items by estimate id
+ </summary>
+	<param name="portalId"></param>
+	<param name="estimateId">Estimate ID</param>
+	<param name="lang"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IEstimatesRepository.getEstimate(System.Int32,System.Int32)">
+	<summary>
+ Gets an estimate by id
+ </summary>
+	<param name="estimateId">Estimate ID</param>
+	<param name="portalId">Portal ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IEstimatesRepository.addEstimate(RIW.Modules.Services.Models.Estimate)">
+	<summary>
+ Adds an estimate
+ </summary>
+	<param name="estimate">Estimate Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IEstimatesRepository.updateEstimate(RIW.Modules.Services.Models.Estimate)">
+	<summary>
+ Updates an estimate
+ </summary>
+	<param name="estimate">Estimate Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IEstimatesRepository.addEstimateItem(RIW.Modules.Services.Models.EstimateItem)">
+	<summary>
+ Adds an estimate
+ </summary>
+	<param name="estimateItem">Estimate Item Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IEstimatesRepository.updateEstimateItem(RIW.Modules.Services.Models.EstimateItem)">
+	<summary>
+ Updates an estimate
+ </summary>
+	<param name="estimateItem">Estimate Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IEstimatesRepository.removeEstimate(System.Int32,System.Int32)">
+	<summary>
+ Removes estimate by estimate id and client id
+ </summary>
+	<param name="personId">Client ID</param>
+	<param name="estimateId">Estimate ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IEstimatesRepository.removeClientEstimates(System.Int32,System.Int32)">
+	<summary>
+ Removes all client estimates
+ </summary>
+	<param name="personId">Client ID</param>
+	<param name="portalId">Portal ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IEstimatesRepository.removeEstimate(RIW.Modules.Services.Models.Estimate)">
+	<summary>
+ Removes an estimate
+ </summary>
+	<param name="Estimate">Estimate Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IEstimatesRepository.addEstimateItemRemoved(RIW.Modules.Services.Models.EstimateItemRemoved)">
+	<summary>
+ Adds an estimate
+ </summary>
+	<param name="estimateItem">Estimate Item Removed Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IEstimatesRepository.getEstimateItem(System.Int32,System.Int32)">
+	<summary>
+ Gets an estimate by id
+ </summary>
+	<param name="estimateItemId">Estimate Item ID</param>
+	<param name="estimateId">Estimate ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IEstimatesRepository.removeEstimateItem(System.Int32,System.Int32)">
+	<summary>
+ Removes estimate by estimate id and client id
+ </summary>
+	<param name="estimateItemId">Estimate Item ID</param>
+	<param name="estimateId">Estimate ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IEstimatesRepository.removeEstimateItem(RIW.Modules.Services.Models.EstimateItem)">
+	<summary>
+ Removes an estimate item
+ </summary>
+	<param name="estimateItem">Estimate Item Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IEstimatesRepository.addEstimateHistory(RIW.Modules.Services.Models.EstimateHistory)">
+	<summary>
+ Adds an estimate hsitory
+ </summary>
+	<param name="estimateHistory">Estimate History Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IEstimatesRepository.deleteEstimate(RIW.Modules.Services.Models.Estimate)">
+	<summary>
+ Deletes an estimate
+ </summary>
+	<param name="estimate"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IEstimatesRepository.getEstimateHistories(System.Int32)">
+	<summary>
+ Gets estimate histories
+ </summary>
+	<param name="estimateId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IEstimatesRepository.getEstimateMessages(System.Int32)">
+	<summary>
+ Gets list of estimate messages
+ </summary>
+	<param name="estimateId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IEstimatesRepository.getEstimateMessage(System.Int32,System.Int32)">
+	<summary>
+ Gets an estimate message
+ </summary>
+	<param name="estimateMessageId"></param>
+	<param name="estimateId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IEstimatesRepository.addEstimateMessage(RIW.Modules.Services.Models.EstimateMessage)">
+	<summary>
+ Adds an estimate message
+ </summary>
+	<param name="estimateMessage"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IEstimatesRepository.updateEstimateMessage(RIW.Modules.Services.Models.EstimateMessage)">
+	<summary>
+ Updates an estimate message
+ </summary>
+	<param name="estimateMessage"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IEstimatesRepository.removeEstimateMessage(System.Int32,System.Int32)">
+	<summary>
+ Removes an estimate message
+ </summary>
+	<param name="estimateMessageId"></param>
+	<param name="estimateId"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IEstimatesRepository.removeEstimateMessage(RIW.Modules.Services.Models.EstimateMessage)">
+	<summary>
+ Removes an estimate message
+ </summary>
+	<param name="estimateMessage"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IEstimatesRepository.getEstimateMessageComments(System.Int32)">
+	<summary>
+ Gets list of estimate messages
+ </summary>
+	<param name="estimateMessageId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IEstimatesRepository.getEstimateHistoryComments(System.Int32)">
+	<summary>
+ Gets estimate history comments
+ </summary>
+	<param name="estimateHistoryId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IEstimatesRepository.addEstimateMessageComment(RIW.Modules.Services.Models.EstimateMessageComment)">
+	<summary>
+ Adds an estimate message comment
+ </summary>
+	<param name="estimateMessageComment"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IEstimatesRepository.addEstimateHistoryComment(RIW.Modules.Services.Models.EstimateHistoryComment)">
+	<summary>
+ Adds an estimate history comment
+ </summary>
+	<param name="estimateHistoryComment"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IEstimatesRepository.getEstimateMessageComment(System.Int32,System.Int32)">
+	<summary>
+ Gets an estimate message
+ </summary>
+	<param name="commentId"></param>
+	<param name="estimateMessageId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IEstimatesRepository.getEstimateHistoryComment(System.Int32,System.Int32)">
+	<summary>
+ Gets an estimate message comment
+ </summary>
+	<param name="commentId"></param>
+	<param name="estimateHistoryId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IEstimatesRepository.updateEstimateMessageComment(RIW.Modules.Services.Models.EstimateMessageComment)">
+	<summary>
+ Updates an estimate message comment
+ </summary>
+	<param name="estimateMessageComment"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IEstimatesRepository.updateEstimateHistoryComment(RIW.Modules.Services.Models.EstimateHistoryComment)">
+	<summary>
+ Updates an estimate history comment
+ </summary>
+	<param name="estimateHistoryComment"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IEstimatesRepository.removeEstimateMessageComment(System.Int32,System.Int32)">
+	<summary>
+ Removes an estimate message comment
+ </summary>
+	<param name="commentId"></param>
+	<param name="estimateMessageId"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IEstimatesRepository.removeEstimateHistoryComment(System.Int32,System.Int32)">
+	<summary>
+ Removes an estimate history comment
+ </summary>
+	<param name="commentId"></param>
+	<param name="estimateHistoryId"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IEstimatesRepository.removeEstimateMessageComment(RIW.Modules.Services.Models.EstimateMessageComment)">
+	<summary>
+ Removes an estimate message comement
+ </summary>
+	<param name="estimateMessageComment"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IEstimatesRepository.removeEstimateHistoryComment(RIW.Modules.Services.Models.EstimateHistoryComment)">
+	<summary>
+ Removes an estimate history comment
+ </summary>
+	<param name="estimateHistoryComment"></param>
+	<remarks></remarks>
+</member><member name="T:RIW.Modules.Services.SqlDataProvider">
+ -----------------------------------------------------------------------------
+ <summary>
+ SQL Server implementation of the abstract DataProvider class
+ 
+ This concreted data provider class provides the implementation of the abstract methods 
+ from data dataprovider.cs
+ 
+ In most cases you will only modify the Public methods region below.
+ </summary>
+ -----------------------------------------------------------------------------
+
+</member><member name="M:RIW.Modules.Services.IUnitTypesRepository.addUnitType(RIW.Modules.Services.Models.UnitType)">
+	<summary>
+ Adds a new unitType
+ </summary>
+	<param name="unitType">UnitType Model</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IUnitTypesRepository.getUnitTypes(System.Int32,System.String)">
+	<summary>
+ Gets a list of unitTypes by portal id
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<param name="isDeleted"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IUnitTypesRepository.getUnitType(System.Int32,System.Int32)">
+	<summary>
+ Gets unitType
+ </summary>
+	<param name="unitTypeId">UnitType ID</param>
+	<param name="portalId">Portal ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IUnitTypesRepository.updateUnitType(RIW.Modules.Services.Models.UnitType)">
+	<summary>
+ Updates unitType
+ </summary>
+	<param name="unitType">UnitType Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IUnitTypesRepository.removeUnitType(System.Int32,System.Int32)">
+	<summary>
+ Removes unitType
+ </summary>
+	<param name="unitTypeId">UnitType ID</param>
+	<param name="portalId">Portal ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IUnitTypesRepository.removeUnitType(RIW.Modules.Services.Models.UnitType)">
+	<summary>
+ Removes unitType
+ </summary>
+	<param name="unitType">UnitType Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IClientPartnersRepository.getClientPartners(System.Int32)">
+	<summary>
+ Gets a list of client partners by client id
+ </summary>
+	<param name="personId">Client ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IClientPartnersRepository.getClientPartner(System.Int32,System.Int32)">
+	<summary>
+ Gets a client partner by id
+ </summary>
+	<param name="clientPartnerId">Client Partner ID</param>
+	<param name="personId">Clientl ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IClientPartnersRepository.addClientPartner(RIW.Modules.Services.Models.ClientPartner)">
+	<summary>
+ Adds a client partner
+ </summary>
+	<param name="clientPartner">Client Partner Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IClientPartnersRepository.updateClientPartner(RIW.Modules.Services.Models.ClientPartner)">
+	<summary>
+ Updates a client partner
+ </summary>
+	<param name="clientPartner">Client Partner Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IClientPartnersRepository.removeClientPartner(System.Int32,System.Int32)">
+	<summary>
+ Removes client partner by client id
+ </summary>
+	<param name="personId">Client ID</param>
+	<param name="clientPartnerId">Client Partner ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IClientPartnersRepository.removeClientPartners(System.Int32)">
+	<summary>
+ Remove all client partner
+ </summary>
+	<param name="personId">Client ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IClientPartnersRepository.removeClientPartner(RIW.Modules.Services.Models.ClientPartner)">
+	<summary>
+ Removes a client partner
+ </summary>
+	<param name="clientPartner">Client Partner Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPaymentsRepository.GetPayments(System.String,System.String,System.String,System.String,System.String,System.Boolean,System.String,System.DateTime,System.DateTime,System.Int32,System.Int32,System.String)">
+	<summary>
+ Gets a list of payments
+ </summary>
+	<param name="portalId">POrtal ID</param>
+	<param name="account">Account ID</param>
+	<param name="provider">Provider ID</param>
+	<param name="client">Client ID</param>
+	<param name="cat">Credit or Debit</param>
+	<param name="sDate">Start Transaction Date</param>
+	<param name="eDate">End Transaction Date</param>
+	<param name="sTerm">Search Term</param>
+	<param name="done">Done</param>
+	<param name="pageNumber">Page Number</param>
+	<param name="pageSize">Page Size</param>
+	<param name="orderBy">Order By</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.BrandsController.GetBrands(System.Int32,System.String)">
+	<summary>
+ Gets a list of brands by portal id
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<param name="isDeleted">Optional IsDeleted</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.BrandsController.GetBrand(System.Int32)">
+	<summary>
+ Gets list of models by brand id
+ </summary>
+	<param name="brandId">Brand ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.BrandsController.UpdateBrand(RIW.Modules.Services.Models.Brand)">
+	<summary>
+ Adds or updates a brand
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.BrandsController.RemoveBrand(System.Int32)">
+	<summary>
+ Removes brand
+ </summary>
+	<param name="brandId">Brand ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ICategoriesRepository.GetCategories_List(System.Int32,System.String,System.Int32,System.String,System.Boolean,System.Boolean)">
+	<summary>
+ Gets a list of categories by portal id
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<param name="lang">Language</param>
+	<param name="parentId">Parent ID</param>
+	<param name="filter">Filter</param>
+	<param name="archived">Maked As Deleted</param>
+	<param name="includeArchived">Include Deleted</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ICategoriesRepository.GetCategory(System.Int32,System.String)">
+	<summary>
+ Gets category
+ </summary>
+	<param name="catId">Category ID</param>
+	<param name="lang">Category Language</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ICategoriesRepository.GetCategoryLang(System.Int32,System.String)">
+	<summary>
+ Gets category Language
+ </summary>
+	<param name="catId">Category ID</param>
+	<param name="lang">Category Language</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ICategoriesRepository.GetCategoryPermissions(System.Int32)">
+	<summary>
+ Gets a list of category permissions by category id
+ </summary>
+	<param name="categoryId">Category ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ICategoriesRepository.GetCategoryProducts(System.Int32)">
+	<summary>
+ Gets list of products
+ </summary>
+	<param name="categoryId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ICategoriesRepository.GetProductCategories(System.Int32)">
+	<summary>
+ Gets list of categories
+ </summary>
+	<param name="productId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ICategoriesRepository.GetCategoryPermission(System.Int32,System.Int32)">
+	<summary>
+ Gets category permission
+ </summary>
+	<param name="categoryPermissionId"></param>
+	<param name="categoryId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ICategoriesRepository.GetCategoriesRolePermissions(System.Int32)">
+	<summary>
+ Gets a list of permissions by category id
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ICategoriesRepository.AddCategory(RIW.Modules.Services.Models.Category)">
+	<summary>
+ Adds or updates a category
+ </summary>
+	<param name="category">Category Model</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ICategoriesRepository.AddCategoryLang(RIW.Modules.Services.Models.CategoryLang)">
+	<summary>
+ Adds or updates a category
+ </summary>
+	<param name="categoryLang">Category Language Model</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ICategoriesRepository.UpdateCategory(RIW.Modules.Services.Models.Category)">
+	<summary>
+ Adds or updates a category
+ </summary>
+	<param name="category">Category Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ICategoriesRepository.UpdateCategoryLang(RIW.Modules.Services.Models.CategoryLang)">
+	<summary>
+ Adds or updates a category
+ </summary>
+	<param name="categoryLang">Category Language Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ICategoriesRepository.AddCategorySecurity(RIW.Modules.Services.Models.CategoryPermission)">
+	<summary>
+ Updates a category security
+ </summary>
+	<param name="catPermission">Category Permission Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ICategoriesRepository.UpdateCategoryPermission(RIW.Modules.Services.Models.CategoryPermission)">
+	<summary>
+ Updates category permission
+ </summary>
+	<param name="catPermission"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ICategoriesRepository.RemoveCategorySecurities(RIW.Modules.Services.Models.CategoryPermission)">
+	<summary>
+ Resets category securities
+ </summary>
+	<param name="catPermission">Category Permission Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ICategoriesRepository.ResetCategorySecurities(System.Int32)">
+	<summary>
+ Resets category securities
+ </summary>
+	<param name="catId">Category ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ICategoriesRepository.RemoveCategory(RIW.Modules.Services.Models.Category)">
+	<summary>
+ Removes category
+ </summary>
+	<param name="category">Category Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ICategoriesRepository.RemoveCategory(System.Int32,System.String)">
+	<summary>
+ Removes category
+ </summary>
+	<param name="catId">Category ID</param>
+	<param name="lang">Language</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.ICategoriesRepository.DeleteCategory(RIW.Modules.Services.Models.Category)">
+	<summary>
+ Deletes category
+ </summary>
+	<param name="category">Category Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPersonDocsRepository.getPersonDocs(System.Int32)">
+	<summary>
+ Gets a list of person docs by person id
+ </summary>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPersonDocsRepository.getPersonDoc(System.Int32,System.Int32)">
+	<summary>
+ Gets a person doc by id
+ </summary>
+	<param name="personDocId">Person Doc ID</param>
+	<param name="personId">Personl ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPersonDocsRepository.addPersonDoc(RIW.Modules.Services.Models.PersonDoc)">
+	<summary>
+ Adds a person doc
+ </summary>
+	<param name="personDoc">Person Doc Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPersonDocsRepository.updatePersonDoc(RIW.Modules.Services.Models.PersonDoc)">
+	<summary>
+ Updates a person doc
+ </summary>
+	<param name="personDoc">Person Doc Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPersonDocsRepository.removePersonDoc(System.Int32,System.Int32)">
+	<summary>
+ Removes person doc by person id
+ </summary>
+	<param name="personId">Person ID</param>
+	<param name="personDocId">Person Doc ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPersonDocsRepository.removePersonDocs(System.Int32)">
+	<summary>
+ Remove all person doc
+ </summary>
+	<param name="personId">Person ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPersonDocsRepository.removePersonDoc(RIW.Modules.Services.Models.PersonDoc)">
+	<summary>
+ Removes a person doc
+ </summary>
+	<param name="personDoc">Person Doc Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPersonHistoriesRepository.getPersonHistories(System.Int32)">
+	<summary>
+ Gets a list of person Histories by person id
+ </summary>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPersonHistoriesRepository.getPersonHistory(System.Int32,System.Int32)">
+	<summary>
+ Gets a person doc by id
+ </summary>
+	<param name="personHistoryId">PersonHistory ID</param>
+	<param name="personId">Personl ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPersonHistoriesRepository.addPersonHistory(RIW.Modules.Services.Models.PersonHistory)">
+	<summary>
+ Adds a person doc
+ </summary>
+	<param name="personHistory">Person History Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPersonHistoriesRepository.updatePersonHistory(RIW.Modules.Services.Models.PersonHistory)">
+	<summary>
+ Updates a person doc
+ </summary>
+	<param name="personHistory">Person History Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPersonHistoriesRepository.removePersonHistory(System.Int32,System.Int32)">
+	<summary>
+ Removes person doc by person id
+ </summary>
+	<param name="personId">Person ID</param>
+	<param name="personHistoryId">Person History ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPersonHistoriesRepository.removePersonHistories(System.Int32)">
+	<summary>
+ Remove all person doc
+ </summary>
+	<param name="personId">Person ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPersonHistoriesRepository.removePersonHistory(RIW.Modules.Services.Models.PersonHistory)">
+	<summary>
+ Removes a person doc
+ </summary>
+	<param name="personHistory">Person History Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPersonHistoriesRepository.getPersonHistoryComments(System.Int32)">
+	<summary>
+ Gets estimate history comments
+ </summary>
+	<param name="personHistoryId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPersonHistoriesRepository.addPersonHistoryComment(RIW.Modules.Services.Models.PersonHistoryComment)">
+	<summary>
+ Adds an estimate history comment
+ </summary>
+	<param name="personHistoryComment"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPersonHistoriesRepository.getPersonHistoryComment(System.Int32,System.Int32)">
+	<summary>
+ Gets an estimate message comment
+ </summary>
+	<param name="commentId"></param>
+	<param name="personHistoryId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPersonHistoriesRepository.updatePersonHistoryComment(RIW.Modules.Services.Models.PersonHistoryComment)">
+	<summary>
+ Updates an estimate history comment
+ </summary>
+	<param name="personHistoryComment"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPersonHistoriesRepository.removePersonHistoryComment(System.Int32,System.Int32)">
+	<summary>
+ Removes an estimate history comment
+ </summary>
+	<param name="commentId"></param>
+	<param name="personHistoryId"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPersonHistoriesRepository.removePersonHistoryComment(RIW.Modules.Services.Models.PersonHistoryComment)">
+	<summary>
+ Removes a person history comment
+ </summary>
+	<param name="personHistoryComment"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IIndustriesRepository.GetIndustries(System.Int32)">
+	<summary>
+ Gets a list of industries by portal id
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IIndustriesRepository.GetIndustry(System.Int32,System.Int32)">
+	<summary>
+ Gets a creditor account by id
+ </summary>
+	<param name="accountId">Account ID</param>
+	<param name="portalId">Portal ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IIndustriesRepository.UpdateIndustry(RIW.Modules.Services.Models.Industry)">
+	<summary>
+ Updates an industry info
+ </summary>
+	<param name="industry">Industry Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IIndustriesRepository.AddIndustry(RIW.Modules.Services.Models.Industry)">
+	<summary>
+ Adds a new industry
+ </summary>
+	<param name="industry">Industry Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IIndustriesRepository.RemoveIndustry(System.Int32,System.Int32)">
+	<summary>
+ Removes an industry by id
+ </summary>
+	<param name="industryId">Industry ID</param>
+	<param name="portalId">Portal ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IIndustriesRepository.RemoveIndustry(RIW.Modules.Services.Models.Industry)">
+	<summary>
+ Removes an industry
+ </summary>
+	<param name="industry">Industry Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPayFormsRepository.AddPayForm(RIW.Modules.Services.Models.PayForm)">
+	<summary>
+ Add pay form
+ </summary>
+	<param name="payForm"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPayFormsRepository.RemovePayForm(System.Int32,System.Int32)">
+	<summary>
+ Removes pay form by id
+ </summary>
+	<param name="payFormId"></param>
+	<param name="portalId"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPayFormsRepository.RemovePayForm(RIW.Modules.Services.Models.PayForm)">
+	<summary>
+ Removes pay form
+ </summary>
+	<param name="payForm"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPayFormsRepository.GetPayForms(System.Int32,System.String)">
+	<summary>
+ Gets list of pay forms
+ </summary>
+	<param name="portalId"></param>
+	<param name="isDeleted"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPayFormsRepository.GetPayForm(System.Int32,System.Int32)">
+	<summary>
+ Gets pay form
+ </summary>
+	<param name="payFormId"></param>
+	<param name="portalId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPayFormsRepository.UpdatePayForm(RIW.Modules.Services.Models.PayForm)">
+	<summary>
+ Updates pay form
+ </summary>
+	<param name="payForm"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.AgendaController.getAgenda(System.String,System.String,System.DateTime,System.DateTime)">
+	<summary>
+ Gets user calendar events
+ </summary>
+	<param name="portalId"></param>
+	<param name="userId"></param>
+	<param name="startDateTime">Start Calendar Date</param>
+	<param name="endDateTime">End Calendar Date</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.AgendaController.updateAgenda(RIW.Modules.Services.Models.Agenda)">
+	<summary>
+ Updates or adds appointment data
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.AgendaController.RemoveAppointment(System.Int32,System.Int32)">
+	<summary>
+ Removes appointment by appointment id
+ </summary>
+	<param name="appId">Appointment ID</param>
+	<param name="userId">User ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IBrandsRepository.AddBrand(RIW.Modules.Services.Models.Brand)">
+	<summary>
+ Adds a new brand
+ </summary>
+	<param name="brand">Brand Model</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IBrandsRepository.GetBrands(System.Int32)">
+	<summary>
+ Gets a list of brands by portal id
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IBrandsRepository.GetBrand(System.Int32,System.Int32)">
+	<summary>
+ Gets list of models by brand id
+ </summary>
+	<param name="brandId">Brand ID</param>
+	<param name="portalId">Portal ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IBrandsRepository.UpdateBrand(RIW.Modules.Services.Models.Brand)">
+	<summary>
+ Adds a new brand
+ </summary>
+	<param name="brand">Brand Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IBrandsRepository.RemoveBrand(System.Int32,System.Int32)">
+	<summary>
+ Removes brand
+ </summary>
+	<param name="brandId">Brand ID</param>
+	<param name="portalId">Portal ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IBrandsRepository.RemoveBrand(RIW.Modules.Services.Models.Brand)">
+	<summary>
+ Removes brand
+ </summary>
+	<param name="brand">Brand Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IClientBankRefsRepository.getClientBankRefs(System.Int32)">
+	<summary>
+ Gets a list of client's bank references
+ </summary>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IClientBankRefsRepository.getClientBankRef(System.Int32,System.Int32)">
+	<summary>
+ Gets a client bank reference
+ </summary>
+	<param name="clientBankRefId">Client Bank Ref ID</param>
+	<param name="personId">Personl ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IClientBankRefsRepository.addClientBankRef(RIW.Modules.Services.Models.ClientBankRef)">
+	<summary>
+ Adds a client bank reference
+ </summary>
+	<param name="clientBankRef">Client Address Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IClientBankRefsRepository.updateClientBankRef(RIW.Modules.Services.Models.ClientBankRef)">
+	<summary>
+ Updates a client bank reference
+ </summary>
+	<param name="clientBankRef">Person Address Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IClientBankRefsRepository.removeClientBankRef(System.Int32,System.Int32)">
+	<summary>
+ Removes client bank reference
+ </summary>
+	<param name="personId">Person ID</param>
+	<param name="clientBankRefId">Person Address ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IClientBankRefsRepository.removeClientBankRefs(System.Int32)">
+	<summary>
+ Remove all client bank reference
+ </summary>
+	<param name="personId">Person ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IClientBankRefsRepository.removeClientBankRef(RIW.Modules.Services.Models.ClientBankRef)">
+	<summary>
+ Removes a client bank reference
+ </summary>
+	<param name="clientBankRef">Person Address Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IFiles_Repository.DeleteFile(System.String)">
+	<summary>
+ Deletes a file
+ </summary>
+	<param name="fileName">File Name</param>
+	<remarks>all the items belong at the same Folder</remarks>
+	<returns>The not deleted items list. The subfiles / subfolders for which the user has no permissions to delete</returns>
+</member><member name="M:RIW.Modules.Services.LogController.LogAnonymous(RIW.Modules.Services.Models.ServicesAction)">
+	<summary>
+ WebAPI deserializes json post into DnnServicesObjects.ServicesAction
+ </summary>
+	<param name="action">json object</param>
+	<returns></returns>
+</member><member name="M:RIW.Modules.Services.PayConditionsController.getPayConds(System.Int32,System.String,System.Decimal)">
+	<summary>
+ Gets list of payment conditions by portal id
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<param name="pcType">Payment Condition Type</param>
+	<param name="pcStart">Payment Condition Start Value</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PayConditionsController.GetPayCond(System.Int32)">
+	<summary>
+ Gets payment condition by id
+ </summary>
+	<param name="pcId">Pay Condition ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PayConditionsController.UpdatePayCond(RIW.Modules.Services.Models.PayCondition)">
+	<summary>
+ Adds payment condition
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.PayConditionsController.RemovePayCond(System.Int32)">
+	<summary>
+ Removes payment condition by id
+ </summary>
+	<param name="pcId">Payment Condition ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPayConditionsRepository.GetPayConds(System.Int32,System.Int32,System.Decimal)">
+	<summary>
+ Gets list of payment conditions by portal id
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<param name="payCondType">Payment Condition Type</param>
+	<param name="payCondStart">Payment Condition Start Value</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPayConditionsRepository.GetPayCond(System.Int32,System.Int32)">
+	<summary>
+ Gets payment condition by id
+ </summary>
+	<param name="payConditionId">Pay Condition ID</param>
+	<param name="portalId">Portal ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPayConditionsRepository.AddPayCond(RIW.Modules.Services.Models.PayCondition)">
+	<summary>
+ Adds payment condition
+ </summary>
+	<param name="payCondition">PayCondition Model</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPayConditionsRepository.UpdatePayCond(RIW.Modules.Services.Models.PayCondition)">
+	<summary>
+ Updates payment condition
+ </summary>
+	<param name="payCondition">PayCondition Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPayConditionsRepository.RemovePayCond(System.Int32,System.Int32)">
+	<summary>
+ Sets payment condition as deleted
+ </summary>
+	<param name="payConditionId">Payment Condition ID</param>
+	<param name="portalId">Portal ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IPayConditionsRepository.RemovePayCond(RIW.Modules.Services.Models.PayCondition)">
+	<summary>
+ Removes payment condition by id
+ </summary>
+	<param name="payCondition">PayCondition Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.InvoicesController.GetInvoices(System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.String,System.String,System.String)">
+	<summary>
+ Get invoices by portal id
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<param name="personId">Client ID</param>
+	<param name="providerId">Provider ID</param>
+	<param name="prodId">Product ID</param>
+	<param name="sDate">Emission Date Start</param>
+	<param name="eDate">Emission Date End</param>
+	<param name="pageNumber">Page Number</param>
+	<param name="pageSize">How many pages</param>
+	<param name="orderBy">Field to order by</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.InvoicesController.GetInvoice(System.Int32)">
+	<summary>
+ Gets product info by product id
+ </summary>
+	<param name="invoiceId">Invoice ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.InvoicesController.UpdateInvoice(RIW.Modules.Services.Models.Invoice)">
+	<summary>
+ Updates an invoice
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.InvoicesController.RemoveInvoice(System.Int32)">
+	<summary>
+ Removes an invoice by invoice id
+ </summary>
+	<param name="invoiceId">Invoice ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.InvoicesController.UpdateInvoiceItem(System.Int32,System.Int32,System.String,System.String,System.String,System.Int32,System.DateTime,System.Int32)">
+	<summary>
+ Adds an invoice item by invoice item id
+ </summary>
+	<param name="iItemId">Invoice Detail ID</param>
+	<param name="prodId">Product ID</param>
+	<param name="qty">Quantity</param>
+	<param name="discount">Discount</param>
+	<param name="uValue">Unit Value</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.InvoicesController.GetInvoiceItems(System.Int32)">
+	<summary>
+ Gets a list if invoice items by invoice id
+ </summary>
+	<param name="invoiceId">Invoice ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.InvoicesController.GetPayments(System.String,System.String,System.String,System.String,System.String,System.Boolean,System.String,System.Int32,System.Int32,System.String,System.String,System.String)">
+	<summary>
+ Gets a list of payments
+ </summary>
+	<param name="portalId">POrtal ID</param>
+	<param name="account">Account ID</param>
+	<param name="provider">Provider ID</param>
+	<param name="client">Client ID</param>
+	<param name="cat">Credit or Debit</param>
+	<param name="sDate">Start Transaction Date</param>
+	<param name="eDate">End Transaction Date</param>
+	<param name="sTerm">Search Term</param>
+	<param name="done">Done</param>
+	<param name="pageNumber">Page Number</param>
+	<param name="pageSize">Page Size</param>
+	<param name="orderBy">Order By</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.InvoicesController.GetPayment(System.Int32)">
+	<summary>
+ Gets a payment into
+ </summary>
+	<param name="pmtId">Payment ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.InvoicesController.UpdatePayment(System.Boolean,RIW.Modules.Services.Models.Payment)">
+	<summary>
+ Add or updates payment
+ </summary>
+	<param name="agenda"></param>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.InvoicesController.GetAccountsBalance(System.String,System.String)">
+	<summary>
+ Gets a total balance
+ </summary>
+	<param name="portalId">POrtal ID</param>
+	<param name="account">Account ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.StatusesController.getStatuses(System.Int32,System.String)">
+	<summary>
+ Gets a list of statuses by portal id
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<param name="isDeleted">Optional IsDeleted</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.StatusesController.getStatus(System.Int32)">
+	<summary>
+ Gets status
+ </summary>
+	<param name="statusId">Status ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.StatusesController.updateStatus(RIW.Modules.Services.Models.Status)">
+	<summary>
+ Adds a new status
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.StatusesController.removeStatus(System.Int32)">
+	<summary>
+ Removes status
+ </summary>
+	<param name="statusId">Status ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.Notifications.AddNotificationTypes">
+	<summary>
+ This will create a notification type associated w/ the module and also handle the actions that must be associated with it.
+ </summary>
+	<remarks>This should only ever run once, during 5.0.0 install (via IUpgradeable)</remarks>
+</member><member name="M:RIW.Modules.Services.IAgendasRepository.GetAgendaData(System.String,System.String,System.DateTime,System.DateTime)">
+	<summary>
+ Gets user agenda's data
+ </summary>
+	<param name="PortalId">Portal ID</param>
+	<param name="UserId">User ID</param>
+	<param name="StartDateTime">Agenda range starting date</param>
+	<param name="EndDateTime">Agenda range ending date</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IAgendasRepository.GetAppointmentData(System.Int32,System.Int32)">
+	<summary>
+ Gets user appoitment's data
+ </summary>
+	<param name="AppointmentId">Appointment ID</param>
+	<param name="UserId">User ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IAgendasRepository.GetAppointmentsDataRes">
+	<summary>
+ To be implemented
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IAgendasRepository.AddAppointmentData(RIW.Modules.Services.Models.Agenda)">
+	<summary>
+ Adds appointment data
+ </summary>
+	<param name="appointment">Agenda Model</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IAgendasRepository.UpdateAppointmentData(RIW.Modules.Services.Models.Agenda)">
+	<summary>
+ Updates appointment data
+ </summary>
+	<param name="appointment">Agenda Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IAgendasRepository.RemoveAppointment(System.Int32,System.Int32)">
+	<summary>
+ Removes appointment by appointment id
+ </summary>
+	<param name="appointmentId">AppointmentId ID</param>
+	<param name="userId">User ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IAgendasRepository.RemoveAppointments(System.Int32)">
+	<summary>
+ Remove all appointments by user id
+ </summary>
+	<param name="userId">User ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IAgendasRepository.RemoveAppointment(RIW.Modules.Services.Models.Agenda)">
+	<summary>
+ Removes appointment
+ </summary>
+	<param name="appointment">Agenda Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.CategoriesController.GetCategories(System.Int32,System.String,System.Int32,System.String,System.Boolean,System.Boolean)">
+	<summary>
+ Gets a list of brands by portal id
+ </summary>
+	<param name="portalId"></param>
+	<param name="lang"></param>
+	<param name="parentId"></param>
+	<param name="filter"></param>
+	<param name="archived"></param>
+	<param name="includeArchived"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.CategoriesController.GetCategory(System.Int32,System.String)">
+	<summary>
+ Gets category
+ </summary>
+	<param name="catId">Category ID</param>
+	<param name="lang">Category Language</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.CategoriesController.GetCategoryLang(System.Int32,System.String)">
+	<summary>
+ Gets category
+ </summary>
+	<param name="catId">Category ID</param>
+	<param name="lang">Category Language</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.CategoriesController.GetCategoryPermissions(System.Int32)">
+	<summary>
+ Gets a list of permissions by category id
+ </summary>
+	<param name="catId">Portal ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.CategoriesController.GetCategoriesRolePermissions(System.Int32)">
+	<summary>
+ Gets a list of permissions by category id
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.CategoriesController.UpdateCategorySecurity(RIW.Modules.Services.Models.CategoryPermission)">
+	<summary>
+ Resets category security
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.CategoriesController.UpdateCategory(RIW.Modules.Services.Models.Category)">
+	<summary>
+ Gets or updates category model
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.CategoriesController.RemoveCategory(System.Int32,System.String)">
+	<summary>
+ Removes category
+ </summary>
+	<param name="catId">Kit ID</param>
+	<param name="lang">Language</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.CategoriesController.GetProductsCategory(System.Int32)">
+	<summary>
+ Gets list of products
+ </summary>
+	<param name="categoryId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.CategoriesController.GetCategoriesProduct(System.Int32)">
+	<summary>
+ Gets list of products
+ </summary>
+	<param name="productId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IndustriesController.GetIndustries(System.Int32)">
+	<summary>
+ Gets a list of industries by portal id
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IndustriesController.UpdateIndustry(System.Int32,System.String,System.Int32,System.DateTime,System.Int32)">
+	<summary>
+ Adds ou updates an industry
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<param name="industryId">Industry ID</param>
+	<param name="industryTitle">Industry Title</param>
+	<param name="uId">Created By User User ID</param>
+	<param name="cd">Created Date</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IndustriesController.RemoveIndustry(System.Int32,System.Int32)">
+	<summary>
+ Removes an industry
+ </summary>
+	<param name="industryId">Industry ID</param>
+	<param name="portalId">Portal ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.RIStoreController.Login(RIW.Modules.Services.RIStoreController.LoginInfo)">
+	<summary>
+ Logs user in
+ Never Cache
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.RIStoreController.HostSettings">
+	<summary>
+ Gets host settings
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.RIStoreController.GetPublicRoles(System.Int32)">
+	<summary>
+ Gets a list of roles by portal
+ </summary>
+	<param name="portalId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.RIStoreController.GetRolesByUser(System.Int32,System.Int32)">
+	<summary>
+ Gets a list of groups by user id and portal id
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.RIStoreController.updatePortalSetting(System.Int32,System.String,System.String)">
+	<summary>
+ Updates portal settings
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<param name="settingName">Portal Setting Name</param>
+	<param name="settingValue">Portal Setting Value</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.RIStoreController.updateModuleSetting(System.String)">
+	<summary>
+ Updates portal settings
+ </summary>
+	<param name="moduleSettings">Module Settings</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.RIStoreController.updateTabModuleSetting(System.Collections.Generic.List{RIW.Modules.Services.Models.StorePortalModuleSetting})">
+	<summary>
+ Updates portal settings
+ </summary>
+	<param name="tabModuleSettings"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.RIStoreController.getPortalSettings(System.Int32)">
+	<summary>
+ Gets all current portal settings
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.RIStoreController.AddPortalFolder(System.Int32,System.String)">
+	<summary>
+ Adds folders by portal id
+ </summary>
+	<param name="portalId"></param>
+	<param name="folder">Folder Name</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.RIStoreController.saveFileContent(System.Int32,System.String,System.String,System.String)">
+	<summary>
+ Saves File
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<param name="content">File Content</param>
+	<param name="fileName">File Name</param>
+	<param name="folderPath">Folder Name</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.RIStoreController.removePortalFile(System.Int32,System.String,System.Int32,System.String,System.Collections.Generic.IEnumerable{System.Web.HttpPostedFileBase})">
+	<summary>
+ Removes File
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<param name="fileName">File Name</param>
+	<param name="fileId">File ID</param>
+	<param name="folderPath">Folder Path</param>
+	<param name="files">File to be deleted</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.RIStoreController.sendNewEstimateNotification(System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.String,System.String)">
+	<summary>
+ Sends an email notification about a new estimate
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<param name="cid">Client ID</param>
+	<param name="eId">Estimate ID</param>
+	<param name="sId">Sales Person ID</param>
+	<param name="subject">Email Subject</param>
+	<param name="msg">Mensagem</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.RIStoreController.sendNewEstimateEmail(System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.String,System.String)">
+	<summary>
+ Sends an email notification about a new estimate
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<param name="cid">Client ID</param>
+	<param name="eId">Estimate ID</param>
+	<param name="sId">Sales Person ID</param>
+	<param name="subject">Email Subject</param>
+	<param name="msg">Mensagem</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.RIStoreController.sendNewEmail(RIW.Modules.Services.RIStoreController.EmailSend)">
+	<summary>
+ Sends new email
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.RIStoreController.sendPackage(RIW.Modules.Services.RIStoreController.EmailSend)">
+	<summary>
+ Sends html content
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.RIStoreController.extendTime">
+	<summary>
+ This is used from JavaScript to re-establish the user's session
+ Needs to implement "Never Cache"
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.RIStoreController.expireTime">
+	<summary>
+ Logs current user out
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.RIStoreController.updateUserPassword(RIW.Modules.Services.RIStoreController.UserPasswordInfo)">
+	<summary>
+ Updates user password
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.RIStoreController.generateUserPassword(RIW.Modules.Services.RIStoreController.UserPasswordInfo)">
+	<summary>
+ Generates new random user password by user id
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.RIStoreController.getRoles(System.Int32)">
+	<summary>
+ Gets a list of roles by portal id
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.RIStoreController.getPortalFiles(System.Int32,System.String)">
+	<summary>
+ Gets files by portal id, filtered by folder name
+ </summary>
+	<param name="portalId"></param>
+	<param name="folder"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.RIStoreController.SyncPortalFolders(System.Int32,System.String)">
+	<summary>
+ Syncs folders by portal id
+ </summary>
+	<param name="portalId"></param>
+	<param name="folder">Folder Name</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.RIStoreController.GetPortalFolders(System.Int32,System.String,System.Int32)">
+	<summary>
+ Gets files by portal id, permission and user id
+ </summary>
+	<param name="portalId"></param>
+	<param name="permissions">Permission READ, ADD, DELETE</param>
+	<param name="uId">User ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="T:RIW.Modules.Services.DataProvider">
+ -----------------------------------------------------------------------------
+ <summary>
+ An abstract class for the data access layer
+ </summary>
+	<remarks>
+	</remarks>
+	<history>
+	</history>
+ -----------------------------------------------------------------------------
+
+</member><member name="M:RIW.Modules.Services.IClientPartnerBankRefsRepository.getClientPartnerBankRefs(System.Int32)">
+	<summary>
+ Gets a list of client partner's bank refs by client id
+ </summary>
+	<param name="personId">Client ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IClientPartnerBankRefsRepository.getClientPartnerBankRef(System.Int32,System.Int32)">
+	<summary>
+ Gets a client partner's bank ref by id
+ </summary>
+	<param name="clientPartnerBankRefId">Client Partner Bank Ref ID</param>
+	<param name="personId">Clientl ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IClientPartnerBankRefsRepository.addClientPartnerBankRef(RIW.Modules.Services.Models.ClientPartnerBankRef)">
+	<summary>
+ Adds a client partner's bank ref
+ </summary>
+	<param name="clientPartnerBankRef">Client Partner Bank Ref Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IClientPartnerBankRefsRepository.updateClientPartnerBankRef(RIW.Modules.Services.Models.ClientPartnerBankRef)">
+	<summary>
+ Updates a client partner's bank ref
+ </summary>
+	<param name="clientPartnerBankRef">Client Partner Bank Ref Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IClientPartnerBankRefsRepository.removeClientPartnerBankRef(System.Int32,System.Int32)">
+	<summary>
+ Removes client partner's bank ref by client id
+ </summary>
+	<param name="personId">Client ID</param>
+	<param name="clientPartnerBankRefId">Client Partner Bank Ref ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IClientPartnerBankRefsRepository.removeClientPartnerBankRefs(System.Int32)">
+	<summary>
+ Remove all client partner's bank ref
+ </summary>
+	<param name="personId">Client ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IClientPartnerBankRefsRepository.RemoveClientPartnerBankRef(RIW.Modules.Services.Models.ClientPartnerBankRef)">
+	<summary>
+ Removes a client partner's bank ref
+ </summary>
+	<param name="clientPartnerBankRef">Client Partner Bank Ref Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.Models.User.GetProfileProperty(System.String)">
+	<summary>
+ This method returns the value of the ProfileProperty if is defined, otherwise it returns an Empty string
+ </summary>
+	<param name="propertyName">property name</param>
+	<returns>property value</returns>
+</member><member name="M:RIW.Modules.Services.IClientPersonalRefsRepository.getClientPersonalRefs(System.Int32)">
+	<summary>
+ Gets a list of client's personal refs
+ </summary>
+	<param name="personId">Client ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IClientPersonalRefsRepository.getClientPersonalRef(System.Int32,System.Int32)">
+	<summary>
+ Gets a client personal ref by id
+ </summary>
+	<param name="ClientPersonalRefId">Client Personal Ref ID</param>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IClientPersonalRefsRepository.addClientPersonalRef(RIW.Modules.Services.Models.ClientPersonalRef)">
+	<summary>
+ Adds a client personal ref
+ </summary>
+	<param name="clientPersonalRef">Client Personal Ref Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IClientPersonalRefsRepository.updateClientPersonalRef(RIW.Modules.Services.Models.ClientPersonalRef)">
+	<summary>
+ Updates a client personal ref
+ </summary>
+	<param name="clientPersonalRef">Client Personal Ref Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IClientPersonalRefsRepository.removeClientPersonalRef(System.Int32,System.Int32)">
+	<summary>
+ Removes client personal ref
+ </summary>
+	<param name="personId">Person ID</param>
+	<param name="ClientPersonalRefId">Client Personal Ref ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IClientPersonalRefsRepository.removeClientPersonalRefs(System.Int32)">
+	<summary>
+ Remove all client personal ref
+ </summary>
+	<param name="personId">Person ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IClientPersonalRefsRepository.removeClientPersonalRef(RIW.Modules.Services.Models.ClientPersonalRef)">
+	<summary>
+ Removes a client personal ref
+ </summary>
+	<param name="clientPersonalRef">Client Personal Ref Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IInvoicesRepository.AddInvoice(RIW.Modules.Services.Models.Invoice)">
+	<summary>
+ Add an invoice
+ </summary>
+	<param name="invoice"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IInvoicesRepository.GetInvoices(System.String,System.String,System.String,System.String,System.DateTime,System.DateTime,System.Int32,System.Int32,System.String)">
+	<summary>
+ Get invoices by portal id
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<param name="personId">Client ID</param>
+	<param name="providerId">Provider ID</param>
+	<param name="prodId">Product ID</param>
+	<param name="sDate">Emission Date Start</param>
+	<param name="eDate">Emission Date End</param>
+	<param name="pageNumber">Page Number</param>
+	<param name="pageSize">How many pages</param>
+	<param name="orderBy">Field to order by</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IInvoicesRepository.GetInvoice(System.Int32)">
+	<summary>
+ Gets invoice
+ </summary>
+	<param name="invoiceId">Invoice ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IInvoicesRepository.UpdateInvoice(RIW.Modules.Services.Models.Invoice)">
+	<summary>
+ Updates an invoice
+ </summary>
+	<param name="invoice">Invoice Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IInvoicesRepository.RemoveInvoice(System.Int32)">
+	<summary>
+ Removes an invoice by invoice id
+ </summary>
+	<param name="invoiceId">Invoice ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IInvoicesRepository.RemoveInvoice(RIW.Modules.Services.Models.Invoice)">
+	<summary>
+ Removes an invoice
+ </summary>
+	<param name="invoice">Invoice Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IInvoicesRepository.GetInvoiceItems(System.Int32)">
+	<summary>
+ Gets invoice items by invoice id
+ </summary>
+	<param name="invoiceId">Invoice ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IInvoicesRepository.GetInvoiceItem(System.Int32,System.Int32)">
+	<summary>
+ Gets product info by product id
+ </summary>
+	<param name="invoiceItemId">Invoice Item ID</param>
+	<param name="invoiceId">Invoice ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IInvoicesRepository.RemoveInvoiceItem(System.Int32,System.Int32)">
+	<summary>
+ Removes an invoice by invoice id
+ </summary>
+	<param name="invoiceItemId">Invoice Item ID</param>
+	<param name="invoiceId">Invoice ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IInvoicesRepository.RemoveInvoiceItem(RIW.Modules.Services.Models.InvoiceItem)">
+	<summary>
+ Removes an invoice
+ </summary>
+	<param name="invoiceItem">InvoiceItem Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IInvoicesRepository.RemoveInvoiceItems(System.Int32)">
+	<summary>
+ Removes an invoice by invoice id
+ </summary>
+	<param name="invoiceId">Invoice ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IInvoicesRepository.UpdateInvoiceItem(RIW.Modules.Services.Models.InvoiceItem)">
+	<summary>
+ Updates an invoice item
+ </summary>
+	<param name="invoiceItem">Invoice Item Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.Services.IInvoicesRepository.AddInvoiceItem(RIW.Modules.Services.Models.InvoiceItem)">
+	<summary>
+ Add an invoice item
+ </summary>
+	<param name="invoiceItem">Invoice Item Model</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="T:RIW.Modules.Services.Business_Controller">
+	<summary>
+ The Controller class for RIStore_Settings
+ 
+ The FeatureController class is defined as the BusinessController in the manifest file (.dnn)
+ DotNetNuke will poll this class to find out which Interfaces the class implements. 
+ 
+ The IPortable interface is used to import/export content from a DNN module
+ 
+ The ISearchable interface is used by DNN to index the content of a module
+ 
+ The IUpgradeable interface allows module developers to execute code during the upgrade 
+ process for a module.
+ 
+ Below you will find stubbed out implementations of each, uncomment and populate with your own data
+ </summary>
+</member>
+</members>
+</doc>

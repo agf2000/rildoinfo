@@ -1,0 +1,426 @@
+
+/*.controls .inline {
+    padding-top: 5px;
+}*/
+
+/*.container-fluid {
+    margin: 0 !important;
+    padding: 0 !important;
+}*/
+
+.mTop {
+    margin-top: 5px;
+}
+
+.mRight {
+    margin-top: 5px;
+}
+
+.mBottom {
+    margin-top: 5px;
+}
+
+.mLeft {
+    margin-top: 5px;
+}
+
+label {
+    font-size: 12px !important;
+}
+
+.padded {
+    padding: 7px;
+}
+
+.isDeleted {
+    text-decoration: line-through;
+}
+
+.negativeStock {
+    color: red;
+}
+
+.required:after {
+    display: inline-block;
+    margin: 5px 0 0 5px;
+    font-size: 16px;
+    color: #F00;
+    content: "*";
+}
+
+.control-group {
+    margin-bottom: 10px !important;
+}
+
+#divProductsManager {
+    padding-bottom: 7px;
+}
+
+/*#divProductsManager ul, #divProductsHeader ul {
+    padding: 0 !important;
+    margin: 0 !important;
+}*/
+
+textarea {
+    padding: 10px;
+    vertical-align: top;
+    min-width: 90% !important;
+}
+
+.k-window {
+    z-index: 1001 !important;
+}
+
+    .k-window div.k-window-content {
+        /*padding-top: 10px;*/
+        margin: 0 5px;
+        overflow: hidden;
+    }
+
+    .k-window .k-loading-mask {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+    }
+
+#divProductsManager ul li {
+    /*line-height: 15px;*/
+    vertical-align: middle;
+}
+
+#divProductsManager strong {
+    display: inline-block;
+    width: 110px;
+    text-align: right;
+}
+
+#divProductsHeader ul li {
+    float: left;
+}
+
+#productForm {
+    margin-top: 10px;
+}
+
+.input-append {
+    margin: 0 !important;
+}
+
+#divProductsHeader ul .k-textbox {
+    width: 140px !important;
+}
+
+/*.k-grid-toolbar {
+    padding: .50em 0 .50em .28em !important;
+}*/
+
+a {
+    cursor: pointer;
+}
+
+/*[class^="icon-"], [class*=" icon-"] {
+    margin-right: 5px;
+}*/
+
+.font-size-small {
+    font-size: 0.8em;
+}
+
+.font-size-medium {
+    font-size: 1.0em;
+}
+
+.font-size-large {
+    font-size: 1.2em;
+}
+
+.alert h4 {
+    margin: 0 0 5px 0 !important;
+}
+
+.fa {
+    margin-top: 2px;
+}
+
+.collapse.in {
+    overflow: visible;
+}
+
+.form-actions {
+    padding: 10px 20px 15px 10px !important;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+}
+
+    .form-actions .btn {
+        margin-right: 7px !important;
+    }
+
+#divSpecialPriceDates,
+#btnDeleteSelected,
+#btnRemoveSelected,
+#btnRestoreSelected,
+#btnRemoveProduct,
+#btnRestoreProduct,
+#btnDeleteProduct,
+#divAttrOptions,
+#divProductDescriptionEditor,
+#divStockTextBox,
+#productMenu,
+#divStockLabel,
+#attributesGrid,
+#attributeOptionsGrid,
+#markdownPreview,
+#btnCopyProduct {
+    display: none;
+}
+
+/*#attributeOptionsGrid th:nth-child(4) {
+    display: none;
+}*/
+
+#productVideos li {
+    float: left;
+}
+
+    #productVideos li:nth-child(odd) {
+        margin: 0 20px;
+    }
+
+#productsGrid {
+    margin-top: 10px;
+}
+
+    #productsGrid th.k-header:nth-child(6) {
+        text-align: right;
+    }
+
+    #productsGrid .k-detail-cell img {
+        margin-right: 10px;
+    }
+
+#productMenu {
+    margin-bottom: 10px;
+}
+
+.btn-primary, .btn-info, .btn-primary, .btn-success, .btn-warning, .btn-danger {
+    background-image: none !important;
+    filter: none !important;
+}
+
+#ulToolbar li {
+    float: left;
+    margin: 7px 7px 7px 0;
+}
+
+    #ulToolbar li:nth-child(5) {
+        float: right;
+    }
+
+    #ulToolbar li:nth-child(6) {
+        float: right;
+    }
+
+    #ulToolbar li:nth-child(7) {
+        float: right;
+    }
+
+.k-grid tbody .k-button {
+    min-width: 12px !important;
+    width: 30px !important;
+    padding: 1px 0 3px 6px;
+}
+
+#divProductEdit {
+    margin-top: 5px;
+}
+
+    #divProductEdit .pull-left {
+        width: 50%;
+    }
+
+#divAvailCategories {
+    min-height: 26px;
+    z-index: 10010;
+}
+
+#selectedCats {
+    padding-right: 5px !important;
+    min-width: 160px;
+    border-radius: 4px;
+    height: 28px !important;
+    border-color: #CCC;
+}
+
+#tvCategories {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10010;
+    /*width: 300px;*/
+    height: 180px;
+    overflow: auto;
+}
+
+    #tvCategories .jqx-tree-item-selected {
+        background: transparent !important;
+        color: black !important;
+        border: none !important;
+    }
+
+/*#newCatWindow input {
+    min-width: 200px;
+}*/
+
+#newCatWindow label {
+    display: inline-block;
+    float: left;
+    font: bold 12px arial;
+    margin-right: 10px;
+    margin-top: 20px;
+}
+
+    #newCatWindow label:nth-child(1) {
+        margin-top: 10px !important;
+    }
+
+#availCategoriesButton {
+    float: left;
+    margin-top: 10px;
+}
+
+#newCatWindow .k-block {
+    float: left;
+}
+
+.form-horizontal .control-label {
+    width: 130px !important;
+}
+
+.form-horizontal .controls {
+    margin-left: 140px !important;
+}
+
+#check3boxes.row-fluid {
+    background-color: #DCDCDC !important;
+    border: 1px solid #C0C0C0 !important;
+    width: 99% !important;
+    padding: 5px 0 0 0 !important;
+}
+
+    #check3boxes.row-fluid [class*="span"] {
+        min-height: 20px !important;
+    }
+
+#editProductRelated .k-autocomplete {
+    max-width: 60% !important;
+}
+
+.k-popup .k-list .k-state-hover, .k-popup .k-list .k-state-focused, .k-popup .k-list .k-state-selected {
+    color: #FFF;
+    background-color: #f0713a;
+}
+
+#relatedProductsGrid input[type="radio"], #relatedProductsGrid input[type="checkbox"] {
+    margin-top: 0 !important;
+    min-height: 0 !important;
+}
+
+#editProductRelated h5 {
+    float: left;
+    margin: 4px 0 0 15px;
+}
+
+.thumb {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+
+    .thumb * {
+        vertical-align: middle;
+    }
+
+.thumb {
+    display: block;
+}
+
+    .thumb span {
+        display: inline-block;
+        width: 1px;
+        min-height: 140px;
+    }
+
+    /* [if lt IE 8]><style> */
+    .thumb span {
+        display: inline-block;
+        height: 100%;
+    }
+
+#editProductAttributes .pull-left {
+    width: 40% !important;
+}
+
+#editProductAttributes .pull-right {
+    width: 55% !important;
+}
+
+.product-result {
+    width: 100%;
+}
+
+    .product-result td {
+        vertical-align: top;
+    }
+
+.product-info {
+    padding-left: 10px;
+    vertical-align: top;
+}
+
+.product-title {
+    font-size: 1.0em;
+    padding-bottom: 5px;
+    font-weight: bold;
+}
+
+.product-synopsis {
+    font-size: .8em;
+    color: #888;
+}
+
+.select2-results .select2-highlighted {
+    background-color: #e5fc6f !important;
+    color: #000 !important;
+}
+
+/* Remove list styles */
+/*ul li {
+    list-style-type: none !important;
+}
+
+    ul li li {
+        list-style-type: none !important;
+    }
+
+        ul li li li {
+            list-style-type: none !important;
+        }
+
+ol li {
+    list-style-type: none !important;
+}
+
+ol ol li {
+    list-style-type: none !important;
+}
+
+ol ol ol li {
+    list-style-type: none !important;
+}
+
+ol ul li {
+    list-style-type: none !important;
+}*/

@@ -1,0 +1,7 @@
+E:\Projects\RIW\DNN7X\wwwroot\bin\RIW.Modules.Estimates.dll
+E:\Projects\RIW\DNN7X\wwwroot\bin\RIW.Modules.Estimates.pdb
+E:\Projects\RIW\DNN7X\wwwroot\bin\RIW.Modules.Estimates.xml
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\Estimates\obj\Release\RIW.Modules.Estimates.dll
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\Estimates\obj\Release\RIW.Modules.Estimates.xml
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\Estimates\obj\Release\RIW.Modules.Estimates.pdb
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\Estimates\obj\Release\Estimates.vbprojResolveAssemblyReference.cache

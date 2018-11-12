@@ -1,0 +1,66 @@
+<dotnetnuke type="Package" version="5.0">
+  <packages>
+    <package name="RIW_Contacts" type="Module" version="00.00.01">
+      <friendlyName>RIW Contacts</friendlyName>
+      <description>AGF RIW Contacts module.</description>
+      <iconFile>DesktopModules/RildoInfo/Contacts/Content/Images/ri-logo.png</iconFile>
+      <owner>
+        <name>AGF</name>
+        <organization>AGF</organization>
+        <url>http://www.riw.com.br</url>
+        <email>suporte@riw.com.br</email>
+      </owner>      
+      <components>
+        <component type="Module">
+          <desktopModule>
+            <moduleName>RIW_Contacts</moduleName>
+            <foldername>Contacts</foldername>
+            <businessControllerClass />
+            <supportedFeatures />
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>RIW Contacts</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey />
+                    <controlSrc>DesktopModules/RildoInfo/Contacts/Views/Contacts.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>Options</controlKey>
+                    <controlSrc>DesktopModules/RildoInfo/Contacts/Views/Options.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>RIW Contacts Options</controlTitle>
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                </moduleControls>
+                <permissions>
+                  <permission code="RIW_Contacts_VIEWPERMISSION" key="INSERTPERMISSION" name="Insert New Item" />
+                  <permission code="RIW_Contacts_VIEWPERMISSION" key="EDITPERMISSION" name="Edit Item" />
+                  <permission code="RIW_Contacts_VIEWPERMISSION" key="EXCLUDEPERMISSION" name="Exclude Item" />
+                </permissions>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+        </component>
+        <component type="Assembly">
+          <assemblies>
+            <assembly>
+              <name>RIW.Modules.Contacts.dll</name>
+              <path>bin</path>
+            </assembly>
+          </assemblies>
+        </component>
+      </components>
+    </package>
+  </packages>
+</dotnetnuke>

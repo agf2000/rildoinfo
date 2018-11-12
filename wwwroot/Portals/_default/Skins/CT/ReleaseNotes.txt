@@ -1,0 +1,14 @@
+﻿<h3>CT</h3>
+	RildoInformatica.net <br />
+	<a href="mailto:contato@riw.com.br">Contato@riw.com.br</a><br />
+	<a href=http://www.riw.com.br>http://www.riw.com.br</a><br />
+<hr/>
+	<h3>About the CT</h3>
+
+	<h4>Version 00.00.01</h4><br />
+	Initial release of the theme
+	<h5>Bug Fixes</h5>
+	<ul>
+			<li>None, first release</li>
+	</ul>
+</div>

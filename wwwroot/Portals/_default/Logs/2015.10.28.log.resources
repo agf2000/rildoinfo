@@ -1,0 +1,60 @@
+2015-10-28 21:11:02,102 [QUAD][Thread:19][ERROR] RIW.Modules.WebAPI.ReportsController - System.Data.SqlClient.SqlException (0x80131904): Procedure or function dbo.RIW_Split has too many arguments specified.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(SqlConnection connection, SqlTransaction transaction, CommandType commandType, String commandText, SqlParameter[] commandParameters, SqlConnectionOwnership connectionOwnership)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(String connectionString, CommandType commandType, String commandText)
+   at RIW.Modules.WebAPI.SqlDataProvider.RunReport(String sql) in J:\Projects\RIW\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Providers\DataProviders\SqlDataProvider\SqlDataProvider.vb:line 537
+   at RIW.Modules.WebAPI.Components.Repositories.ReportsRepository.RunReport(String sql) in J:\Projects\RIW\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Repositories\ReportsRepository.vb:line 67
+   at RIW.Modules.WebAPI.ReportsController.RunReport(Int32 reportId, String date1, String date2, Int32 detailId, Int32 portalId, String personId, String productId, String statusIds, String salesRepId, String registerType) in J:\Projects\RIW\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Controllers\ReportsController.vb:line 99
+ClientConnectionId:c880f344-8858-4ced-8e03-6451ac518460
+Error Number:8144,State:3,Class:16
+2015-10-28 21:13:09,858 [QUAD][Thread:17][ERROR] RIW.Modules.WebAPI.ReportsController - System.Data.SqlClient.SqlException (0x80131904): Procedure or function dbo.RIW_Split has too many arguments specified.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(SqlConnection connection, SqlTransaction transaction, CommandType commandType, String commandText, SqlParameter[] commandParameters, SqlConnectionOwnership connectionOwnership)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(String connectionString, CommandType commandType, String commandText)
+   at RIW.Modules.WebAPI.SqlDataProvider.RunReport(String sql) in J:\Projects\RIW\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Providers\DataProviders\SqlDataProvider\SqlDataProvider.vb:line 537
+   at RIW.Modules.WebAPI.Components.Repositories.ReportsRepository.RunReport(String sql) in J:\Projects\RIW\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Repositories\ReportsRepository.vb:line 67
+   at RIW.Modules.WebAPI.ReportsController.RunReport(Int32 reportId, String date1, String date2, Int32 detailId, Int32 portalId, String personId, String productId, String statusIds, String salesRepId, String registerType) in J:\Projects\RIW\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Controllers\ReportsController.vb:line 99
+ClientConnectionId:eb2d1a94-43b5-4b91-803f-b4bb613d2b5e
+Error Number:8144,State:3,Class:16
+2015-10-28 21:14:13,341 [QUAD][Thread:42][ERROR] RIW.Modules.WebAPI.ReportsController - System.Data.SqlClient.SqlException (0x80131904): Procedure or function dbo.RIW_Split has too many arguments specified.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(SqlConnection connection, SqlTransaction transaction, CommandType commandType, String commandText, SqlParameter[] commandParameters, SqlConnectionOwnership connectionOwnership)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(String connectionString, CommandType commandType, String commandText)
+   at RIW.Modules.WebAPI.SqlDataProvider.RunReport(String sql) in J:\Projects\RIW\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Providers\DataProviders\SqlDataProvider\SqlDataProvider.vb:line 537
+   at RIW.Modules.WebAPI.Components.Repositories.ReportsRepository.RunReport(String sql) in J:\Projects\RIW\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Repositories\ReportsRepository.vb:line 67
+   at RIW.Modules.WebAPI.ReportsController.RunReport(Int32 reportId, String date1, String date2, Int32 detailId, Int32 portalId, String personId, String productId, String statusIds, String salesRepId, String registerType) in J:\Projects\RIW\wwwroot\DesktopModules\RildoInfo\WebAPI\Components\Controllers\ReportsController.vb:line 99
+ClientConnectionId:6a390506-e2f1-426f-bf08-b06b723af8fe
+Error Number:8144,State:3,Class:16

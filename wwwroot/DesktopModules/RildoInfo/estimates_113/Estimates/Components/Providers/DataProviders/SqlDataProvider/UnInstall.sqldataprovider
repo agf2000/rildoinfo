@@ -1,0 +1,94 @@
+﻿/************************************************************/
+/*****              SqlDataProvider                     *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/***** Note: To manually execute this script you must   *****/
+/*****       perform a search and replace operation     *****/
+/*****       for {databaseOwner} and {objectQualifier}  *****/
+/*****                                                  *****/
+/************************************************************/
+
+
+
+/****** Drop Stored Procedures ******/
+
+
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Estimate_Histories_GetList]    Script Date: 12/05/2013 11:26:05 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_Estimate_Histories_GetList]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_Estimate_Histories_GetList]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Estimate_HistoryComments_GetList]    Script Date: 12/05/2013 11:26:05 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_Estimate_HistoryComments_GetList]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_Estimate_HistoryComments_GetList]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Estimate_MessageComments_GetList]    Script Date: 12/05/2013 11:26:05 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_Estimate_MessageComments_GetList]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_Estimate_MessageComments_GetList]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Estimate_Messages_Get]    Script Date: 12/05/2013 11:26:05 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_Estimate_Messages_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_Estimate_Messages_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Estimate_Messages_GetList]    Script Date: 12/05/2013 11:26:05 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_Estimate_Messages_GetList]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_Estimate_Messages_GetList]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_EstimateItems_GetList]    Script Date: 12/05/2013 11:26:05 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_EstimateItems_GetList]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_EstimateItems_GetList]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Estimates_Get]    Script Date: 12/05/2013 11:26:05 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_Estimates_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_Estimates_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Estimates_GetList]    Script Date: 12/05/2013 11:26:05 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_Estimates_GetList]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_Estimates_GetList]
+GO
+
+
+/****** Drop Tables ******/
+
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIW_EstimateHistories]    Script Date: 12/05/2013 11:23:49 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_EstimateHistories]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIW_EstimateHistories]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIW_EstimateHistoryComments]    Script Date: 12/05/2013 11:23:49 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_EstimateHistoryComments]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIW_EstimateHistoryComments]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIW_EstimateItems]    Script Date: 12/05/2013 11:23:49 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_EstimateItems]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIW_EstimateItems]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIW_EstimateItemsRemoved]    Script Date: 12/05/2013 11:23:49 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_EstimateItemsRemoved]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIW_EstimateItemsRemoved]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIW_EstimateMessageComments]    Script Date: 12/05/2013 11:23:49 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_EstimateMessageComments]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIW_EstimateMessageComments]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIW_EstimateMessages]    Script Date: 12/05/2013 11:23:49 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_EstimateMessages]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIW_EstimateMessages]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIW_Estimates]    Script Date: 12/05/2013 11:23:49 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_Estimates]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIW_Estimates]
+GO

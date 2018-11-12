@@ -1,0 +1,250 @@
+/*--------- dnn menu style ----------*/
+
+/* admin menu td */
+.admin_dnnmenu_bar {
+    cursor: pointer;
+    font-size: 11px;
+    background-color: transparent;
+    width: auto;
+}
+
+/*  admin Menu Normal  */
+.admin_dnnmenu_rootitem {
+    font-family: "Segoe UI", Myriad Pro, Trebuchet MS, Arial, Helvetica, sans-serif;
+    color: #999;
+    font-size: 13px;
+    font-weight: normal;
+    text-transform: uppercase;
+    /*text-align:center;*/
+    /*padding:0px 24px 0px 15px;*/
+    padding: 0px 30px;
+    margin-right: 1px;
+    white-space: nowrap;
+    /*float:left;*/
+    line-height: 40px;
+    /*background:url(images/menu_normal.png) no-repeat center left;*/
+    background: #2c2c2c;
+    border-bottom: 1px solid #222;
+}
+
+/*  admin menu hover  */
+.admin_dnnmenu_rootitem_hover {
+    font-family: "Segoe UI", Myriad Pro, Trebuchet MS, Arial, Helvetica, sans-serif;
+    color: #fff;
+    font-size: 13px;
+    font-weight: normal;
+    text-transform: uppercase;
+    /*text-align:center;*/
+    /*padding:0px 24px 0px 15px;*/
+    padding: 0px 30px;
+    margin-right: 1px;
+    white-space: nowrap;
+    /*float:left;*/
+    line-height: 40px;
+    /*background:url(images/menu_over.png) no-repeat center left;*/
+    background-color: #2c2c2c;
+    border-bottom-color: #232323;
+}
+
+/*  admin menu selected  */
+.admin_dnnmenu_rootitem_selected {
+    font-family: "Segoe UI", Myriad Pro, Trebuchet MS, Arial, Helvetica, sans-serif;
+    color: #fff;
+    font-size: 13px;
+    font-weight: normal;
+    text-transform: uppercase;
+    /*text-align:center;*/
+    /*padding:0px 24px 0px 15px;*/
+    padding: 0px 30px;
+    margin-right: 1px;
+    white-space: nowrap;
+    /*float:left;*/
+    line-height: 40px;
+    /*background:url(images/menu_over.png) no-repeat center left;*/
+    background-color: #0866c6;
+    border-bottom-color: rgba(0,0,0,0.2);
+}
+
+/*  admin sub Menu Normal */
+.admin_dnnmenu_submenu {
+    border: 1px solid #808080;
+    z-index: 1000;
+}
+
+    .admin_dnnmenu_submenu td {
+        background: url(images/bg_submenu.png);
+        z-index: 1000;
+        font-family: "Segoe UI", Myriad Pro, Trebuchet MS, Arial, Helvetica, sans-serif;
+        font-size: 11px;
+        font-weight: normal;
+        text-transform: uppercase;
+        text-align: left;
+        color: #FFFFFF;
+        line-height: 22px;
+        padding: 5px 2px;
+        margin: 5px 0px;
+        border-bottom: 1px dotted #FFFFFF;
+    }
+
+/*  admin sub Menu hover & selected */
+.admin_dnnmenu_itemhover td {
+    /*background:url(images_menu/submenu_hover.gif) repeat-x top left;*/
+    background: #90bb22;
+    color: #FFFFFF;
+}
+
+.admin_dnnmenu_itemselected td {
+    /*background:url(images_menu/submenu_active.gif) repeat-x top left;*/
+    background: #90bb22;
+    color: #FFFFFF;
+}
+
+.admin_dnnmenu_break {
+    height: 2px;
+    background-color: #D5E0FF;
+    border: 2px solid #999;
+}
+
+/* main menu td */
+.main_dnnmenu_bar {
+    display: inline-block;
+    /*margin-top: 25px;*/
+    cursor: pointer;
+    font-size: 11px;
+    background-color: transparent;
+    width: auto;
+}
+
+/*  Main Menu Normal  */
+.main_dnnmenu_rootitem {
+    /*font-family:"Segoe UI", Myriad Pro, Trebuchet MS, Arial, Helvetica, sans-serif;*/
+    color: #696969;
+    font-size: 14px;
+    font-weight: bold;
+    /*text-transform:uppercase;*/
+    /*text-align:center;*/
+    /*padding:0px 24px 0px 15px;*/
+    padding: 0px 20px;
+    margin-right: 1px;
+    white-space: nowrap;
+    /*float:left;*/
+    line-height: 40px;
+    /*background:url(images/menu_normal.png) no-repeat center left;*/
+    /*background: #2c2c2c;*/
+    /*border-bottom: 1px solid #222;*/
+}
+
+/*  Main menu hover  */
+.main_dnnmenu_rootitem_hover {
+    /*font-family:"Segoe UI", Myriad Pro, Trebuchet MS, Arial, Helvetica, sans-serif;*/
+    color: #000;
+    font-size: 14px;
+    font-weight: bold;
+    /*text-transform:uppercase;*/
+    /*text-align:center;*/
+    /*padding:0px 24px 0px 15px;*/
+    padding: 0px 20px;
+    margin-right: 1px;
+    white-space: nowrap;
+    /*float:left;*/
+    line-height: 40px;
+    /*background:url(images/menu_over.png) no-repeat center left;*/
+    /*background-color: #2c2c2c;*/
+    /*border-bottom-color: #232323;*/
+}
+
+/*  Main menu selected  */
+.main_dnnmenu_rootitem_selected {
+    font-family: "Segoe UI", Myriad Pro, Trebuchet MS, Arial, Helvetica, sans-serif;
+    color: #0866c6;
+    font-size: 14px;
+    font-weight: bold;
+    /*text-transform:uppercase;*/
+    /*text-align:center;*/
+    /*padding:0px 24px 0px 15px;*/
+    padding: 0px 20px;
+    margin-right: 1px;
+    white-space: nowrap;
+    /*float:left;*/
+    line-height: 40px;
+    /*background:url(images/menu_over.png) no-repeat center left;*/
+    /*background-color: #0866c6;*/
+    /*border-bottom-color: rgba(0,0,0,0.2);*/
+}
+
+/*  SUB Menu Normal */
+.main_dnnmenu_submenu {
+    border: 1px solid #808080;
+    background: #000;
+    /*display: block;*/
+    z-index: 1010;
+}
+
+    .main_dnnmenu_submenu tr {
+        display: block;
+        padding: 3px 20px;
+        margin: 0;
+    }
+
+    .main_dnnmenu_submenu td {
+        /*background:url(images/bg_submenu.png);*/
+        /*width: 100px;*/
+        /*display: inline-block;*/
+        /*background:#000;*/
+        z-index: 1010;
+        /*font-family:"Segoe UI", Myriad Pro, Trebuchet MS, Arial, Helvetica, sans-serif;*/
+        font-size: 14px;
+        font-weight: normal;
+        /*text-transform:uppercase;*/
+        text-align: left;
+        color: #999;
+        line-height: 22px;
+        padding: 0px 2px;
+        margin: 0px;
+        /*border-bottom:1px dotted #FFFFFF;*/
+    }
+
+/*  SUB Menu hover & selected */
+.main_dnnmenu_itemhover td {
+    /*background:url(images_menu/submenu_hover.gif) repeat-x top left;*/
+    /*background:#90bb22;*/
+    color: #FFF;
+}
+
+.main_dnnmenu_itemselected td {
+    /*background:url(images_menu/submenu_active.gif) repeat-x top left;*/
+    background: #90bb22;
+    color: #FFFFFF;
+}
+
+.main_dnnmenu_break {
+    height: 2px;
+    background-color: #D5E0FF;
+    border: 2px solid #999;
+}
+
+/* Module Action Menus */
+.ModuleTitle_SubMenu {
+    border: 1px solid #d6d6d6;
+}
+
+    .ModuleTitle_SubMenu td {
+        background-color: #f7f7f7;
+        white-space: nowrap;
+    }
+
+.ModuleTitle_MenuIcon {
+    background-color: #f7f7f7;
+    border: none;
+    padding: 0px 2px;
+}
+
+.ModuleTitle_MenuItemSel td, .ModuleTitle_MenuItemSel .ModuleTitle_MenuIcon {
+    background: #CE0D0D url(submenu_hover.gif) repeat-x top left;
+    color: #fff;
+}
+
+.ModuleTitle_MenuBreak td, .ModuleTitle_MenuBreak .ModuleTitle_MenuIcon {
+    height: 2px;
+    background-color: #D5E0FF;
+}

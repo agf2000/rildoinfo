@@ -1,0 +1,95 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+RIW.Modules.Categories
+</name>
+</assembly>
+<members>
+<member name="T:RIW.Modules.Categories.Options">
+	<summary>
+ The View class displays the content
+ 
+ Typically your view control would be used to display content or functionality in your module.
+ 
+ View may be the only control you have in your project depending on the complexity of your module
+ 
+ Because the control inherits from CategoriesModuleBase you have access to any custom properties
+ defined there, as well as properties from DNN such as PortalId, ModuleId, TabId, UserId and many more.
+ 
+ </summary>
+</member><member name="T:RIW.Modules.Categories.Components.FeatureController">
+	<summary>
+ The Controller class for Categories
+ 
+ The FeatureController class is defined as the BusinessController in the manifest file (.dnn)
+ DotNetNuke will poll this class to find out which Interfaces the class implements. 
+ 
+ The IPortable interface is used to import/export content from a DNN module
+ 
+ The ISearchable interface is used by DNN to index the content of a module
+ 
+ The IUpgradeable interface allows module developers to execute code during the upgrade 
+ process for a module.
+ 
+ Below you will find stubbed out implementations of each, uncomment and populate with your own data
+ </summary>
+</member><member name="T:RIW.Modules.Categories.Manage_Categories">
+	<summary>
+ The View class displays the content
+ 
+ Typically your view control would be used to display content or functionality in your module.
+ 
+ View may be the only control you have in your project depending on the complexity of your module
+ 
+ Because the control inherits from CategoriesModuleBase you have access to any custom properties
+ defined there, as well as properties from DNN such as PortalId, ModuleId, TabId, UserId and many more.
+ 
+ </summary>
+</member><member name="M:RIW.Modules.Categories.Settings.LoadSettings">
+ -----------------------------------------------------------------------------
+ <summary>
+ LoadSettings loads the settings from the Database and displays them
+ </summary>
+	<remarks>
+	</remarks>
+	<history>
+	</history>
+ -----------------------------------------------------------------------------
+
+</member><member name="M:RIW.Modules.Categories.Settings.UpdateSettings">
+ -----------------------------------------------------------------------------
+ <summary>
+ UpdateSettings saves the modified settings to the Database
+ </summary>
+	<remarks>
+	</remarks>
+	<history>
+	</history>
+ -----------------------------------------------------------------------------
+
+</member><member name="T:RIW.Modules.Categories.Settings">
+ -----------------------------------------------------------------------------
+ <summary>
+ The Settings class manages Module Settings
+ 
+ Typically your settings control would be used to manage settings for your module.
+ There are two types of settings, ModuleSettings, and TabModuleSettings.
+ 
+ ModuleSettings apply to all "copies" of a module on a site, no matter which page the module is on. 
+ 
+ TabModuleSettings apply only to the current module on the current page, if you copy that module to
+ another page the settings are not transferred.
+ 
+ If you happen to save both TabModuleSettings and ModuleSettings, TabModuleSettings overrides ModuleSettings.
+ 
+ Below we have some examples of how to access these settings but you will need to uncomment to use.
+ 
+ Because the control inherits from RIW_CategoriesSettingsBase you have access to any custom properties
+ defined there, as well as properties from DNN such as PortalId, ModuleId, TabId, UserId and many more.
+ </summary>
+ -----------------------------------------------------------------------------
+
+</member>
+</members>
+</doc>

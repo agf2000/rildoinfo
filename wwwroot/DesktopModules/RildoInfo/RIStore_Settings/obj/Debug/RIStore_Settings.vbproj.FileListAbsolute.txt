@@ -1,0 +1,6 @@
+E:\Projects\RIStore\RIStore_7x\wwwroot\bin\RI.Modules.RIStore_Settings.dll
+E:\Projects\RIStore\RIStore_7x\wwwroot\bin\RI.Modules.RIStore_Settings.pdb
+E:\Projects\RIStore\RIStore_7x\wwwroot\bin\RI.Modules.RIStore_Settings.xml
+E:\Projects\RIStore\RIStore_7x\wwwroot\DesktopModules\RildoInfo\RIStore_Settings\obj\Debug\RI.Modules.RIStore_Settings.dll
+E:\Projects\RIStore\RIStore_7x\wwwroot\DesktopModules\RildoInfo\RIStore_Settings\obj\Debug\RI.Modules.RIStore_Settings.xml
+E:\Projects\RIStore\RIStore_7x\wwwroot\DesktopModules\RildoInfo\RIStore_Settings\obj\Debug\RI.Modules.RIStore_Settings.pdb

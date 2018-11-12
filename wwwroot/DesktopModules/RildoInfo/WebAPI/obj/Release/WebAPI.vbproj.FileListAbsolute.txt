@@ -1,0 +1,9 @@
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\WebAPI\obj\Release\WebAPI.vbproj.App.config
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\bin\RIW.Modules.WebAPI.dll.config
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\bin\RIW.Modules.WebAPI.dll
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\bin\RIW.Modules.WebAPI.pdb
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\bin\RIW.Modules.WebAPI.xml
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\WebAPI\obj\Release\RIW.Modules.WebAPI.dll
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\WebAPI\obj\Release\RIW.Modules.WebAPI.xml
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\WebAPI\obj\Release\RIW.Modules.WebAPI.pdb
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\WebAPI\obj\Release\WebAPI.vbprojResolveAssemblyReference.cache

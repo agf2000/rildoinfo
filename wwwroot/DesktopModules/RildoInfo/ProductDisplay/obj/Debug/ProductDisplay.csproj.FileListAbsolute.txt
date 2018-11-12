@@ -1,0 +1,9 @@
+J:\Projects\RIW\DNN7X\wwwroot\bin\RIW.Modules.ProductDisplay.dll
+J:\Projects\RIW\DNN7X\wwwroot\bin\RIW.Modules.ProductDisplay.pdb
+J:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\ProductDisplay\obj\Debug\ProductDisplay.csprojResolveAssemblyReference.cache
+J:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\ProductDisplay\obj\Debug\RIW.Modules.ProductDisplay.dll
+J:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\ProductDisplay\obj\Debug\RIW.Modules.ProductDisplay.pdb
+J:\Projects\RIW\wwwroot\bin\RIW.Modules.ProductDisplay.dll
+J:\Projects\RIW\wwwroot\bin\RIW.Modules.ProductDisplay.pdb
+J:\Projects\RIW\wwwroot\DesktopModules\RildoInfo\ProductDisplay\obj\Debug\RIW.Modules.ProductDisplay.dll
+J:\Projects\RIW\wwwroot\DesktopModules\RildoInfo\ProductDisplay\obj\Debug\RIW.Modules.ProductDisplay.pdb

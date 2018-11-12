@@ -1,0 +1,881 @@
+
+/*.columnValue,*/
+#productDetail,
+.listView,
+.divButtons,
+#divMini_Estimate,
+#btnSaveFinan,
+#btnDeleteSelected,
+#btnRemoveSelected,
+#btnRestoreSelected,
+#liImages,
+#liVideos,
+#liFinance,
+#liDimension,
+#btnDeleteBasic,
+#btnRemoveBasic,
+#estimateItems,
+#divCheckExpand,
+#dialog-message,
+#divKitsMenu,
+#dialog-alert,
+#divStockTextBox,
+#divStockLabel,
+#clearFilter,
+#tvCategories {
+    display: none;
+}
+
+.padded {
+    padding: 7px;
+}
+
+.alert {
+    margin-bottom: 10px !important;
+}
+
+/*.k-picker-wrap .k-icon, span.k-icon .k-i-arrow-s {
+    margin-top: 5px !important;
+}*/
+
+.well {
+    background-color: #fff  !important;
+}
+
+.btn-primary, .btn-info, .btn-primary, .btn-success, .btn-warning, .btn-danger {
+    background-image: none !important;
+    filter: none !important;
+}
+
+/*.k-window {
+    z-index: 1001 !important;
+}
+
+    .k-window div.k-window-content {
+        overflow: hidden;
+    }
+
+    .k-window .k-loading-mask {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+    }
+
+.k-content h2, .k-content h5, .k-content h6 {
+    text-align: center;
+}*/
+
+.container-fluid {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.font-size-small {
+    font-size: 1.0em;
+}
+
+.font-size-medium {
+    font-size: 1.2em;
+}
+
+.font-size-large {
+    font-size: 1.4em;
+}
+
+.controls .inline {
+    padding-top: 5px;
+}
+
+/*label {
+    font-size: 12px !important;
+}*/
+
+.control-group {
+    margin-bottom: 10px !important;
+}
+
+#storeProducts .form-horizontal .control-label {
+    width: 60px !important;
+}
+
+#storeProducts .form-horizontal .controls {
+    margin-left: 70px !important;
+}
+
+.alert h4 {
+    margin: 0 0 5px 0 !important;
+}
+
+.fa {
+    margin-top: 2px;
+}
+
+ul.buttons {
+    margin: 1em 0;
+    border-top: #ccc double;
+    padding: 1em 0 0 0;
+    margin-left: 190px !important;
+}
+
+
+/*.k-content h2 {
+    font-size: 20px !important;
+}
+
+.k-content h5 {
+    font-size: 16px !important;
+}
+
+.k-content h6 {
+    font-size: 14px !important;
+}*/
+
+/* Remove list styles */
+ul li {
+    list-style-type: none !important;
+}
+
+    ul li li {
+        list-style-type: none !important;
+    }
+
+        ul li li li {
+            list-style-type: none !important;
+        }
+
+ol li {
+    list-style-type: none !important;
+}
+
+ol ol li {
+    list-style-type: none !important;
+}
+
+ol ol ol li {
+    list-style-type: none !important;
+}
+
+ol ul li {
+    list-style-type: none !important;
+}
+
+input.required, textarea.required, input.required:hover, textarea.required:hover, .required > input {
+    padding: 5px 0 5px 5px !important;
+    border-left: 5px solid red !important;
+}
+
+span.required .k-input {
+    padding-right: 5px !important;
+    border-left: 5px solid red !important;
+}
+
+.isDeleted {
+    text-decoration: line-through;
+}
+
+.negativeStock {
+    color: red;
+}
+
+h2 {
+    margin: 0.5em auto 0.6em;
+    padding: 0;
+    letter-spacing: -0.03em;
+    font-weight: bold;
+    border-bottom: 1px #ccc solid;
+    text-align: left;
+    line-height: 1.2;
+    font-size: 1.5em;
+}
+
+.SpecialTag {
+    background: transparent url('/portals/0/images/TagSale.jpg');
+    width: 100px;
+    height: 40px;
+    margin: 0 0 10px 10px;
+}
+
+.dnnActions li {
+    margin-left: 10px !important;
+}
+
+#divToolbar ul {
+    margin: 0 !important;
+    padding: 0 0 10px 0 !important;
+}
+
+#ulToolbar li {
+    float: left;
+    margin: 7px 7px 7px 0;
+}
+
+    #ulToolbar li:nth-child(4) {
+        float: right;
+    }
+
+    #ulToolbar li:nth-child(5) {
+        float: right;
+    }
+
+    #ulToolbar li:nth-child(6) {
+        float: right;
+    }
+
+.spanValues {
+    display: inline-block;
+    margin-top: 3px;
+}
+
+#editProductFinan .k-numerictextbox {
+    width: 90px !important;
+}
+
+#editProductFinan input[type=checkbox] {
+    vertical-align: middle;
+}
+
+#editProductTributes .dnnFormItem label, #editProductTributes .dnnFormItem .dnnFormLabel, #editProductTributes .dnnFormItem .dnnTooltip {
+    width: 120px !important;
+}
+
+#editProductFinan select {
+    width: 150px !important;
+}
+
+#divProductsButtons ul {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+    #divProductsButtons ul li {
+        float: left;
+        margin-right: 7px;
+        margin-bottom: 7px;
+    }
+
+#divProductsButtons .k-textbox {
+    width: 140px !important;
+}
+
+.k-listview {
+    background: transparent !important;
+    border: 0 !important;
+}
+
+.posHelp {
+    position: absolute;
+    top: 0;
+    right: 10px;
+}
+
+#divProductsButtons .k-dropdown {
+    width: 250px !important;
+}
+
+#catMenu {
+    margin: 10px 0;
+    width: 100% !important;
+}
+
+.productShowRoom {
+    float: left;
+    zoom: 1;
+    width: 28%;
+    *display: inline;
+    border: 1px solid #B0C4DE;
+    background-color: #FFF;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px; /* future proofing */
+    -khtml-border-radius: 10px; /* for old Konqueror browsers */
+    -moz-box-shadow: 10px 10px 5px #888888;
+    -webkit-box-shadow: 10px 10px 5px #888888;
+    box-shadow: 10px 10px 5px #888888;
+    margin: 0 34px 25px 0;
+    padding: 5px 0 5px 0;
+    min-height: 210px;
+    text-align: center;
+}
+
+    .productShowRoom label {
+        font: bold 14px arial;
+    }
+
+    .productShowRoom .ref {
+        height: 30px;
+    }
+
+.thumb {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+
+    .thumb * {
+        vertical-align: middle;
+    }
+
+.thumb {
+    display: block;
+}
+
+    .thumb span {
+        display: inline-block;
+        width: 1px;
+        min-height: 140px;
+    }
+
+    /* [if lt IE 8]><style> */
+    .thumb span {
+        display: inline-block;
+        height: 100%;
+    }
+
+.product td {
+    padding: 5px;
+}
+
+.thumbnails > li {
+    margin: 0 !important;
+}
+
+.well .thumbnails {
+    margin-right: 15px;
+    margin-bottom: 10px;
+}
+
+.well h4 {
+    margin: 0;
+}
+
+.row-fluid {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+    .row-fluid [class*="span"] {
+        margin: 0 !important;
+    }
+
+/*.productEstimate {
+    margin-top: 20px;
+    border-bottom: 1px solid gray;
+}
+
+.productEstimate td {
+    margin: 20px 0;
+}
+
+    /*.productEstimate .k-numerictextbox {
+        width: 40%;
+    }*/
+
+/*.productEstimate a {
+        cursor: pointer;
+    }*/
+
+#productsGrid .k-numerictextbox {
+    width: 80px;
+}
+
+#productsGrid a {
+    cursor: pointer;
+}
+
+#divButtons {
+    float: right;
+    padding: 5px;
+}
+
+.divButtons {
+    background-color: #696969;
+    border: 1px solid #C0C0C0;
+    border-radius: 6px;
+    color: #FFF;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+#divCheckExpand {
+    padding-top: 8px;
+    float: left;
+}
+
+    #divCheckExpand label.checkbox {
+        padding-left: 30px !important;
+    }
+
+#estimateItems table {
+    width: 100%;
+}
+
+#estimateItems th {
+    background-color: #FFFFCC;
+}
+
+    #estimateItems th:nth-child(4) {
+        text-align: right;
+    }
+
+#estimateItems td:first-child {
+    text-align: center;
+    vertical-align: middle;
+    width: 13%;
+}
+
+#estimateItems td:nth-child(2) {
+    vertical-align: middle;
+    width: 49%;
+}
+
+#estimateItems td:nth-child(3) {
+    vertical-align: middle;
+    width: 4%;
+}
+
+#estimateItems td:nth-child(4) {
+    text-align: right;
+    width: 8%;
+}
+
+#estimateItems td:nth-child(5) {
+    text-align: center;
+    width: 11%;
+}
+
+#estimateItems td:nth-child(6) {
+    text-align: center;
+    width: 4%;
+}
+
+#estimateItems tfoot td {
+    padding: 15px 15px 15px 0;
+}
+
+/*#estimateItems tfoot td {
+    text-align: right;
+    padding: 15px 50px 10px 0;
+    border: 0px;
+}*/
+
+/*#estimateItems .k-numerictextbox {
+    width: 95px;
+}*/
+
+/*#estimateMsg {
+    width: 57%;
+    padding: 20px 0 0 10px;
+    float: left;
+}*/
+
+    /*#estimateMsg span {
+        font: bold 12px arial;
+    }*/
+
+#divMini_Estimate {
+    float: right;
+    width: 250px;
+    /* height: 60px; */
+    border: 1px solid white;
+    border-radius: 6px;
+    background-color: #ff6a00;
+    padding: 5px;
+    margin: 0 5px 5px 0;
+}
+
+    #divMini_Estimate #cartItems {
+        display: inline-block;
+        text-align: center;
+        padding: 5px 0;
+        width: 250px;
+        color: #FFF;
+    }
+
+    #divMini_Estimate img {
+        float: left;
+        width: 66px;
+        margin-right: 14px;
+    }
+
+/*#divMini_Estimate .k-button {
+        margin: 5px 0 0 20px;
+    }*/
+
+#productTitle {
+    display: block;
+    font: bold 16px/22px Arial;
+}
+
+#productDetail a {
+    cursor: pointer;
+}
+
+#productDetail h3 {
+    font-size: 16px !important;
+    line-height: 30px !important;
+    margin: 5px 0 5px 0 !important;
+}
+
+#searchArea {
+    margin-bottom: 10px;
+}
+
+#status {
+    display: inline-block;
+    margin: 10px 0;
+}
+
+#editBasic .pull-left {
+    width: 50%;
+}
+
+#editBasic .pull-right {
+    width: 50%;
+}
+
+input.required {
+    width: 250px !important;
+}
+
+.noStock {
+    cursor: help !important;
+}
+
+.noStock:after {
+    font-family: glyphicons-halflings-regular;
+    display: inline-block;
+    margin: 0 0 0 5px;
+    font-size: 16px;
+    color: #F00;
+    content: "* ? *";
+}
+
+#divAvailCategories {
+    min-height: 26px;
+    z-index: 10006;
+}
+
+#tvCategories {
+    position: relative;
+    top: 0;
+    left: 0px;
+    z-index: 10005;
+    width: 250px;
+    height: 180px;
+    overflow: auto;
+}
+
+    #tvCategories .jqx-tree-item-selected {
+        background: transparent !important;
+        color: black !important;
+        border: none !important;
+    }
+
+#newCatWindow input {
+    width: 240px;
+}
+
+#newCatWindow label {
+    display: inline-block;
+    float: left;
+    font: bold 12px arial;
+    margin-right: 10px;
+    margin-top: 20px;
+}
+
+    #newCatWindow label:nth-child(1) {
+        margin-top: 10px !important;
+    }
+
+#availCategoriesButton {
+    float: left;
+    margin-top: 10px;
+}
+
+#newCatWindow .k-block {
+    float: left;
+}
+
+#productImages li {
+    float: left;
+    zoom: 1;
+    /*width: 28%;*/
+    *display: inline;
+    /*border: 1px solid #B0C4DE;*/
+    /*background-color: #FFF;*/
+    /*-moz-border-radius: 10px;*/
+    /*-webkit-border-radius: 10px;*/
+    /*border-radius: 10px; /* future proofing */
+    /*-khtml-border-radius: 10px; /* for old Konqueror browsers */
+    /*-moz-box-shadow: 10px 10px 5px #888888;*/
+    /*-webkit-box-shadow: 10px 10px 5px #888888;*/
+    /*box-shadow: 10px 10px 5px #888888;*/
+    margin: 20px 34px 25px 0;
+    padding: 5px 0 5px 0;
+    min-height: 190px;
+    text-align: center;
+}
+
+#productVideos li {
+    float: left;
+    zoom: 1;
+    /*width: 28%;*/
+    *display: inline;
+    /*border: 1px solid #B0C4DE;*/
+    /*background-color: #FFF;*/
+    /*-moz-border-radius: 10px;*/
+    /*-webkit-border-radius: 10px;*/
+    /*border-radius: 10px; /* future proofing */
+    /*-khtml-border-radius: 10px; /* for old Konqueror browsers */
+    /*-moz-box-shadow: 10px 10px 5px #888888;*/
+    /*-webkit-box-shadow: 10px 10px 5px #888888;*/
+    /*box-shadow: 10px 10px 5px #888888;*/
+    margin: 0 65px 25px 0;
+    padding: 5px 0 5px 0;
+    text-align: center;
+}
+
+    #productVideos li div {
+        display: block;
+        font: bold 14px arial;
+        margin-bottom: 5px;
+        text-align: left;
+    }
+
+#editProductFinan input.k-textbox {
+    max-width: 25%;
+}
+
+#editProductCosts input.k-textbox {
+    max-width: 30% !important;
+}
+
+/**END STYLE LIGHTBOX**/
+/**STYLE THUMNAIL SCROLLER**/
+.mt-more-images {
+    position: relative;
+    z-index: 9;
+}
+
+.mt-more-views {
+    margin: 10px 0 0 10px !important;
+    width: 85%;
+}
+
+/* horizontal slide*/
+.mt-more-images span {
+    -webkit-transition: all 0.2s linear 0s;
+    background-repeat: no-repeat;
+    border-radius: 3px;
+    cursor: pointer;
+    height: 70px;
+    margin: 0;
+    outline: none;
+    padding: 0;
+    position: absolute;
+    -moz-transition: all 0.2s linear 0s;
+    -o-transition: all 0.2s linear 0s;
+    transition: all 0.2s linear 0s;
+    width: 36px;
+    z-index: 10;
+}
+
+.next {
+    background-position: 100% 0;
+    right: 0;
+    top: 25px !important;
+}
+
+    .next:hover {
+        background-position: -72px 100%;
+    }
+
+.prev {
+    background-position: 0 0;
+    left: 0;
+    top: 25px !important;
+}
+
+    .prev:hover {
+        background-position: -36px 100%;
+    }
+
+.thumbnail-viewport {
+    overflow: hidden;
+    position: relative;
+}
+
+#mt-thumbscroller {
+    width: 1200%;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+    -webkit-transform: translate3d(0px, 0, 0);
+    -moz-transform: translate3d(0px, 0, 0);
+    -ms-transform: translate3d(0px, 0, 0);
+    -o-transform: translate3d(0px, 0, 0);
+    transform: translate3d(0px, 0, 0);
+}
+
+/* vertical slide */
+.mt-vert-thumb .next, .mt-vert-thumb .prev {
+    height: 14px;
+    width: 40px;
+}
+
+.mt-vert-thumb .next {
+    background-position: 0 100%;
+}
+
+.mt-vert-thumb .prev {
+    background-position: 0 0;
+    top: -5px;
+}
+
+.more-views li {
+    line-height: normal;
+}
+
+    .more-views li a {
+        border: 1px solid #CCCCCC;
+        display: inline-block;
+        padding: 0 2px;
+    }
+
+.thumbnail-container a:active,
+.thumbnailscroller a:active,
+.thumbnail-container a:focus,
+.thumbnailscroller a:focus {
+    outline: none;
+}
+
+.slides,
+.thumbnail-control-nav,
+.thumbnail-direction-nav {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* thumbnailscroller Necessary Styles
+*********************************/
+.more-views ul {
+    margin: 0px;
+}
+
+.thumbnailscroller {
+    margin: 0;
+    padding: 0;
+}
+
+    .thumbnailscroller .slides > li {
+        display: none;
+        text-align: center;
+        -webkit-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+/* Hide the slides before the JS is loaded. Avoids image jumping */
+
+.thumbnail-pauseplay span {
+    text-transform: capitalize;
+}
+
+/* Clearfix for the .slides element */
+.slides:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+
+html[xmlns] .slides {
+    display: block;
+}
+
+* html .slides {
+    height: 1%;
+}
+
+    /* No JavaScript Fallback */
+    /* If you are not using another script, such as Modernizr, make sure you
+ * include js that eliminates this class on page load */
+    .no-js .slides > li:first-child {
+        display: block;
+    }
+
+/* Direction Nav */
+.thumbnail-direction-nav li {
+    border: none !important;
+}
+
+.thumbnail-direction-nav {
+    *height: 0;
+}
+
+    .thumbnail-direction-nav a.thumbnail-prev, .thumbnail-direction-nav a.thumbnail-next {
+        background-image: url(../../Services/Content/Images/hor_ctr.png);
+        cursor: pointer;
+        height: 27px;
+        position: absolute;
+        width: 10px;
+        z-index: 90;
+        text-indent: -999em;
+        top: 16%;
+        border: medium none !important;
+        padding: 0 !important;
+    }
+
+    .thumbnail-direction-nav .thumbnail-next {
+        background-position: 100% 0;
+        right: -10px;
+    }
+
+    .thumbnail-direction-nav .thumbnail-prev {
+        background-position: 0 0;
+        left: -10px;
+    }
+
+.thumbnailscroller:hover .thumbnail-next { /*opacity: 0.8; right: 5px;*/
+}
+
+.thumbnailscroller:hover .thumbnail-prev { /*opacity: 0.8; left: 5px;*/
+}
+
+    .thumbnailscroller:hover .thumbnail-next:hover, .thumbnailscroller:hover .thumbnail-prev:hover { /* opacity: 1; */
+    }
+
+.thumbnail-direction-nav .thumbnail-disabled {
+    opacity: .3!important;
+    filter: alpha(opacity=30);
+    cursor: default;
+}
+
+@media screen and (max-width: 860px) {
+    .thumbnail-direction-nav .thumbnail-prev {
+        opacity: 1;
+        left: 0;
+    }
+
+    .thumbnail-direction-nav .thumbnail-next {
+        opacity: 1;
+        right: 0;
+    }
+}
+
+.slides .slide_items {
+    position: relative;
+}
+
+.fixed-dialog {
+  position: fixed;
+}
+
+#searchArea .k-dropdown {
+    width: 250px !important;
+}

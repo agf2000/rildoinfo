@@ -1,0 +1,202 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+RI.Modules.RIStore_Settings
+</name>
+</assembly>
+<members>
+<member name="M:RI.Modules.RIStore_Settings.Settings.LoadSettings">
+ -----------------------------------------------------------------------------
+ <summary>
+ LoadSettings loads the settings from the Database and displays them
+ </summary>
+	<remarks>
+	</remarks>
+	<history>
+	</history>
+ -----------------------------------------------------------------------------
+
+</member><member name="M:RI.Modules.RIStore_Settings.Settings.UpdateSettings">
+ -----------------------------------------------------------------------------
+ <summary>
+ UpdateSettings saves the modified settings to the Database
+ </summary>
+	<remarks>
+	</remarks>
+	<history>
+	</history>
+ -----------------------------------------------------------------------------
+
+</member><member name="T:RI.Modules.RIStore_Settings.Settings">
+ -----------------------------------------------------------------------------
+ <summary>
+ The Settings class manages Module Settings
+ 
+ Typically your settings control would be used to manage settings for your module.
+ There are two types of settings, ModuleSettings, and TabModuleSettings.
+ 
+ ModuleSettings apply to all "copies" of a module on a site, no matter which page the module is on. 
+ 
+ TabModuleSettings apply only to the current module on the current page, if you copy that module to
+ another page the settings are not transferred.
+ 
+ If you happen to save both TabModuleSettings and ModuleSettings, TabModuleSettings overrides ModuleSettings.
+ 
+ Below we have some examples of how to access these settings but you will need to uncomment to use.
+ 
+ Because the control inherits from RIStore_SettingsSettingsBase you have access to any custom properties
+ defined there, as well as properties from DNN such as PortalId, ModuleId, TabId, UserId and many more.
+ </summary>
+ -----------------------------------------------------------------------------
+ 
+
+</member><member name="F:RI.Modules.RIStore_Settings.Edit.lblName">
+	<summary>
+lblName control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Modules.RIStore_Settings.Edit.txtName">
+	<summary>
+txtName control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Modules.RIStore_Settings.Edit.lblDescription">
+	<summary>
+lblDescription control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Modules.RIStore_Settings.Edit.txtDescription">
+	<summary>
+txtDescription control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Modules.RIStore_Settings.Edit.lblAssignedUser">
+	<summary>
+lblAssignedUser control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Modules.RIStore_Settings.Edit.ddlAssignedUser">
+	<summary>
+ddlAssignedUser control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Modules.RIStore_Settings.Edit.btnSubmit">
+	<summary>
+btnSubmit control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:RI.Modules.RIStore_Settings.Edit.btnCancel">
+	<summary>
+btnCancel control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="M:RI.Modules.RIStore_Settings.Edit.Page_Load(System.Object,System.EventArgs)">
+ -----------------------------------------------------------------------------
+ <summary>
+ Page_Load runs when the control is loaded
+ </summary>
+	<remarks>
+	</remarks>
+	<history>
+	</history>
+ -----------------------------------------------------------------------------
+
+</member><member name="T:RI.Modules.RIStore_Settings.Edit">
+	<summary>
+ The View class displays the content
+ 
+ Typically your view control would be used to display content or functionality in your module.
+ 
+ View may be the only control you have in your project depending on the complexity of your module
+ 
+ Because the control inherits from RIStore_SettingsModuleBase you have access to any custom properties
+ defined there, as well as properties from DNN such as PortalId, ModuleId, TabId, UserId and many more.
+ 
+ </summary>
+</member><member name="F:RI.Modules.RIStore_Settings.View.rptItemList">
+	<summary>
+rptItemList control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="M:RI.Modules.RIStore_Settings.View.Page_Load(System.Object,System.EventArgs)">
+ -----------------------------------------------------------------------------
+ <summary>
+ Page_Load runs when the control is loaded
+ </summary>
+	<remarks>
+	</remarks>
+	<history>
+	</history>
+ -----------------------------------------------------------------------------
+
+</member><member name="P:RI.Modules.RIStore_Settings.View.ModuleActions">
+ -----------------------------------------------------------------------------
+ <summary>
+ Registers the module actions required for interfacing with the portal framework
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+	<history>
+	</history>
+ -----------------------------------------------------------------------------
+
+</member><member name="T:RI.Modules.RIStore_Settings.View">
+	<summary>
+ The View class displays the content
+ 
+ Typically your view control would be used to display content or functionality in your module.
+ 
+ View may be the only control you have in your project depending on the complexity of your module
+ 
+ Because the control inherits from RIStore_SettingsModuleBase you have access to any custom properties
+ defined there, as well as properties from DNN such as PortalId, ModuleId, TabId, UserId and many more.
+ 
+ </summary>
+</member><member name="T:RI.Modules.RIStore_Settings.FeatureController">
+	<summary>
+ The Controller class for RIStore_Settings
+ 
+ The FeatureController class is defined as the BusinessController in the manifest file (.dnn)
+ DotNetNuke will poll this class to find out which Interfaces the class implements. 
+ 
+ The IPortable interface is used to import/export content from a DNN module
+ 
+ The ISearchable interface is used by DNN to index the content of a module
+ 
+ The IUpgradeable interface allows module developers to execute code during the upgrade 
+ process for a module.
+ 
+ Below you will find stubbed out implementations of each, uncomment and populate with your own data
+ </summary>
+</member>
+</members>
+</doc>

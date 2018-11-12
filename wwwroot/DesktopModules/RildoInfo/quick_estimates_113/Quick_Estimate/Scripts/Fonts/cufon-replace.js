@@ -1,0 +1,2 @@
+Cufon.replace('#divTotals');
+

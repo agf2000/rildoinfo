@@ -1,0 +1,3626 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+RIW.Modules.WebAPI
+</name>
+</assembly>
+<members>
+<member name="T:RIW.Modules.WebAPI.SqlDataProvider">
+ -----------------------------------------------------------------------------
+ <summary>
+ SQL Server implementation of the abstract DataProvider class
+ 
+ This concreted data provider class provides the implementation of the abstract methods 
+ from data dataprovider.cs
+ 
+ In most cases you will only modify the Public methods region below.
+ </summary>
+ -----------------------------------------------------------------------------
+
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.ValidatePerson(System.String)">
+	<summary>
+ Checks for an existing email from the client's table
+ </summary>
+	<param name="email"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.getPeople(System.Int32,System.Int32,System.String,System.Int32,System.Int32,System.String,System.String,System.Int32,System.String,System.String,System.String)">
+	<summary>
+ Gets list of clients
+ </summary>
+	<param name="salesRep">Sales Person ID</param>
+	<param name="isDeleted">Has been set as deleted</param>
+	<param name="sTerm">Persons Search Term</param>
+	<param name="statusId">Status ID</param>
+	<param name="sDate">Start ModifiedOnDate</param>
+	<param name="eDate">End Modified Date Range</param>
+	<param name="pageIndex">Page Number</param>
+	<param name="pageSize">Page Size</param>
+	<param name="orderBy">Sorting Order</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.getPerson(System.Int32,System.Int32)">
+	<summary>
+ Gets client info
+ </summary>
+	<param name="personId">Person ID</param>
+	<param name="portalId">Portal ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.updatePerson(RIW.Modules.WebAPI.Models.Person)">
+	<summary>
+ Adds or updates a person account
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.deletePerson(RIW.Modules.WebAPI.Models.Person)">
+	<summary>
+ Deletes a person
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.removePerson(System.Int32,System.Int32,System.Int32)">
+	<summary>
+ Removes a person by person id
+ </summary>
+	<param name="personId">Person ID</param>
+	<param name="userId">User ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.restorePerson(RIW.Modules.WebAPI.Models.Person)">
+	<summary>
+ Restores a person
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.generateUserPassword(RIW.Modules.WebAPI.PeopleController.userPassword)">
+	<summary>
+ Generates new random user password
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.getUserPhoto(System.Int32,System.Int32)">
+	<summary>
+ Gets user photo by user id
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<param name="userId">User ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.removeUserPhoto(RIW.Modules.WebAPI.PeopleController.userPhoto)">
+	<summary>
+ Removes user photo
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.getPersonIndustries(System.Int32)">
+	<summary>
+ Get person inndustries
+ </summary>
+	<param name="personId">Person ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.getPersonAddresses(System.Int32)">
+	<summary>
+ Gets person addresses
+ </summary>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.getPersonAddress(System.Int32,System.Int32)">
+	<summary>
+ Gets client address
+ </summary>
+	<param name="personAddressId">Person Address ID</param>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.updatePersonAddress(RIW.Modules.WebAPI.Models.PersonAddress)">
+	<summary>
+ Adds or updates client address
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.deletePersonAddress(RIW.Modules.WebAPI.Models.PersonAddress)">
+	<summary>
+ Disabled a person address
+ </summary>
+	<param name="dto">Person Address Model</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.restorePersonAddress(RIW.Modules.WebAPI.Models.PersonAddress)">
+	<summary>
+ Restores a person address
+ </summary>
+	<param name="dto">Person Address Model</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.removePersonAddress(System.Int32,System.Int32)">
+	<summary>
+ Removes a person address
+ </summary>
+	<param name="personAddressId">Person Address ID</param>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.getPersonContacts(System.Int32)">
+	<summary>
+ Gets client contacts by client id
+ </summary>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.getPersonContact(System.Int32,System.Int32)">
+	<summary>
+ Gets client contact
+ </summary>
+	<param name="personContactId">Person Contact ID</param>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.updatePersonContact(RIW.Modules.WebAPI.Models.PersonContact)">
+	<summary>
+ Adds or updates client contact
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.removePersonContact(System.Int32,System.Int32)">
+	<summary>
+ Removes a client contact
+ </summary>
+	<param name="personContactId">Person Contact ID</param>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.getPersonDocs(System.Int32)">
+	<summary>
+ Gets client docs by client id
+ </summary>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.getPersonDoc(System.Int32,System.Int32)">
+	<summary>
+ Gets client doc
+ </summary>
+	<param name="cDId">Person Doc ID</param>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.postFile">
+	<summary>
+ Saves person documents
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.removePersonDoc(System.Int32,System.Int32)">
+	<summary>
+ Removes a person Doc
+ </summary>
+	<param name="personDocId">Person Doc ID</param>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.updateClientFinance(RIW.Modules.WebAPI.Models.Person)">
+	<summary>
+ Updates client finance
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.getClientIncomeSources(System.Int32)">
+	<summary>
+ Gets client income sources
+ </summary>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.getClientIncomeSource(System.Int32,System.Int32)">
+	<summary>
+ Gets client income source
+ </summary>
+	<param name="clientIncomeSourceId">Person Income Source ID</param>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.updateClientIncomeSource(RIW.Modules.WebAPI.Models.ClientIncomeSource)">
+	<summary>
+ Updates client income source
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.removeClientIncomeSource(System.Int32,System.Int32)">
+	<summary>
+ Removes a client income source
+ </summary>
+	<param name="clientIncomeSourceId">Person Income Source ID</param>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.getClientPersonalRefs(System.Int32)">
+	<summary>
+ Gets client personal references
+ </summary>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.getClientPersonalRef(System.Int32,System.Int32)">
+	<summary>
+ Gets client personal reference
+ </summary>
+	<param name="clientPersonalRefId">Person Personal Ref ID</param>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.updateClientPersonalRef(RIW.Modules.WebAPI.Models.ClientPersonalRef)">
+	<summary>
+ Adds or updates client personal reference
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.removeClientPersonalRef(System.Int32,System.Int32)">
+	<summary>
+ Removes a client personal reference
+ </summary>
+	<param name="clientPersonalRefId">Person Personal Reference Source ID</param>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.getClientBankRefs(System.Int32)">
+	<summary>
+ Gets client bank references
+ </summary>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.getClientBankRef(System.Int32,System.Int32)">
+	<summary>
+ Gets client bank reference
+ </summary>
+	<param name="clientBankRefId">Person Bank Ref ID</param>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.updateClientBankRef(RIW.Modules.WebAPI.Models.ClientBankRef)">
+	<summary>
+ Updates client bank reference
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.removeClientBankReference(System.Int32,System.Int32)">
+	<summary>
+ Removes a client bank reference
+ </summary>
+	<param name="clientBankReferenceId">Person Bank Reference Source ID</param>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.getClientCommRefs(System.Int32)">
+	<summary>
+ Gets client commerce references
+ </summary>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.getClientCommRef(System.Int32,System.Int32)">
+	<summary>
+ Gets client commerce reference
+ </summary>
+	<param name="clientCommRefId">Person Commerce Ref ID</param>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.updateClientCommRef(RIW.Modules.WebAPI.Models.ClientCommRef)">
+	<summary>
+ Adds or updates client commerce reference
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.removeClientCommRef(System.Int32,System.Int32)">
+	<summary>
+ Removes a client commerce reference
+ </summary>
+	<param name="clientCommReferenceId">Person Commerce Reference Source ID</param>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.getClientPartners(System.Int32)">
+	<summary>
+ Gets client partners
+ </summary>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.getClientPartner(System.Int32,System.Int32)">
+	<summary>
+ Gets client partner
+ </summary>
+	<param name="clientPartnerId">Person Partner ID</param>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.updateClientPartner(RIW.Modules.WebAPI.Models.ClientPartner)">
+	<summary>
+ Adds or updates client partner
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.removeClientPartner(System.Int32,System.Int32)">
+	<summary>
+ Removes a client partner
+ </summary>
+	<param name="clientPartnerId">Person Partner ID</param>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.getClientPartnerBankRefs(System.Int32)">
+	<summary>
+ Gets client partner bank references
+ </summary>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.getClientPartnerBankRef(System.Int32,System.Int32)">
+	<summary>
+ Gets client partner bank reference
+ </summary>
+	<param name="clientPartnerBankReferenceId">Person Partner Bank Ref ID</param>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.updateClientPartnerBankRef(RIW.Modules.WebAPI.Models.ClientPartnerBankRef)">
+	<summary>
+ Updates client partner bank reference
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.removeClientPartnerBankReference(System.Int32,System.Int32)">
+	<summary>
+ Removes a client's partner bank reference
+ </summary>
+	<param name="clientPartnerBankRefId">Person Partner Bank Reference Source ID</param>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.updatePersonUserLogin(RIW.Modules.WebAPI.Models.Person)">
+	<summary>
+ Updates person login and or email
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.getHistory(System.Int32)">
+	<summary>
+ Gets client history by client id
+ </summary>
+	<param name="personId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.updateHistory(RIW.Modules.WebAPI.Models.PersonHistory)">
+	<summary>
+ Adds or updates estimate message
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.updateHistoryComment(RIW.Modules.WebAPI.PeopleController.HistoryComment)">
+	<summary>
+ Adds or updates person history comment
+ </summary>
+	<param name="historyComment"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.removeHistoryComment(System.Int32,System.Int32,System.String)">
+	<summary>
+ Removes person history comment
+ </summary>
+	<param name="commentId"></param>
+	<param name="personHistoryId"></param>
+	<param name="connId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.updatePersonStatus(RIW.Modules.WebAPI.Models.Person)">
+	<summary>
+ Updates person status  and adds person history
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.UpdateClientSent(RIW.Modules.WebAPI.Models.Person)">
+	<summary>
+ Updates person sent and adds person history
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.removeUserPhoto(System.Int32,System.Int32,System.String)">
+	<summary>
+ Removes user photo
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<param name="uId">User ID</param>
+	<param name="fileName">File Name</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.getUsers(System.Collections.Generic.IEnumerable{DotNetNuke.Entities.Users.UserInfo})">
+	<summary>
+ Gets list of users by portal id
+ </summary>
+	<param name="users"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.getUsersByRoleGroup(System.Int32,System.String)">
+	<summary>
+ Gets list of users by portal id and role group name
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<param name="roleGroupName">Role Group Name</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.getUsersByRoleName(System.Int32,System.String)">
+	<summary>
+ Gets list of users by portal id and role name
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<param name="roleName">Role Name</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PeopleController.getUser(System.Int32,System.Int32)">
+	<summary>
+ Gets user info
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<param name="userId">User ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.HtmlContentsController.getHtmlContentList(System.Int32)">
+	<summary>
+ Gets list of html content
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.HtmlContentsController.getHtmlContent(System.Int32,System.Int32)">
+	<summary>
+ Gets html content
+ </summary>
+	<param name="portalId"></param>
+	<param name="contentId">Content ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.HtmlContentsController.updateHtmlContent(RIW.Modules.WebAPI.Models.HtmlContent)">
+	<summary>
+ Adds or updates html content
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.CategoriesController.GetCategories(System.Int32,System.String,System.Int32,System.String,System.Boolean,System.Boolean)">
+	<summary>
+ Gets a list of brands by portal id
+ </summary>
+	<param name="portalId"></param>
+	<param name="lang"></param>
+	<param name="parentId"></param>
+	<param name="filter"></param>
+	<param name="archived"></param>
+	<param name="includeArchived"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.CategoriesController.GetCategory(System.Int32,System.String)">
+	<summary>
+ Gets category
+ </summary>
+	<param name="catId">Category ID</param>
+	<param name="lang">Category Language</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.CategoriesController.GetCategoryLang(System.Int32,System.String)">
+	<summary>
+ Gets category
+ </summary>
+	<param name="catId">Category ID</param>
+	<param name="lang">Category Language</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.CategoriesController.GetCategoryPermissions(System.Int32)">
+	<summary>
+ Gets a list of permissions by category id
+ </summary>
+	<param name="catId">Portal ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.CategoriesController.GetCategoriesRolePermissions(System.Int32)">
+	<summary>
+ Gets a list of permissions by category id
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.CategoriesController.UpdateCategorySecurity(RIW.Modules.WebAPI.Models.CategoryPermission)">
+	<summary>
+ Resets category security
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.CategoriesController.UpdateCategory(RIW.Modules.WebAPI.Models.Category)">
+	<summary>
+ Gets or updates category model
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.CategoriesController.RemoveCategory(System.Int32,System.String)">
+	<summary>
+ Removes category
+ </summary>
+	<param name="catId">Kit ID</param>
+	<param name="lang">Language</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.CategoriesController.GetProductsCategory(System.Int32)">
+	<summary>
+ Gets list of products
+ </summary>
+	<param name="categoryId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.CategoriesController.GetCategoriesProduct(System.Int32)">
+	<summary>
+ Gets list of products
+ </summary>
+	<param name="productId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IndustriesController.GetIndustries(System.Int32)">
+	<summary>
+ Gets a list of industries by portal id
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IndustriesController.UpdateIndustry(System.Int32,System.String,System.Int32,System.DateTime,System.Int32)">
+	<summary>
+ Adds ou updates an industry
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<param name="industryId">Industry ID</param>
+	<param name="industryTitle">Industry Title</param>
+	<param name="uId">Created By User User ID</param>
+	<param name="cd">Created Date</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IndustriesController.RemoveIndustry(System.Int32,System.Int32)">
+	<summary>
+ Removes an industry
+ </summary>
+	<param name="industryId">Industry ID</param>
+	<param name="portalId">Portal ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PayFormsController.getPayForms(System.Int32,System.String)">
+	<summary>
+ Gets list of payment forms by portal id
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PayFormsController.getPayForm(System.Int32,System.Int32)">
+	<summary>
+ Gets payment form by id
+ </summary>
+	<param name="payFormId">Pay Form ID</param>
+	<param name="portalId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PayFormsController.updatePayForm(System.Int32,System.String,System.Int32,System.DateTime,System.Int32)">
+	<summary>
+ Adds payment form
+ </summary>
+	<param name="pfId">Payment Form ID</param>
+	<param name="portalId">Portal ID</param>
+	<param name="pfTitle">Payment Form Title</param>
+	<param name="uId">Creator ID</param>
+	<param name="cd">Created Date</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PayFormsController.removePayForm(System.Int32)">
+	<summary>
+ Removes payment form by id
+ </summary>
+	<param name="pfId">Payment Form ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.BrandsController.GetBrands(System.Int32,System.String)">
+	<summary>
+ Gets a list of brands by portal id
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<param name="isDeleted">Optional IsDeleted</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.BrandsController.GetBrand(System.Int32)">
+	<summary>
+ Gets list of models by brand id
+ </summary>
+	<param name="brandId">Brand ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.BrandsController.UpdateBrand(RIW.Modules.WebAPI.Models.Brand)">
+	<summary>
+ Adds or updates a brand
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.BrandsController.RemoveBrand(System.Int32)">
+	<summary>
+ Removes brand
+ </summary>
+	<param name="brandId">Brand ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.LogController.LogAnonymous(RIW.Modules.WebAPI.Models.ServicesAction)">
+	<summary>
+ WebAPI deserializes json post into DnnServicesObjects.ServicesAction
+ </summary>
+	<param name="action">json object</param>
+	<returns></returns>
+</member><member name="M:RIW.Modules.WebAPI.AgendaController.getAgenda(System.String,System.String,System.DateTime,System.DateTime)">
+	<summary>
+ Gets user calendar events
+ </summary>
+	<param name="portalId"></param>
+	<param name="userId"></param>
+	<param name="startDateTime">Start Calendar Date</param>
+	<param name="endDateTime">End Calendar Date</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.AgendaController.updateAgenda(RIW.Modules.WebAPI.Models.Agenda)">
+	<summary>
+ Updates or adds appointment data
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.AgendaController.RemoveAppointment(System.Int32,System.Int32)">
+	<summary>
+ Removes appointment by appointment id
+ </summary>
+	<param name="appId">Appointment ID</param>
+	<param name="userId">User ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.InvoicesController.GetInvoices(System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.String,System.String,System.String)">
+	<summary>
+ Get invoices by portal id
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<param name="personId">Client ID</param>
+	<param name="providerId">Provider ID</param>
+	<param name="prodId">Product ID</param>
+	<param name="sDate">Emission Date Start</param>
+	<param name="eDate">Emission Date End</param>
+	<param name="pageNumber">Page Number</param>
+	<param name="pageSize">How many pages</param>
+	<param name="orderBy">Field to order by</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.InvoicesController.GetInvoice(System.Int32)">
+	<summary>
+ Gets product info by product id
+ </summary>
+	<param name="invoiceId">Invoice ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.InvoicesController.UpdateInvoice(RIW.Modules.WebAPI.Models.Invoice)">
+	<summary>
+ Updates an invoice
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.InvoicesController.RemoveInvoice(System.Int32)">
+	<summary>
+ Removes an invoice by invoice id
+ </summary>
+	<param name="invoiceId">Invoice ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.InvoicesController.UpdateInvoiceItem(System.Int32,System.Int32,System.String,System.String,System.String,System.Int32,System.DateTime,System.Int32)">
+	<summary>
+ Adds an invoice item by invoice item id
+ </summary>
+	<param name="iItemId">Invoice Detail ID</param>
+	<param name="prodId">Product ID</param>
+	<param name="qty">Quantity</param>
+	<param name="discount">Discount</param>
+	<param name="uValue">Unit Value</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.InvoicesController.GetInvoiceItems(System.Int32)">
+	<summary>
+ Gets a list if invoice items by invoice id
+ </summary>
+	<param name="invoiceId">Invoice ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.InvoicesController.GetPayments(System.String,System.String,System.String,System.String,System.String,System.Boolean,System.String,System.Int32,System.Int32,System.String,System.String,System.String)">
+	<summary>
+ Gets a list of payments
+ </summary>
+	<param name="portalId">POrtal ID</param>
+	<param name="account">Account ID</param>
+	<param name="provider">Provider ID</param>
+	<param name="client">Client ID</param>
+	<param name="cat">Credit or Debit</param>
+	<param name="sDate">Start Transaction Date</param>
+	<param name="eDate">End Transaction Date</param>
+	<param name="sTerm">Search Term</param>
+	<param name="done">Done</param>
+	<param name="pageNumber">Page Number</param>
+	<param name="pageSize">Page Size</param>
+	<param name="orderBy">Order By</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.InvoicesController.GetPayment(System.Int32)">
+	<summary>
+ Gets a payment into
+ </summary>
+	<param name="pmtId">Payment ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.InvoicesController.UpdatePayment(System.Boolean,RIW.Modules.WebAPI.Models.Payment)">
+	<summary>
+ Add or updates payment
+ </summary>
+	<param name="agenda"></param>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.InvoicesController.GetAccountsBalance(System.String,System.String)">
+	<summary>
+ Gets a total balance
+ </summary>
+	<param name="portalId">POrtal ID</param>
+	<param name="account">Account ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.StatusesController.getStatuses(System.Int32,System.String)">
+	<summary>
+ Gets a list of statuses by portal id
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<param name="isDeleted">Optional IsDeleted</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.StatusesController.getStatus(System.Int32)">
+	<summary>
+ Gets status
+ </summary>
+	<param name="statusId">Status ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.StatusesController.updateStatus(RIW.Modules.WebAPI.Models.Status)">
+	<summary>
+ Adds a new status
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.StatusesController.removeStatus(System.Int32)">
+	<summary>
+ Removes status
+ </summary>
+	<param name="statusId">Status ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.EstimatesController.GetEstimates(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.String,System.String,System.String,System.Int32,System.String)">
+	<summary>
+ Gets a list of estimates
+ </summary>
+	<param name="portalId"></param>
+	<param name="personId"></param>
+	<param name="salesRep"></param>
+	<param name="statusId"></param>
+	<param name="sDate"></param>
+	<param name="eDate"></param>
+	<param name="filter"></param>
+	<param name="isDeleted"></param>
+	<param name="pageIndex"></param>
+	<param name="pageSize"></param>
+	<param name="orderBy"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.EstimatesController.GetEstimate(System.Int32,System.Int32)">
+	<summary>
+ Gets an estimate by estimate id
+ </summary>
+	<param name="estimateId">Estimate ID</param>
+	<param name="portalId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.EstimatesController.GetEstimateItems(System.Int32,System.Int32,System.String)">
+	<summary>
+ Gets list of estimate items by estimate id
+ </summary>
+	<param name="estimateId">Estimate ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.EstimatesController.addEstimate(RIW.Modules.WebAPI.EstimatesController.EstimateItemsRequest)">
+	<summary>
+ Adds an estimate
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.EstimatesController.addEstimateItem(RIW.Modules.WebAPI.EstimatesController.EstimateItemsRequest)">
+	<summary>
+ Adds a quick estimate item
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.EstimatesController.addEstimateItems(RIW.Modules.WebAPI.EstimatesController.EstimateItemsRequest)">
+	<summary>
+ Adds a quick estimate item
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.EstimatesController.removeEstimateItems(RIW.Modules.WebAPI.EstimatesController.EstimateItemsRequest)">
+	<summary>
+ Removes an estimate item
+ </summary>
+	<param name="jsonData"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.EstimatesController.updateEstimateItems(RIW.Modules.WebAPI.EstimatesController.EstimateItemsRequest)">
+	<summary>
+ Updates a quick estimate item
+ </summary>
+	<param name="jsonData"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.EstimatesController.syncEstimateItems(RIW.Modules.WebAPI.EstimatesController.EstimateItemsRequest)">
+	<summary>
+ Updates a quick estimate item
+ </summary>
+	<param name="jsonData"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.EstimatesController.updateEstimateClient(RIW.Modules.WebAPI.Models.Estimate)">
+	<summary>
+ Updates estimate client id
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.EstimatesController.UpdateEstimateAmount(System.Int32,System.String,System.Int32,System.DateTime)">
+	<summary>
+ Updates estimate total amount
+ </summary>
+	<param name="eId">Estimate ID</param>
+	<param name="amt">Amount</param>
+	<param name="uId">Modified By User User ID</param>
+	<param name="md">Modified Date</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.EstimatesController.updateEstimateTerm(RIW.Modules.WebAPI.Models.Estimate)">
+	<summary>
+ Updates estimate pay form and condition
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.EstimatesController.updateEstimateConfig(RIW.Modules.WebAPI.Models.Estimate)">
+	<summary>
+ Updates estimate pay form and condition
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.EstimatesController.updateEstimatePayCond(RIW.Modules.WebAPI.Models.Estimate)">
+	<summary>
+ Updates estimate pay form and condition
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.EstimatesController.cancelEstimatePayCond(RIW.Modules.WebAPI.Models.Estimate)">
+	<summary>
+ Updates estimate pay form and condition
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.EstimatesController.updateStatus(RIW.Modules.WebAPI.Models.Estimate)">
+	<summary>
+ Updates estimate status
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.EstimatesController.AddCashier(System.Int32,System.Int32,System.String,System.String,System.String,System.String,System.Int32,System.DateTime)">
+	<summary>
+ Adds a quick sales
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<param name="eId">Estimate ID</param>
+	<param name="totalCash">Total Cash Received</param>
+	<param name="totalCheck">Total Received in Check</param>
+	<param name="totalCard">Total Received in Credit Card</param>
+	<param name="totalBank">Total Bank Pay Created</param>
+	<param name="uId">Created By User User ID</param>
+	<param name="cd">Created Date</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.EstimatesController.getHistories(System.Int32)">
+	<summary>
+ Gets list estimate history
+ </summary>
+	<param name="estimateId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.EstimatesController.addHistory(RIW.Modules.WebAPI.Models.EstimateHistory)">
+	<summary>
+ Adds estimate history
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.EstimatesController.getMessages(System.Int32)">
+	<summary>
+ Gets list estimate history
+ </summary>
+	<param name="estimateId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.EstimatesController.updateMessage(RIW.Modules.WebAPI.Models.EstimateMessage)">
+	<summary>
+ Adds or updates estimate message
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.EstimatesController.removeMessage(System.Int32,System.Int32,System.String)">
+	<summary>
+ Removes estimate message
+ </summary>
+	<param name="estimateMessageId"></param>
+	<param name="estimateId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.EstimatesController.updateMessageComment(RIW.Modules.WebAPI.EstimatesController.MessageComment)">
+	<summary>
+ Adds or updates estimate message comment
+ </summary>
+	<param name="MessageComment"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.EstimatesController.removeMessageComment(System.Int32,System.Int32,System.String)">
+	<summary>
+ Removes estimate message comment
+ </summary>
+	<param name="commentId"></param>
+	<param name="estimateMessageId"></param>
+	<param name="connId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.EstimatesController.updateHistoryComment(RIW.Modules.WebAPI.EstimatesController.HistoryComment)">
+	<summary>
+ Adds or updates estimate message comment
+ </summary>
+	<param name="historyComment"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.EstimatesController.removeHistoryComment(System.Int32,System.Int32,System.String)">
+	<summary>
+ Removes estimate message comment
+ </summary>
+	<param name="commentId"></param>
+	<param name="estimateHistoryId"></param>
+	<param name="connId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.EstimatesController.takeProductStock(System.Collections.Generic.List{RIW.Modules.WebAPI.Models.Product})">
+	<summary>
+ Removes product from stock
+ </summary>
+	<param name="products"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.EstimatesController.returnProductStock(System.Collections.Generic.List{RIW.Modules.WebAPI.Models.Product})">
+	<summary>
+ Returns product to stock
+ </summary>
+	<param name="products"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.EstimatesController.downloadEstimatePdf(RIW.Modules.WebAPI.EstimatesController.EstimatePdf)">
+	<summary>
+ Downloads estimate pdf
+ </summary>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.EstimatesController.sendEstimatePdf(RIW.Modules.WebAPI.EstimatesController.EstimatePdf)">
+	<summary>
+ Generate Estimate PDF
+ </summary>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.EstimatesController.sendEstimateNotification(RIW.Modules.WebAPI.EstimatesController.EstimatePdf)">
+	<summary>
+ Sends client notification about estimate being updated
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.EstimatesController.deleteEstimate(RIW.Modules.WebAPI.Models.Estimate)">
+	<summary>
+ Deletes an estimate
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PayConditionsController.getPayConds(System.Int32,System.String,System.Decimal)">
+	<summary>
+ Gets list of payment conditions by portal id
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<param name="pcType">Payment Condition Type</param>
+	<param name="pcStart">Payment Condition Start Value</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PayConditionsController.GetPayCond(System.Int32)">
+	<summary>
+ Gets payment condition by id
+ </summary>
+	<param name="pcId">Pay Condition ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PayConditionsController.UpdatePayCond(RIW.Modules.WebAPI.Models.PayCondition)">
+	<summary>
+ Adds payment condition
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.PayConditionsController.RemovePayCond(System.Int32)">
+	<summary>
+ Removes payment condition by id
+ </summary>
+	<param name="pcId">Payment Condition ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.RIStoreController.Login(RIW.Modules.WebAPI.RIStoreController.LoginInfo)">
+	<summary>
+ Logs user in
+ Never Cache
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.RIStoreController.HostSettings">
+	<summary>
+ Gets host settings
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.RIStoreController.GetPublicRoles(System.Int32)">
+	<summary>
+ Gets a list of roles by portal
+ </summary>
+	<param name="portalId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.RIStoreController.GetRolesByUser(System.Int32,System.Int32)">
+	<summary>
+ Gets a list of groups by user id and portal id
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.RIStoreController.updatePortalSetting(System.Int32,System.String,System.String)">
+	<summary>
+ Updates portal settings
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<param name="settingName">Portal Setting Name</param>
+	<param name="settingValue">Portal Setting Value</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.RIStoreController.updateModuleSetting(System.String)">
+	<summary>
+ Updates portal settings
+ </summary>
+	<param name="moduleSettings">Module Settings</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.RIStoreController.updateTabModuleSetting(System.Collections.Generic.List{RIW.Modules.WebAPI.Models.StorePortalModuleSetting})">
+	<summary>
+ Updates portal settings
+ </summary>
+	<param name="tabModuleSettings"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.RIStoreController.getPortalSettings(System.Int32)">
+	<summary>
+ Gets all current portal settings
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.RIStoreController.AddPortalFolder(System.Int32,System.String)">
+	<summary>
+ Adds folders by portal id
+ </summary>
+	<param name="portalId"></param>
+	<param name="folder">Folder Name</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.RIStoreController.saveFileContent(System.Int32,System.String,System.String,System.String)">
+	<summary>
+ Saves File
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<param name="content">File Content</param>
+	<param name="fileName">File Name</param>
+	<param name="folderPath">Folder Name</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.RIStoreController.removePortalFile(System.Int32,System.String,System.Int32,System.String,System.Collections.Generic.IEnumerable{System.Web.HttpPostedFileBase})">
+	<summary>
+ Removes File
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<param name="fileName">File Name</param>
+	<param name="fileId">File ID</param>
+	<param name="folderPath">Folder Path</param>
+	<param name="files">File to be deleted</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.RIStoreController.sendNewEstimateNotification(System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.String,System.String)">
+	<summary>
+ Sends an email notification about a new estimate
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<param name="cid">Client ID</param>
+	<param name="eId">Estimate ID</param>
+	<param name="sId">Sales Person ID</param>
+	<param name="subject">Email Subject</param>
+	<param name="msg">Mensagem</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.RIStoreController.sendNewEstimateEmail(System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.String,System.String)">
+	<summary>
+ Sends an email notification about a new estimate
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<param name="cid">Client ID</param>
+	<param name="eId">Estimate ID</param>
+	<param name="sId">Sales Person ID</param>
+	<param name="subject">Email Subject</param>
+	<param name="msg">Mensagem</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.RIStoreController.sendNewEmail(RIW.Modules.WebAPI.RIStoreController.EmailSend)">
+	<summary>
+ Sends new email
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.RIStoreController.sendPackage(RIW.Modules.WebAPI.RIStoreController.EmailSend)">
+	<summary>
+ Sends html content
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.RIStoreController.extendTime">
+	<summary>
+ This is used from JavaScript to re-establish the user's session
+ Needs to implement "Never Cache"
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.RIStoreController.expireTime">
+	<summary>
+ Logs current user out
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.RIStoreController.updateUserPassword(RIW.Modules.WebAPI.RIStoreController.UserPasswordInfo)">
+	<summary>
+ Updates user password
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.RIStoreController.generateUserPassword(RIW.Modules.WebAPI.RIStoreController.UserPasswordInfo)">
+	<summary>
+ Generates new random user password by user id
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.RIStoreController.getRoles(System.Int32)">
+	<summary>
+ Gets a list of roles by portal id
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.RIStoreController.getPortalFiles(System.Int32,System.String)">
+	<summary>
+ Gets files by portal id, filtered by folder name
+ </summary>
+	<param name="portalId"></param>
+	<param name="folder"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.RIStoreController.SyncPortalFolders(System.Int32,System.String)">
+	<summary>
+ Syncs folders by portal id
+ </summary>
+	<param name="portalId"></param>
+	<param name="folder">Folder Name</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.RIStoreController.GetPortalFolders(System.Int32,System.String,System.Int32)">
+	<summary>
+ Gets files by portal id, permission and user id
+ </summary>
+	<param name="portalId"></param>
+	<param name="permissions">Permission READ, ADD, DELETE</param>
+	<param name="uId">User ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.UnitTypesController.getUnitTypes(System.Int32,System.String)">
+	<summary>
+ Gets a list of unit types by portal id
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<param name="isDeleted">Optional IsDeleted</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.UnitTypesController.getUnitType(System.Int32)">
+	<summary>
+ Gets unitType
+ </summary>
+	<param name="unitTypeId">UnitType ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.UnitTypesController.updateUnitType(RIW.Modules.WebAPI.Models.UnitType)">
+	<summary>
+ Adds a new unitType
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.UnitTypesController.removeUnitType(System.Int32)">
+	<summary>
+ Removes unitType
+ </summary>
+	<param name="unitTypeId">UnitType ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ListsController.GetCountryList">
+	<summary>
+ Anonymous REST API that returns list of coutries in DNN
+ </summary>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ListsController.GetRegionList(System.String)">
+	<summary>
+ GET: /Regions/{code}
+ </summary>
+	<param name="code"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.AccountsController.GetAccounts(System.Int32)">
+	<summary>
+ Gets a list of accounts by portal id
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.AccountsController.UpdateAccount(System.Int32,System.String,System.Int32,System.DateTime,System.Int32)">
+	<summary>
+ Adds ou updates an account
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<param name="accId">Account ID</param>
+	<param name="AccName">Brand Title</param>
+	<param name="uId">Created By User User ID</param>
+	<param name="cd">Created Date</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.AccountsController.RemoveAccount(System.Int32,System.Int32)">
+	<summary>
+ Removes an account
+ </summary>
+	<param name="accId">Account ID</param>
+	<param name="portalId">Portal ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.BrandModelsController.GetBrandModels(System.Int32,System.Int32)">
+	<summary>
+ Gets a list of models by brand id
+ </summary>
+	<param name="brandId">Brand ID</param>
+	<param name="portalId">Portal ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.BrandModelsController.GetBrandModel(System.Int32,System.Int32)">
+	<summary>
+ Gets model by Model id
+ </summary>
+	<param name="modelId">Model ID</param>
+	<param name="brandId">Brand ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.BrandModelsController.UpdateBrandModel(RIW.Modules.WebAPI.Models.BrandModel)">
+	<summary>
+ Adds or updates a brand model
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.BrandModelsController.RemoveBrandModel(System.Int32,System.Int32)">
+	<summary>
+ Removes model
+ </summary>
+	<param name="modelId">Model ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ProductsController.getProducts(System.Int32,System.Int32,System.String,System.Boolean,System.Boolean,System.String,System.String,System.Int32,System.Int32,System.String,System.Boolean,System.Boolean,System.String,System.Boolean,System.String,System.String,System.String)">
+	<summary>
+ Gets products list
+ </summary>
+	<param name="portalId"></param>
+	<param name="categoryId"></param>
+	<param name="lang"></param>
+	<param name="getArchived"></param>
+	<param name="featuredOnly"></param>
+	<param name="orderDesc"></param>
+	<param name="returnLimit"></param>
+	<param name="pageIndex"></param>
+	<param name="pageSize"></param>
+	<param name="searchDesc"></param>
+	<param name="isDealer"></param>
+	<param name="excludeFeatured"></param>
+	<param name="filter"></param>
+	<param name="categoryList"></param>
+	<param name="orderBy"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ProductsController.getProduct(System.Int32,System.String)">
+	<summary>
+ Gets product info by product id
+ </summary>
+	<param name="productId">Product ID</param>
+	<param name="lang">Product Language</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ProductsController.getProductImages(System.Int32)">
+	<summary>
+ Gets product images by product id
+ </summary>
+	<param name="productId">Product ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ProductsController.updateProduct(RIW.Modules.WebAPI.Models.Product)">
+	<summary>
+ Adds or updates a product
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ProductsController.updateProductStock(System.Collections.Generic.List{RIW.Modules.WebAPI.Models.Product})">
+	<summary>
+ Adds or updates a product
+ </summary>
+	<param name="products"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ProductsController.updateProductSEO(RIW.Modules.WebAPI.Models.ProductLang)">
+	<summary>
+ Adds or updates a product
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ProductsController.updateProductDescription(RIW.Modules.WebAPI.Models.Product)">
+	<summary>
+ Updates a product description
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ProductsController.updateProductFinance(RIW.Modules.WebAPI.Models.ProductFinance)">
+	<summary>
+ Updates product finance
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ProductsController.updateProductSpecialOffer(RIW.Modules.WebAPI.ProductsController.ProductSpecialOffer)">
+	<summary>
+ Updates product special offer
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ProductsController.deleteProduct(RIW.Modules.WebAPI.Models.Product)">
+	<summary>
+ Disables a product
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ProductsController.restoreProduct(RIW.Modules.WebAPI.Models.Product)">
+	<summary>
+ Restores a product
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ProductsController.removeProduct(System.Int32,System.String)">
+	<summary>
+ Removes product
+ </summary>
+	<param name="productId"></param>
+	<param name="lang"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ProductsController.getProductsRelated(System.Int32,System.Int32,System.String,System.Int32,System.Boolean)">
+	<summary>
+ Gets list of products related
+ </summary>
+	<param name="portalId"></param>
+	<param name="productId"></param>
+	<param name="lang"></param>
+	<param name="relatedType"></param>
+	<param name="getAll"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ProductsController.addProductRelated(RIW.Modules.WebAPI.Models.ProductRelated)">
+	<summary>
+ Adds product related
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ProductsController.removeRelatedProduct(System.Collections.Generic.List{RIW.Modules.WebAPI.Models.ProductRelated})">
+	<summary>
+ Removes product related
+ </summary>
+	<param name="relatedProducts"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ProductsController.removeProductsRelated(System.Collections.Generic.List{RIW.Modules.WebAPI.Models.ProductRelated})">
+	<summary>
+ Removes all related products
+ </summary>
+	<param name="productsRelated"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ProductsController.getProductOptions(System.Int32,System.String)">
+	<summary>
+ Gets list of product attributes
+ </summary>
+	<param name="productId"></param>
+	<param name="lang"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ProductsController.addProductOption(RIW.Modules.WebAPI.Models.ProductOption)">
+	<summary>
+ Adds product attribute
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ProductsController.updateProductOption(System.Collections.Generic.List{RIW.Modules.WebAPI.Models.ProductOption})">
+	<summary>
+ Adds or updates product attribute
+ </summary>
+	<param name="productOptions"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ProductsController.removeProductOption(System.Int32,System.String)">
+	<summary>
+ Removes product attribute
+ </summary>
+	<param name="productOptionId"></param>
+	<param name="lang"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ProductsController.getProductOptionValues(System.Int32,System.String)">
+	<summary>
+ Gets list of product attribute's values
+ </summary>
+	<param name="optionId"></param>
+	<param name="lang"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ProductsController.addProductOptionValue(RIW.Modules.WebAPI.Models.ProductOptionValue)">
+	<summary>
+ Adds product attribute value
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ProductsController.updateProductOptionValue(System.Collections.Generic.List{RIW.Modules.WebAPI.Models.ProductOptionValue})">
+	<summary>
+ Updates product attribute value
+ </summary>
+	<param name="productOptionValues"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ProductsController.UpdateProductShipping(RIW.Modules.WebAPI.Models.Product)">
+	<summary>
+ Updates product dimentions for shipping purposes
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ProductsController.removeProductOptionValue(System.Int32,System.String)">
+	<summary>
+ Removes product attribute's option
+ </summary>
+	<param name="productOptionValueId"></param>
+	<param name="lang"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ProductsController.removeProductCategory(System.Int32)">
+	<summary>
+ Removes product from category
+ </summary>
+	<param name="productId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ProductsController.removeProductsCategory(System.Int32)">
+	<summary>
+ Removes categories from product
+ </summary>
+	<param name="categoryId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ProductsController.addProductCategories(System.Int32,System.String)">
+	<summary>
+ Adds product to list of categories
+ </summary>
+	<param name="productId"></param>
+	<param name="categories"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ProductsController.addProductCategory(RIW.Modules.WebAPI.Models.ProductCategory)">
+	<summary>
+ Adds product to category
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ProductsController.UpdateProductImageOrder(System.Collections.Generic.List{RIW.Modules.WebAPI.Models.ProductImage})">
+	<summary>
+ Updates image view order
+ </summary>
+	<param name="ProductImages"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ProductsController.removeProductImage(System.Int32)">
+	<summary>
+ Removes product image
+ </summary>
+	<param name="productImageId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ProductsController.GetProductFinance(System.Int32)">
+	<summary>
+ Gets product finance info
+ </summary>
+	<param name="productId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ProductsController.getProductVideos(System.Int32)">
+	<summary>
+ Gets product videos
+ </summary>
+	<param name="productId">Product ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ProductsController.addProductVideo(RIW.Modules.WebAPI.Models.ProductVideo)">
+	<summary>
+ Adds product video
+ </summary>
+	<param name="dto"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ProductsController.removeProductVideo(System.Int32)">
+	<summary>
+ Removes product video
+ </summary>
+	<param name="productVideoId">Product ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="T:RIW.Modules.WebAPI.Business_Controller">
+	<summary>
+ The Controller class for RIStore_Settings
+ 
+ The FeatureController class is defined as the BusinessController in the manifest file (.dnn)
+ DotNetNuke will poll this class to find out which Interfaces the class implements. 
+ 
+ The IPortable interface is used to import/export content from a DNN module
+ 
+ The ISearchable interface is used by DNN to index the content of a module
+ 
+ The IUpgradeable interface allows module developers to execute code during the upgrade 
+ process for a module.
+ 
+ Below you will find stubbed out implementations of each, uncomment and populate with your own data
+ </summary>
+</member><member name="M:RIW.Modules.WebAPI.Models.User.GetProfileProperty(System.String)">
+	<summary>
+ This method returns the value of the ProfileProperty if is defined, otherwise it returns an Empty string
+ </summary>
+	<param name="propertyName">property name</param>
+	<returns>property value</returns>
+</member><member name="M:RIW.Modules.WebAPI.ICashiersRepository.AddCashier(RIW.Modules.WebAPI.Models.Cashier)">
+	<summary>
+ Adds a quick sales
+ </summary>
+	<param name="sale">Cashier Model</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IProductsRepository.getProductsCategory(System.Int32)">
+	<summary>
+ Gets products from product category
+ </summary>
+	<param name="categoryId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IProductsRepository.addProduct(RIW.Modules.WebAPI.Models.Product)">
+	<summary>
+ Adds product
+ </summary>
+	<param name="product">Product Model</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IProductsRepository.updateProduct(RIW.Modules.WebAPI.Models.Product)">
+	<summary>
+ Updates product
+ </summary>
+	<param name="product">Product Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IProductsRepository.addProductLang(RIW.Modules.WebAPI.Models.ProductLang)">
+	<summary>
+ Adds product
+ </summary>
+	<param name="productLang">Product Language Model</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IProductsRepository.updateProductLang(RIW.Modules.WebAPI.Models.ProductLang)">
+	<summary>
+ Updates product
+ </summary>
+	<param name="ProductLang">Product Language Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IProductsRepository.getProducts(System.Int32,System.Int32,System.String,System.String,System.Boolean,System.Boolean,System.String,System.String,System.String,System.Int32,System.Int32,System.String,System.Boolean,System.Boolean,System.String,System.String,System.Boolean)">
+	<summary>
+ Gets list of products
+ </summary>
+	<param name="portalId"></param>
+	<param name="categoryId"></param>
+	<param name="lang"></param>
+	<param name="filter"></param>
+	<param name="getArchived"></param>
+	<param name="featuredOnly"></param>
+	<param name="orderBy"></param>
+	<param name="orderDesc"></param>
+	<param name="returnLimit"></param>
+	<param name="pageIndex"></param>
+	<param name="pageSize"></param>
+	<param name="searchDesc"></param>
+	<param name="isDealer"></param>
+	<param name="getDeleted"></param>
+	<param name="categoryList"></param>
+	<param name="excludeFeatured"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IProductsRepository.getProduct(System.Int32,System.String)">
+	<summary>
+ Gets product
+ </summary>
+	<param name="productId">Product ID</param>
+	<param name="lang">Language</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IProductsRepository.getProductLang(System.Int32,System.String)">
+	<summary>
+ Gets product Language
+ </summary>
+	<param name="productId">Product ID</param>
+	<param name="lang">Language</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IProductsRepository.getProductImages(System.Int32)">
+	<summary>
+ Gets product images by product id
+ </summary>
+	<param name="productId">Product ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IProductsRepository.addProductCategories(System.Int32,System.String)">
+	<summary>
+ Adds product to categories
+ </summary>
+	<param name="product"></param>
+	<param name="productCats"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IProductsRepository.addProductCategory(System.Int32,System.Int32)">
+	<summary>
+ Add product to category
+ </summary>
+	<param name="productId"></param>
+	<param name="categoryId"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IProductsRepository.getProductCategories(System.Int32)">
+	<summary>
+ Get list of product categories
+ </summary>
+	<param name="productId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IProductsRepository.CopyProductToLanguages(RIW.Modules.WebAPI.Models.ProductLang,System.String,System.Boolean)">
+	<summary>
+ Copies option model languages
+ </summary>
+	<param name="objInfo"></param>
+	<param name="Lang"></param>
+	<param name="ForceOverwrite"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IProductsRepository.updateProductOption(RIW.Modules.WebAPI.Models.ProductOption)">
+	<summary>
+ Updates product option
+ </summary>
+	<param name="productOption">Product Option</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IProductsRepository.updateProductOptionLang(RIW.Modules.WebAPI.Models.ProductOptionLang)">
+	<summary>
+ Updates product option language
+ </summary>
+	<param name="productOptionLang">Product Option Language</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IProductsRepository.addProductOption(RIW.Modules.WebAPI.Models.ProductOption)">
+	<summary>
+ Adds product option
+ </summary>
+	<param name="productOption"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IProductsRepository.addProductOptionLang(RIW.Modules.WebAPI.Models.ProductOptionLang)">
+	<summary>
+ Adds product option language
+ </summary>
+	<param name="productOptionLang"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IProductsRepository.getProductOption(System.Int32,System.String)">
+	<summary>
+ Gets product option
+ </summary>
+	<param name="optionId">Option ID</param>
+	<param name="lang">Language</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IProductsRepository.getProductOptions(System.Int32,System.String)">
+	<summary>
+ Gets list product options
+ </summary>
+	<param name="productId"></param>
+	<param name="lang"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IProductsRepository.CopyOptionToLanguages(RIW.Modules.WebAPI.Models.ProductOptionLang,System.String,System.Boolean)">
+	<summary>
+ Copies option model languages
+ </summary>
+	<param name="objInfo"></param>
+	<param name="Lang"></param>
+	<param name="ForceOverwrite"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IProductsRepository.updateProductOptionValue(RIW.Modules.WebAPI.Models.ProductOptionValue)">
+	<summary>
+ Updates product option value
+ </summary>
+	<param name="productOptionValue">Product Option</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IProductsRepository.updateProductOptionValueLang(RIW.Modules.WebAPI.Models.ProductOptionValueLang)">
+	<summary>
+ Updates product option value language
+ </summary>
+	<param name="productOptionValueLang">Product Option Value Language</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IProductsRepository.addProductOptionValue(RIW.Modules.WebAPI.Models.ProductOptionValue)">
+	<summary>
+ Adds product option value
+ </summary>
+	<param name="productOptionValue"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IProductsRepository.addProductOptionValueLang(RIW.Modules.WebAPI.Models.ProductOptionValueLang)">
+	<summary>
+ Adds product option value language
+ </summary>
+	<param name="productOptionValueLang"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IProductsRepository.getProductOptionValue(System.Int32,System.String)">
+	<summary>
+ Gets product option value
+ </summary>
+	<param name="optionValueId">Option Value ID</param>
+	<param name="lang">Language</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IProductsRepository.getProductOptionValues(System.Int32,System.String)">
+	<summary>
+ Gets list product option values
+ </summary>
+	<param name="optionId"></param>
+	<param name="lang"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IProductsRepository.CopyOptionValueToLanguages(RIW.Modules.WebAPI.Models.ProductOptionValueLang,System.String,System.Boolean)">
+	<summary>
+ Copies option value model languages
+ </summary>
+	<param name="objInfo"></param>
+	<param name="Lang"></param>
+	<param name="ForceOverwrite"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IProductsRepository.updateProductRelated(RIW.Modules.WebAPI.Models.ProductRelated)">
+	<summary>
+ Updates product related
+ </summary>
+	<param name="productRelated">Product Related</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IProductsRepository.addProductRelated(RIW.Modules.WebAPI.Models.ProductRelated)">
+	<summary>
+ Adds product related
+ </summary>
+	<param name="related"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IProductsRepository.getProductRelated(System.Int32)">
+	<summary>
+ Gets product related
+ </summary>
+	<param name="productRelatedId">Option Related ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IProductsRepository.getProductsRelated(System.Int32,System.Int32,System.String,System.Int32,System.Boolean)">
+	<summary>
+ Gets products related
+ </summary>
+	<param name="portalId"></param>
+	<param name="productId"></param>
+	<param name="lang"></param>
+	<param name="relatedType"></param>
+	<param name="getAll"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IProductsRepository.getProductFinance(System.Int32)">
+	<summary>
+ Gets product finance
+ </summary>
+	<param name="productId">Product ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IProductsRepository.removeProductCategory(System.Int32)">
+	<summary>
+ Remove product category
+ </summary>
+	<param name="productId"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IProductsRepository.removeProductsCategory(System.Int32)">
+	<summary>
+ Remove product category
+ </summary>
+	<param name="categoryId"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IProductsRepository.removeProductCategory(RIW.Modules.WebAPI.Models.ProductCategory)">
+	<summary>
+ Removes product category
+ </summary>
+	<param name="productCategory"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IProductsRepository.removeProductOptionValues(System.Int32,System.String)">
+	<summary>
+ Removes all attribute's values
+ </summary>
+	<param name="optionId"></param>
+	<param name="lang"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IProductsRepository.removeProductOptionValueLangs(System.Int32,System.String)">
+	<summary>
+ Removes all attribute's values langs
+ </summary>
+	<param name="optionId"></param>
+	<param name="lang"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IProductsRepository.addProductImage(RIW.Modules.WebAPI.Models.ProductImage)">
+	<summary>
+ Adds product image
+ </summary>
+	<param name="productImage"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IProductsRepository.getProductImage(System.Int32)">
+	<summary>
+ Gets a productImage
+ </summary>
+	<param name="productImageId"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IProductsRepository.updateProductImage(RIW.Modules.WebAPI.Models.ProductImage)">
+	<summary>
+ Updates image view order
+ </summary>
+	<param name="productImage"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IProductsRepository.removeProductImage(System.Int32)">
+	<summary>
+ Removes a product image
+ </summary>
+	<param name="productImageId"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IProductsRepository.removeProductImage(RIW.Modules.WebAPI.Models.ProductImage)">
+	<summary>
+ Removes a product image
+ </summary>
+	<param name="productImage"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IProductsRepository.updateProductFinance(RIW.Modules.WebAPI.Models.ProductFinance)">
+	<summary>
+ Updates product finance
+ </summary>
+	<param name="productFinance"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IProductsRepository.getProductVideos(System.Int32)">
+	<summary>
+ Gets list of product videos
+ </summary>
+	<param name="productId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IProductsRepository.removeProductVideo(System.Int32)">
+	<summary>
+ Removes product video
+ </summary>
+	<param name="videoId"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IProductsRepository.removeProductVideos(System.Int32)">
+	<summary>
+ Removes product video
+ </summary>
+	<param name="productId"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IProductsRepository.removeProductVideo(RIW.Modules.WebAPI.Models.ProductVideo)">
+	<summary>
+ Removes product video
+ </summary>
+	<param name="productVideo"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IProductsRepository.addProductVideo(RIW.Modules.WebAPI.Models.ProductVideo)">
+	<summary>
+ Adds product video
+ </summary>
+	<param name="productVideo"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IAccountsRepository.GetAccounts(System.Int32)">
+	<summary>
+ Gets a list of creditor account by portal id
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IAccountsRepository.GetAccount(System.Int32,System.Int32)">
+	<summary>
+ Gets a creditor account by id
+ </summary>
+	<param name="accountId">Account ID</param>
+	<param name="portalId">Portal ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IAccountsRepository.UpdateAccount(RIW.Modules.WebAPI.Models.Account)">
+	<summary>
+ Updates a creditor account info
+ </summary>
+	<param name="t">Account Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IAccountsRepository.AddAccount(RIW.Modules.WebAPI.Models.Account)">
+	<summary>
+ Adds a new creditor account
+ </summary>
+	<param name="t">Account Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IAccountsRepository.RemoveAccount(System.Int32,System.Int32)">
+	<summary>
+ Removes a creditor account by id
+ </summary>
+	<param name="accountId">Account ID</param>
+	<param name="portalId">POrtal ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IAccountsRepository.RemoveAccount(RIW.Modules.WebAPI.Models.Account)">
+	<summary>
+ Removes a creditor account
+ </summary>
+	<param name="t">Account Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IAccountsRepository.GetAccountsBalance(System.String,System.String)">
+	<summary>
+ Gets a total balance
+ </summary>
+	<param name="portalId">POrtal ID</param>
+	<param name="account">Account ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPersonHistoriesRepository.getPersonHistories(System.Int32)">
+	<summary>
+ Gets a list of person Histories by person id
+ </summary>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPersonHistoriesRepository.getPersonHistory(System.Int32,System.Int32)">
+	<summary>
+ Gets a person doc by id
+ </summary>
+	<param name="personHistoryId">PersonHistory ID</param>
+	<param name="personId">Personl ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPersonHistoriesRepository.addPersonHistory(RIW.Modules.WebAPI.Models.PersonHistory)">
+	<summary>
+ Adds a person doc
+ </summary>
+	<param name="personHistory">Person History Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPersonHistoriesRepository.updatePersonHistory(RIW.Modules.WebAPI.Models.PersonHistory)">
+	<summary>
+ Updates a person doc
+ </summary>
+	<param name="personHistory">Person History Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPersonHistoriesRepository.removePersonHistory(System.Int32,System.Int32)">
+	<summary>
+ Removes person doc by person id
+ </summary>
+	<param name="personId">Person ID</param>
+	<param name="personHistoryId">Person History ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPersonHistoriesRepository.removePersonHistories(System.Int32)">
+	<summary>
+ Remove all person doc
+ </summary>
+	<param name="personId">Person ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPersonHistoriesRepository.removePersonHistory(RIW.Modules.WebAPI.Models.PersonHistory)">
+	<summary>
+ Removes a person doc
+ </summary>
+	<param name="personHistory">Person History Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPersonHistoriesRepository.getPersonHistoryComments(System.Int32)">
+	<summary>
+ Gets estimate history comments
+ </summary>
+	<param name="personHistoryId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPersonHistoriesRepository.addPersonHistoryComment(RIW.Modules.WebAPI.Models.PersonHistoryComment)">
+	<summary>
+ Adds an estimate history comment
+ </summary>
+	<param name="personHistoryComment"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPersonHistoriesRepository.getPersonHistoryComment(System.Int32,System.Int32)">
+	<summary>
+ Gets an estimate message comment
+ </summary>
+	<param name="commentId"></param>
+	<param name="personHistoryId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPersonHistoriesRepository.updatePersonHistoryComment(RIW.Modules.WebAPI.Models.PersonHistoryComment)">
+	<summary>
+ Updates an estimate history comment
+ </summary>
+	<param name="personHistoryComment"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPersonHistoriesRepository.removePersonHistoryComment(System.Int32,System.Int32)">
+	<summary>
+ Removes an estimate history comment
+ </summary>
+	<param name="commentId"></param>
+	<param name="personHistoryId"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPersonHistoriesRepository.removePersonHistoryComment(RIW.Modules.WebAPI.Models.PersonHistoryComment)">
+	<summary>
+ Removes a person history comment
+ </summary>
+	<param name="personHistoryComment"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPaymentsRepository.GetPayments(System.String,System.String,System.String,System.String,System.String,System.Boolean,System.String,System.DateTime,System.DateTime,System.Int32,System.Int32,System.String)">
+	<summary>
+ Gets a list of payments
+ </summary>
+	<param name="portalId">POrtal ID</param>
+	<param name="account">Account ID</param>
+	<param name="provider">Provider ID</param>
+	<param name="client">Client ID</param>
+	<param name="cat">Credit or Debit</param>
+	<param name="sDate">Start Transaction Date</param>
+	<param name="eDate">End Transaction Date</param>
+	<param name="sTerm">Search Term</param>
+	<param name="done">Done</param>
+	<param name="pageNumber">Page Number</param>
+	<param name="pageSize">Page Size</param>
+	<param name="orderBy">Order By</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPayFormsRepository.AddPayForm(RIW.Modules.WebAPI.Models.PayForm)">
+	<summary>
+ Add pay form
+ </summary>
+	<param name="payForm"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPayFormsRepository.RemovePayForm(System.Int32,System.Int32)">
+	<summary>
+ Removes pay form by id
+ </summary>
+	<param name="payFormId"></param>
+	<param name="portalId"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPayFormsRepository.RemovePayForm(RIW.Modules.WebAPI.Models.PayForm)">
+	<summary>
+ Removes pay form
+ </summary>
+	<param name="payForm"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPayFormsRepository.GetPayForms(System.Int32,System.String)">
+	<summary>
+ Gets list of pay forms
+ </summary>
+	<param name="portalId"></param>
+	<param name="isDeleted"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPayFormsRepository.GetPayForm(System.Int32,System.Int32)">
+	<summary>
+ Gets pay form
+ </summary>
+	<param name="payFormId"></param>
+	<param name="portalId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPayFormsRepository.UpdatePayForm(RIW.Modules.WebAPI.Models.PayForm)">
+	<summary>
+ Updates pay form
+ </summary>
+	<param name="payForm"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IClientIncomeSourcesRepository.GetClientIncomeSources(System.Int32)">
+	<summary>
+ Gets a list of client income sources by client id
+ </summary>
+	<param name="personId">Client ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IClientIncomeSourcesRepository.GetClientIncomeSource(System.Int32,System.Int32)">
+	<summary>
+ Gets a client income source by id
+ </summary>
+	<param name="clientIncomeSourceId">Client Income Source ID</param>
+	<param name="personId">Clientl ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IClientIncomeSourcesRepository.AddClientIncomeSource(RIW.Modules.WebAPI.Models.ClientIncomeSource)">
+	<summary>
+ Adds a client income source
+ </summary>
+	<param name="clientIncomeSource">Client Income Source Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IClientIncomeSourcesRepository.UpdateClientIncomeSource(RIW.Modules.WebAPI.Models.ClientIncomeSource)">
+	<summary>
+ Updates a client income source
+ </summary>
+	<param name="clientIncomeSource">Client Income Source Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IClientIncomeSourcesRepository.RemoveClientIncomeSource(System.Int32,System.Int32)">
+	<summary>
+ Removes client income source by client id
+ </summary>
+	<param name="personId">Client ID</param>
+	<param name="clientIncomeSourceId">Client Income Source ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IClientIncomeSourcesRepository.RemoveClientIncomeSources(System.Int32)">
+	<summary>
+ Remove all client income source
+ </summary>
+	<param name="personId">Client ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IClientIncomeSourcesRepository.RemoveClientIncomeSource(RIW.Modules.WebAPI.Models.ClientIncomeSource)">
+	<summary>
+ Removes a client income source
+ </summary>
+	<param name="clientIncomeSource">Client Income Source Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IClientPartnerBankRefsRepository.getClientPartnerBankRefs(System.Int32)">
+	<summary>
+ Gets a list of client partner's bank refs by client id
+ </summary>
+	<param name="personId">Client ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IClientPartnerBankRefsRepository.getClientPartnerBankRef(System.Int32,System.Int32)">
+	<summary>
+ Gets a client partner's bank ref by id
+ </summary>
+	<param name="clientPartnerBankRefId">Client Partner Bank Ref ID</param>
+	<param name="personId">Clientl ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IClientPartnerBankRefsRepository.addClientPartnerBankRef(RIW.Modules.WebAPI.Models.ClientPartnerBankRef)">
+	<summary>
+ Adds a client partner's bank ref
+ </summary>
+	<param name="clientPartnerBankRef">Client Partner Bank Ref Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IClientPartnerBankRefsRepository.updateClientPartnerBankRef(RIW.Modules.WebAPI.Models.ClientPartnerBankRef)">
+	<summary>
+ Updates a client partner's bank ref
+ </summary>
+	<param name="clientPartnerBankRef">Client Partner Bank Ref Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IClientPartnerBankRefsRepository.removeClientPartnerBankRef(System.Int32,System.Int32)">
+	<summary>
+ Removes client partner's bank ref by client id
+ </summary>
+	<param name="personId">Client ID</param>
+	<param name="clientPartnerBankRefId">Client Partner Bank Ref ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IClientPartnerBankRefsRepository.removeClientPartnerBankRefs(System.Int32)">
+	<summary>
+ Remove all client partner's bank ref
+ </summary>
+	<param name="personId">Client ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IClientPartnerBankRefsRepository.RemoveClientPartnerBankRef(RIW.Modules.WebAPI.Models.ClientPartnerBankRef)">
+	<summary>
+ Removes a client partner's bank ref
+ </summary>
+	<param name="clientPartnerBankRef">Client Partner Bank Ref Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IEstimatesRepository.getEstimates(System.Int32,System.Int32,System.Int32,System.Int32,System.DateTime,System.DateTime,System.String,System.String,System.Int32,System.Int32,System.String)">
+	<summary>
+ Gets a list of estimates
+ </summary>
+	<param name="portalId"></param>
+	<param name="personId"></param>
+	<param name="salesRep"></param>
+	<param name="statusId"></param>
+	<param name="sDate"></param>
+	<param name="eDate"></param>
+	<param name="filter"></param>
+	<param name="isDeleted"></param>
+	<param name="pageIndex"></param>
+	<param name="pageSize"></param>
+	<param name="orderBy"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IEstimatesRepository.getEstimateItems(System.Int32,System.Int32,System.String)">
+	<summary>
+ Gets a list of estimate items by estimate id
+ </summary>
+	<param name="portalId"></param>
+	<param name="estimateId">Estimate ID</param>
+	<param name="lang"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IEstimatesRepository.getEstimate(System.Int32,System.Int32)">
+	<summary>
+ Gets an estimate by id
+ </summary>
+	<param name="estimateId">Estimate ID</param>
+	<param name="portalId">Portal ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IEstimatesRepository.addEstimate(RIW.Modules.WebAPI.Models.Estimate)">
+	<summary>
+ Adds an estimate
+ </summary>
+	<param name="estimate">Estimate Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IEstimatesRepository.updateEstimate(RIW.Modules.WebAPI.Models.Estimate)">
+	<summary>
+ Updates an estimate
+ </summary>
+	<param name="estimate">Estimate Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IEstimatesRepository.addEstimateItem(RIW.Modules.WebAPI.Models.EstimateItem)">
+	<summary>
+ Adds an estimate
+ </summary>
+	<param name="estimateItem">Estimate Item Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IEstimatesRepository.updateEstimateItem(RIW.Modules.WebAPI.Models.EstimateItem)">
+	<summary>
+ Updates an estimate
+ </summary>
+	<param name="estimateItem">Estimate Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IEstimatesRepository.removeEstimate(System.Int32,System.Int32)">
+	<summary>
+ Removes estimate by estimate id and client id
+ </summary>
+	<param name="personId">Client ID</param>
+	<param name="estimateId">Estimate ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IEstimatesRepository.removeClientEstimates(System.Int32,System.Int32)">
+	<summary>
+ Removes all client estimates
+ </summary>
+	<param name="personId">Client ID</param>
+	<param name="portalId">Portal ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IEstimatesRepository.removeEstimate(RIW.Modules.WebAPI.Models.Estimate)">
+	<summary>
+ Removes an estimate
+ </summary>
+	<param name="Estimate">Estimate Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IEstimatesRepository.addEstimateItemRemoved(RIW.Modules.WebAPI.Models.EstimateItemRemoved)">
+	<summary>
+ Adds an estimate
+ </summary>
+	<param name="estimateItem">Estimate Item Removed Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IEstimatesRepository.getEstimateItem(System.Int32,System.Int32)">
+	<summary>
+ Gets an estimate by id
+ </summary>
+	<param name="estimateItemId">Estimate Item ID</param>
+	<param name="estimateId">Estimate ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IEstimatesRepository.removeEstimateItem(System.Int32,System.Int32)">
+	<summary>
+ Removes estimate by estimate id and client id
+ </summary>
+	<param name="estimateItemId">Estimate Item ID</param>
+	<param name="estimateId">Estimate ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IEstimatesRepository.removeEstimateItem(RIW.Modules.WebAPI.Models.EstimateItem)">
+	<summary>
+ Removes an estimate item
+ </summary>
+	<param name="estimateItem">Estimate Item Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IEstimatesRepository.addEstimateHistory(RIW.Modules.WebAPI.Models.EstimateHistory)">
+	<summary>
+ Adds an estimate hsitory
+ </summary>
+	<param name="estimateHistory">Estimate History Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IEstimatesRepository.deleteEstimate(RIW.Modules.WebAPI.Models.Estimate)">
+	<summary>
+ Deletes an estimate
+ </summary>
+	<param name="estimate"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IEstimatesRepository.getEstimateHistories(System.Int32)">
+	<summary>
+ Gets estimate histories
+ </summary>
+	<param name="estimateId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IEstimatesRepository.getEstimateMessages(System.Int32)">
+	<summary>
+ Gets list of estimate messages
+ </summary>
+	<param name="estimateId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IEstimatesRepository.getEstimateMessage(System.Int32,System.Int32)">
+	<summary>
+ Gets an estimate message
+ </summary>
+	<param name="estimateMessageId"></param>
+	<param name="estimateId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IEstimatesRepository.addEstimateMessage(RIW.Modules.WebAPI.Models.EstimateMessage)">
+	<summary>
+ Adds an estimate message
+ </summary>
+	<param name="estimateMessage"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IEstimatesRepository.updateEstimateMessage(RIW.Modules.WebAPI.Models.EstimateMessage)">
+	<summary>
+ Updates an estimate message
+ </summary>
+	<param name="estimateMessage"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IEstimatesRepository.removeEstimateMessage(System.Int32,System.Int32)">
+	<summary>
+ Removes an estimate message
+ </summary>
+	<param name="estimateMessageId"></param>
+	<param name="estimateId"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IEstimatesRepository.removeEstimateMessage(RIW.Modules.WebAPI.Models.EstimateMessage)">
+	<summary>
+ Removes an estimate message
+ </summary>
+	<param name="estimateMessage"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IEstimatesRepository.getEstimateMessageComments(System.Int32)">
+	<summary>
+ Gets list of estimate messages
+ </summary>
+	<param name="estimateMessageId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IEstimatesRepository.getEstimateHistoryComments(System.Int32)">
+	<summary>
+ Gets estimate history comments
+ </summary>
+	<param name="estimateHistoryId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IEstimatesRepository.addEstimateMessageComment(RIW.Modules.WebAPI.Models.EstimateMessageComment)">
+	<summary>
+ Adds an estimate message comment
+ </summary>
+	<param name="estimateMessageComment"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IEstimatesRepository.addEstimateHistoryComment(RIW.Modules.WebAPI.Models.EstimateHistoryComment)">
+	<summary>
+ Adds an estimate history comment
+ </summary>
+	<param name="estimateHistoryComment"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IEstimatesRepository.getEstimateMessageComment(System.Int32,System.Int32)">
+	<summary>
+ Gets an estimate message
+ </summary>
+	<param name="commentId"></param>
+	<param name="estimateMessageId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IEstimatesRepository.getEstimateHistoryComment(System.Int32,System.Int32)">
+	<summary>
+ Gets an estimate message comment
+ </summary>
+	<param name="commentId"></param>
+	<param name="estimateHistoryId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IEstimatesRepository.updateEstimateMessageComment(RIW.Modules.WebAPI.Models.EstimateMessageComment)">
+	<summary>
+ Updates an estimate message comment
+ </summary>
+	<param name="estimateMessageComment"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IEstimatesRepository.updateEstimateHistoryComment(RIW.Modules.WebAPI.Models.EstimateHistoryComment)">
+	<summary>
+ Updates an estimate history comment
+ </summary>
+	<param name="estimateHistoryComment"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IEstimatesRepository.removeEstimateMessageComment(System.Int32,System.Int32)">
+	<summary>
+ Removes an estimate message comment
+ </summary>
+	<param name="commentId"></param>
+	<param name="estimateMessageId"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IEstimatesRepository.removeEstimateHistoryComment(System.Int32,System.Int32)">
+	<summary>
+ Removes an estimate history comment
+ </summary>
+	<param name="commentId"></param>
+	<param name="estimateHistoryId"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IEstimatesRepository.removeEstimateMessageComment(RIW.Modules.WebAPI.Models.EstimateMessageComment)">
+	<summary>
+ Removes an estimate message comement
+ </summary>
+	<param name="estimateMessageComment"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IEstimatesRepository.removeEstimateHistoryComment(RIW.Modules.WebAPI.Models.EstimateHistoryComment)">
+	<summary>
+ Removes an estimate history comment
+ </summary>
+	<param name="estimateHistoryComment"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IUnitTypesRepository.addUnitType(RIW.Modules.WebAPI.Models.UnitType)">
+	<summary>
+ Adds a new unitType
+ </summary>
+	<param name="unitType">UnitType Model</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IUnitTypesRepository.getUnitTypes(System.Int32,System.String)">
+	<summary>
+ Gets a list of unitTypes by portal id
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<param name="isDeleted"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IUnitTypesRepository.getUnitType(System.Int32,System.Int32)">
+	<summary>
+ Gets unitType
+ </summary>
+	<param name="unitTypeId">UnitType ID</param>
+	<param name="portalId">Portal ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IUnitTypesRepository.updateUnitType(RIW.Modules.WebAPI.Models.UnitType)">
+	<summary>
+ Updates unitType
+ </summary>
+	<param name="unitType">UnitType Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IUnitTypesRepository.removeUnitType(System.Int32,System.Int32)">
+	<summary>
+ Removes unitType
+ </summary>
+	<param name="unitTypeId">UnitType ID</param>
+	<param name="portalId">Portal ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IUnitTypesRepository.removeUnitType(RIW.Modules.WebAPI.Models.UnitType)">
+	<summary>
+ Removes unitType
+ </summary>
+	<param name="unitType">UnitType Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IClientCommRefsRepository.getClientCommRefs(System.Int32)">
+	<summary>
+ Gets a list of client commerce references by client id
+ </summary>
+	<param name="personId">Client ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IClientCommRefsRepository.getClientCommRef(System.Int32,System.Int32)">
+	<summary>
+ Gets a client commerce reference by id
+ </summary>
+	<param name="clientCommRefId">ClientCommRef ID</param>
+	<param name="personId">Clientl ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IClientCommRefsRepository.addClientCommRef(RIW.Modules.WebAPI.Models.ClientCommRef)">
+	<summary>
+ Adds a client commerce reference
+ </summary>
+	<param name="clientCommRef">Client Commerce Reference Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IClientCommRefsRepository.updateClientCommRef(RIW.Modules.WebAPI.Models.ClientCommRef)">
+	<summary>
+ Updates a client commerce reference
+ </summary>
+	<param name="clientCommRef">Client Commerce Reference Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IClientCommRefsRepository.RemoveClientCommRef(System.Int32,System.Int32)">
+	<summary>
+ Removes client commerce reference by client id
+ </summary>
+	<param name="personId">Client ID</param>
+	<param name="clientCommRefId">Client Commerce Reference ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IClientCommRefsRepository.removeClientCommRefs(System.Int32)">
+	<summary>
+ Remove all client commerce reference
+ </summary>
+	<param name="personId">Client ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IClientCommRefsRepository.removeClientCommRef(RIW.Modules.WebAPI.Models.ClientCommRef)">
+	<summary>
+ Removes a client commerce reference
+ </summary>
+	<param name="clientCommRef">Client Commerce Reference Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPeopleRepository.getPeople(System.Int32,System.Int32,System.String,System.String,System.Int32,System.String,System.DateTime,System.DateTime,System.Int32,System.Int32,System.String)">
+	<summary>
+ Gets list of clients
+ </summary>
+	<param name="PortalId">Portal ID</param>
+	<param name="SalesRep">Sales Rep</param>
+	<param name="IsDeleted">Is Deleted</param>
+	<param name="SearchString">Search Term</param>
+	<param name="StatusId">Status ID</param>
+	<param name="StartDate">Modified Date start Range</param>
+	<param name="EndDate">Modified Date end Range</param>
+	<param name="PageIndex">Page Number</param>
+	<param name="PageSize">Page Size</param>
+	<param name="OrderBy">Order BY</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPeopleRepository.getPerson(System.Int32,System.Int32,System.Int32)">
+	<summary>
+ Gets client info by client id
+ </summary>
+	<param name="personId">Client ID</param>
+	<param name="portalId">Portal ID</param>
+	<param name="userId">UserId</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPeopleRepository.addPerson(RIW.Modules.WebAPI.Models.Person)">
+	<summary>
+ Adds client
+ </summary>
+	<param name="client">Client Model</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPeopleRepository.updatePerson(RIW.Modules.WebAPI.Models.Person)">
+	<summary>
+ Updates a client
+ </summary>
+	<param name="client">Client Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPeopleRepository.removePerson(System.Int32,System.Int32,System.Int32)">
+	<summary>
+ Deletes a client
+ </summary>
+	<param name="personId">Client ID</param>
+	<param name="cUserId">Client's User ID</param>
+	<param name="portalId">POrtal ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPeopleRepository.removePerson(RIW.Modules.WebAPI.Models.Person)">
+	<summary>
+ Deletes a client
+ </summary>
+	<param name="client">Client Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPersonContactsRepository.getPersonContacts(System.Int32)">
+	<summary>
+ Gets a list of person contacts by person id
+ </summary>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPersonContactsRepository.getPersonContact(System.Int32,System.Int32)">
+	<summary>
+ Gets a person contact by id
+ </summary>
+	<param name="personContactId">PersonContact ID</param>
+	<param name="personId">Personl ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPersonContactsRepository.getPersonContact(System.String,System.Int32)">
+	<summary>
+ Gets a person contact by id
+ </summary>
+	<param name="contactEmail">PersonContact Email</param>
+	<param name="portalId">Personl ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPersonContactsRepository.addPersonContact(RIW.Modules.WebAPI.Models.PersonContact)">
+	<summary>
+ Adds a person contact
+ </summary>
+	<param name="personContact">Person Contact Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPersonContactsRepository.updatePersonContact(RIW.Modules.WebAPI.Models.PersonContact)">
+	<summary>
+ Updates a person contact
+ </summary>
+	<param name="personContact">Person Contact Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPersonContactsRepository.removePersonContact(System.Int32,System.Int32)">
+	<summary>
+ Removes person contact by person id
+ </summary>
+	<param name="personId">Person ID</param>
+	<param name="personContactId">Person Contact ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPersonContactsRepository.removePersonContacts(System.Int32)">
+	<summary>
+ Remove all person contact
+ </summary>
+	<param name="personId">Person ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPersonContactsRepository.removePersonContact(RIW.Modules.WebAPI.Models.PersonContact)">
+	<summary>
+ Removes a person contact
+ </summary>
+	<param name="personContact">Person Contact Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPersonIndustriesRepository.getPersonIndustries(System.Int32)">
+	<summary>
+ Gets a list of industries by person id
+ </summary>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPersonIndustriesRepository.addPersonIndustry(RIW.Modules.WebAPI.Models.PersonIndustry)">
+	<summary>
+ Adds a new person industry
+ </summary>
+	<param name="personIndustry">Person Industry Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPersonIndustriesRepository.removePersonIndustries(System.Int32)">
+	<summary>
+ Removes person industries by person id
+ </summary>
+	<param name="personId">Person ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPersonIndustriesRepository.removePersonIndustry(RIW.Modules.WebAPI.Models.PersonIndustry)">
+	<summary>
+ Removes a person industry
+ </summary>
+	<param name="personIndustry">Person Industry Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IAgendasRepository.GetAgendaData(System.String,System.String,System.DateTime,System.DateTime)">
+	<summary>
+ Gets user agenda's data
+ </summary>
+	<param name="PortalId">Portal ID</param>
+	<param name="UserId">User ID</param>
+	<param name="StartDateTime">Agenda range starting date</param>
+	<param name="EndDateTime">Agenda range ending date</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IAgendasRepository.GetAppointmentData(System.Int32,System.Int32)">
+	<summary>
+ Gets user appoitment's data
+ </summary>
+	<param name="AppointmentId">Appointment ID</param>
+	<param name="UserId">User ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IAgendasRepository.GetAppointmentsDataRes">
+	<summary>
+ To be implemented
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IAgendasRepository.AddAppointmentData(RIW.Modules.WebAPI.Models.Agenda)">
+	<summary>
+ Adds appointment data
+ </summary>
+	<param name="appointment">Agenda Model</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IAgendasRepository.UpdateAppointmentData(RIW.Modules.WebAPI.Models.Agenda)">
+	<summary>
+ Updates appointment data
+ </summary>
+	<param name="appointment">Agenda Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IAgendasRepository.RemoveAppointment(System.Int32,System.Int32)">
+	<summary>
+ Removes appointment by appointment id
+ </summary>
+	<param name="appointmentId">AppointmentId ID</param>
+	<param name="userId">User ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IAgendasRepository.RemoveAppointments(System.Int32)">
+	<summary>
+ Remove all appointments by user id
+ </summary>
+	<param name="userId">User ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IAgendasRepository.RemoveAppointment(RIW.Modules.WebAPI.Models.Agenda)">
+	<summary>
+ Removes appointment
+ </summary>
+	<param name="appointment">Agenda Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IInvoicesRepository.AddInvoice(RIW.Modules.WebAPI.Models.Invoice)">
+	<summary>
+ Add an invoice
+ </summary>
+	<param name="invoice"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IInvoicesRepository.GetInvoices(System.String,System.String,System.String,System.String,System.DateTime,System.DateTime,System.Int32,System.Int32,System.String)">
+	<summary>
+ Get invoices by portal id
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<param name="personId">Client ID</param>
+	<param name="providerId">Provider ID</param>
+	<param name="prodId">Product ID</param>
+	<param name="sDate">Emission Date Start</param>
+	<param name="eDate">Emission Date End</param>
+	<param name="pageNumber">Page Number</param>
+	<param name="pageSize">How many pages</param>
+	<param name="orderBy">Field to order by</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IInvoicesRepository.GetInvoice(System.Int32)">
+	<summary>
+ Gets invoice
+ </summary>
+	<param name="invoiceId">Invoice ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IInvoicesRepository.UpdateInvoice(RIW.Modules.WebAPI.Models.Invoice)">
+	<summary>
+ Updates an invoice
+ </summary>
+	<param name="invoice">Invoice Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IInvoicesRepository.RemoveInvoice(System.Int32)">
+	<summary>
+ Removes an invoice by invoice id
+ </summary>
+	<param name="invoiceId">Invoice ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IInvoicesRepository.RemoveInvoice(RIW.Modules.WebAPI.Models.Invoice)">
+	<summary>
+ Removes an invoice
+ </summary>
+	<param name="invoice">Invoice Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IInvoicesRepository.GetInvoiceItems(System.Int32)">
+	<summary>
+ Gets invoice items by invoice id
+ </summary>
+	<param name="invoiceId">Invoice ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IInvoicesRepository.GetInvoiceItem(System.Int32,System.Int32)">
+	<summary>
+ Gets product info by product id
+ </summary>
+	<param name="invoiceItemId">Invoice Item ID</param>
+	<param name="invoiceId">Invoice ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IInvoicesRepository.RemoveInvoiceItem(System.Int32,System.Int32)">
+	<summary>
+ Removes an invoice by invoice id
+ </summary>
+	<param name="invoiceItemId">Invoice Item ID</param>
+	<param name="invoiceId">Invoice ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IInvoicesRepository.RemoveInvoiceItem(RIW.Modules.WebAPI.Models.InvoiceItem)">
+	<summary>
+ Removes an invoice
+ </summary>
+	<param name="invoiceItem">InvoiceItem Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IInvoicesRepository.RemoveInvoiceItems(System.Int32)">
+	<summary>
+ Removes an invoice by invoice id
+ </summary>
+	<param name="invoiceId">Invoice ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IInvoicesRepository.UpdateInvoiceItem(RIW.Modules.WebAPI.Models.InvoiceItem)">
+	<summary>
+ Updates an invoice item
+ </summary>
+	<param name="invoiceItem">Invoice Item Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IInvoicesRepository.AddInvoiceItem(RIW.Modules.WebAPI.Models.InvoiceItem)">
+	<summary>
+ Add an invoice item
+ </summary>
+	<param name="invoiceItem">Invoice Item Model</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ICategoriesRepository.GetCategories_List(System.Int32,System.String,System.Int32,System.String,System.Boolean,System.Boolean)">
+	<summary>
+ Gets a list of categories by portal id
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<param name="lang">Language</param>
+	<param name="parentId">Parent ID</param>
+	<param name="filter">Filter</param>
+	<param name="archived">Maked As Deleted</param>
+	<param name="includeArchived">Include Deleted</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ICategoriesRepository.GetCategory(System.Int32,System.String)">
+	<summary>
+ Gets category
+ </summary>
+	<param name="catId">Category ID</param>
+	<param name="lang">Category Language</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ICategoriesRepository.GetCategoryLang(System.Int32,System.String)">
+	<summary>
+ Gets category Language
+ </summary>
+	<param name="catId">Category ID</param>
+	<param name="lang">Category Language</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ICategoriesRepository.GetCategoryPermissions(System.Int32)">
+	<summary>
+ Gets a list of category permissions by category id
+ </summary>
+	<param name="categoryId">Category ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ICategoriesRepository.GetCategoryProducts(System.Int32)">
+	<summary>
+ Gets list of products
+ </summary>
+	<param name="categoryId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ICategoriesRepository.GetProductCategories(System.Int32)">
+	<summary>
+ Gets list of categories
+ </summary>
+	<param name="productId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ICategoriesRepository.GetCategoryPermission(System.Int32,System.Int32)">
+	<summary>
+ Gets category permission
+ </summary>
+	<param name="categoryPermissionId"></param>
+	<param name="categoryId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ICategoriesRepository.GetCategoriesRolePermissions(System.Int32)">
+	<summary>
+ Gets a list of permissions by category id
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ICategoriesRepository.AddCategory(RIW.Modules.WebAPI.Models.Category)">
+	<summary>
+ Adds or updates a category
+ </summary>
+	<param name="category">Category Model</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ICategoriesRepository.AddCategoryLang(RIW.Modules.WebAPI.Models.CategoryLang)">
+	<summary>
+ Adds or updates a category
+ </summary>
+	<param name="categoryLang">Category Language Model</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ICategoriesRepository.UpdateCategory(RIW.Modules.WebAPI.Models.Category)">
+	<summary>
+ Adds or updates a category
+ </summary>
+	<param name="category">Category Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ICategoriesRepository.UpdateCategoryLang(RIW.Modules.WebAPI.Models.CategoryLang)">
+	<summary>
+ Adds or updates a category
+ </summary>
+	<param name="categoryLang">Category Language Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ICategoriesRepository.AddCategorySecurity(RIW.Modules.WebAPI.Models.CategoryPermission)">
+	<summary>
+ Updates a category security
+ </summary>
+	<param name="catPermission">Category Permission Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ICategoriesRepository.UpdateCategoryPermission(RIW.Modules.WebAPI.Models.CategoryPermission)">
+	<summary>
+ Updates category permission
+ </summary>
+	<param name="catPermission"></param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ICategoriesRepository.RemoveCategorySecurities(RIW.Modules.WebAPI.Models.CategoryPermission)">
+	<summary>
+ Resets category securities
+ </summary>
+	<param name="catPermission">Category Permission Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ICategoriesRepository.ResetCategorySecurities(System.Int32)">
+	<summary>
+ Resets category securities
+ </summary>
+	<param name="catId">Category ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ICategoriesRepository.RemoveCategory(RIW.Modules.WebAPI.Models.Category)">
+	<summary>
+ Removes category
+ </summary>
+	<param name="category">Category Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ICategoriesRepository.RemoveCategory(System.Int32,System.String)">
+	<summary>
+ Removes category
+ </summary>
+	<param name="catId">Category ID</param>
+	<param name="lang">Language</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.ICategoriesRepository.DeleteCategory(RIW.Modules.WebAPI.Models.Category)">
+	<summary>
+ Deletes category
+ </summary>
+	<param name="category">Category Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IIndustriesRepository.GetIndustries(System.Int32)">
+	<summary>
+ Gets a list of industries by portal id
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IIndustriesRepository.GetIndustry(System.Int32,System.Int32)">
+	<summary>
+ Gets a creditor account by id
+ </summary>
+	<param name="accountId">Account ID</param>
+	<param name="portalId">Portal ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IIndustriesRepository.UpdateIndustry(RIW.Modules.WebAPI.Models.Industry)">
+	<summary>
+ Updates an industry info
+ </summary>
+	<param name="industry">Industry Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IIndustriesRepository.AddIndustry(RIW.Modules.WebAPI.Models.Industry)">
+	<summary>
+ Adds a new industry
+ </summary>
+	<param name="industry">Industry Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IIndustriesRepository.RemoveIndustry(System.Int32,System.Int32)">
+	<summary>
+ Removes an industry by id
+ </summary>
+	<param name="industryId">Industry ID</param>
+	<param name="portalId">Portal ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IIndustriesRepository.RemoveIndustry(RIW.Modules.WebAPI.Models.Industry)">
+	<summary>
+ Removes an industry
+ </summary>
+	<param name="industry">Industry Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPersonDocsRepository.getPersonDocs(System.Int32)">
+	<summary>
+ Gets a list of person docs by person id
+ </summary>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPersonDocsRepository.getPersonDoc(System.Int32,System.Int32)">
+	<summary>
+ Gets a person doc by id
+ </summary>
+	<param name="personDocId">Person Doc ID</param>
+	<param name="personId">Personl ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPersonDocsRepository.addPersonDoc(RIW.Modules.WebAPI.Models.PersonDoc)">
+	<summary>
+ Adds a person doc
+ </summary>
+	<param name="personDoc">Person Doc Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPersonDocsRepository.updatePersonDoc(RIW.Modules.WebAPI.Models.PersonDoc)">
+	<summary>
+ Updates a person doc
+ </summary>
+	<param name="personDoc">Person Doc Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPersonDocsRepository.removePersonDoc(System.Int32,System.Int32)">
+	<summary>
+ Removes person doc by person id
+ </summary>
+	<param name="personId">Person ID</param>
+	<param name="personDocId">Person Doc ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPersonDocsRepository.removePersonDocs(System.Int32)">
+	<summary>
+ Remove all person doc
+ </summary>
+	<param name="personId">Person ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPersonDocsRepository.removePersonDoc(RIW.Modules.WebAPI.Models.PersonDoc)">
+	<summary>
+ Removes a person doc
+ </summary>
+	<param name="personDoc">Person Doc Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IStatusesRepository.addStatus(RIW.Modules.WebAPI.Models.Status)">
+	<summary>
+ Adds a new status
+ </summary>
+	<param name="status">Status Model</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IStatusesRepository.getStatuses(System.Int32,System.String)">
+	<summary>
+ Gets a list of statuses by portal id
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<param name="isDeleted"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IStatusesRepository.getStatus(System.Int32,System.Int32)">
+	<summary>
+ Gets status
+ </summary>
+	<param name="statusId">Status ID</param>
+	<param name="portalId">Portal ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IStatusesRepository.getStatus(System.String,System.Int32)">
+	<summary>
+ Gets status
+ </summary>
+	<param name="statusName">Status Name</param>
+	<param name="portalId">Portal ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IStatusesRepository.updateStatus(RIW.Modules.WebAPI.Models.Status)">
+	<summary>
+ Updates a status
+ </summary>
+	<param name="status">Status Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IStatusesRepository.removeStatus(System.Int32,System.Int32)">
+	<summary>
+ Removes status
+ </summary>
+	<param name="statusId">Status ID</param>
+	<param name="portalId">Portal ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IStatusesRepository.removeStatus(RIW.Modules.WebAPI.Models.Status)">
+	<summary>
+ Removes status
+ </summary>
+	<param name="status">Status Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IBrandModelsRepository.AddBrandModel(RIW.Modules.WebAPI.Models.BrandModel)">
+	<summary>
+ Adds a new brandModel
+ </summary>
+	<param name="brandModel">BrandModel Model</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IBrandModelsRepository.GetBrandModel(System.Int32,System.Int32)">
+	<summary>
+ Gets a brandModel
+ </summary>
+	<param name="modelId">Model ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IBrandModelsRepository.GetBrandModels(System.Int32)">
+	<summary>
+ Gets list of brandModels bt brand id
+ </summary>
+	<param name="brandId">Brand ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IBrandModelsRepository.UpdateBrandModel(RIW.Modules.WebAPI.Models.BrandModel)">
+	<summary>
+ Adds a new brandModel
+ </summary>
+	<param name="brandModel">BrandModel Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IBrandModelsRepository.RemoveBrandModel(System.Int32,System.Int32)">
+	<summary>
+ Removes brandModel
+ </summary>
+	<param name="brandModelId">BrandModel ID</param>
+	<param name="portalId">Portal ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IBrandModelsRepository.RemoveBrandModels(System.Int32)">
+	<summary>
+ Removes brandModel
+ </summary>
+	<param name="brandId">Brand ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IBrandModelsRepository.RemoveBrandModel(RIW.Modules.WebAPI.Models.BrandModel)">
+	<summary>
+ Removes brandModel
+ </summary>
+	<param name="brandModel">BrandModel Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IClientPartnersRepository.getClientPartners(System.Int32)">
+	<summary>
+ Gets a list of client partners by client id
+ </summary>
+	<param name="personId">Client ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IClientPartnersRepository.getClientPartner(System.Int32,System.Int32)">
+	<summary>
+ Gets a client partner by id
+ </summary>
+	<param name="clientPartnerId">Client Partner ID</param>
+	<param name="personId">Clientl ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IClientPartnersRepository.addClientPartner(RIW.Modules.WebAPI.Models.ClientPartner)">
+	<summary>
+ Adds a client partner
+ </summary>
+	<param name="clientPartner">Client Partner Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IClientPartnersRepository.updateClientPartner(RIW.Modules.WebAPI.Models.ClientPartner)">
+	<summary>
+ Updates a client partner
+ </summary>
+	<param name="clientPartner">Client Partner Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IClientPartnersRepository.removeClientPartner(System.Int32,System.Int32)">
+	<summary>
+ Removes client partner by client id
+ </summary>
+	<param name="personId">Client ID</param>
+	<param name="clientPartnerId">Client Partner ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IClientPartnersRepository.removeClientPartners(System.Int32)">
+	<summary>
+ Remove all client partner
+ </summary>
+	<param name="personId">Client ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IClientPartnersRepository.removeClientPartner(RIW.Modules.WebAPI.Models.ClientPartner)">
+	<summary>
+ Removes a client partner
+ </summary>
+	<param name="clientPartner">Client Partner Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IClientPersonalRefsRepository.getClientPersonalRefs(System.Int32)">
+	<summary>
+ Gets a list of client's personal refs
+ </summary>
+	<param name="personId">Client ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IClientPersonalRefsRepository.getClientPersonalRef(System.Int32,System.Int32)">
+	<summary>
+ Gets a client personal ref by id
+ </summary>
+	<param name="ClientPersonalRefId">Client Personal Ref ID</param>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IClientPersonalRefsRepository.addClientPersonalRef(RIW.Modules.WebAPI.Models.ClientPersonalRef)">
+	<summary>
+ Adds a client personal ref
+ </summary>
+	<param name="clientPersonalRef">Client Personal Ref Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IClientPersonalRefsRepository.updateClientPersonalRef(RIW.Modules.WebAPI.Models.ClientPersonalRef)">
+	<summary>
+ Updates a client personal ref
+ </summary>
+	<param name="clientPersonalRef">Client Personal Ref Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IClientPersonalRefsRepository.removeClientPersonalRef(System.Int32,System.Int32)">
+	<summary>
+ Removes client personal ref
+ </summary>
+	<param name="personId">Person ID</param>
+	<param name="ClientPersonalRefId">Client Personal Ref ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IClientPersonalRefsRepository.removeClientPersonalRefs(System.Int32)">
+	<summary>
+ Remove all client personal ref
+ </summary>
+	<param name="personId">Person ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IClientPersonalRefsRepository.removeClientPersonalRef(RIW.Modules.WebAPI.Models.ClientPersonalRef)">
+	<summary>
+ Removes a client personal ref
+ </summary>
+	<param name="clientPersonalRef">Client Personal Ref Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPayConditionsRepository.GetPayConds(System.Int32,System.Int32,System.Decimal)">
+	<summary>
+ Gets list of payment conditions by portal id
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<param name="payCondType">Payment Condition Type</param>
+	<param name="payCondStart">Payment Condition Start Value</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPayConditionsRepository.GetPayCond(System.Int32,System.Int32)">
+	<summary>
+ Gets payment condition by id
+ </summary>
+	<param name="payConditionId">Pay Condition ID</param>
+	<param name="portalId">Portal ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPayConditionsRepository.AddPayCond(RIW.Modules.WebAPI.Models.PayCondition)">
+	<summary>
+ Adds payment condition
+ </summary>
+	<param name="payCondition">PayCondition Model</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPayConditionsRepository.UpdatePayCond(RIW.Modules.WebAPI.Models.PayCondition)">
+	<summary>
+ Updates payment condition
+ </summary>
+	<param name="payCondition">PayCondition Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPayConditionsRepository.RemovePayCond(System.Int32,System.Int32)">
+	<summary>
+ Sets payment condition as deleted
+ </summary>
+	<param name="payConditionId">Payment Condition ID</param>
+	<param name="portalId">Portal ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPayConditionsRepository.RemovePayCond(RIW.Modules.WebAPI.Models.PayCondition)">
+	<summary>
+ Removes payment condition by id
+ </summary>
+	<param name="payCondition">PayCondition Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPersonAddressesRepository.getPersonAddresses(System.Int32)">
+	<summary>
+ Gets a list of person addresses
+ </summary>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPersonAddressesRepository.getPersonAddress(System.Int32,System.Int32)">
+	<summary>
+ Gets a person address by id
+ </summary>
+	<param name="PersonAddressId">PersonAddress ID</param>
+	<param name="personId">Personl ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPersonAddressesRepository.addPersonAddress(RIW.Modules.WebAPI.Models.PersonAddress)">
+	<summary>
+ Adds a person address
+ </summary>
+	<param name="personAddress">Person Address Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPersonAddressesRepository.updatePersonAddress(RIW.Modules.WebAPI.Models.PersonAddress)">
+	<summary>
+ Updates a person address
+ </summary>
+	<param name="personAddress">Person Address Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPersonAddressesRepository.removePersonAddress(System.Int32,System.Int32)">
+	<summary>
+ Removes person address by person id
+ </summary>
+	<param name="personId">Person ID</param>
+	<param name="personAddressId">Person Address ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPersonAddressesRepository.removePersonAddresses(System.Int32)">
+	<summary>
+ Remove all person addresses
+ </summary>
+	<param name="personId">Person ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IPersonAddressesRepository.removePersonAddress(RIW.Modules.WebAPI.Models.PersonAddress)">
+	<summary>
+ Removes a person address
+ </summary>
+	<param name="personAddress">Person Address Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IBrandsRepository.AddBrand(RIW.Modules.WebAPI.Models.Brand)">
+	<summary>
+ Adds a new brand
+ </summary>
+	<param name="brand">Brand Model</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IBrandsRepository.GetBrands(System.Int32)">
+	<summary>
+ Gets a list of brands by portal id
+ </summary>
+	<param name="portalId">Portal ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IBrandsRepository.GetBrand(System.Int32,System.Int32)">
+	<summary>
+ Gets list of models by brand id
+ </summary>
+	<param name="brandId">Brand ID</param>
+	<param name="portalId">Portal ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IBrandsRepository.UpdateBrand(RIW.Modules.WebAPI.Models.Brand)">
+	<summary>
+ Adds a new brand
+ </summary>
+	<param name="brand">Brand Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IBrandsRepository.RemoveBrand(System.Int32,System.Int32)">
+	<summary>
+ Removes brand
+ </summary>
+	<param name="brandId">Brand ID</param>
+	<param name="portalId">Portal ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IBrandsRepository.RemoveBrand(RIW.Modules.WebAPI.Models.Brand)">
+	<summary>
+ Removes brand
+ </summary>
+	<param name="brand">Brand Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IClientBankRefsRepository.getClientBankRefs(System.Int32)">
+	<summary>
+ Gets a list of client's bank references
+ </summary>
+	<param name="personId">Person ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IClientBankRefsRepository.getClientBankRef(System.Int32,System.Int32)">
+	<summary>
+ Gets a client bank reference
+ </summary>
+	<param name="clientBankRefId">Client Bank Ref ID</param>
+	<param name="personId">Personl ID</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IClientBankRefsRepository.addClientBankRef(RIW.Modules.WebAPI.Models.ClientBankRef)">
+	<summary>
+ Adds a client bank reference
+ </summary>
+	<param name="clientBankRef">Client Address Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IClientBankRefsRepository.updateClientBankRef(RIW.Modules.WebAPI.Models.ClientBankRef)">
+	<summary>
+ Updates a client bank reference
+ </summary>
+	<param name="clientBankRef">Person Address Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IClientBankRefsRepository.removeClientBankRef(System.Int32,System.Int32)">
+	<summary>
+ Removes client bank reference
+ </summary>
+	<param name="personId">Person ID</param>
+	<param name="clientBankRefId">Person Address ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IClientBankRefsRepository.removeClientBankRefs(System.Int32)">
+	<summary>
+ Remove all client bank reference
+ </summary>
+	<param name="personId">Person ID</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IClientBankRefsRepository.removeClientBankRef(RIW.Modules.WebAPI.Models.ClientBankRef)">
+	<summary>
+ Removes a client bank reference
+ </summary>
+	<param name="clientBankRef">Person Address Model</param>
+	<remarks></remarks>
+</member><member name="M:RIW.Modules.WebAPI.IFiles_Repository.DeleteFile(System.String)">
+	<summary>
+ Deletes a file
+ </summary>
+	<param name="fileName">File Name</param>
+	<remarks>all the items belong at the same Folder</remarks>
+	<returns>The not deleted items list. The subfiles / subfolders for which the user has no permissions to delete</returns>
+</member><member name="T:RIW.Modules.WebAPI.DataProvider">
+ -----------------------------------------------------------------------------
+ <summary>
+ An abstract class for the data access layer
+ </summary>
+	<remarks>
+	</remarks>
+	<history>
+	</history>
+ -----------------------------------------------------------------------------
+
+</member><member name="M:RIW.Modules.WebAPI.Notifications.AddNotificationTypes">
+	<summary>
+ This will create a notification type associated w/ the module and also handle the actions that must be associated with it.
+ </summary>
+	<remarks>This should only ever run once, during 5.0.0 install (via IUpgradeable)</remarks>
+</member><member name="P:RIW.Modules.WebAPI.RIW.Modules.Services.SendEmail.Priority">
+	<summary>
+ Priority of emails to be sent
+ </summary>
+</member><member name="P:RIW.Modules.WebAPI.RIW.Modules.Services.SendEmail.Subject">
+	<summary>
+ Subject of the emails to be sent
+ </summary>
+	<remarks>may contain tokens</remarks>
+</member><member name="P:RIW.Modules.WebAPI.RIW.Modules.Services.SendEmail.Body">
+	<summary>
+ body text of the email to be sent
+ </summary>
+	<remarks>may contain HTML tags and tokens. Side effect: sets BodyFormat autmatically</remarks>
+</member><member name="P:RIW.Modules.WebAPI.RIW.Modules.Services.SendEmail.BodyFormat">
+	<summary>format of body text for the email to be sent.</summary>
+	<remarks>by default activated, if tokens are found in Body and subject.</remarks>
+</member><member name="P:RIW.Modules.WebAPI.RIW.Modules.Services.SendEmail.PortalAlias">
+	<summary>portal alias http path to be used for links to images, ...</summary>
+</member><member name="P:RIW.Modules.WebAPI.RIW.Modules.Services.SendEmail.SendingUser">
+	<summary>UserInfo of the user sending the mail</summary>
+	<remarks>if not set explicitely, currentuser will be used</remarks>
+</member><member name="P:RIW.Modules.WebAPI.RIW.Modules.Services.SendEmail.ReplyTo">
+	<summary>email of the user to be shown in the mail as replyTo address</summary>
+	<remarks>if not set explicitely, sendingUser will be used</remarks>
+</member><member name="P:RIW.Modules.WebAPI.RIW.Modules.Services.SendEmail.RemoveDuplicates">
+	<summary>shall duplicate email addresses be ignored? (default value: false)</summary>
+	<remarks>Duplicate Users (e.g. from multiple role selections) will always be ignored.</remarks>
+</member><member name="M:RIW.Modules.WebAPI.RIW.Modules.Services.SendEmail.ConditionallyAddUser(DotNetNuke.Entities.Users.UserInfo,System.Collections.Generic.List{System.String}@,System.Collections.Generic.List{DotNetNuke.Entities.Users.UserInfo}@)">
+	<summary>add a user to the userlist, if it is not already in there</summary>
+	<param name="user">user to add</param>
+	<param name="keyList">list of key (either email addresses or userid's)</param>
+	<param name="userList">List of users</param>
+	<remarks>for use by Recipients method only</remarks>
+</member><member name="M:RIW.Modules.WebAPI.RIW.Modules.Services.SendEmail.MatchLanguageFilter(System.String)">
+	<summary>check, if the user's language matches the current language filter</summary>
+	<param name="userLanguage">Language of the user</param>
+	<returns>userlanguage matches current languageFilter</returns>
+	<remarks>if filter not set, true is returned</remarks>
+</member><member name="M:RIW.Modules.WebAPI.RIW.Modules.Services.SendEmail.SetSMTPServer(System.String,System.Int32,System.String,System.String,System.String,System.Boolean)">
+	<summary>Specify SMTP server to be used</summary>
+	<param name="smtpServer">name of the SMTP server</param>
+	<param name="smtpAuthentication">authentication string (0: anonymous, 1: basic, 2: NTLM)</param>
+	<param name="smtpUsername">username to log in SMTP server</param>
+	<param name="smtpPassword">password to log in SMTP server</param>
+	<param name="smtpEnableSSL">SSL used to connect tp SMTP server</param>
+	<returns>always true</returns>
+	<remarks>if not called, values will be taken from host settings</remarks>
+</member><member name="M:RIW.Modules.WebAPI.RIW.Modules.Services.SendEmail.AddAttachment(System.String)">
+	<summary>Add a single attachment file to the email</summary>
+	<param name="localPath">path to file to attach</param>
+	<remarks>only local stored files can be added with a path</remarks>
+</member><member name="M:RIW.Modules.WebAPI.RIW.Modules.Services.SendEmail.AddAddressedUser(DotNetNuke.Entities.Users.UserInfo)">
+	<summary>Add a single recipient</summary>
+	<param name="recipient">userinfo of user to add</param>
+	<remarks>emaiol will be used for addressing, other properties might be used for TokenReplace</remarks>
+</member><member name="M:RIW.Modules.WebAPI.RIW.Modules.Services.SendEmail.AddAddressedRole(System.String)">
+	<summary>Add all members of a role to recipient list</summary>
+	<param name="roleName">name of a role, whose members shall be added to recipients</param>
+	<remarks>emaiol will be used for addressing, other properties might be used for TokenReplace</remarks>
+</member><member name="M:RIW.Modules.WebAPI.RIW.Modules.Services.SendEmail.Recipients">
+	<summary>All bulk mail recipients, derived from role names and individual adressees </summary>
+	<returns>List of userInfo objects, who receive the bulk mail </returns>
+	<remarks>user.Email used for sending, other properties might be used for TokenReplace</remarks>
+</member><member name="M:RIW.Modules.WebAPI.RIW.Modules.Services.SendEmail.Send">
+	<summary>Wrapper for Function SendMails</summary>
+</member><member name="M:RIW.Modules.WebAPI.View.Page_Load(System.Object,System.EventArgs)">
+ -----------------------------------------------------------------------------
+ <summary>
+ Page_Load runs when the control is loaded
+ </summary>
+	<remarks>
+	</remarks>
+	<history>
+	</history>
+ -----------------------------------------------------------------------------
+
+</member><member name="T:RIW.Modules.WebAPI.View">
+	<summary>
+ The View class displays the content
+ 
+ Typically your view control would be used to display content or functionality in your module.
+ 
+ View may be the only control you have in your project depending on the complexity of your module
+ 
+ Because the control inherits from WebAPIModuleBase you have access to any custom properties
+ defined there, as well as properties from DNN such as PortalId, ModuleId, TabId, UserId and many more.
+ 
+ </summary>
+</member>
+</members>
+</doc>

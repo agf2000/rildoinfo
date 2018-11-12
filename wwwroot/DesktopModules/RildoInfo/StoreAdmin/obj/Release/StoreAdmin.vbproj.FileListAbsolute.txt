@@ -1,0 +1,10 @@
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\bin\StoreAdmin.dll
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\bin\StoreAdmin.pdb
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\bin\StoreAdmin.xml
+E:\Projects\RIW\DNN7X\wwwroot\bin\RIW.Modules.StoreAdmin.dll
+E:\Projects\RIW\DNN7X\wwwroot\bin\RIW.Modules.StoreAdmin.pdb
+E:\Projects\RIW\DNN7X\wwwroot\bin\RIW.Modules.StoreAdmin.xml
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\StoreAdmin\obj\Release\RIW.Modules.StoreAdmin.dll
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\StoreAdmin\obj\Release\RIW.Modules.StoreAdmin.xml
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\StoreAdmin\obj\Release\RIW.Modules.StoreAdmin.pdb
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\StoreAdmin\obj\Release\StoreAdmin.vbprojResolveAssemblyReference.cache

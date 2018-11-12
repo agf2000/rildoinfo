@@ -1,0 +1,14 @@
+E:\Projects\RIStore\RIStore_7x\wwwroot\bin\RIW.Modules.Products.dll
+E:\Projects\RIStore\RIStore_7x\wwwroot\bin\RIW.Modules.Products.pdb
+E:\Projects\RIStore\RIStore_7x\wwwroot\bin\RIW.Modules.Products.xml
+E:\Projects\RIStore\RIStore_7x\wwwroot\DesktopModules\RildoInfo\Products\obj\Release\Products.vbprojResolveAssemblyReference.cache
+E:\Projects\RIStore\RIStore_7x\wwwroot\DesktopModules\RildoInfo\Products\obj\Release\RIW.Modules.Products.dll
+E:\Projects\RIStore\RIStore_7x\wwwroot\DesktopModules\RildoInfo\Products\obj\Release\RIW.Modules.Products.xml
+E:\Projects\RIStore\RIStore_7x\wwwroot\DesktopModules\RildoInfo\Products\obj\Release\RIW.Modules.Products.pdb
+E:\Projects\RIW\DNN7X\wwwroot\bin\RIW.Modules.Products.dll
+E:\Projects\RIW\DNN7X\wwwroot\bin\RIW.Modules.Products.pdb
+E:\Projects\RIW\DNN7X\wwwroot\bin\RIW.Modules.Products.xml
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\Products\obj\Release\Products.vbprojResolveAssemblyReference.cache
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\Products\obj\Release\RIW.Modules.Products.dll
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\Products\obj\Release\RIW.Modules.Products.xml
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\Products\obj\Release\RIW.Modules.Products.pdb

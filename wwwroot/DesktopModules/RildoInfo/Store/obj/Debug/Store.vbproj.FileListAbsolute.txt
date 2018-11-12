@@ -1,0 +1,14 @@
+E:\Projects\RIW\DNN7X\wwwroot\bin\RIW.Modules.Store.dll
+E:\Projects\RIW\DNN7X\wwwroot\bin\RIW.Modules.Store.pdb
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\Store\obj\Debug\RIW.Modules.Store.dll
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\Store\obj\Debug\RIW.Modules.Store.pdb
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\Store\obj\Debug\Store.vbprojResolveAssemblyReference.cache
+J:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\Store\obj\Debug\Store.vbprojResolveAssemblyReference.cache
+J:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\Store\obj\Debug\RIW.Modules.Store.dll
+J:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\Store\obj\Debug\RIW.Modules.Store.pdb
+J:\Projects\RIW\DNN7X\wwwroot\bin\RIW.Modules.Store.dll
+J:\Projects\RIW\DNN7X\wwwroot\bin\RIW.Modules.Store.pdb
+J:\Projects\RIW\wwwroot\DesktopModules\RildoInfo\Store\obj\Debug\RIW.Modules.Store.dll
+J:\Projects\RIW\wwwroot\DesktopModules\RildoInfo\Store\obj\Debug\RIW.Modules.Store.pdb
+J:\Projects\RIW\wwwroot\bin\RIW.Modules.Store.dll
+J:\Projects\RIW\wwwroot\bin\RIW.Modules.Store.pdb

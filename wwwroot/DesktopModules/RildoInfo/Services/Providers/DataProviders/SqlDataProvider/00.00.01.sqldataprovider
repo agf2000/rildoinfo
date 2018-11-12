@@ -1,0 +1,434 @@
+
+/************************************************************/
+/*****              SqlDataProvider                     *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/***** Note: To manually execute this script you must   *****/
+/*****       perform a search AND replace operation     *****/
+/*****       for {databaseOwner} AND {objectQualifier}  *****/
+/*****                                                  *****/
+/************************************************************/
+
+
+/** Create Tables **/
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_Accounts]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_Accounts](
+		[PortalId] [int] NOT NULL,
+		[AccountId] [int] IDENTITY(1,1) NOT NULL,
+		[AccountName] [nvarchar](100) NOT NULL,
+		[CreatedByUser] [int] NOT NULL,
+		[CreatedOnDate] [smalldatetime] NOT NULL,
+		[ModifiedByUser] [int] NULL,
+		[ModifiedOnDate] [smalldatetime] NULL,
+	 CONSTRAINT [PK_RIW_Accounts] PRIMARY KEY CLUSTERED 
+	(
+		[AccountId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_DiscountGroups]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_DiscountGroups](
+		[PortalId] [int] NOT NULL,
+		[DiscountGroupId] [int] IDENTITY(1,1) NOT NULL,
+		[DiscountTitle] [nvarchar](100) NOT NULL,
+		[DiscountDesc] [nvarchar](500) NULL,
+		[DiscountPercent] [float] NULL,
+		[DiscountValue] [float] NULL,
+		[DiscountBase] [float] NULL,
+		[IsDeleted] [bit] NULL,
+		[CreatedOnDate] [smalldatetime] NOT NULL,
+		[CreatedByUser] [int] NOT NULL,
+		[ModifiedOnDate] [smalldatetime] NOT NULL,
+		[ModifiedByUser] [int] NOT NULL,
+	 CONSTRAINT [PK_RIW_DiscountGroups] PRIMARY KEY CLUSTERED 
+	(
+		[DiscountGroupId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_InvoiceItems]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_InvoiceItems](
+		[InvoiceItemId] [int] IDENTITY(1,1) NOT NULL,
+		[InvoiceId] [int] NOT NULL,
+		[ProductId] [int] NOT NULL,
+		[Qty] [float] NOT NULL,
+		[UnitValue] [money] NOT NULL,
+		[Discount] [money] NOT NULL,
+	 CONSTRAINT [PK_RIW_InvoiceItems] PRIMARY KEY CLUSTERED 
+	(
+		[InvoiceItemId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_Invoices]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_Invoices](
+		[PortalId] [int] NOT NULL,
+		[InvoiceId] [int] IDENTITY(1,1) NOT NULL,
+		[InvoiceNumber] [int] NOT NULL,
+		[InvoiceAmount] [money] NOT NULL,
+		[PayIn] [money] NOT NULL,
+		[Freight] [money] NOT NULL,
+		[PayQty] [int] NOT NULL,
+		[Interval] [int] NOT NULL,
+		[InterestRate] [float] NOT NULL,
+		[ProviderId] [int] NOT NULL,
+		[ClientId] [int] NOT NULL,
+		[EstimateId] [int] NOT NULL,
+		[DueDate] [smalldatetime] NOT NULL,
+		[EmissionDate] [smalldatetime] NOT NULL,
+		[Comment] [nvarchar](255) NOT NULL,
+		[CreatedOnDate] [smalldatetime] NOT NULL,
+		[CreatedByUser] [int] NOT NULL,
+		[ModifiedOnDate] [smalldatetime] NOT NULL,
+		[ModifiedByUser] [int] NOT NULL,
+	 CONSTRAINT [PK_RIW_Invoices] PRIMARY KEY CLUSTERED 
+	(
+		[InvoiceId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_PayConditions]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_PayConditions](
+		[PortalId] [int] NOT NULL,
+		[PayCondId] [int] IDENTITY(1,1) NOT NULL,
+		[PayCondTitle] [nvarchar](256) NULL,
+		[PayCondType] [int] NULL,
+		[PayCondStart] [money] NULL,
+		[PayCondN] [int] NULL,
+		[PayCondPerc] [float] NULL,
+		[PayCondIn] [float] NULL,
+		[PayCondDisc] [float] NULL,
+		[PayCondInterval] [int] NULL,
+		[GroupIds] [varchar](10) NULL,
+		[CreatedByUser] [int] NULL,
+		[CreatedOnDate] [smalldatetime] NULL,
+		[ModifiedByUser] [int] NULL,
+		[ModifiedOnDate] [smalldatetime] NULL,
+	 CONSTRAINT [PK_RIW_PayConditions] PRIMARY KEY CLUSTERED 
+	(
+		[PayCondId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_PayForms]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_PayForms](
+		[PortalId] [int] NOT NULL,
+		[PayFormId] [int] IDENTITY(1,1) NOT NULL,
+		[PayFormTitle] [nvarchar](50) NOT NULL,
+		[IsDeleted] [bit] NULL,
+		[CreatedByUser] [int] NOT NULL,
+		[CreatedOnDate] [smalldatetime] NOT NULL,
+		[ModifiedByUser] [int] NOT NULL,
+		[ModifiedOnDate] [smalldatetime] NOT NULL,
+	 CONSTRAINT [PK_RIW_PayForms] PRIMARY KEY CLUSTERED 
+	(
+		[PayFormId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_Payments]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_Payments](
+		[PortalId] [int] NOT NULL,
+		[PaymentId] [int] IDENTITY(1,1) NOT NULL,
+		[TransId] [int] NULL,
+		[DocId] [int] NULL,
+		[Credit] [money] NOT NULL,
+		[Debit] [money] NOT NULL,
+		[InterestRate] [float] NOT NULL,
+		[ClientId] [int] NULL,
+		[ProviderId] [int] NULL,
+		[AccountId] [int] NOT NULL,
+		[DueDate] [smalldatetime] NULL,
+		[Done] [bit] NOT NULL,
+		[Comment] [nvarchar](255) NOT NULL,
+		[TransDate] [smalldatetime] NULL,
+		[CreatedByUser] [int] NOT NULL,
+		[CreatedDate] [smalldatetime] NOT NULL,
+		[ModifiedByUser] [int] NOT NULL,
+		[ModifiedDate] [smalldatetime] NOT NULL,
+	 CONSTRAINT [PK_RIW_Payments] PRIMARY KEY CLUSTERED 
+	(
+		[PaymentId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_ProductTemplates]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_ProductTemplates](
+		[PortalId] [int] NOT NULL,
+		[ProductTemplateId] [int] IDENTITY(1,1) NOT NULL,
+		[ProductTemplateName] [nvarchar](50) NULL,
+		[ProductTemplate] [nvarchar](max) NULL,
+		[CreatedByUser] [int] NULL,
+		[CreatedOnDate] [smalldatetime] NULL,
+		[ModifiedByUser] [int] NULL,
+		[ModifiedOnDate] [smalldatetime] NULL,
+	 CONSTRAINT [PK_RIW_ProductTemplates] PRIMARY KEY CLUSTERED 
+	(
+		[ProductTemplateId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_ProductTemplatesHistory]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_ProductTemplatesHistory](
+		[PortalId] [int] NOT NULL,
+		[ProductTemplateHistoryId] [int] IDENTITY(1,1) NOT NULL,
+		[ProductTemplateId] [int] NOT NULL,
+		[ProductTemplateName] [nvarchar](50) NULL,
+		[ProductTemplate] [nvarchar](max) NULL,
+		[CreatedByUser] [int] NULL,
+		[CreatedOnDate] [smalldatetime] NULL,
+	 CONSTRAINT [PK_RIW_ProductTemplatesHistory] PRIMARY KEY CLUSTERED 
+	(
+		[ProductTemplateHistoryId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_Service_Order_ProductsAndServices]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_Service_Order_ProductsAndServices](
+		[ProdServId] [int] IDENTITY(1,1) NOT NULL,
+		[ServiceOrderId] [int] NOT NULL,
+		[SymptomId] [int] NULL,
+		[ProductId] [int] NULL,
+		[UnitValue] [money] NOT NULL,
+		[Quantity] [float] NULL,
+		[DateStart] [smalldatetime] NULL,
+		[DateEnd] [smalldatetime] NULL,
+		[StatusId] [int] NULL,
+		[CreatedByUser] [int] NULL,
+		[CreatedOnDate] [smalldatetime] NULL,
+		[ModifiedByUser] [int] NULL,
+		[ModifiedOnDate] [smalldatetime] NULL,
+	 CONSTRAINT [PK_RIW_Service_Order_ProductsAndServices] PRIMARY KEY CLUSTERED 
+	(
+		[ProdServId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_Service_Order_Symptoms]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_Service_Order_Symptoms](
+		[SymptomId] [int] IDENTITY(1,1) NOT NULL,
+		[ServiceOrderId] [int] NOT NULL,
+		[EquipmentDesc] [nvarchar](256) NOT NULL,
+		[SymptomText] [nvarchar](500) NOT NULL,
+		[BrandId] [int] NOT NULL,
+		[ModelId] [int] NOT NULL,
+		[Solicitor] [nvarchar](255) NOT NULL,
+		[TechId] [nvarchar](255) NOT NULL,
+		[Complete] [bit] NOT NULL,
+		[CreatedByUser] [int] NOT NULL,
+		[CreatedOnDate] [smalldatetime] NOT NULL,
+		[ModifiedByUser] [int] NOT NULL,
+		[ModifiedOnDate] [smalldatetime] NOT NULL,
+	 CONSTRAINT [PK_RIW_Service_Order_Symptoms] PRIMARY KEY CLUSTERED 
+	(
+		[SymptomId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_Service_Orders]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_Service_Orders](
+		[PortalId] [int] NOT NULL,
+		[ServiceOrderId] [int] IDENTITY(1,1) NOT NULL,
+		[Attendant] [int] NOT NULL,
+		[PersonId] [int] NOT NULL,
+		[StatusId] [int] NOT NULL,
+		[AttendanceType] [char](1) NOT NULL,
+		[ServiceDescription] [nvarchar](256) NOT NULL,
+		[ContractNumber] [nvarchar](50) NOT NULL,
+		[ValidFor] [int] NOT NULL,
+		[ApprovalNumber] [nvarchar](20) NOT NULL,
+		[ApprovedBy] [nvarchar](100) NOT NULL,
+		[DiscountValue] [money] NOT NULL,
+		[DiscountPerc] [float] NOT NULL,
+		[DiscountType] [char](1) NOT NULL,
+		[VisitFee] [money] NOT NULL,
+		[PayCondType] [nvarchar](50) NOT NULL,
+		[PayCondN] [int] NOT NULL,
+		[PayCondPerc] [float] NOT NULL,
+		[PayCondDisc] [float] NOT NULL,
+		[PayCondIn] [money] NOT NULL,
+		[PayCondInst] [money] NOT NULL,
+		[PayCondInterval] [int] NOT NULL,
+		[TotalPayments] [money] NOT NULL,
+		[TotalPayCond] [money] NOT NULL,
+		[ClosedDate] [smalldatetime] NOT NULL,
+		[IsDeleted] [bit] NOT NULL,
+		[CreatedByUser] [int] NOT NULL,
+		[CreatedOnDate] [smalldatetime] NOT NULL,
+		[ModifiedByUser] [int] NOT NULL,
+		[ModifiedOnDate] [smalldatetime] NOT NULL,
+	 CONSTRAINT [PK_RIW_Service_Orders] PRIMARY KEY CLUSTERED 
+	(
+		[ServiceOrderId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_Statuses]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_Statuses](
+		[PortalId] [int] NOT NULL,
+		[StatusId] [int] IDENTITY(1,1) NOT NULL,
+		[StatusTitle] [nvarchar](100) NULL,
+		[StatusColor] [nvarchar](10) NULL,
+		[IsReadOnly] [bit] NULL,
+		[IsDeleted] [bit] NULL,
+		[CreatedByUser] [int] NULL,
+		[CreatedOnDate] [smalldatetime] NULL,
+		[ModifiedByUser] [int] NULL,
+		[ModifiedOnDate] [smalldatetime] NULL,
+	 CONSTRAINT [PK_RIW_Statuses] PRIMARY KEY CLUSTERED 
+	(
+		[StatusId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_UnitTypes]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_UnitTypes](
+		[PortalId] [int] NOT NULL,
+		[UnitTypeId] [int] IDENTITY(1,1) NOT NULL,
+		[UnitTypeTitle] [nvarchar](50) NOT NULL,
+		[IsDeleted] [bit] NULL,
+		[CreatedByUser] [int] NOT NULL,
+		[CreatedOnDate] [smalldatetime] NOT NULL,
+		[ModifiedByUser] [int] NULL,
+		[ModifiedOnDate] [smalldatetime] NULL,
+	 CONSTRAINT [PK_RIW_UnitTypes] PRIMARY KEY CLUSTERED 
+	(
+		[UnitTypeId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+
+
+/** Drop Stored Procedures **/
+
+
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_PayConds_Get]    Script Date: 12/05/2013 11:26:05 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_PayConds_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_PayConds_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_PayForms_GetList]    Script Date: 12/05/2013 11:26:05 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_PayForms_GetList]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_PayForms_GetList]
+GO
+
+
+/** Create Stored Procedures **/
+
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_PayConds_Get]    Script Date: 12/05/2013 11:26:06 ******/
+
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}RIW_PayConds_Get] (
+
+	@PortalId int
+	,@PayCondType int
+	,@PayCondStart money
+
+)
+AS
+
+SELECT	PC.[PortalId]
+	,PC.[PayCondId]
+	,PC.[PayCondType]
+	,PC.[PayCondTitle]
+	,PF.PayFormTitle
+	,PC.[PayCondStart]
+	,PC.[PayCondN]
+	,PC.[PayCondPerc]
+	,PC.[PayCondIn]
+	,PC.[PayCondDisc]
+	,PC.[PayCondInterval]
+	,PC.[GroupIds]
+	,PC.[CreatedByUser]
+	,PC.[CreatedOnDate]
+	,PC.[ModifiedByUser]
+	,PC.[ModifiedOnDate]
+	,'Parcela' = CASE WHEN @PayCondStart > 0 THEN ROUND(CASE WHEN (PC.[PayCondIn] > 0) THEN dbo.RIW_PMT(PC.[PayCondPerc]/100, (PC.[PayCondN] - 1), -(@PayCondStart - (@PayCondStart / 100 * PC.[PayCondIn])), 0, 0) ELSE dbo.RIW_PMT(PC.[PayCondPerc]/100, PC.[PayCondN], -@PayCondStart, 0, 0) END, 2) ELSE '0' END
+	,'PayIn' = ROUND(@PayCondStart / 100 * PC.[PayCondIn], 2)
+	,'TotalParcelado' = CASE WHEN @PayCondStart > 0 THEN CASE WHEN (PC.[PayCondIn] > 0) THEN ROUND(dbo.RIW_PMT(PC.[PayCondPerc]/100, (PC.[PayCondN] - 1), -(@PayCondStart - (@PayCondStart / 100 * PC.[PayCondIn])), 0, 0), 2) * (PC.[PayCondN] - 1) ELSE ROUND(dbo.RIW_PMT(PC.[PayCondPerc]/100, PC.[PayCondN], -@PayCondStart, 0, 0), 2) * PC.[PayCondN] END ELSE '0' END
+	,'Intervalo' = CASE WHEN (PC.[PayCondInterval] < 0) THEN 'A Vista' ELSE (CASE WHEN (PC.[PayCondInterval] > 0) THEN CONVERT(NVARCHAR,PC.[PayCondInterval]) + ' dias' ELSE 'Mensal' END) END
+	--,'TotalPayCond' = CASE WHEN @PayCondStart > 0 THEN ROUND(CASE WHEN (PC.[PayCondIn] > 0) THEN (@PayCondStart / 100 * PC.[PayCondIn]) + ROUND(dbo.RIW_PMT(PC.[PayCondPerc]/100, (PC.[PayCondN] - 1), -(@PayCondStart - (@PayCondStart / 100 * PC.[PayCondIn])), 0, 0), 2) * (PC.[PayCondN] - 1) ELSE @PayCondStart + ROUND(dbo.RIW_PMT(PC.[PayCondPerc]/100, (PC.[PayCondN] - 1), -(@PayCondStart - (@PayCondStart / 100 * PC.[PayCondIn])), 0, 0), 2) * (PC.[PayCondN] - 1) END, 2) ELSE '0' END
+
+FROM	{databaseOwner}[{objectQualifier}RIW_PayConditions] PC
+LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIW_PayForms] PF ON PC.PayCondType = PF.PayFormId
+WHERE	(((@PortalId IS NULL) OR (PC.[PortalId] = @PortalId))
+AND		((@PayCondType IS NULL) OR (PC.[PayCondType] = @PayCondType)) 
+AND		((@PayCondStart IS NULL) OR (PC.[PayCondStart] <= @PayCondStart))
+AND		(NOT PC.[PayCondType] = 0))
+ORDER BY PC.[PayCondType]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_PayForms_GetList]    Script Date: 01/15/2013 12:16:43 ******/
+
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}RIW_PayForms_GetList] (
+
+	@portalId int
+	,@isDeleted varchar(5)
+	
+)
+AS
+
+SELECT	DISTINCT PF.PayFormId
+		,PF.PayFormTitle
+		--,PF.IsDeleted
+		--,PF.CreatedByUser
+		--,PF.CreatedDate
+		--,PF.ModifiedByUser
+		--,PF.ModifiedDate
+
+FROM {databaseOwner}[{objectQualifier}RIW_PayForms] PF
+INNER JOIN {databaseOwner}[{objectQualifier}RIW_PayConditions] PC ON PF.PayFormId = PC.PayCondType
+WHERE	((PF.PortalId = @portalId)
+AND		((@isDeleted = '') OR (PF.IsDeleted = @isDeleted)))
+GO
+
+
+/************************************************************/
+/*****              SqlDataProvider                     *****/
+/************************************************************/
+

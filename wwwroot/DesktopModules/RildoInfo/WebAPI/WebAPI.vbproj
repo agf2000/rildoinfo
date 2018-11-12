@@ -1,0 +1,602 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>
+    </SchemaVersion>
+    <ProjectGuid>{CC35632D-E658-4410-9457-1E56B73CD7BD}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>RIW.Modules.WebAPI</RootNamespace>
+    <AssemblyName>RIW.Modules.WebAPI</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MyType>Custom</MyType>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>..\..\..\bin\</OutputPath>
+    <DocumentationFile>
+    </DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\bin\</OutputPath>
+    <DocumentationFile>
+    </DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DotNetNuke">
+      <HintPath>..\..\..\bin\DotNetNuke.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DotNetNuke.Instrumentation">
+      <HintPath>..\..\..\bin\DotNetNuke.Instrumentation.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DotNetNuke.Web">
+      <HintPath>..\..\..\bin\DotNetNuke.Web.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DotNetNuke.Web.Client">
+      <HintPath>..\..\..\bin\DotNetNuke.Web.Client.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DotNetNuke.WebUtility, Version=4.2.1.783, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\DotNetNuke.WebUtility.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ImageResizer, Version=3.4.3.103, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\ImageResizer.3.4.3\lib\ImageResizer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ionic.Zip, Version=1.9.1.8, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Downloads\Development\DotNetZipLib-DevKit-v1.9\zip-v1.9\Release\Ionic.Zip.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\..\..\..\..\packages\iTextSharp.5.4.5\lib\itextsharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationBlocks.Data">
+      <HintPath>..\..\..\bin\Microsoft.ApplicationBlocks.Data.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core">
+      <HintPath>..\..\..\..\..\packages\Microsoft.AspNet.SignalR.Core.1.1.4\lib\net40\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Owin">
+      <HintPath>..\..\..\..\..\packages\Microsoft.AspNet.SignalR.Owin.1.1.4\lib\net40\Microsoft.AspNet.SignalR.Owin.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb">
+      <HintPath>..\..\..\..\..\packages\Microsoft.AspNet.SignalR.SystemWeb.1.1.4\lib\net40\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\..\..\..\..\packages\Microsoft.Owin.Host.SystemWeb.1.0.1\lib\net40\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions.Desktop, Version=1.0.168.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.Desktop.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>False</Private>
+      <HintPath>..\..\..\..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\..\..\..\..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.IO, Version=2.6.8.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\Microsoft.Bcl.1.1.8\lib\net40\System.IO.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Runtime, Version=2.6.8.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\Microsoft.Bcl.1.1.8\lib\net40\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Threading.Tasks, Version=2.6.8.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\Microsoft.Bcl.1.1.8\lib\net40\System.Threading.Tasks.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Web.Entity">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Web">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Configuration">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Web.Services">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.EnterpriseServices">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Web.Mobile">
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="DotNetNuke" />
+    <Import Include="DotNetNuke.Common" />
+    <Import Include="DotNetNuke.Common.Utilities" />
+    <Import Include="DotNetNuke.Common.Utils" />
+    <Import Include="DotNetNuke.Data" />
+    <Import Include="DotNetNuke.Entities" />
+    <Import Include="DotNetNuke.Entities.Modules" />
+    <Import Include="DotNetNuke.Entities.Portals" />
+    <Import Include="DotNetNuke.Entities.Tabs" />
+    <Import Include="DotNetNuke.Entities.Users" />
+    <Import Include="DotNetNuke.Framework" />
+    <Import Include="DotNetNuke.Modules" />
+    <Import Include="DotNetNuke.Security" />
+    <Import Include="DotNetNuke.Services" />
+    <Import Include="DotNetNuke.UI" />
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Collections.Specialized" />
+    <Import Include="System.Configuration" />
+    <Import Include="System.Text" />
+    <Import Include="System.Text.RegularExpressions" />
+    <Import Include="System.Web" />
+    <Import Include="System.Web.Caching" />
+    <Import Include="System.Web.Http" />
+    <Import Include="System.Web.SessionState" />
+    <Import Include="System.Web.Security" />
+    <Import Include="System.Web.Profile" />
+    <Import Include="System.Web.UI" />
+    <Import Include="System.Web.UI.WebControls" />
+    <Import Include="System.Web.UI.WebControls.WebParts" />
+    <Import Include="System.Web.UI.HtmlControls" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Components\Common\Constants.vb" />
+    <Compile Include="Components\Common\MessageHub.vb" />
+    <Compile Include="Components\Common\ModuleUpgrade.vb" />
+    <Compile Include="Components\Common\Notifications.vb" />
+    <Compile Include="Components\Common\PDFPage.vb" />
+    <Compile Include="Components\Common\PostOffice.vb" />
+    <Compile Include="Components\Common\RIWServicesRouteMapper.vb" />
+    <Compile Include="Components\Common\RiwWebApiModuleBase.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Components\Common\SendEmail.vb" />
+    <Compile Include="Components\Common\Services.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Components\Controllers\CashiersController.vb" />
+    <Compile Include="Components\Controllers\OriginsController.vb" />
+    <Compile Include="Components\Controllers\MessagesController.vb" />
+    <Compile Include="Components\Controllers\DiscountGroupsController.vb" />
+    <Compile Include="Components\Controllers\ReportsController.vb" />
+    <Compile Include="Components\Data\DataProvider.vb" />
+    <Compile Include="Components\Hubs\DnnApiControllerWithHub.vb" />
+    <Compile Include="Components\Hubs\EstimatesHub.vb" />
+    <Compile Include="Components\Hubs\PeopleHub.vb" />
+    <Compile Include="Components\Interfaces\Models\IProductVendor.vb" />
+    <Compile Include="Components\Interfaces\Models\IReportInfo.vb" />
+    <Compile Include="Components\Interfaces\Models\IReport.vb" />
+    <Compile Include="Components\Interfaces\Models\ISofter.vb" />
+    <Compile Include="Components\Interfaces\Models\ISetting.vb" />
+    <Compile Include="Components\Interfaces\Models\IOrigin.vb" />
+    <Compile Include="Components\Interfaces\Models\IEstimateCount.vb" />
+    <Compile Include="Components\Interfaces\Models\IAccount.vb" />
+    <Compile Include="Components\Interfaces\Models\IAgenda.vb" />
+    <Compile Include="Components\Interfaces\Models\IBrand.vb" />
+    <Compile Include="Components\Interfaces\Models\IBrandModel.vb" />
+    <Compile Include="Components\Interfaces\Models\ICashier.vb" />
+    <Compile Include="Components\Interfaces\Models\ICategory.vb" />
+    <Compile Include="Components\Interfaces\Models\ICategoryLang.vb" />
+    <Compile Include="Components\Interfaces\Models\ICategoryPermission.vb" />
+    <Compile Include="Components\Interfaces\Models\IClientBankRef.vb" />
+    <Compile Include="Components\Interfaces\Models\IClientCommRef.vb" />
+    <Compile Include="Components\Interfaces\Models\IClientPersonalRef.vb" />
+    <Compile Include="Components\Interfaces\Models\IDiscountGroup.vb" />
+    <Compile Include="Components\Interfaces\Models\IEstimate.vb" />
+    <Compile Include="Components\Interfaces\Models\IEstimateHistory.vb" />
+    <Compile Include="Components\Interfaces\Models\IEstimateHistoryComment.vb" />
+    <Compile Include="Components\Interfaces\Models\IEstimateItem.vb" />
+    <Compile Include="Components\Interfaces\Models\IEstimateItemRemoved.vb" />
+    <Compile Include="Components\Interfaces\Models\IEstimateMessage.vb" />
+    <Compile Include="Components\Interfaces\Models\IEstimateMessageComment.vb" />
+    <Compile Include="Components\Interfaces\Models\IFolder.vb" />
+    <Compile Include="Components\Interfaces\Models\IHtmlContent.vb" />
+    <Compile Include="Components\Interfaces\Models\IIndustry.vb" />
+    <Compile Include="Components\Interfaces\Models\IInvoice.vb" />
+    <Compile Include="Components\Interfaces\Models\IInvoiceItem.vb" />
+    <Compile Include="Components\Interfaces\Models\IKit.vb" />
+    <Compile Include="Components\Interfaces\Models\IPayCondition.vb" />
+    <Compile Include="Components\Interfaces\Models\IPayForm.vb" />
+    <Compile Include="Components\Interfaces\Models\IPayment.vb" />
+    <Compile Include="Components\Interfaces\Models\IPersonCount.vb" />
+    <Compile Include="Components\Interfaces\Models\IPerson.vb" />
+    <Compile Include="Components\Interfaces\Models\IPersonAddress.vb" />
+    <Compile Include="Components\Interfaces\Models\IPersonContact.vb" />
+    <Compile Include="Components\Interfaces\Models\IPersonDoc.vb" />
+    <Compile Include="Components\Interfaces\Models\IPersonHistory.vb" />
+    <Compile Include="Components\Interfaces\Models\IPersonHistoryComment.vb" />
+    <Compile Include="Components\Interfaces\Models\IClientIncomeSource.vb" />
+    <Compile Include="Components\Interfaces\Models\IPersonIndustry.vb" />
+    <Compile Include="Components\Interfaces\Models\IClientPartner.vb" />
+    <Compile Include="Components\Interfaces\Models\IClientPartnerBankRef.vb" />
+    <Compile Include="Components\Interfaces\Models\IProduct.vb" />
+    <Compile Include="Components\Interfaces\Models\IProductCategory.vb" />
+    <Compile Include="Components\Interfaces\Models\IProductDoc.vb" />
+    <Compile Include="Components\Interfaces\Models\IProductDocLang.vb" />
+    <Compile Include="Components\Interfaces\Models\IProductFinance.vb" />
+    <Compile Include="Components\Interfaces\Models\IProductImage.vb" />
+    <Compile Include="Components\Interfaces\Models\IProductImageLang.vb" />
+    <Compile Include="Components\Interfaces\Models\IProductLang.vb" />
+    <Compile Include="Components\Interfaces\Models\IProductModel.vb" />
+    <Compile Include="Components\Interfaces\Models\IProductModelLang.vb" />
+    <Compile Include="Components\Interfaces\Models\IProductOption.vb" />
+    <Compile Include="Components\Interfaces\Models\IProductOptionLang.vb" />
+    <Compile Include="Components\Interfaces\Models\IProductOptionValue.vb" />
+    <Compile Include="Components\Interfaces\Models\IProductOptionValueLang.vb" />
+    <Compile Include="Components\Interfaces\Models\IProductRelated.vb" />
+    <Compile Include="Components\Interfaces\Models\IProductVideo.vb" />
+    <Compile Include="Components\Interfaces\Models\IServicesAction.vb" />
+    <Compile Include="Components\Interfaces\Models\IServicesUser.vb" />
+    <Compile Include="Components\Interfaces\Models\IStatus.vb" />
+    <Compile Include="Components\Interfaces\Models\IUnitType.vb" />
+    <Compile Include="Components\Interfaces\Repositories\IReportsRepository.vb" />
+    <Compile Include="Components\Interfaces\Repositories\ISofterRepository.vb" />
+    <Compile Include="Components\Interfaces\Repositories\ISettingsRepository.vb" />
+    <Compile Include="Components\Interfaces\Repositories\IOriginsRepository.vb" />
+    <Compile Include="Components\Interfaces\Repositories\IDiscountGroupsRepository.vb" />
+    <Compile Include="Components\Interfaces\Repositories\IAccountsRepository.vb" />
+    <Compile Include="Components\Interfaces\Repositories\IAgendasRepository.vb" />
+    <Compile Include="Components\Interfaces\Repositories\IBrandModelsRepository.vb" />
+    <Compile Include="Components\Interfaces\Repositories\IBrandsRepository.vb" />
+    <Compile Include="Components\Interfaces\Repositories\ICashiersRepository.vb" />
+    <Compile Include="Components\Interfaces\Repositories\ICategoriesRepository.vb" />
+    <Compile Include="Components\Interfaces\Repositories\IClientBankRefsRepository.vb" />
+    <Compile Include="Components\Interfaces\Repositories\IClientCommRefsRepository.vb" />
+    <Compile Include="Components\Interfaces\Repositories\IClientIncomeSourcesRepository.vb" />
+    <Compile Include="Components\Interfaces\Repositories\IClientPartnerBankRefsRepository.vb" />
+    <Compile Include="Components\Interfaces\Repositories\IClientPartnersRepository.vb" />
+    <Compile Include="Components\Interfaces\Repositories\IClientPersonalRefsRepository.vb" />
+    <Compile Include="Components\Interfaces\Repositories\IEstimatesRepository.vb" />
+    <Compile Include="Components\Interfaces\Repositories\IFilesRepository.vb" />
+    <Compile Include="Components\Interfaces\Repositories\IHtmlContentsRepository.vb" />
+    <Compile Include="Components\Interfaces\Repositories\IIndustriesRepository.vb" />
+    <Compile Include="Components\Interfaces\Repositories\IInvoicesRepository.vb" />
+    <Compile Include="Components\Interfaces\Repositories\IPayConditionsRepository.vb" />
+    <Compile Include="Components\Interfaces\Repositories\IPayFormsRepository.vb" />
+    <Compile Include="Components\Interfaces\Repositories\IPaymentsRepository.vb" />
+    <Compile Include="Components\Interfaces\Repositories\IPeopleRepository.vb" />
+    <Compile Include="Components\Interfaces\Repositories\IPersonAddressesRepository.vb" />
+    <Compile Include="Components\Interfaces\Repositories\IPersonContactsRepository.vb" />
+    <Compile Include="Components\Interfaces\Repositories\IPersonDocsRepository.vb" />
+    <Compile Include="Components\Interfaces\Repositories\IPersonHistoriesRepository.vb" />
+    <Compile Include="Components\Interfaces\Repositories\IPersonIndustriesRepository.vb" />
+    <Compile Include="Components\Interfaces\Repositories\IProductsRepository.vb" />
+    <Compile Include="Components\Interfaces\Repositories\IStatusesRepository.vb" />
+    <Compile Include="Components\Interfaces\Repositories\IUnitTypesRepository.vb" />
+    <Compile Include="Components\Interfaces\Repositories\IUserRepository.vb" />
+    <Compile Include="Components\Models\ProductVendor.vb" />
+    <Compile Include="Components\Models\ReportInfo.vb" />
+    <Compile Include="Components\Models\Report.vb" />
+    <Compile Include="Components\Models\Softer.vb" />
+    <Compile Include="Components\Models\Setting.vb" />
+    <Compile Include="Components\Models\Origin.vb" />
+    <Compile Include="Components\Models\EstimateCount.vb" />
+    <Compile Include="Components\Models\Account.vb" />
+    <Compile Include="Components\Models\Agenda.vb" />
+    <Compile Include="Components\Models\Brand.vb" />
+    <Compile Include="Components\Models\BrandModel.vb" />
+    <Compile Include="Components\Models\Cashier.vb" />
+    <Compile Include="Components\Models\Category.vb" />
+    <Compile Include="Components\Models\CategoryLang.vb" />
+    <Compile Include="Components\Models\CategoryPermission.vb" />
+    <Compile Include="Components\Models\ClientBankRef.vb" />
+    <Compile Include="Components\Models\ClientCommRef.vb" />
+    <Compile Include="Components\Models\ClientIncomeSource.vb" />
+    <Compile Include="Components\Models\ClientPartner.vb" />
+    <Compile Include="Components\Models\ClientPartnerBankRef.vb" />
+    <Compile Include="Components\Models\ClientPersonalRef.vb" />
+    <Compile Include="Components\Models\DiscountGroup.vb" />
+    <Compile Include="Components\Models\Estimate.vb" />
+    <Compile Include="Components\Models\EstimateHistory.vb" />
+    <Compile Include="Components\Models\EstimateHistoryComment.vb" />
+    <Compile Include="Components\Models\EstimateItem.vb" />
+    <Compile Include="Components\Models\EstimateItemRemoved.vb" />
+    <Compile Include="Components\Models\EstimateMessage.vb" />
+    <Compile Include="Components\Models\EstimateMessageComment.vb" />
+    <Compile Include="Components\Models\File.vb" />
+    <Compile Include="Components\Models\Folder.vb" />
+    <Compile Include="Components\Models\HtmlContent.vb" />
+    <Compile Include="Components\Models\Industry.vb" />
+    <Compile Include="Components\Models\Invoice.vb" />
+    <Compile Include="Components\Models\InvoiceItem.vb" />
+    <Compile Include="Components\Models\Kit.vb" />
+    <Compile Include="Components\Models\PayCondition.vb" />
+    <Compile Include="Components\Models\PayForm.vb" />
+    <Compile Include="Components\Models\Payment.vb" />
+    <Compile Include="Components\Models\PersonHistoryComment.vb" />
+    <Compile Include="Components\Models\PersonCount.vb" />
+    <Compile Include="Components\Models\Person.vb" />
+    <Compile Include="Components\Models\PersonAddress.vb" />
+    <Compile Include="Components\Models\PersonContact.vb" />
+    <Compile Include="Components\Models\PersonDoc.vb" />
+    <Compile Include="Components\Models\PersonHistory.vb" />
+    <Compile Include="Components\Models\PersonIndustry.vb" />
+    <Compile Include="Components\Models\PersonCompact.vb" />
+    <Compile Include="Components\Models\Product.vb" />
+    <Compile Include="Components\Models\ProductCategory.vb" />
+    <Compile Include="Components\Models\ProductDoc.vb" />
+    <Compile Include="Components\Models\ProductDocLang.vb" />
+    <Compile Include="Components\Models\ProductFinance.vb" />
+    <Compile Include="Components\Models\ProductImage.vb" />
+    <Compile Include="Components\Models\ProductImageLang.vb" />
+    <Compile Include="Components\Models\ProductLang.vb" />
+    <Compile Include="Components\Models\ProductModel.vb" />
+    <Compile Include="Components\Models\ProductModelLang.vb" />
+    <Compile Include="Components\Models\ProductOption.vb" />
+    <Compile Include="Components\Models\ProductOptionLang.vb" />
+    <Compile Include="Components\Models\ProductOptionValue.vb" />
+    <Compile Include="Components\Models\ProductOptionValueLang.vb" />
+    <Compile Include="Components\Models\ProductRelated.vb" />
+    <Compile Include="Components\Models\ProductVideo.vb" />
+    <Compile Include="Components\Models\ServicesAction.vb" />
+    <Compile Include="Components\Models\ServicesUser.vb" />
+    <Compile Include="Components\Models\Status.vb" />
+    <Compile Include="Components\Models\UnitType.vb" />
+    <Compile Include="Components\Models\User.vb" />
+    <Compile Include="Components\Models\UserListConnected.vb" />
+    <Compile Include="Components\Repositories\ReportsRepository.vb" />
+    <Compile Include="Components\Repositories\SofterRepository.vb" />
+    <Compile Include="Components\Repositories\SettingsRepository.vb" />
+    <Compile Include="Components\Repositories\OriginsRepository.vb" />
+    <Compile Include="Components\Repositories\AccountsRepository.vb" />
+    <Compile Include="Components\Repositories\AgendasRepository.vb" />
+    <Compile Include="Components\Repositories\BrandModelsRepository.vb" />
+    <Compile Include="Components\Repositories\BrandsRepository.vb" />
+    <Compile Include="Components\Repositories\CashiersRepository.vb" />
+    <Compile Include="Components\Repositories\CategoriesRepository.vb" />
+    <Compile Include="Components\Repositories\ClientBankRefsRepository.vb" />
+    <Compile Include="Components\Repositories\ClientCommRefsRepository.vb" />
+    <Compile Include="Components\Repositories\ClientIncomeSourcesRepository.vb" />
+    <Compile Include="Components\Repositories\ClientPartnersBankRefsRepository.vb" />
+    <Compile Include="Components\Repositories\ClientPartnersRepository.vb" />
+    <Compile Include="Components\Repositories\ClientPersonalRefsRepository.vb" />
+    <Compile Include="Components\Repositories\DiscountGroupsRepository.vb" />
+    <Compile Include="Components\Repositories\EstimatesRepository.vb" />
+    <Compile Include="Components\Repositories\FilesRepository.vb" />
+    <Compile Include="Components\Repositories\HtmlContentsRepository.vb" />
+    <Compile Include="Components\Repositories\IndustriesRepository.vb" />
+    <Compile Include="Components\Repositories\InvoicesRepository.vb" />
+    <Compile Include="Components\Repositories\PayConditionsRepository.vb" />
+    <Compile Include="Components\Repositories\PayFormsRepository.vb" />
+    <Compile Include="Components\Repositories\PaymentsRepository.vb" />
+    <Compile Include="Components\Repositories\PeopleRepository.vb" />
+    <Compile Include="Components\Repositories\PersonAddressesRepository.vb" />
+    <Compile Include="Components\Repositories\PersonContactsRepository.vb" />
+    <Compile Include="Components\Repositories\PersonDocsRepository.vb" />
+    <Compile Include="Components\Repositories\PersonHistoriesRepository.vb" />
+    <Compile Include="Components\Repositories\PersonIndustryRepository.vb" />
+    <Compile Include="Components\Repositories\ProductsRepository.vb" />
+    <Compile Include="Components\Repositories\StatusesRepository.vb" />
+    <Compile Include="Components\Repositories\UnitTypesRepository.vb" />
+    <Compile Include="Components\Controllers\AccountsController.vb" />
+    <Compile Include="Components\Controllers\AgendaController.vb" />
+    <Compile Include="Components\Controllers\BrandModelsController.vb" />
+    <Compile Include="Components\Controllers\BrandsController.vb" />
+    <Compile Include="Components\Controllers\CategoriesController.vb" />
+    <Compile Include="Components\Controllers\EstimatesController.vb" />
+    <Compile Include="Components\Controllers\HtmlContentsController.vb" />
+    <Compile Include="Components\Controllers\IndustriesController.vb" />
+    <Compile Include="Components\Controllers\InvoicesController.vb" />
+    <Compile Include="Components\Controllers\ListsController.vb" />
+    <Compile Include="Components\Controllers\LogController.vb" />
+    <Compile Include="Components\Controllers\PayConditionsController.vb" />
+    <Compile Include="Components\Controllers\PayFormsController.vb" />
+    <Compile Include="Components\Controllers\PeopleController.vb" />
+    <Compile Include="Components\Controllers\ProductsController.vb" />
+    <Compile Include="Components\Controllers\StoreController.vb" />
+    <Compile Include="Components\Controllers\StatusesController.vb" />
+    <Compile Include="Components\Controllers\UnitTypesController.vb" />
+    <Compile Include="Components\Schedulers\ScheduleSyncPeople.vb" />
+    <Compile Include="Components\Schedulers\ScheduleSyncProducts.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="Components\Providers\DataProviders\SqlDataProvider\SqlDataProvider.vb" />
+    <Compile Include="RIW_WebAPI.ascx.designer.vb">
+      <DependentUpon>RIW_WebAPI.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="RIW_WebAPI.ascx.vb">
+      <DependentUpon>RIW_WebAPI.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\images\chrome.gif" />
+    <Content Include="Content\images\firefox.gif" />
+    <Content Include="Content\images\glyphicons-halflings-white.png" />
+    <Content Include="Content\images\glyphicons-halflings.png" />
+    <Content Include="Content\images\itoggle.png" />
+    <Content Include="Content\images\spacer.gif" />
+    <Content Include="HtmlPage1.html" />
+    <Content Include="riw_webapi.js" />
+    <Content Include="Content\images\msie.gif" />
+    <Content Include="Content\images\opera.gif" />
+    <Content Include="Content\images\ri-logo.png" />
+    <Content Include="Content\images\safari.gif" />
+    <Content Include="Content\images\toastmessage\close.gif" />
+    <Content Include="Content\images\toastmessage\error.png" />
+    <Content Include="Content\images\toastmessage\notice.png" />
+    <Content Include="Content\images\toastmessage\success.png" />
+    <Content Include="Content\images\toastmessage\warning.png" />
+    <Content Include="Content\images\user.png" />
+    <Content Include="Content\images\zoomin.cur" />
+    <Content Include="Documentation\Documentation.css" />
+    <Content Include="Documentation\Documentation.html" />
+    <Content Include="License.txt" />
+    <Content Include="module.css" />
+    <Content Include="ReleaseNotes.txt" />
+    <Content Include="RIW_WebAPI.ascx" />
+    <Content Include="Scripts\App\utilities.js" />
+    <Content Include="Web.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="WebAPI.dnn" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\Edit.ascx.resx" />
+    <Content Include="App_LocalResources\Settings.ascx.resx" />
+    <Content Include="App_LocalResources\View.ascx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BuildScripts\ModulePackage.targets" />
+    <Content Include="BuildScripts\MSBuild.Community.Tasks.Targets" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Components\Providers\DataProviders\SqlDataProvider\00.00.01.sqldataprovider" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Components\Providers\DataProviders\SqlDataProvider\UnInstall.sqldataprovider" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Utilities\Utilities.vbproj">
+      <Project>{9bce927e-7ef0-4203-a8b3-21e92543ec24}</Project>
+      <Name>Utilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>62640</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://riw.dnndev.me/desktopmodules/rildoinfo/WebAPI</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://riw.dnndev.me/</IISAppRootUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <Extension>zip</Extension>
+    <DNNFileName>WebAPI</DNNFileName>
+    <PackageName>WebAPI</PackageName>
+    <MSBuildCommunityTasksPath>$(SolutionDir)\packages\MSBuildTasks.1.4.0.61\tools</MSBuildCommunityTasksPath>
+  </PropertyGroup>
+  <Import Project="BuildScripts\ModulePackage.targets" />
+  <Target Name="AfterBuild" DependsOnTargets="PackageModule">
+  </Target>
+</Project>

@@ -1,0 +1,13 @@
+.scheduler-view-month-hidden {
+  display: none;
+}
+
+.scheduler-view-month .scheduler-view-table-colgrid-first {
+  border-left: 0 none;
+}
+
+.scheduler-view-month-table-data-col-nomonth {
+  background-color: #fff;
+  color: #ccc;
+  font-size: 11px;
+}

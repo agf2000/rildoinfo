@@ -1,0 +1,56 @@
+<dotnetnuke type="Package" version="5.0">
+  <packages>
+    <package name="RIW_Person_Account" type="Module" version="00.00.01">
+      <friendlyName>RIW Person Account</friendlyName>
+      <description>AGF RIW Person Account module.</description>
+      <iconFile>DesktopModules/RildoInfo/People/Content/Images/ri-logo.png</iconFile>
+      <owner>
+        <name>AGF</name>
+        <organization>AGF</organization>
+        <url>http://www.riw.com.br</url>
+        <email>suporte@riw.com.br</email>
+      </owner>      
+      <components>
+        <component type="Module">
+          <desktopModule>
+            <moduleName>RIW_Person_Account</moduleName>
+            <foldername>People</foldername>
+            <businessControllerClass />
+            <supportedFeatures />
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>RIW Person Account</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey />
+                    <controlSrc>DesktopModules/RildoInfo/People/Views/Account.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                </moduleControls>
+                <permissions>
+                  <permission code="RIW_Person_AccountPERMISSION" key="INSERTPERMISSION" name="Insert New Item" />
+                  <permission code="RIW_Person_AccountPERMISSION" key="EDITPERMISSION" name="Edit Item" />
+                  <permission code="RIW_Person_AccountPERMISSION" key="EXCLUDEPERMISSION" name="Exclude Item" />
+                </permissions>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+        </component>
+        <component type="Assembly">
+          <assemblies>
+            <assembly>
+              <name>RIW.Modules.People.dll</name>
+              <path>bin</path>
+            </assembly>
+          </assemblies>
+        </component>
+      </components>
+    </package>
+  </packages>
+</dotnetnuke>

@@ -1,0 +1,41 @@
+﻿
+/****** Drop Stored Procedures ******/
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Category_Get]    Script Date: 12/05/2013 11:26:05 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_Category_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_Category_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Category_GetList]    Script Date: 12/05/2013 11:26:05 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_Category_GetList]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_Category_GetList]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_ProductCategories_GetAssigned]    Script Date: 12/05/2013 11:26:05 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_ProductCategories_GetAssigned]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_ProductCategories_GetAssigned]
+GO
+
+
+/****** Drop Tables ******/
+
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIW_Categories]    Script Date: 12/05/2013 11:23:49 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_Categories]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIW_Categories]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIW_CategoryLang]    Script Date: 12/05/2013 11:23:49 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_CategoryLang]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIW_CategoryLang]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIW_CategoryPermission]    Script Date: 12/05/2013 11:23:49 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_CategoryPermission]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIW_CategoryPermission]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIW_ProductCategory]    Script Date: 12/05/2013 11:23:49 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_ProductCategory]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIW_ProductCategory]
+GO

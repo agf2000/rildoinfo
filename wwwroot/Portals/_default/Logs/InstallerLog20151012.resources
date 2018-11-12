@@ -1,0 +1,15 @@
+10/12/2015 21:19:08 [INFO] DotNetNuke.Services.Upgrade.Internals.Steps.BaseInstallationStep Applying Upgrade Script 07.04.01
+10/12/2015 21:19:08 [INFO] DotNetNuke.Services.Upgrade.Upgrade Start UpgradeVersion:J:\Projects\RIW\wwwroot\Providers\DataProviders\SqlDataProvider\07.04.01.SqlDataProvider
+10/12/2015 21:19:09 [INFO] DotNetNuke.Services.Upgrade.Upgrade Start ExecuteScript:J:\Projects\RIW\wwwroot\Providers\DataProviders\SqlDataProvider\07.04.01.SqlDataProvider
+10/12/2015 21:19:10 [INFO] DotNetNuke.Services.Upgrade.Upgrade End ExecuteScript:J:\Projects\RIW\wwwroot\Providers\DataProviders\SqlDataProvider\07.04.01.SqlDataProvider
+10/12/2015 21:19:11 [INFO] DotNetNuke.Services.Upgrade.Upgrade Start UpgradeVersion:J:\Projects\RIW\wwwroot\Providers\DataProviders\SqlDataProvider\07.04.01.SqlDataProvider
+10/12/2015 21:19:11 [INFO] DotNetNuke.Services.Upgrade.Internals.Steps.BaseInstallationStep Upgrading Application to 7.4.1
+10/12/2015 21:19:11 [INFO] DotNetNuke.Services.Upgrade.Upgrade Start Application Upgrades: 7.4.1
+10/12/2015 21:19:11 [INFO] DotNetNuke.Services.Upgrade.Internals.Steps.BaseInstallationStep Updating Config for 7.4.1
+10/12/2015 21:19:11 [INFO] DotNetNuke.Services.Upgrade.Upgrade Start UpdateConfig:07.04.01
+10/12/2015 21:19:11 [INFO] DotNetNuke.Services.Upgrade.Upgrade Start UpdateConfig:7.4.1
+10/12/2015 21:19:11 [INFO] DotNetNuke.Services.Upgrade.Upgrade End UpdateConfig:7.4.1
+10/12/2015 21:19:11 [INFO] DotNetNuke.Services.Upgrade.Upgrade End UpdateConfig:07.04.01
+10/12/2015 21:19:11 [INFO] DotNetNuke.Services.Upgrade.Internals.Steps.BaseInstallationStep Deleting Older Files for 7.4.1
+10/12/2015 21:19:11 [INFO] DotNetNuke.Services.Upgrade.Upgrade Start DeleteFiles:07.04.01
+10/12/2015 21:19:11 [INFO] DotNetNuke.Services.Upgrade.Internals.Steps.BaseInstallationStep Upgrading Application

@@ -1,0 +1,285 @@
+/* ControlPanel CSS  --*/
+.ControlPanel {
+	BORDER: #898989 1px dotted;
+	WIDTH: 100%;
+	margin:10px 0;
+	padding:0px 0px;
+	background:url(images/controlpanel.png);
+	float:left;
+}
+
+.Skinobject, A.Skinobject, A.Skinobject:link, A.Skinobject:visited, A.Skinobject:active  {
+    font-weight: bold;
+    font-size: 11px;
+    color:#ff0000;
+	font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none
+}
+A.Skinobject:hover {
+    text-decoration: underline;
+	font-weight: bold;
+    font-size: 11px;
+    color:#ff0000;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/*========================================================*/
+/*  Tokens                                                */
+/*========================================================*/
+
+/*-- Login Register token              --*/ .login-register, a.login-register:link, a.login-register:visited, a.login-register:active { FONT-WEIGHT:normal; FONT-SIZE:12px; COLOR:#4c4a32; FONT-FAMILY: "Arial", Helvetica, sans-serif; text-decoration:none; line-height:40px; /*padding-right:30px;*/ }
+/*-- Login Register token hover        --*/ a.login-register:hover	{ text-decoration:underline; }
+
+/*-- Copyright token                   --*/ .copy-right { FONT-WEIGHT:bold; FONT-SIZE:11px; COLOR:#FFFFFF; FONT-FAMILY: "Arial", Helvetica, sans-serif; text-decoration:none; }
+
+/*-- Date token                        --*/ .date { color:#FFFFFF; font-family:"Arial", Helvetica, sans-serif; font-size:11px; font-weight:normal; text-decoration:none; line-height:25px; padding-right:20px; }
+
+/*-- Links token       		           --*/ .links, a.links:link, a.links:visited, a.links:active { FONT-WEIGHT:bold; FONT-SIZE:11px; COLOR:#FFFFFF; FONT-FAMILY: "Arial", Helvetica, sans-serif; text-decoration:none; }
+/*-- Links token hover 		           --*/ a.links:hover { text-decoration:underline; }
+
+/*-- Breadcrum token                   --*/ .breadcrum, a.breadcrum:link, a.breadcrum:visited, a.breadcrum:active { FONT-WEIGHT:normal; FONT-SIZE:11px; COLOR:#0f638a; FONT-FAMILY:"Arial", Helvetica, sans-serif; text-decoration:underline; background: url(images/bullet.gif) left 4px no-repeat; padding:0 0 0 10px; }
+/*-- Breadcrum token hover             --*/ a.breadcrum:hover { text-decoration:underline; }
+
+/*-- Terms Privacy token       		   --*/ .terms-privacy, a.terms-privacy:link, a.terms-privacy:visited, a.terms-privacy:active { FONT-WEIGHT:bold; FONT-SIZE:11px; COLOR:#FFFFFF; FONT-FAMILY: "Arial", Helvetica, sans-serif; text-decoration:none; }
+/*-- Terms Privacy token hover 		   --*/ a.terms-privacy:hover {  text-decoration:underline; }
+
+/*-- Search box css		   	    	   --*/ #dnn_dnnSEARCH_txtSearch/*, .NormalTextBox*/ { width:130px; height:18px; background:transparent; padding: 0px 0px 0px 0px; border:0px solid #A1A1A1; font-family: "Arial",  Helvetica, sans-serif; FONT-WEIGHT: normal; FONT-SIZE: 11px; color: #FFFFFF; text-decoration: none; cursor:text; line-height:18px; }
+											.searchborder { border:0px; }
+
+/*========================================================*/
+/*  Default DNN CSS                                       */
+/*========================================================*/
+
+/*-- Default Form CSS        		   --*/ select, input { font-family: tahoma; font-size: 11px; color: #333333; }
+/*-- Default textbox       		       --*/ .NormalTextBox { color: #333333; padding-left: 2px; line-height: 12px; font-family: tahoma; font-weight: normal; font-size: 11px; }
+/*-- Textbox cell / td            	   --*/ td.NormalTextBox { padding: 0; margin: 0; background: transparent; border: 0; }
+
+/*-- Default SubHead CSS        		   --*/
+
+.Normal {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; COLOR: #6f6f6f; FONT-FAMILY: "Arial", Helvetica, sans-serif;
+}
+
+.SubHead {
+	FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: #363636; FONT-FAMILY: "Arial", Helvetica, sans-serif;
+}
+
+.SubSubHead {
+	FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: #363636; FONT-FAMILY: "Arial", Helvetica, sans-serif;
+}
+
+.CommandButton {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; FONT-FAMILY: "Arial", Helvetica, sans-serif;
+}
+
+A.CommandButton:link {
+	COLOR: #90bb22; TEXT-DECORATION: underline;
+}
+
+A.CommandButton:visited {
+	COLOR: #90bb22; TEXT-DECORATION: underline;
+}
+
+A.CommandButton:hover {
+	COLOR: #90bb22; TEXT-DECORATION: underline;
+}
+
+
+/*-- Default --*/
+
+.Head
+{
+	font-weight: bold;
+	font-size: 14px;
+	font-family: Arial, Tahoma, Verdana;
+	color: #FF0000;
+}
+
+.Head2 {
+	font-weight: bold;
+	font-size: 14px;
+	font-family: Arial, Tahoma, Verdana;
+	color: #FF0000;
+}
+
+
+.TreeMenu_Node {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; FONT-FAMILY: Tahoma, Arial, Helvetica;
+}
+
+.TreeMenu_NodeSelected {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; FONT-FAMILY: Tahoma, Arial, Helvetica; BACKGROUND-COLOR: #dcdcdc;
+}
+
+A.TreeMenu_Node:link {
+	COLOR: #003366; TEXT-DECORATION: none;
+}
+
+A.TreeMenu_NodeSelected:link {
+	COLOR: #003366; TEXT-DECORATION: none;
+}
+
+A.TreeMenu_Node:visited {
+	COLOR: #003366; TEXT-DECORATION: none;
+}
+
+A.TreeMenu_NodeSelected:visited {
+	COLOR: #003366; TEXT-DECORATION: none;
+}
+
+A.TreeMenu_Node:active {
+	COLOR: #003366; TEXT-DECORATION: none;
+}
+
+A.TreeMenu_NodeSelected:active {
+	COLOR: #003366; TEXT-DECORATION: none;
+}
+
+A.TreeMenu_Node:hover {
+	COLOR: #ff0000; TEXT-DECORATION: none;
+}
+
+A.TreeMenu_NodeSelected:hover {
+	COLOR: #ff0000; TEXT-DECORATION: none;
+}
+
+.FileManager {
+	BORDER-RIGHT: black 1px solid; BORDER-TOP: black 1px solid; BORDER-LEFT: black 1px solid; BORDER-BOTTOM: black 1px solid; HEIGHT: 400px;
+}
+
+.FileManager_ToolBar {
+	BORDER-BOTTOM: black 1px solid; HEIGHT: 25px;
+}
+
+.FileManager_Explorer {
+	BORDER-RIGHT: #696969 1px solid; BORDER-TOP: #696969 1px solid; MARGIN: 2px; BORDER-LEFT: #696969 1px solid; BORDER-BOTTOM: #696969 1px solid; HEIGHT: 100%; BACKGROUND-COLOR: white;
+}
+
+.FileManager_FileList {
+	BORDER-RIGHT: #696969 1px solid; BORDER-TOP: #696969 1px solid; MARGIN: 2px; OVERFLOW: auto; BORDER-LEFT: #696969 1px solid; BORDER-BOTTOM: #696969 1px solid; HEIGHT: 100%; BACKGROUND-COLOR: white;
+}
+
+.FileManager_MessageBox {
+	PADDING-RIGHT: 25px; PADDING-LEFT: 25px; PADDING-BOTTOM: 25px; VERTICAL-ALIGN: middle; PADDING-TOP: 25px; BACKGROUND-COLOR: white; TEXT-ALIGN: center;
+}
+
+.FileManager_Header {
+	FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: #000000; BORDER-BOTTOM: #696969 1px solid; FONT-FAMILY: Tahoma, Arial, Helvetica; HEIGHT: 25px; BACKGROUND-COLOR: #9ebff6;
+}
+
+.FileManager_Pager {
+	BORDER-TOP: #696969 1px solid; FONT-WEIGHT: bold; FONT-SIZE: 11px; FONT-FAMILY: Tahoma, Arial, Helvetica; HEIGHT: 25px; BACKGROUND-COLOR: #eeeeee;
+}
+
+.FileManager_StatusBar {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; MARGIN: 2px; FONT-FAMILY: Tahoma, Arial, Helvetica; HEIGHT: 25px; BACKGROUND-COLOR: #dedfde;
+}
+
+.FileManager_Item {
+	BORDER-TOP: black 1px dashed; FONT-WEIGHT: normal; FONT-SIZE: 11px; COLOR: black; BORDER-BOTTOM: black 1px dashed; FONT-FAMILY: Tahoma, Arial, Helvetica; BACKGROUND-COLOR: #f8f8f8;
+}
+
+.FileManager_AltItem {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; COLOR: black; BORDER-TOP-STYLE: none; FONT-FAMILY: Tahoma, Arial, Helvetica; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BACKGROUND-COLOR: #eeeeee; BORDER-BOTTOM-STYLE: none;
+}
+
+.FileManager_SelItem {
+	FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: white; BORDER-TOP-STYLE: none; FONT-FAMILY: Tahoma, Arial, Helvetica; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BACKGROUND-COLOR: #99ffff; BORDER-BOTTOM-STYLE: none;
+}
+
+.FileManagerTreeNode {
+	FONT-WEIGHT: normal; color:#000000; FONT-SIZE: 11px; FONT-FAMILY: Tahoma, Arial, Helvetica;
+}
+
+.FileManagerTreeNodeSelected {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; FONT-FAMILY: Tahoma, Arial, Helvetica; BACKGROUND-COLOR: #dcdcdc;
+}
+
+A.FileManagerTreeNode:link {
+	COLOR: #003366; TEXT-DECORATION: none;
+}
+
+A.FileManagerTreeNodeSelected:link {
+	COLOR: #003366; TEXT-DECORATION: none;
+}
+
+A.FileManagerTreeNode:visited {
+	COLOR: #003366; TEXT-DECORATION: none;
+}
+
+A.FileManagerTreeNodeSelected:visited {
+	COLOR: #003366; TEXT-DECORATION: none;
+}
+
+A.FileManagerTreeNode:active {
+	COLOR: #003366; TEXT-DECORATION: none;
+}
+
+A.FileManagerTreeNodeSelected:active {
+	COLOR: #003366; TEXT-DECORATION: none;
+}
+
+A.FileManagerTreeNode:hover {
+	COLOR: #ff0000; TEXT-DECORATION: none;
+}
+
+A.FileManagerTreeNodeSelected:hover {
+	COLOR: #ff0000; TEXT-DECORATION: none;
+}
+
+.Wizard {
+	BORDER-RIGHT: black 1px solid; BORDER-TOP: black 1px solid; BORDER-LEFT: black 1px solid; WIDTH: 650px; BORDER-BOTTOM: black 1px solid; HEIGHT: 400px;
+}
+
+.WizardButton {
+	BORDER-RIGHT: #696969 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: #696969 1px solid; PADDING-LEFT: 2px; PADDING-BOTTOM: 2px; BORDER-LEFT: #696969 1px solid; PADDING-TOP: 2px; BORDER-BOTTOM: #696969 1px solid; BACKGROUND-COLOR:#DCDCDC;
+}
+
+.WizardHeader {
+	BACKGROUND: #ffffcc; BORDER-BOTTOM: black 1px solid; HEIGHT: 40px;
+}
+
+.WizardFooter {
+	BORDER-TOP: black 1px solid; BACKGROUND: #ccffcc; HEIGHT: 25px; TEXT-ALIGN: right;
+}
+
+.WizardBody {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; PADDING-TOP: 10px; HEIGHT: 325px;
+}
+
+.WizardHelp {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; FONT-SIZE: 9pt; PADDING-BOTTOM: 5px; BORDER-LEFT: black 1px solid; WIDTH: 180px; PADDING-TOP: 5px; BACKGROUND-COLOR: #D8BB89;
+}
+
+.WizardHelpText {
+	FONT-SIZE: 10px; OVERFLOW: auto; WIDTH: 180px; COLOR: #000000; FONT-FAMILY: Tahoma, Verdana, Arial, Sans-Serif; HEIGHT: 300px;
+}
+
+.WizardText {
+	FONT-SIZE: 11px; COLOR: #000000; FONT-FAMILY: Tahoma, Verdana, Arial, Sans-Serif;
+}
+
+.Help {
+	BORDER-RIGHT: black 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: black 1px solid; PADDING-LEFT: 2px; FONT-WEIGHT: normal; FONT-SIZE: 11px; PADDING-BOTTOM: 2px; BORDER-LEFT: black 1px solid; COLOR: black; PADDING-TOP: 2px; BORDER-BOTTOM: black 1px solid; FONT-FAMILY: Verdana, Tahoma, Arial, Helvetica; BACKGROUND-COLOR: #ffff99;
+}
+
+
+/* ------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

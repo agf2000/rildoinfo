@@ -1,0 +1,14 @@
+E:\Projects\RIStore\RIStore_7x\wwwroot\bin\RIW.Modules.Services.dll
+E:\Projects\RIStore\RIStore_7x\wwwroot\bin\RIW.Modules.Services.pdb
+E:\Projects\RIStore\RIStore_7x\wwwroot\bin\RIW.Modules.Services.xml
+E:\Projects\RIStore\RIStore_7x\wwwroot\DesktopModules\RildoInfo\Services\obj\Debug\RIW.Modules.Services.dll
+E:\Projects\RIStore\RIStore_7x\wwwroot\DesktopModules\RildoInfo\Services\obj\Debug\RIW.Modules.Services.xml
+E:\Projects\RIStore\RIStore_7x\wwwroot\DesktopModules\RildoInfo\Services\obj\Debug\RIW.Modules.Services.pdb
+E:\Projects\RIStore\RIStore_7x\wwwroot\DesktopModules\RildoInfo\Services\obj\Debug\Services.vbprojResolveAssemblyReference.cache
+E:\Projects\RIW\DNN7X\wwwroot\bin\RIW.Modules.Services.dll
+E:\Projects\RIW\DNN7X\wwwroot\bin\RIW.Modules.Services.pdb
+E:\Projects\RIW\DNN7X\wwwroot\bin\RIW.Modules.Services.xml
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\Services\obj\Debug\RIW.Modules.Services.dll
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\Services\obj\Debug\RIW.Modules.Services.xml
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\Services\obj\Debug\RIW.Modules.Services.pdb
+E:\Projects\RIW\DNN7X\wwwroot\DesktopModules\RildoInfo\Services\obj\Debug\Services.vbprojResolveAssemblyReference.cache

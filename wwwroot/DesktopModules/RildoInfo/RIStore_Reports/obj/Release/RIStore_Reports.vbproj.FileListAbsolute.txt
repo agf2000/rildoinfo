@@ -1,0 +1,7 @@
+E:\Projects\RIStore\RIStore_7x\wwwroot\bin\RI.Modules.RIStore_Reports.dll
+E:\Projects\RIStore\RIStore_7x\wwwroot\bin\RI.Modules.RIStore_Reports.pdb
+E:\Projects\RIStore\RIStore_7x\wwwroot\bin\RI.Modules.RIStore_Reports.xml
+E:\Projects\RIStore\RIStore_7x\wwwroot\DesktopModules\RildoInfo\RIStore_Reports\obj\Release\RIStore_Reports.vbprojResolveAssemblyReference.cache
+E:\Projects\RIStore\RIStore_7x\wwwroot\DesktopModules\RildoInfo\RIStore_Reports\obj\Release\RI.Modules.RIStore_Reports.dll
+E:\Projects\RIStore\RIStore_7x\wwwroot\DesktopModules\RildoInfo\RIStore_Reports\obj\Release\RI.Modules.RIStore_Reports.xml
+E:\Projects\RIStore\RIStore_7x\wwwroot\DesktopModules\RildoInfo\RIStore_Reports\obj\Release\RI.Modules.RIStore_Reports.pdb

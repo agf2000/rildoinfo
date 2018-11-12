@@ -1,0 +1,51 @@
+﻿<dotnetnuke type="Package" version="5.0">
+  <packages>
+    <package name="RIW_Finances" type="Module" version="00.00.01">
+      <friendlyName>RIW Finances</friendlyName>
+      <description>RIW Finances module by AGF.</description>
+      <iconFile>desktopmodules/rildoinfo/store_manager/content/images/ri-logo.png</iconFile>
+      <owner>
+        <name>AGF</name>
+        <organization>Rildo Informatica.net</organization>
+        <url>http://web.rildoinformatica.net</url>
+        <email>giovanni@riw.com.br</email>
+      </owner>
+      <dependencies>
+        <dependency type="CoreVersion">06.02.05</dependency>
+      </dependencies>
+      <components>
+        <component type="Module">
+          <desktopModule>
+            <moduleName>RIW_Finances</moduleName>
+            <foldername>Store_Manager</foldername>
+            <businessControllerClass />
+            <supportedFeatures />
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>RIW Finances</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey />
+                    <controlSrc>DesktopModules/RildoInfo/Store_Manager/Views/Finances.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                </moduleControls>
+                <permissions>
+                  <permission code="RIW_FinancesPERMISSION" key="INSERTPERMISSION" name="Insert New Item" />
+                  <permission code="RIW_FinancesPERMISSION" key="EDITPERMISSION" name="Edit Item" />
+                  <permission code="RIW_FinancesPERMISSION" key="EXCLUDEPERMISSION" name="Exclude Item" />
+                </permissions>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+        </component>
+      </components>
+    </package>
+  </packages>
+</dotnetnuke>

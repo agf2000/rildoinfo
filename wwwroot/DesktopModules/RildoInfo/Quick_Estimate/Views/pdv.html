@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../../../../desktopmodules/rildoinfo/WebAPI/Content/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../../../desktopmodules/rildoinfo/WebAPI/Content/bootstrap/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="../../../../desktopmodules/RildoInfo/Quick_Estimate/Views/module.css" rel="stylesheet" />
+    <link href="../../../../desktopmodules/rildoinfo/WebAPI/Content/kendo/2015.2.902/styles/kendo.common.min.css" rel="stylesheet" />
+    <link href="../../../../desktopmodules/rildoinfo/WebAPI/Content/kendo/2015.2.902/styles/kendo.default.min.css" rel="stylesheet" />
+    <link href="../../../../desktopmodules/rildoinfo/WebAPI/Content/select2/css/select2.css" rel="stylesheet" />
+    <link href="../../../../desktopmodules/rildoinfo/WebAPI/Content/select2/css/select2-bootstrap.css" rel="stylesheet" />
+    <script src="../../../../desktopmodules/rildoinfo/WebAPI/Scripts/knockout/knockout-3.3.0.js"></script>
+    <script src="../../../../desktopmodules/rildoinfo/WebAPI/Scripts/jquery/jquery-1.10.2.min.js"></script>
+    <script src="../../../../desktopmodules/rildoinfo/WebAPI/Scripts/Kendo/2015.2.902/kendo.all.min.js"></script>
+    <script src="../../../../desktopmodules/rildoinfo/WebAPI/Scripts/moment-with-langs.min.js"></script>
+    <script src="../../../../desktopmodules/rildoinfo/WebAPI/Scripts/showdown.js"></script>
+    <script src="../../../../desktopmodules/rildoinfo/WebAPI/Scripts/pnotify/jquery.pnotify.min.js"></script>
+    <script src="../../../../desktopmodules/rildoinfo/WebAPI/Scripts/Select2/select2.min.js"></script>
+    <script src="../../../../desktopmodules/rildoinfo/WebAPI/Scripts/Select2/Select2-locales/select2_locale_pt-BR.js"></script>
+    <script src="../../../../desktopmodules/rildoinfo/WebAPI/Scripts/App/utilities.js"></script>
+    <script src="../../../../desktopmodules/RildoInfo/Quick_Estimate/ViewModels/viewModels.js"></script>
+    <script src="../../../../desktopmodules/RildoInfo/Quick_Estimate/ViewModels/pdv.js"></script>
+</head>
+<body>
+    <div id="divCoupon">
+        <div id="divCouponHeader">
+            <span style="width: 105px">Cod</span><span>Descrição</span><br />
+            <span style="width: 30px">Item</span> <span style="width: 45px">Quant.</span> <span style="width: 30px">Und.</span> <span style="width: 71px">Preço</span> <span style="width: 70px">Desc</span>Total
+        </div>
+        <ul id="couponGrid" data-bind="foreach: items">
+            <li>
+                <span style="width: 100px" data-bind="text: barcode"></span>
+                <span data-bind="text: productName"></span>
+                <br />
+                <span style="width: 30px" data-bind="text: ($index() + 1).toString()"></span>
+                <span style="width: 49px" data-bind="text: itemQty"></span>
+                <span style="width: 30px" data-bind="text: unitTypeTitle"></span>
+                <span style="width: 70px" data-bind="text: kendo.toString(unitValue, 'n') "></span>
+                <span style="width: 75px" data-bind="text: kendo.toString(productDiscount, 'n')"></span>
+                <span data-bind="text: kendo.toString(extendedAmount, 'n')"></span>
+                <!--<a data-bind="attr: { id: my.estimateId + '_' + productId().toString() }, click: removeItem" class="deleteItem"><span class="fa fa-times" title="Excluir Item"></span></a>-->
+            </li>
+        </ul>
+        <div class="clearfix">
+        </div>
+        <div class="itemsInstruction">
+            <span>
+                <i>Ctrl+L para selecionar a lista acima</i><br />
+                <i>Espaço para selcionar o item</i>
+            </span>
+        </div>
+    </div>
+    <br /><br />
+    <div>
+        <strong>Produtos:</strong>
+        <input id="productSearch" class="input-xlarge" />&nbsp;
+        <input id="qTyTextBox" type="text" class="input-mini" />&nbsp;
+        <button id="btnAddSelectedProduct" class="btn btn-small"><i class="icon-plus"></i>&nbsp; Adicionar</button>
+    </div>
+</body>
+</html>

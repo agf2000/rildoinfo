@@ -1,0 +1,769 @@
+﻿/************************************************************/
+/*****              SqlDataProvider                     *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/***** Note: To manually execute this script you must   *****/
+/*****       perform a search and replace operation     *****/
+/*****       for {databaseOwner} and {objectQualifier}  *****/
+/*****                                                  *****/
+/************************************************************/
+
+
+/** Create Tables **/
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_Agenda]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_Agenda](
+		[PortalId] [int] NOT NULL,
+		[AppointmentId] [int] IDENTITY(1,1) NOT NULL,
+		[PersonId] [int] NULL,
+		[UserId] [int] NULL,
+		[Subject] [nvarchar](256) NULL,
+		[Description] [nvarchar](500) NULL,
+		[StartDateTime] [smalldatetime] NULL,
+		[EndDateTime] [smalldatetime] NULL,
+		[Reminder] [nvarchar](256) NULL,
+		[RecurrenceRule] [nvarchar](1024) NULL,
+		[RecurrenceParentId] [int] NULL,
+		[Annotations] [nvarchar](1024) NULL,
+		[SentEmails] [nvarchar](500) NULL,
+		[DocId] [int] NULL,
+		[CreatedByUser] [int] NOT NULL,
+		[CreatedOnDate] [smalldatetime] NOT NULL,
+		[ModifiedByUser] [int] NOT NULL,
+		[ModifiedOnDate] [smalldatetime] NOT NULL,
+	 CONSTRAINT [PK_RIW_Agenda] PRIMARY KEY CLUSTERED 
+	(
+		[AppointmentId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_Accounts]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_Accounts](
+		[PortalId] [int] NOT NULL,
+		[AccountId] [int] IDENTITY(1,1) NOT NULL,
+		[AccountName] [nvarchar](100) NOT NULL,
+		[CreatedByUser] [int] NOT NULL,
+		[CreatedOnDate] [smalldatetime] NOT NULL,
+		[ModifiedByUser] [int] NULL,
+		[ModifiedOnDate] [smalldatetime] NULL,
+	 CONSTRAINT [PK_RIW_Accounts] PRIMARY KEY CLUSTERED 
+	(
+		[AccountId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_Origins]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_Origins](
+		[PortalId] [int] NOT NULL,
+		[OriginId] [int] IDENTITY(1,1) NOT NULL,
+		[OriginName] [nvarchar](100) NOT NULL,
+		[CreatedByUser] [int] NOT NULL,
+		[CreatedOnDate] [smalldatetime] NOT NULL,
+		[ModifiedByUser] [int] NULL,
+		[ModifiedOnDate] [smalldatetime] NULL,
+	 CONSTRAINT [PK_RIW_Origins] PRIMARY KEY CLUSTERED 
+	(
+		[OriginId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_InvoiceItems]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_InvoiceItems](
+		[InvoiceItemId] [int] IDENTITY(1,1) NOT NULL,
+		[InvoiceId] [int] NOT NULL,
+		[ProductId] [int] NOT NULL,
+		[Qty] [float] NOT NULL,
+		[UnitValue1] [money] NOT NULL,
+		[UnitValue2] [money] NOT NULL,
+		[Discount] [money] NOT NULL,
+		[UpdateProduct] [bit] NOT NULL,
+		[CreatedByUser] [int] NOT NULL,
+		[CreatedOnDate] [datetime] NOT NULL,
+		[ModifiedByUser] [int] NOT NULL,
+		[ModifiedOnDate] [datetime] NOT NULL,
+	 CONSTRAINT [PK_RIW_InvoiceItems] PRIMARY KEY CLUSTERED 
+	(
+		[InvoiceItemId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_Invoices]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_Invoices](
+		[PortalId] [int] NOT NULL,
+		[InvoiceId] [int] IDENTITY(1,1) NOT NULL,
+		[InvoiceNumber] [int] NOT NULL,
+		[InvoiceAmount] [money] NOT NULL,
+		[PayIn] [money] NOT NULL,
+		[Freight] [money] NOT NULL,
+		[PayQty] [int] NOT NULL,
+		[Interval] [int] NOT NULL,
+		[InterestRate] [float] NOT NULL,
+		[ProviderId] [int] NOT NULL,
+		[ClientId] [int] NOT NULL,
+		[EstimateId] [int] NOT NULL,
+		[DueDate] [smalldatetime] NOT NULL,
+		[EmissionDate] [smalldatetime] NOT NULL,
+		[Comment] [nvarchar](255) NOT NULL,
+		[CreatedOnDate] [smalldatetime] NOT NULL,
+		[CreatedByUser] [int] NOT NULL,
+		[ModifiedOnDate] [smalldatetime] NOT NULL,
+		[ModifiedByUser] [int] NOT NULL,
+		[CreditDebit] [bit] NULL,
+	 CONSTRAINT [PK_RIW_Invoices] PRIMARY KEY CLUSTERED 
+	(
+		[InvoiceId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_Payments]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_Payments](
+		[PortalId] [int] NOT NULL,
+		[PaymentId] [int] IDENTITY(1,1) NOT NULL,
+		[TransId] [int] NULL,
+		[DocId] [int] NULL,
+		[Credit] [money] NOT NULL,
+		[Debit] [money] NOT NULL,
+		[InterestRate] [float] NOT NULL,
+		[Fee] [money] NOT NULL,
+		[AmountPaid] [money] NOT NULL,
+		[ClientId] [int] NULL,
+		[ProviderId] [int] NULL,
+		[AccountId] [int] NOT NULL,
+		[OriginId] [int] NOT NULL,
+		[DueDate] [smalldatetime] NULL,
+		[Done] [bit] NOT NULL,
+		[Comment] [nvarchar](255) NOT NULL,
+		[TransDate] [smalldatetime] NULL,
+		[IsDeleted] [bit] NOT NULL,
+		[CreatedByUser] [int] NOT NULL,
+		[CreatedOnDate] [smalldatetime] NOT NULL,
+		[ModifiedByUser] [int] NOT NULL,
+		[ModifiedOnDate] [smalldatetime] NOT NULL,
+	 CONSTRAINT [PK_RIW_Payments] PRIMARY KEY CLUSTERED 
+	(
+		[PaymentId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+
+
+/** Drop Stored Procedures **/
+
+
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_AppointmentsData_GetList]    Script Date: 12/05/2013 11:26:05 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_AppointmentsData_GetList]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_AppointmentsData_GetList]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Accounts_Get]    Script Date: 01/21/2014 08:01:43 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_Accounts_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_Accounts_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Accounts_GetList]    Script Date: 01/21/2014 08:01:43 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_Accounts_GetList]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_Accounts_GetList]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_AccountsBalance_Get]    Script Date: 01/21/2014 08:01:43 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_AccountsBalance_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_AccountsBalance_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Origins_Get]    Script Date: 01/21/2014 08:01:43 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_Origins_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_Origins_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Origins_GetList]    Script Date: 01/21/2014 08:01:43 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_Origins_GetList]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_Origins_GetList]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_InvoiceItems_GetList]    Script Date: 01/21/2014 08:02:09 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_InvoiceItems_GetList]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_InvoiceItems_GetList]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Invoices_Get]    Script Date: 01/21/2014 08:02:09 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_Invoices_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_Invoices_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Invoices_GetList]    Script Date: 01/21/2014 08:02:09 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_Invoices_GetList]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_Invoices_GetList]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Payments_GetList]    Script Date: 01/21/2014 08:06:08 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_Payments_GetList]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_Payments_GetList]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Payments_Get]    Script Date: 01/21/2014 08:06:08 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_Payments_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_Payments_Get]
+GO
+
+
+
+/** Create Stored Procedures **/
+
+
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_AppointmentsData_GetList]    Script Date: 01/15/2013 12:16:42 ******/
+
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}RIW_AppointmentsData_GetList] (
+
+	@PortalId int
+	,@UserId varchar(50)
+	,@Start datetime
+	,@End datetime
+	,@DocId int
+
+)
+AS
+
+CREATE TABLE #T (num int)
+
+DECLARE @str varchar(50)
+SELECT @str = @UserId
+
+-- Create insert for comma delimited values
+DECLARE @sql varchar(8000)
+SELECT @sql = 'INSERT INTO #T SELECT '+
+	replace(@str,',',' union all SELECT ')
+
+-- Load values FROM comma delimited string into a table
+exec ( @sql )
+
+SELECT	A.[AppointmentId]
+		,A.[PortalId]
+		,A.[PersonId]
+		,A.[UserId]
+		,A.[Subject]
+		,A.[Description]
+		,A.[StartDateTime]
+		,A.[EndDateTime]
+		,A.[Reminder]
+		,A.[RecurrenceRule]
+		,A.[RecurrenceParentId]
+		,A.[Annotations]
+		,A.[CreatedByUser]
+		,A.[CreatedOnDate]
+		,A.[ModifiedByUser]
+		,A.[ModifiedOnDate]
+		,P.Currency
+
+FROM	{databaseOwner}[{objectQualifier}RIW_Agenda] A
+INNER JOIN #T ON A.UserId = #T.num
+INNER JOIN {databaseOwner}[{objectQualifier}Portals] P ON A.PortalId = P.PortalID
+WHERE	(((@PortalId IS NULL) OR (A.[PortalId] = @PortalId))
+AND		((@Start IS NULL) OR ((@End IS NULL) OR (A.[StartDateTime] BETWEEN @Start AND @End)
+						  OR (A.[StartDateTime] = @Start)))
+--AND		((@Start IS NULL) OR (A.[StartDateTime] = @Start))
+AND		((@DocId IS NULL) OR (A.[DocId] = @DocId)))
+GO
+
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_AccountsBalance_Get]    Script Date: 01/21/2014 07:12:27 ******/
+
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}RIW_AccountsBalance_Get] (
+
+	@PortalId int
+	,@AccountId int
+	,@StartingDate datetime
+	,@EndingDate datetime
+	,@FilterDate char(1)
+
+)
+AS
+
+DECLARE @CREDITBEFOREDEBIT money = 0
+SET @CREDITBEFOREDEBIT = (SELECT SUM(Debit) 
+						  FROM {databaseOwner}[{objectQualifier}RIW_Payments] 
+						  WHERE ((@PortalId IS NULL) OR (PortalId = @PortalId)) 
+						  AND ((@AccountId IS NULL) OR (AccountId = @AccountId)) 
+						  AND ((@FilterDate = '') OR
+							   (@FilterDate = '3' AND (CreatedOnDate BETWEEN @StartingDate AND DATEADD(DAY,1,@EndingDate))) OR
+							   (@FilterDate = '2' AND (ModifiedOnDate BETWEEN @StartingDate AND DATEADD(DAY,1,@EndingDate))) OR
+							   (@FilterDate = '1' AND (DueDate BETWEEN @StartingDate AND DATEADD(DAY,1,@EndingDate))))) --- AND Done = 'True' AND IsDeleted = 'False')
+
+DECLARE @DEBIT4SEEN money = 0
+SET @DEBIT4SEEN = (SELECT SUM(AmountPaid)
+			  FROM {databaseOwner}[{objectQualifier}RIW_Payments] 
+			  WHERE ((@PortalId IS NULL) OR (PortalId = @PortalId)) 
+			  AND ((@AccountId IS NULL) OR (AccountId = @AccountId)) 
+			  AND Debit > 0
+			  AND ((@FilterDate = '') OR
+				   (@FilterDate = '3' AND (CreatedOnDate BETWEEN @StartingDate AND DATEADD(DAY,1,@EndingDate))) OR
+				   (@FilterDate = '2' AND (ModifiedOnDate BETWEEN @StartingDate AND DATEADD(DAY,1,@EndingDate))) OR
+				   (@FilterDate = '1' AND (DueDate BETWEEN @StartingDate AND @EndingDate))))
+				   
+DECLARE @DEBITACTUAL money = 0
+SET @DEBITACTUAL = (SELECT SUM(AmountPaid)
+			  FROM {databaseOwner}[{objectQualifier}RIW_Payments] 
+			  WHERE ((@PortalId IS NULL) OR (PortalId = @PortalId)) 
+			  AND ((@AccountId IS NULL) OR (AccountId = @AccountId)) 
+			  AND (Done = 'True')
+			  AND ((@FilterDate = '') OR
+				   (@FilterDate = '3' AND (CreatedOnDate BETWEEN @StartingDate AND DATEADD(DAY,1,@EndingDate))) OR
+				   (@FilterDate = '2' AND (ModifiedOnDate BETWEEN @StartingDate AND DATEADD(DAY,1,@EndingDate))) OR
+				   (@FilterDate = '1' AND (DueDate BETWEEN @StartingDate AND DATEADD(DAY,1,@EndingDate)))))
+
+DECLARE @CREDIT4SEEN money = 0
+SET @CREDIT4SEEN = (SELECT SUM(Credit) 
+			   FROM {databaseOwner}[{objectQualifier}RIW_Payments] 
+			   WHERE ((@PortalId IS NULL) OR (PortalId = @PortalId)) 
+			   AND ((@AccountId IS NULL) OR (AccountId = @AccountId))
+			   AND (Done = 'False')
+			   AND ((@FilterDate = '') OR
+				   (@FilterDate = '3' AND (CreatedOnDate BETWEEN @StartingDate AND DATEADD(DAY,1,@EndingDate))) OR
+				   (@FilterDate = '2' AND (ModifiedOnDate BETWEEN @StartingDate AND DATEADD(DAY,1,@EndingDate))) OR
+				   (@FilterDate = '1' AND (DueDate BETWEEN @StartingDate AND DATEADD(DAY,1,@EndingDate)))))
+				   
+DECLARE @SALES4SEEN money = 0
+SET @SALES4SEEN = (SELECT SUM(EI.[ProductEstimatePrice] * EI.[ProductQty])
+					FROM {databaseOwner}[{objectQualifier}RIW_EstimateItems] EI
+					INNER JOIN {databaseOwner}[{objectQualifier}RIW_Estimates] E ON EI.[EstimateId] = E.[EstimateId]
+					INNER JOIN {databaseOwner}[{objectQualifier}RIW_Products] P ON EI.[ProductId] = P.[ProductId]
+					WHERE ((@PortalId IS NULL) OR (E.[PortalId] = @PortalId))
+					AND   (E.[ModifiedOnDate] BETWEEN @StartingDate AND DATEADD(DAY,1,@EndingDate))
+					AND   (E.[StatusId] = 10 OR E.[StatusId] = 5))
+
+DECLARE @CREDITACTUAL money = 0
+SET @CREDITACTUAL = (SELECT SUM(Credit) 
+			   FROM {databaseOwner}[{objectQualifier}RIW_Payments] 
+			   WHERE ((@PortalId IS NULL) OR (PortalId = @PortalId)) 
+			   AND ((@AccountId IS NULL) OR (AccountId = @AccountId)) 
+			   AND (Done = 'True')
+			   AND ((@FilterDate = '') OR
+				   (@FilterDate = '3' AND (CreatedOnDate BETWEEN @StartingDate AND DATEADD(DAY,1,@EndingDate))) OR
+				   (@FilterDate = '2' AND (ModifiedOnDate BETWEEN @StartingDate AND DATEADD(DAY,1,@EndingDate))) OR
+				   (@FilterDate = '1' AND (DueDate BETWEEN @StartingDate AND DATEADD(DAY,1,@EndingDate)))))
+				   
+DECLARE @SALESACTUAL money = 0
+SET @SALESACTUAL = (SELECT SUM(EI.[ProductEstimatePrice] * EI.[ProductQty])
+					FROM {databaseOwner}[{objectQualifier}RIW_EstimateItems] EI
+					INNER JOIN {databaseOwner}[{objectQualifier}RIW_Estimates] E ON EI.[EstimateId] = E.[EstimateId]
+					WHERE ((@PortalId IS NULL) OR (E.[PortalId] = @PortalId))
+					AND   (E.[ModifiedOnDate] BETWEEN @StartingDate AND DATEADD(DAY,1,@EndingDate))
+					AND   (E.[StatusId] = 10))
+				   
+DECLARE @TOTALPRODUCTSALES money = 0
+SET @TOTALPRODUCTSALES = (SELECT SUM(EI.[ProductEstimatePrice] * EI.[ProductQty])
+					FROM {databaseOwner}[{objectQualifier}RIW_EstimateItems] EI
+					INNER JOIN {databaseOwner}[{objectQualifier}RIW_Estimates] E ON EI.[EstimateId] = E.[EstimateId]
+					INNER JOIN {databaseOwner}[{objectQualifier}RIW_Products] P ON EI.[ProductId] = P.[ProductId]
+					WHERE ((@PortalId IS NULL) OR (E.[PortalId] = @PortalId))
+					AND   (P.[ItemType] = 1)
+					AND   (E.[ModifiedOnDate] BETWEEN @StartingDate AND DATEADD(DAY,1,@EndingDate))
+					AND   ((E.[StatusId] = 10) OR (E.[StatusId] = 5)))
+				   
+DECLARE @TOTALSERVICESALES money = 0
+SET @TOTALSERVICESALES = (SELECT SUM(EI.[ProductEstimatePrice] * EI.[ProductQty])
+					FROM {databaseOwner}[{objectQualifier}RIW_EstimateItems] EI
+					INNER JOIN {databaseOwner}[{objectQualifier}RIW_Estimates] E ON EI.[EstimateId] = E.[EstimateId]
+					INNER JOIN {databaseOwner}[{objectQualifier}RIW_Products] P ON EI.[ProductId] = P.[ProductId]
+					WHERE ((@PortalId IS NULL) OR (E.[PortalId] = @PortalId))
+					AND   (P.[ItemType] = 2)
+					AND   (E.[ModifiedOnDate] BETWEEN @StartingDate AND DATEADD(DAY,1,@EndingDate))
+					AND   ((E.[StatusId] = 10) OR (E.[StatusId] = 5)))
+				   
+DECLARE @TOTALPRODUCTSESTIMATES money = 0
+SET @TOTALPRODUCTSESTIMATES = (SELECT SUM(EI.[ProductEstimatePrice] * EI.[ProductQty])
+					FROM {databaseOwner}[{objectQualifier}RIW_EstimateItems] EI
+					INNER JOIN {databaseOwner}[{objectQualifier}RIW_Estimates] E ON EI.[EstimateId] = E.[EstimateId]
+					INNER JOIN {databaseOwner}[{objectQualifier}RIW_Products] P ON EI.[ProductId] = P.[ProductId]
+					WHERE ((@PortalId IS NULL) OR (E.[PortalId] = @PortalId))
+					AND   (P.[ItemType] = 1)
+					AND   (E.[ModifiedOnDate] BETWEEN @StartingDate AND DATEADD(DAY,1,@EndingDate))
+					AND   (E.[StatusId] in (1,2,3,6)))
+				   
+DECLARE @TOTALSERVICESESTIMATES money = 0
+SET @TOTALSERVICESESTIMATES = (SELECT SUM(EI.[ProductEstimatePrice] * EI.[ProductQty])
+					FROM {databaseOwner}[{objectQualifier}RIW_EstimateItems] EI
+					INNER JOIN {databaseOwner}[{objectQualifier}RIW_Estimates] E ON EI.[EstimateId] = E.[EstimateId]
+					INNER JOIN {databaseOwner}[{objectQualifier}RIW_Products] P ON EI.[ProductId] = P.[ProductId]
+					WHERE ((@PortalId IS NULL) OR (E.[PortalId] = @PortalId))
+					AND   (P.[ItemType] = 2)
+					AND   (E.[ModifiedOnDate] BETWEEN @StartingDate AND DATEADD(DAY,1,@EndingDate))
+					AND   (E.[StatusId] in (1,2,3,6)))
+
+DECLARE @CREDITBALANCE money = 0
+SET @CREDITBALANCE = (SELECT SUM(P.[Credit])
+					FROM {databaseOwner}[{objectQualifier}RIW_Payments] P
+					WHERE ((@PortalId IS NULL) OR (P.[PortalId] = @PortalId))
+					AND ((@FilterDate = '') OR
+					   (@FilterDate = '3' AND (P.[CreatedOnDate] BETWEEN @StartingDate AND DATEADD(DAY,1,@EndingDate))) OR
+					   (@FilterDate = '2' AND (P.[ModifiedOnDate] BETWEEN @StartingDate AND DATEADD(DAY,1,@EndingDate))) OR
+					   (@FilterDate = '1' AND (P.[DueDate] BETWEEN @StartingDate AND DATEADD(DAY,1,@EndingDate)))))
+				   
+DECLARE @DEBITBALANCE money = 0
+SET @DEBITBALANCE = (SELECT SUM(P.[Debit])
+					FROM {databaseOwner}[{objectQualifier}RIW_Payments] P
+					WHERE ((@PortalId IS NULL) OR (P.[PortalId] = @PortalId))
+					AND ((@FilterDate = '') OR
+					   (@FilterDate = '3' AND (P.[CreatedOnDate] BETWEEN @StartingDate AND DATEADD(DAY,1,@EndingDate))) OR
+					   (@FilterDate = '2' AND (P.[ModifiedOnDate] BETWEEN @StartingDate AND DATEADD(DAY,1,@EndingDate))) OR
+					   (@FilterDate = '1' AND (P.[DueDate] BETWEEN @StartingDate AND DATEADD(DAY,1,@EndingDate)))))
+
+SELECT	'Balance' = (ISNULL(@CREDIT4SEEN, 0) - ISNULL(@CREDITBEFOREDEBIT, 0)),
+		'Debit4Seen' = ISNULL(@DEBIT4SEEN, 0),
+		'DebitActual' = ISNULL(@DEBITACTUAL, 0),
+		'Credit4Seen' = ISNULL(@CREDIT4SEEN, 0),
+		'CreditActual' = ISNULL(@CREDITACTUAL, 0),
+		'Sales4Seen' = ISNULL(@SALES4SEEN, 0),
+		'SalesActual' = ISNULL(@SALESACTUAL, 0),
+		'TotalProductSales' = ISNULL(@TOTALPRODUCTSALES, 0),
+		'TotalServiceSales' = ISNULL(@TOTALSERVICESALES, 0),
+		'TotalProductsEstimates' = ISNULL(@TOTALPRODUCTSESTIMATES, 0),
+		'TotalServicesEstimates' = ISNULL(@TOTALSERVICESESTIMATES, 0),
+		'CreditBalance' = ISNULL(@CREDITBALANCE, 0),
+		'DebitBalance' = ISNULL(@DEBITBALANCE, 0),
+		'TotalBalance' = (ISNULL(@CREDITBALANCE, 0) - ISNULL(@DEBITBALANCE, 0))
+GO
+
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Payments_GetList]    Script Date: 01/21/2014 05:58:01 ******/
+
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}RIW_Payments_GetList] (
+
+	@PortalId int
+	,@AccountId int
+	,@OriginId int
+	,@ProviderId int
+	,@ClientId int
+	,@Category char(1)
+	,@Done varchar(5)
+	,@SearchTerm nvarchar(50)
+	,@StartingDate datetime
+	,@EndingDate datetime
+	,@FilterDate char(1)
+	,@PageNumber int
+	,@PageSize int
+	,@SortCol varchar(20)
+
+)
+AS
+
+DECLARE @ZERO INT = 0
+
+SELECT TOP(@PageSize) * 
+FROM (SELECT RowID=Row_number() OVER (ORDER BY 
+	CASE WHEN @SortCol = 'Comment ASC' THEN P.[Comment] END ASC
+	,CASE WHEN @SortCol = 'Comment DESC' THEN P.[Comment] END DESC 
+	,CASE WHEN @SortCol = 'Credit ASC' THEN P.[Credit] END ASC
+	,CASE WHEN @SortCol = 'Credit DESC' THEN P.[Credit] END DESC 
+	,CASE WHEN @SortCol = 'Debit ASC' THEN P.[Debit] END ASC
+	,CASE WHEN @SortCol = 'Debit DESC' THEN P.[Debit] END DESC 
+	,CASE WHEN @SortCol = 'ClientName ASC' THEN (CASE WHEN C.[CompanyName] <> '' THEN {databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(C.[CompanyName]) ELSE {databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(C.[FirstName]) + ' ' + {databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(C.[LastName]) END) END ASC
+	,CASE WHEN @SortCol = 'ClientName DESC' THEN (CASE WHEN C.[CompanyName] <> '' THEN {databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(C.[CompanyName]) ELSE {databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(C.[FirstName]) + ' ' + {databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(C.[LastName]) END) END DESC 
+	,CASE WHEN @SortCol = 'ProviderName ASC' THEN (CASE WHEN V.[CompanyName] <> '' THEN {databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(V.[CompanyName]) ELSE {databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(V.[FirstName]) + ' ' + {databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(V.[LastName]) END) END ASC
+	,CASE WHEN @SortCol = 'ProviderName DESC' THEN (CASE WHEN V.[CompanyName] <> '' THEN {databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(V.[CompanyName]) ELSE {databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(V.[FirstName]) + ' ' + {databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(V.[LastName]) END) END DESC 
+	,CASE WHEN @FilterDate = 1 AND @SortCol = 'Date ASC' THEN P.[DueDate] END ASC
+	,CASE WHEN @FilterDate = 1 AND @SortCol = 'Date DESC' THEN P.[DueDate] END DESC
+	,CASE WHEN @FilterDate = 3 AND @SortCol = 'Date ASC' THEN P.[ModifiedOnDate] END ASC
+	,CASE WHEN @FilterDate = 3 AND @SortCol = 'Date DESC' THEN P.[ModifiedOnDate] END DESC
+	,CASE WHEN @FilterDate = 2 AND @SortCol = 'Date ASC' THEN A.[AccountName] END ASC
+	,CASE WHEN @FilterDate = 2 AND @SortCol = 'Date DESC' THEN A.[AccountName] END DESC
+	)
+	,P.[PortalId]
+	,P.[PaymentId]
+	,P.[DocId]
+	,'Credit' = (CASE WHEN (@Category = '1' OR @Category = '') THEN P.[Credit] ELSE 0 END)
+	,'Debit' = (CASE WHEN (@Category = '2' OR @Category = '') THEN P.[Debit] + (ISNULL(P.[Debit], 0) * ISNULL(P.[InterestRate], 0) / 100) ELSE 0 END)
+	,P.[InterestRate]
+	,P.[Fee]
+	,P.[ClientId]
+	,P.[ProviderId]
+	,P.[AccountId]
+	,P.[OriginId]
+	,P.[DueDate]
+	,P.[Done]
+	,P.[IsDeleted]
+	,'Total' = CASE WHEN (ISNULL(P.[Debit], 0) > 0) THEN P.[Debit] ELSE P.[Credit] END
+	--,'Comment' = 
+	--(CASE WHEN P.[Debit] > 0 
+	--THEN 
+	--CASE WHEN P.[ProviderId] > 0 AND P.[ClientId] > 0 
+	--THEN 'fornecedor: Cliente: Comment:' 
+	--ELSE 
+	--CASE WHEN P.[ProviderId] > 0 
+	--THEN 'fornecedor: Comment:' 
+	--ELSE 
+	--CASE WHEN P.[ClientId] > 0 
+	--THEN 'Cliente: Comment:' 
+	--ELSE P.[Comment] END END END END)
+	,P.[Comment]
+	,P.[CreatedByUser]
+	,P.[CreatedOnDate]
+	,P.[ModifiedByUser]
+	,P.[ModifiedOnDate]
+	,'ClientName' = CASE WHEN C.[CompanyName] <> '' THEN {databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(C.[CompanyName]) ELSE {databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(C.[FirstName]) + ' ' + {databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(C.[LastName]) END
+	,'ProviderName' = CASE WHEN V.[CompanyName] <> '' THEN {databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(V.[CompanyName]) ELSE {databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(V.[FirstName]) + ' ' + {databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(V.[LastName]) END
+	,A.[AccountName]
+	,O.[OriginName]
+	,TotalRows = Count(*) OVER()
+	FROM {databaseOwner}[{objectQualifier}RIW_Payments] P
+	LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIW_People] V ON P.[ProviderId] = V.[PersonId]
+	LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIW_People] C ON P.[ClientId] = C.[PersonId]
+	LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIW_Accounts] A ON P.[AccountId] = A.[AccountId]
+	LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIW_Origins] O ON P.[OriginId] = O.[OriginId]
+	WHERE	(((@PortalId IS NULL) OR (P.[PortalId] = @PortalId))
+	AND		((@Done = '') OR (P.[Done] = @Done))
+	AND		((@AccountId IS NULL) OR (P.[AccountId] = @AccountId))
+	AND		((@OriginId IS NULL) OR (P.[OriginId] = @OriginId))
+	AND		((@ProviderId IS NULL) OR (P.[ProviderId] = @ProviderId))
+	AND		((@ClientId IS NULL) OR (P.[ClientId] = @ClientId))
+	AND		((@SearchTerm = '') OR (P.[Comment] LIKE '%' + @SearchTerm + '%'))
+	AND		((@Category = '') OR 
+				(@Category = '1' AND P.[Credit] > 0)
+	             OR 
+				(@Category = '2' AND P.[Debit] > 0))
+	AND		((@EndingDate IS NULL) OR
+			(@FilterDate = '3' AND 
+				(P.[ModifiedOnDate] BETWEEN @StartingDate 
+					AND ( CASE WHEN NOT @EndingDate IS NULL THEN DATEADD(DAY,1,@EndingDate) ELSE DATEADD(DAY,1,GETDATE()) END ))) OR
+			(@FilterDate = '2' AND 
+				(P.[CreatedOnDate] BETWEEN @StartingDate 
+					AND ( CASE WHEN NOT @EndingDate IS NULL THEN DATEADD(DAY,1,@EndingDate) ELSE DATEADD(DAY,1,GETDATE()) END ))) OR
+			(@FilterDate = '1' AND 
+				(P.[DueDate] BETWEEN @StartingDate 
+					AND ( CASE WHEN NOT @EndingDate IS NULL THEN DATEADD(DAY,1,@EndingDate) ELSE DATEADD(DAY,1,GETDATE()) END ))))
+			)) A 
+WHERE	A.RowID > ( ( @PageNumber - 1 ) * @PageSize )
+GO
+
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Invoices_GetList]    Script Date: 01/15/2013 12:16:42 ******/
+
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}RIW_Invoices_GetList] (
+
+	@PortalId int
+	,@ProviderId int
+	,@ClientId int
+	,@ProductId int
+	,@StartDate datetime
+	,@EndDate datetime
+	,@PageNumber int
+	,@PageSize int
+	,@SortCol nvarchar(50)
+	
+)
+
+AS
+
+SELECT TOP(@PageSize) * 
+FROM (SELECT RowID=Row_number() OVER (ORDER BY 
+	CASE WHEN @SortCol = 'ClientId ASC' THEN (CASE WHEN MIN(P.[CompanyName]) <> '' THEN MIN({databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(P.[CompanyName])) ELSE MIN({databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(P.[FirstName])) + ' ' + MIN({databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(P.[LastName])) END) END ASC
+	,CASE WHEN @SortCol = 'ClientId DESC' THEN (CASE WHEN MIN(P.[CompanyName]) <> '' THEN MIN({databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(P.[CompanyName])) ELSE MIN({databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(P.[FirstName])) + ' ' + MIN({databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(P.[LastName])) END) END DESC 
+	,CASE WHEN @SortCol = 'CreatedDate ASC' THEN MIN(I.[CreatedOnDate]) END ASC
+	,CASE WHEN @SortCol = 'CreatedDate DESC' THEN MIN(I.[CreatedOnDate]) END DESC
+	,CASE WHEN @SortCol = 'ModifiedDate ASC' THEN MIN(I.[ModifiedOnDate]) END ASC
+	,CASE WHEN @SortCol = 'ModifiedDate DESC' THEN MIN(I.[ModifiedOnDate]) END DESC
+	,CASE WHEN @SortCol = 'EmissionDate ASC' THEN MIN(I.[EmissionDate]) END ASC
+	,CASE WHEN @SortCol = 'EmissionDate DESC' THEN MIN(I.[EmissionDate]) END DESC
+	)
+	,I.[InvoiceId]
+	,MIN(I.[InvoiceNumber]) AS InvoiceNumber
+	,MIN(I.[EmissionDate]) AS EmissionDate
+	--,'InvoiceAmount' = SUM(PTS.[Amount])
+	,MIN(I.[InvoiceAmount]) AS InvoiceAmount
+	,MIN(I.[ClientId]) AS ClientId
+	,MIN(I.[ProviderId]) AS ProviderId
+	--,MIN(P.[UserId]) AS UserId
+	--,'CompanyName' = MIN({databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(P.[CompanyName]))
+	--,'FirstName' = MIN({databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(P.[FirstName]))
+	--,'LastName' = MIN({databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(P.[LastName]))
+	,'ClientName' = CASE WHEN MIN(C.[CompanyName]) <> '' THEN MIN({databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(C.[CompanyName])) ELSE MIN({databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(C.[FirstName])) + ' ' + MIN({databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(C.[LastName])) END
+	,'DisplayName' = CASE WHEN MIN(P.[CompanyName]) <> '' THEN MIN({databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(P.[CompanyName])) ELSE MIN({databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(P.[FirstName])) + ' ' + MIN({databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(P.[LastName])) END
+	,MIN(P.[Telephone]) AS Telephone
+	,MIN(P.[Cell]) AS Cell
+	,MIN(P.[Fax]) AS Fax
+	,MIN(P.[Zero800s]) AS Zero800s
+	,MIN(P.[Email]) AS Email
+	--,P.[IsDeleted]
+	,TotalRows = Count(*) OVER()
+	FROM	{databaseOwner}[{objectQualifier}RIW_Invoices] I
+	LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIW_People] C ON I.[ClientId] = C.[ClientId]
+	--LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIW_Payments] PTS ON I.[InvoiceId] = PTS.[DocId]
+	LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIW_People] P ON I.[ProviderId] = P.[PersonId]
+	WHERE	(((@PortalId IS NULL) OR (I.[PortalId] = @PortalId))
+	AND		((@ProviderId IS NULL) OR (I.[ProviderId] = @ProviderId))
+	AND		((@ClientId IS NULL) OR (I.[ClientId] = @ClientId))
+	AND		((@EndDate IS NULL) OR (I.[EmissionDate] BETWEEN @StartDate AND @EndDate)))
+	GROUP BY I.[InvoiceId]) A 
+WHERE	A.RowID > ( ( @PageNumber - 1 ) * @PageSize )
+GO
+
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Accounts_Get]    Script Date: 01/19/2014 09:55:22 ******/
+
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}RIW_Accounts_GetList] (
+
+	@PortalId int
+	
+)
+AS
+SELECT	A.[PortalId]
+		,A.[AccountId]
+		,A.[AccountName]
+		,'Locked' = CASE WHEN (SELECT COUNT(P.[AccountId]) FROM {databaseOwner}[{objectQualifier}RIW_Payments] P WHERE (((@PortalId = '') OR (P.[PortalId] = @PortalId)) AND P.[AccountId] = A.[AccountId])) > 0 THEN 'True' ELSE 'False' END
+FROM {databaseOwner}[{objectQualifier}RIW_Accounts] A
+WHERE ((@PortalId IS NULL) OR (PortalId = @PortalId))
+GO
+
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Origins_Get]    Script Date: 01/19/2014 09:55:22 ******/
+
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}RIW_Origins_GetList] (
+
+	@PortalId int
+	
+)
+AS
+SELECT	A.[PortalId]
+		,A.[OriginId]
+		,A.[OriginName]
+		,'Locked' = CASE WHEN (SELECT COUNT(P.[OriginId]) FROM {databaseOwner}[{objectQualifier}RIW_Payments] P WHERE (((@PortalId = '') OR (P.[PortalId] = @PortalId)) AND P.[OriginId] = A.[OriginId])) > 0 THEN 'True' ELSE 'False' END
+FROM {databaseOwner}[{objectQualifier}RIW_Origins] A
+WHERE ((@PortalId IS NULL) OR (PortalId = @PortalId))
+GO
+
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_InvoiceItems_GetList]    Script Date: 01/18/2014 14:25:17 ******/
+
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}RIW_InvoiceItems_GetList] (
+
+	@InvoiceId int
+
+)
+AS
+SELECT	ID.[InvoiceItemId]
+		,MIN(ID.[InvoiceId]) AS InvoiceId
+		,MIN(ID.[ProductId]) AS ProductId
+		,MIN(ID.[Qty]) AS Qty
+		,MIN(ID.[UnitValue1]) AS UnitValue1
+		,MIN(ID.[UnitValue2]) AS UnitValue2
+		,MIN(ID.[Discount]) AS Discount
+		,ID.[UpdateProduct]
+		,MIN(PL.[ProductName]) AS ProductName
+		,MIN(P.[Barcode]) AS Barcode
+		,MIN(P.[ProductRef]) AS ProductRef
+		,MIN(U.[UnitTypeAbbv]) AS UnitTypeAbbv
+FROM	{databaseOwner}[{objectQualifier}RIW_InvoiceItems] ID
+		INNER JOIN {databaseOwner}[{objectQualifier}RIW_Products] P ON ID.[ProductId] = P.[ProductId]
+		INNER JOIN {databaseOwner}[{objectQualifier}RIW_ProductLang] PL ON P.[ProductId] = PL.[ProductId]
+		INNER JOIN {databaseOwner}[{objectQualifier}RIW_UnitTypes] U ON P.[ProductUnit] = U.[UnitTypeId]
+WHERE ID.[InvoiceId] = @InvoiceId
+GROUP BY ID.[InvoiceItemId], ID.[UpdateProduct]
+GO
+
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Invoices_Get]    Script Date: 01/18/2014 15:16:49 ******/
+
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}RIW_Invoices_Get] (
+
+	@InvoiceId int
+
+)
+
+AS
+
+SELECT	I.[PortalId]
+		,I.[InvoiceId]
+		,I.[InvoiceNumber]
+		,I.[InvoiceAmount]
+		,I.[PayIn]
+		,I.[Freight]
+		,I.[PayQty]
+		,I.[Interval]
+		,I.[InterestRate]
+		,I.[ProviderId]
+		,I.[ClientId]
+		,I.[EstimateId]
+		,I.[DueDate]
+		,I.[EmissionDate]
+		,I.[Comment]
+		,I.[CreatedOnDate]
+		,I.[CreatedByUser]
+		,I.[ModifiedOnDate]
+		,I.[ModifiedByUser]
+		,I.[CreditDebit]
+		,'VendorName' = CASE WHEN P.[CompanyName] <> '' THEN {databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(P.[CompanyName]) ELSE {databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(P.[FirstName]) + ' ' + {databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(P.[LastName]) END
+		,'ClientName' = CASE WHEN C.[CompanyName] <> '' THEN {databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(C.[CompanyName]) ELSE {databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(C.[FirstName]) + ' ' + {databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(C.[LastName]) END
+		,'Locked' = CASE WHEN (SELECT COUNT(*) FROM {databaseOwner}[{objectQualifier}RIW_Payments] WHERE [DocId] = @InvoiceId AND [Done] = 'True') > 0 THEN 'True' ELSE 'False' END
+
+FROM	{databaseOwner}[{objectQualifier}RIW_Invoices] I
+		--LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIW_Payments] PTS ON I.[InvoiceId] = PTS.[DocId]
+		LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIW_People] P ON I.[ProviderId] = P.[PersonId]
+		LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIW_People] C ON I.[ClientId] = C.[PersonId]
+WHERE I.[InvoiceId] = @InvoiceId
+GO
+
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Payments_Get]    Script Date: 01/21/2014 08:02:56 ******/
+
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}RIW_Payments_Get] (
+
+	@PaymentId int
+	,@PortalId int
+
+)
+AS
+SELECT	P.[PortalId]
+		,P.[PaymentId]
+		,P.[TransId]
+		,P.[DocId]
+		,P.[Credit]
+		,P.[Debit]
+		,P.[InterestRate]
+		,P.[Fee]
+		,P.[ClientId]
+		,P.[ProviderId]
+		,P.[AccountId]
+		,P.[OriginId]
+		,P.[DueDate]
+		,P.[Done]
+		,P.[Comment]
+		,P.[TransDate]
+		,P.[IsDeleted]
+		,P.[CreatedByUser]
+		,P.[CreatedOnDate]
+		,P.[ModifiedByUser]
+		,P.[ModifiedOnDate]
+		,'Total' = CASE WHEN (ISNULL(P.[Debit], 0) > 0) THEN P.[Debit] ELSE P.[Credit] END
+		,'ProviderName' = CASE WHEN PR.[CompanyName] <> '' THEN {databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(PR.[CompanyName]) ELSE {databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(PR.[FirstName]) + ' ' + {databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(PR.[LastName]) END
+		,'ClientName' = CASE WHEN C.[CompanyName] <> '' THEN {databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(C.[CompanyName]) ELSE {databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(C.[FirstName]) + ' ' + {databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(C.[LastName]) END
+
+FROM {databaseOwner}[{objectQualifier}RIW_Payments] P
+		LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIW_People] PR ON P.[ProviderId] = PR.[PersonId]
+		LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIW_People] C ON P.[ClientId] = C.[PersonId]
+WHERE P.PortalId = @PortalId AND P.PaymentId = @PaymentId
+GO
+
+
+/************************************************************/
+/*****              SqlDataProvider                     *****/
+/************************************************************/

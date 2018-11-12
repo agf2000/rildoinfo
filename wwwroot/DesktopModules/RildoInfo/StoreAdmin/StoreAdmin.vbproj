@@ -1,0 +1,323 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>
+    </SchemaVersion>
+    <ProjectGuid>{5656D1E9-2917-46C7-B807-108A341397AF}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>RIW.Modules.StoreAdmin</RootNamespace>
+    <AssemblyName>RIW.Modules.StoreAdmin</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MyType>Custom</MyType>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>..\..\..\bin\</OutputPath>
+    <DocumentationFile>
+    </DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\bin\</OutputPath>
+    <DocumentationFile>
+    </DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DotNetNuke, Version=7.0.2.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\DotNetNuke.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DotNetNuke.Web, Version=7.1.2.356, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\bin\DotNetNuke.Web.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DotNetNuke.Web.Client, Version=6.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\bin\DotNetNuke.Web.Client.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DotNetNuke.WebUtility">
+      <HintPath>..\..\..\bin\DotNetNuke.WebUtility.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="RIW.Modules.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\bin\RIW.Modules.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="DotNetNuke" />
+    <Import Include="DotNetNuke.Common" />
+    <Import Include="DotNetNuke.Data" />
+    <Import Include="DotNetNuke.Entities" />
+    <Import Include="DotNetNuke.Framework" />
+    <Import Include="DotNetNuke.Modules" />
+    <Import Include="DotNetNuke.Security" />
+    <Import Include="DotNetNuke.Services" />
+    <Import Include="DotNetNuke.UI" />
+    <Import Include="DotNetNuke.Web.Client.ClientResourceManagement" />
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Collections.Specialized" />
+    <Import Include="System.Configuration" />
+    <Import Include="System.Text" />
+    <Import Include="System.Text.RegularExpressions" />
+    <Import Include="System.Web" />
+    <Import Include="System.Web.Caching" />
+    <Import Include="System.Web.SessionState" />
+    <Import Include="System.Web.Security" />
+    <Import Include="System.Web.Profile" />
+    <Import Include="System.Web.UI" />
+    <Import Include="System.Web.UI.WebControls" />
+    <Import Include="System.Web.UI.WebControls.WebParts" />
+    <Import Include="System.Web.UI.HtmlControls" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="Components\Common\RiwStoreAdminModuleBase.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\DavReturns.ascx.designer.vb">
+      <DependentUpon>DavReturns.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DavReturns.ascx.vb">
+      <DependentUpon>DavReturns.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Sync.ascx.designer.vb">
+      <DependentUpon>Sync.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Sync.ascx.vb">
+      <DependentUpon>Sync.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Store.ascx.designer.vb">
+      <DependentUpon>Store.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Store.ascx.vb">
+      <DependentUpon>Store.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Sales.ascx.designer.vb">
+      <DependentUpon>Sales.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Sales.vb">
+      <DependentUpon>Sales.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\FileManager.ascx.designer.vb">
+      <DependentUpon>FileManager.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FileManager.ascx.vb">
+      <DependentUpon>FileManager.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\MainPortal.ascx.designer.vb">
+      <DependentUpon>MainPortal.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainPortal.ascx.vb">
+      <DependentUpon>MainPortal.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\StoreContacts.ascx.designer.vb">
+      <DependentUpon>StoreContacts.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StoreContacts.ascx.vb">
+      <DependentUpon>StoreContacts.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Estimates.ascx.designer.vb">
+      <DependentUpon>Estimates.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Estimates.ascx.vb">
+      <DependentUpon>Estimates.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\PayForms.ascx.designer.vb">
+      <DependentUpon>PayForms.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PayForms.ascx.vb">
+      <DependentUpon>PayForms.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Statuses.ascx.designer.vb">
+      <DependentUpon>Statuses.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Statuses.ascx.vb">
+      <DependentUpon>Statuses.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Registration.ascx.designer.vb">
+      <DependentUpon>Registration.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Registration.ascx.vb">
+      <DependentUpon>Registration.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Templates.ascx.designer.vb">
+      <DependentUpon>Templates.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Templates.ascx.vb">
+      <DependentUpon>Templates.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Smtp.ascx.designer.vb">
+      <DependentUpon>Smtp.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Smtp.ascx.vb">
+      <DependentUpon>Smtp.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Painel.ascx.designer.vb">
+      <DependentUpon>Painel.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Painel.ascx.vb">
+      <DependentUpon>Painel.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Images\ri-logo.png" />
+    <Content Include="Documentation\Documentation.css" />
+    <Content Include="Documentation\Documentation.html" />
+    <None Include="Scripts\_references.js" />
+    <Content Include="License.txt" />
+    <Content Include="ViewModels\davReturns.js" />
+    <Content Include="ViewModels\sync.js" />
+    <Content Include="ViewModels\fileManager.js" />
+    <Content Include="ViewModels\store.js" />
+    <Content Include="ViewModels\registration.js" />
+    <Content Include="ViewModels\estimates.js" />
+    <Content Include="ViewModels\sales.js" />
+    <Content Include="ViewModels\payForms.js" />
+    <Content Include="ViewModels\smtp.js" />
+    <Content Include="ViewModels\statuses.js" />
+    <Content Include="ViewModels\templates.js" />
+    <Content Include="ViewModels\viewModel.js" />
+    <Content Include="ViewModels\painel.js" />
+    <Content Include="ViewModels\storeContacts.js" />
+    <Content Include="ViewModels\mainPortal.js" />
+    <Content Include="Views\DavReturns.ascx" />
+    <Content Include="Views\Sync.ascx" />
+    <Content Include="Views\Store.ascx" />
+    <Content Include="Views\Sales.ascx" />
+    <Content Include="Views\FileManager.ascx" />
+    <Content Include="Views\module.css" />
+    <Content Include="ReleaseNotes.txt" />
+    <Content Include="Views\MainPortal.ascx" />
+    <Content Include="Views\StoreContacts.ascx" />
+    <Content Include="Views\Estimates.ascx" />
+    <Content Include="Views\PayForms.ascx" />
+    <Content Include="Views\Statuses.ascx" />
+    <Content Include="Views\Registration.ascx" />
+    <Content Include="Views\Templates.ascx" />
+    <Content Include="Views\Smtp.ascx" />
+    <Content Include="Views\Painel.ascx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\App_LocalResources\Edit.ascx.resx" />
+    <Content Include="Views\App_LocalResources\Settings.ascx.resx" />
+    <Content Include="Views\App_LocalResources\View.ascx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BuildScripts\ModulePackage.targets" />
+    <Content Include="BuildScripts\MSBuild.Community.Tasks.Targets" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Components\Providers\DataProviders\SqlDataProvider\00.00.01.sqldataprovider" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Components\Providers\DataProviders\SqlDataProvider\UnInstall.sqldataprovider" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>62640</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://riw.dnndev.me/desktopmodules/rildoinfo/StoreAdmin</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://riw.dnndev.me</IISAppRootUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <Extension>zip</Extension>
+    <DNNFileName>StoreAdmin</DNNFileName>
+    <PackageName>StoreAdmin</PackageName>
+    <MSBuildCommunityTasksPath>$(SolutionDir)\packages\MSBuildTasks.1.4.0.61\tools</MSBuildCommunityTasksPath>
+  </PropertyGroup>
+  <Import Project="BuildScripts\ModulePackage.targets" />
+  <Target Name="AfterBuild" DependsOnTargets="PackageModule">
+  </Target>
+</Project>

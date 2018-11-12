@@ -1,0 +1,43 @@
+<dotnetnuke type="Package" version="5.0">
+  <packages>
+    <package name="RIW_StoreAdmin_Store" type="Module" version="00.00.01">
+      <friendlyName>RIW Store Admin Store</friendlyName>
+      <description>RIW AGF Store Admin Store module.</description>
+      <iconFile>DesktopModules/RildoInfo/StoreAdmin/Content/Images/ri-logo.png</iconFile>
+      <owner>
+        <name>AGF</name>
+        <organization>riw.com.br</organization>
+        <url>http://www.riw.com.br</url>
+        <email>suporte@riw.com.br</email>
+      </owner>      
+      <components>
+        <component type="Module">
+          <desktopModule>
+            <moduleName>RIW_Store_Admin_Store</moduleName>
+            <foldername>StoreAdmin</foldername>
+            <businessControllerClass />
+            <supportedFeatures />
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>RIW Store Admin Store</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey />
+                    <controlSrc>DesktopModules/RildoInfo/StoreAdmin/Views/Store.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                </moduleControls>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+        </component>
+      </components>
+    </package>
+  </packages>
+</dotnetnuke>

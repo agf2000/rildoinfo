@@ -1,0 +1,321 @@
+﻿
+#divClientTextBox,
+#divClientLabel,
+#divEstimateDDL,
+#divEstimateTextBox,
+#newInvoiceItem,
+#divVendorTextBox,
+#btnUpdateAccount,
+#btnRemoveAccount,
+#btnUpdateOrigin,
+#btnRemoveOrigin,
+#itemsGrid,
+#btnDelete,
+#btnAddNewPayment,
+#btnEditSelected,
+/*#btnDeleteSelected,*/
+#btnRestoreSelected,
+#divAgendaCheckBox,
+/*#divAgendaCheckBox,*/
+/*#divOriginalAmount,*/
+#divInterestRate,
+#divFee,
+#divDoc,
+/*#divDueDate,*/
+/*#divDone,*/
+#divVendorTextBox,
+#divTotal,
+#divVendorLabel,
+#btnRemoveSelected {
+    display: none;
+}
+
+.controls>.radio:first-child, .controls>.checkbox:first-child,
+.controls>.radio:first-child, .controls>.checkbox:first-child,
+.radio.inline, .checkbox.inline,
+.radio.inline, .checkbox.inline {
+    padding-top: 0 !important;
+}
+
+.btn-primary, .btn-info, .btn-primary, .btn-success, .btn-warning, .btn-danger {
+    background-image: none !important;
+    filter: none !important;
+}
+
+.collapse.in {
+    overflow: visible;
+}
+
+#productForm {
+    margin-top: 10px;
+}
+
+.k-grid-content {
+   max-height: 270px;
+}
+
+.k-window {
+    z-index: 1001 !important;
+}
+
+    .k-window div.k-window-content {
+        padding-top: 10px;
+        margin: 0 5px;
+        overflow: hidden;
+    }
+
+    .k-window .k-loading-mask {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+    }
+
+.control-group {
+    margin-bottom: 10px !important;
+}
+
+.control-label {
+    width: 100px !important;
+}
+
+/*label {
+    font-size: 12px !important;
+}*/
+
+.controls {
+    margin-left: 110px !important;
+}
+
+.font-size-small {
+    font-size: 0.8em;
+}
+
+.font-size-medium {
+    font-size: 1.0em;
+}
+
+.font-size-large {
+    font-size: 1.2em;
+}
+
+.form-actions {
+    padding: 10px 20px 15px 10px !important;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+}
+
+    .form-actions .btn {
+        margin-right: 7px !important;
+    }
+
+.alert h4 {
+    margin: 0 0 5px 0 !important;
+}
+
+.fa {
+    margin-top: 2px;
+}
+
+.padded {
+    padding: 7px;
+}
+
+#divPaymentsButtons li {
+    vertical-align: top;
+}
+
+#divInvoicesButtons strong, #divPaymentsButtons strong {
+    display: inline-block;
+    width: 110px;
+    text-align: right;
+}
+
+#paymentsGrid, #invoicesGrid {
+    margin-top: 15px;
+}
+
+#divToolbar ul li:nth-child(3), #divToolbar ul li:nth-child(4) {
+    float: right;
+}
+
+#balances1 ul li label, #balances2 ul li label {
+    display: inline-block;
+    margin: 0 10px;
+    padding: 3px 6px;
+    border: 1px solid #c9c9c9;
+    border-radius: 4px;
+}
+
+#ulPaymentsToolbar li:nth-child(6), 
+#ulPaymentsToolbar li:nth-child(7), 
+#ulPaymentsToolbar li:nth-child(8), 
+#ulPaymentsToolbar li:nth-child(9) {
+    float: right;
+}
+
+#divInvoicesButtons .k-datepicker, #divPaymentsButtons .k-datepicker {
+    width: 110px;
+}
+
+#divEstimateTextBox .k-textbox {
+    width: 250px;
+}
+
+#divInvoiceComment {
+    padding-top: 10px;
+}
+
+    #divInvoiceComment .k-textbox {
+        width: 65%;
+        margin-right: 10px;
+    }
+
+#divPaymentsButtons .dropdowns .k-dropdown, #divPaymentsButtons .k-combobox {
+    width: 170px;
+}
+
+#editPayment .k-combobox {
+    width: 200px;
+}
+
+#invoice li {
+    line-height: 40px;
+    float: left;
+    margin-right: 10px;
+}
+
+.confirmDialog {
+    padding-top: 5px;
+}
+
+#invoice li:nth-child(2) {
+    min-width: 330px;
+}
+
+#invoice li:last-child {
+    margin-right: 0 !important;
+}
+
+    #invoice li:last-child .k-button {
+        margin-top: 7px;
+        float: right;
+    }
+
+#invoice label {
+    width: 81px;
+    display: inline-block;
+    text-align: right;
+    font-weight: bold;
+}
+
+#newInvoice {
+    padding-top: 10px;
+}
+
+#editInvoice {
+    min-height: 300px;
+}
+
+    #editInvoice .k-popup {
+        margin-top: 5px !important;
+    }
+
+#itemsGrid {
+    margin-top: 15px;
+}
+
+    #itemsGrid .k-numerictextbox {
+        width: 65px;
+    }
+
+.k-grid-edit-row .k-numerictextbox {
+    width: 70px !important;
+}
+
+.k-grid tbody .k-button, .k-ie8 .k-grid tbody button.k-button {
+    min-width: 0 !important;
+}
+
+.k-button-icontext .k-icon {
+    margin-left: 5px !important;
+}
+
+#editInvoice .k-autocomplete, #editPayment .k-autocomplete {
+    width: 240px;
+}
+
+#payForm {
+    width: 150px;
+}
+
+#unitTypeTitle {
+    width: 90px;
+}
+
+#editInvoice .k-datepicker, #editPayment .k-datepicker {
+    width: 110px;
+}
+
+#unitTypeTile {
+    display: inline-block;
+    width: 40px;
+}
+
+.party {
+    background-color: #428bca;
+    color: #FFF;
+    border-radius: 10px;
+    padding-right: 2px;
+}
+
+#agenda .k-state-focused, #sheduler .k-state-focused {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/*.k-state-selected {
+    background-color: #428BCA !important;
+}*/
+
+#myLegend ul li span {
+    display: inline-block;
+    float: left;
+    height: 10px;
+    width: 10px;
+    margin: 4px 5px 0;
+    border: 1px solid gray;
+}
+
+.isDone {
+    /*background-color: #d6fb7b !important;*/
+    color: green;
+}
+
+.isCanceled {
+    /*background-color: #fee978 !important;*/
+    color: saddlebrown;
+}
+
+.isPastDue {
+    /*background-color: #fcb17c !important;*/
+    color: red;
+}
+
+.bigdrop {
+    width: 600px;
+}
+
+.select2-results li:nth-child(even) {
+    background-color: #DCDCDC !important;
+}
+
+#cashiersGrid table th, #cashiersGrid table td {
+    text-align: right;
+}
+
+#cashiersGrid table th:nth-child(1), #cashiersGrid table td:nth-child(1) {
+    text-align: left;
+}
+

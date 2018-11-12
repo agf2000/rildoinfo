@@ -1,0 +1,57 @@
+
+span.skype_pnh_container {
+    display: none !important;
+}
+
+span.skype_pnh_print_container {
+    display: inline !important;
+}
+
+.k-popup .k-list .k-state-hover, .k-popup .k-list .k-state-focused, .k-popup .k-list .k-state-selected {
+    color: #FFF;
+    background-color: #f0713a;
+}
+
+.btn-primary, .btn-info, .btn-primary, .btn-success, .btn-warning, .btn-danger {
+    background-image: none !important;
+    filter: none !important;
+}
+
+.font-size-small {
+    font-size: 0.8em;
+}
+
+.font-size-medium {
+    font-size: 1.0em;
+}
+
+.font-size-large {
+    font-size: 1.2em;
+}
+
+.control-label {
+    width: 180px !important;
+}
+
+.controls {
+    margin-left: 190px !important;
+}
+
+.padded {
+    padding: 7px;
+}
+
+.control-group {
+    margin-bottom: 10px !important;
+}
+
+.k-state-active, .k-state-active:hover, .k-active-filter, .k-tabstrip .k-state-active {
+    border-color: #666 !important;
+}
+
+.icon-correio { 
+  background-image: url("/DesktopModules/RildoInfo/Contacts/Content/Images/icon_correio.png") !important;
+  background-position: center center !important; 
+  height: 14px !important; 
+  width: 18px !important;
+}

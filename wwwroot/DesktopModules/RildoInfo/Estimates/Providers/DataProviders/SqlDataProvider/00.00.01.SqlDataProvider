@@ -1,0 +1,1154 @@
+﻿/************************************************************/
+/*****              SqlDataProvider                     *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/***** Note: To manually execute this script you must   *****/
+/*****       perform a search and replace operation     *****/
+/*****       for {databaseOwner} and {objectQualifier}  *****/
+/*****                                                  *****/
+/************************************************************/
+
+
+/** Create Tables **/
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_EstimateHistories]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_EstimateHistories](
+		[EstimateHistoryId] [int] IDENTITY(1,1) NOT NULL,
+		[EstimateId] [int] NOT NULL,
+		[HistoryText] [nvarchar](500) NOT NULL,
+		[Locked] [bit] NOT NULL,
+		[CreatedByUser] [int] NOT NULL,
+		[CreatedOnDate] [datetime] NOT NULL,
+	 CONSTRAINT [PK_RIW_EstimateHistories] PRIMARY KEY CLUSTERED 
+	(
+		[EstimateHistoryId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_EstimateHistoryComments]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_EstimateHistoryComments](
+		[CommentId] [int] IDENTITY(1,1) NOT NULL,
+		[EstimateHistoryId] [int] NOT NULL,
+		[CommentText] [nvarchar](500) NULL,
+		[CreatedByUser] [int] NULL,
+		[CreatedOnDate] [datetime] NULL,
+	 CONSTRAINT [PK_RIW_EstimateHistoryComments] PRIMARY KEY CLUSTERED 
+	(
+		[CommentId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_EstimateItems]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_EstimateItems](
+		[EstimateItemId] [int] IDENTITY(1,1) NOT NULL,
+		[EstimateId] [int] NOT NULL,
+		[ProductId] [int] NOT NULL,
+		[ProductQty] [float] NOT NULL,
+		[ProductEstimateOriginalPrice] [money] NULL,
+		[ProductEstimatePrice] [money] NULL,
+		[ProductDiscount] [float] NULL,
+		[POSels] [nvarchar](50) NULL,
+		[POSelsText] [nvarchar](100) NULL,
+		[RemoveReasonId] [char](1) NULL,
+		[CreatedByUser] [int] NOT NULL,
+		[CreatedOnDate] [datetime] NOT NULL,
+		[ModifiedByUser] [int] NOT NULL,
+		[ModifiedOnDate] [datetime] NOT NULL,
+		[CurrentTimestamp] [timestamp] NOT NULL,
+	 CONSTRAINT [PK_RIW_EstimateItems] PRIMARY KEY CLUSTERED 
+	(
+		[EstimateItemId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_EstimateItemsRemoved]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_EstimateItemsRemoved](
+		[EstimateItemRemovedId] [int] IDENTITY(1,1) NOT NULL,
+		[EstimateId] [int] NOT NULL,
+		[RemoveReasonId] [char](1) NOT NULL,
+		[ProductId] [int] NOT NULL,
+		[ProductQty] [float] NOT NULL,
+		[CreatedByUser] [int] NOT NULL,
+		[CreatedOnDate] [datetime] NOT NULL,
+	 CONSTRAINT [PK_RIW_EstimateItemsRemoved] PRIMARY KEY CLUSTERED 
+	(
+		[EstimateItemRemovedId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_EstimateMessageComments]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_EstimateMessageComments](
+		[CommentId] [int] IDENTITY(1,1) NOT NULL,
+		[EstimateMessageId] [int] NOT NULL,
+		[CommentText] [nvarchar](500) NULL,
+		[CreatedByUser] [int] NULL,
+		[CreatedOnDate] [datetime] NULL,
+	 CONSTRAINT [PK_RIW_EstimateMessageComments] PRIMARY KEY CLUSTERED 
+	(
+		[CommentId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_EstimateMessages]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_EstimateMessages](
+		[EstimateMessageId] [int] IDENTITY(1,1) NOT NULL,
+		[EstimateId] [int] NOT NULL,
+		[MessageText] [nvarchar](500) NOT NULL,
+		[Allowed] [bit] NOT NULL,
+		[CreatedByUser] [int] NOT NULL,
+		[CreatedOnDate] [datetime] NOT NULL,
+		[ModifiedByUser] [int] NOT NULL,
+		[ModifiedOnDate] [datetime] NOT NULL,
+	 CONSTRAINT [PK_RIW_EstimateMessages] PRIMARY KEY CLUSTERED 
+	(
+		[EstimateMessageId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_Estimates]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_Estimates](
+		[PortalId] [int] NOT NULL,
+		[EstimateId] [int] IDENTITY(1,1) NOT NULL,
+		[EstimateTitle] [nvarchar](100) NULL,
+		[PersonId] [int] NOT NULL,
+		[Comment] [nvarchar](255) NULL,
+		[Inst] [nvarchar](255) NULL,
+		[ViewPrice] [bit] NULL,
+		[Discount] [float] NULL,
+		[TotalAmount] [money] NULL,
+		[SalesRep] [int] NULL,
+		[PayOption] [int] NULL,
+		[PayForm] [int] NULL,
+		[Guid] [nvarchar](50) NULL,
+		[StatusId] [int] NULL,
+		[Locked] [bit] NULL,
+		[IsDeleted] [bit] NULL,
+		[PayCondId] [int] NULL,
+		[PayCondType] [nvarchar](250) NULL,
+		[PayCondN] [int] NULL,
+		[PayCondPerc] [float] NULL,
+		[PayCondDisc] [float] NULL,
+		[PayCondIn] [money] NULL,
+		[PayInDays] [int] NULL,
+		[PayCondInst] [money] NULL,
+		[PayCondInterval] [int] NULL,
+		[TotalPayments] [money] NULL,
+		[TotalPayCond] [money] NULL,
+		[CreatedByUser] [int] NOT NULL,
+		[CreatedOnDate] [datetime] NOT NULL,
+		[ModifiedByUser] [int] NOT NULL,
+		[ModifiedOnDate] [datetime] NOT NULL,
+		[CurrentTimestamp] [timestamp] NOT NULL,
+		[OldId] [int] NULL,
+		[NumDoc] [int] NULL,
+		[SequencialDav] [int] NULL,
+		[Coupon] [int] NULL,
+		[CouponAttached] [int] NULL,
+		[NumFab] [varchar](50) NULL,
+		[NumMachine] [int] NULL,
+		[CCF] [int] NULL,
+		[CRZ] [int] NULL,
+		[CRO] [int] NULL,
+		[GNF] [int] NULL,
+		[DavDate] [datetime] NULL,
+		[Canceled] [bit] NULL,
+		[OtherDiscount] [money] NULL,
+		[Extras] [money] NULL,
+		[CashAmount] [money] NULL,
+		[ChequeAmount] [money] NULL,
+		[ChequePreAmount] [money] NULL,
+		[CardAmount] [money] NULL,
+		[CreditAmount] [money] NULL,
+		[CovenantAmount] [money] NULL,
+		[TicketAmount] [money] NULL,
+	 CONSTRAINT [PK_RIW_Estimates] PRIMARY KEY CLUSTERED 
+	(
+		[EstimateId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_PayConditions]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_PayConditions](
+		[PortalId] [int] NOT NULL,
+		[PayCondId] [int] IDENTITY(1,1) NOT NULL,
+		[PayCondTitle] [nvarchar](256) NULL,
+		[PayCondType] [int] NULL,
+		[PayCondStart] [money] NULL,
+		[PayCondN] [int] NULL,
+		[PayCondPerc] [float] NULL,
+		[PayCondIn] [float] NULL,
+		[PayInDays] [int] NULL,
+		[PayCondDisc] [float] NULL,
+		[PayCondInterval] [int] NULL,
+		[DiscountGroupId] [int] NULL,
+		[CreatedByUser] [int] NULL,
+		[CreatedOnDate] [smalldatetime] NULL,
+		[ModifiedByUser] [int] NULL,
+		[ModifiedOnDate] [smalldatetime] NULL,
+	 CONSTRAINT [PK_RIW_PayConditions] PRIMARY KEY CLUSTERED 
+	(
+		[PayCondId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_PayForms]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_PayForms](
+		[PortalId] [int] NOT NULL,
+		[PayFormId] [int] IDENTITY(1,1) NOT NULL,
+		[PayFormTitle] [nvarchar](50) NOT NULL,
+		[IsDeleted] [bit] NULL,
+		[CreatedByUser] [int] NOT NULL,
+		[CreatedOnDate] [smalldatetime] NOT NULL,
+		[ModifiedByUser] [int] NOT NULL,
+		[ModifiedOnDate] [smalldatetime] NOT NULL,
+	 CONSTRAINT [PK_RIW_PayForms] PRIMARY KEY CLUSTERED 
+	(
+		[PayFormId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+
+
+/** Drop Stored Procedures **/
+
+
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Estimate_Histories_GetList]    Script Date: 12/05/2013 11:26:05 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_Estimate_Histories_GetList]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_Estimate_Histories_GetList]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Estimate_HistoryComments_GetList]    Script Date: 12/05/2013 11:26:05 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_Estimate_HistoryComments_GetList]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_Estimate_HistoryComments_GetList]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Estimate_MessageComments_GetList]    Script Date: 12/05/2013 11:26:05 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_Estimate_MessageComments_GetList]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_Estimate_MessageComments_GetList]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Estimate_Messages_Get]    Script Date: 12/05/2013 11:26:05 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_Estimate_Messages_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_Estimate_Messages_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Estimate_Messages_GetList]    Script Date: 12/05/2013 11:26:05 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_Estimate_Messages_GetList]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_Estimate_Messages_GetList]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_EstimateItems_GetList]    Script Date: 12/05/2013 11:26:05 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_EstimateItems_GetList]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_EstimateItems_GetList]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Estimates_Get]    Script Date: 12/05/2013 11:26:05 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_Estimates_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_Estimates_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Davs_GetList]    Script Date: 12/05/2013 11:26:05 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_Davs_GetList]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_Davs_GetList]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Estimates_GetList]    Script Date: 12/05/2013 11:26:05 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_Estimates_GetList]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_Estimates_GetList]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_PayConds_Get]    Script Date: 12/05/2013 11:26:05 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_PayConds_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_PayConds_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_PayForms_GetList]    Script Date: 12/05/2013 11:26:05 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_PayForms_GetList]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIW_PayForms_GetList]
+GO
+
+
+
+/** Create Stored Procedures **/
+
+
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Estimate_Histories_Get]    Script Date: 01/15/2013 12:16:42 ******/
+
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}RIW_Estimate_Histories_GetList] (
+
+	@EstimateId int
+
+)
+AS
+
+SELECT	EH.[EstimateHistoryId]
+		,EH.[HistoryText]
+		,EH.[CreatedByUser]
+		,EH.[CreatedOnDate]
+		,EH.[Locked]
+		,U.[DisplayName]
+		,'Avatar' = F.[Folder] + F.[FileName]
+
+FROM {databaseOwner}[{objectQualifier}RIW_EstimateHistories] EH
+LEFT OUTER JOIN {databaseOwner}[{objectQualifier}Users] AS U ON EH.[CreatedByUser] = U.[UserID]
+LEFT OUTER JOIN {databaseOwner}[{objectQualifier}Files] AS F ON {databaseOwner}{objectQualifier}RIW_fn_GetProfilePropertyValue(U.[UserId],'Photo') = CONVERT(VARCHAR, F.[FileId])
+WHERE  EH.EstimateId = @EstimateId
+ORDER BY EH.[CreatedOnDate] DESC
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Estimate_HistoryComments_GetList]    Script Date: 01/15/2013 12:16:42 ******/
+
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}RIW_Estimate_HistoryComments_GetList] (
+
+	@EstimateHistoryId int
+
+)
+AS
+
+SELECT	HC.[CommentId]
+		,HC.[EstimateHistoryId]
+		,HC.[CommentText]
+		,HC.[CreatedByUser]
+		,HC.[CreatedOnDate]
+		,U.[DisplayName]
+		,'Avatar' = F.[Folder] + F.[FileName]
+
+FROM {databaseOwner}[{objectQualifier}RIW_EstimateHistoryComments] HC
+INNER JOIN {databaseOwner}[{objectQualifier}Users] AS U ON HC.[CreatedByUser] = U.[UserID]
+LEFT OUTER JOIN {databaseOwner}[{objectQualifier}Files] AS F ON {databaseOwner}{objectQualifier}RIW_fn_GetProfilePropertyValue(U.[UserId],'Photo') = CONVERT(VARCHAR, F.[FileId])
+--INNER JOIN (SELECT MAX([CreatedOnDate]) AS DATE FROM {databaseOwner}[{objectQualifier}RIW_EstimateMessageComments]) a ON MC.[CreatedOnDate] = a.date
+WHERE	((HC.[EstimateHistoryId] = @EstimateHistoryId))
+--AND		((@CreatedOnDate IS NULL) OR (DATEDIFF(SECOND,@CreatedOnDate,MC.[CreatedOnDate]) > -1)))
+ORDER BY HC.[CreatedOnDate] DESC
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Estimate_MessageComments_GetList]    Script Date: 01/15/2013 12:16:42 ******/
+
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}RIW_Estimate_MessageComments_GetList] (
+
+	@EstimateMessageId int
+
+)
+AS
+
+SELECT	MC.[CommentId]
+		,MC.[EstimateMessageId]
+		,MC.[CommentText]
+		,MC.[CreatedByUser]
+		,MC.[CreatedOnDate]
+		,U.[DisplayName]
+		,'Avatar' = F.[Folder] + F.[FileName]
+
+FROM {databaseOwner}[{objectQualifier}RIW_EstimateMessageComments] MC
+INNER JOIN {databaseOwner}[{objectQualifier}Users] AS U ON MC.[CreatedByUser] = U.[UserID]
+LEFT OUTER JOIN {databaseOwner}[{objectQualifier}Files] AS F ON {databaseOwner}{objectQualifier}RIW_fn_GetProfilePropertyValue(U.[UserId],'Photo') = CONVERT(VARCHAR, F.[FileId])
+--INNER JOIN (SELECT MAX([CreatedOnDate]) AS DATE FROM {databaseOwner}[{objectQualifier}RIW_EstimateMessageComments]) a ON MC.[CreatedOnDate] = a.date
+WHERE	((MC.[EstimateMessageId] = @EstimateMessageId))
+--AND		((@CreatedOnDate IS NULL) OR (DATEDIFF(SECOND,@CreatedOnDate,MC.[CreatedOnDate]) > -1)))
+ORDER BY MC.[CreatedOnDate] DESC
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Estimate_Messages_Get]    Script Date: 01/15/2013 12:16:42 ******/
+
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}RIW_Estimate_Messages_Get] (
+
+	@EstimateMessageId int
+	,@EstimateId int
+
+)
+AS
+
+SELECT	EM.[EstimateMessageId]
+		,EM.[MessageText]
+		,EM.[CreatedByUser]
+		,EM.[CreatedOnDate]
+		,EM.[Allowed]
+		,U.[DisplayName]
+		,'Avatar' = F.[Folder] + F.[FileName]
+
+FROM {databaseOwner}[{objectQualifier}RIW_EstimateMessages] EM
+INNER JOIN {databaseOwner}[{objectQualifier}Users] AS U ON EM.[CreatedByUser] = U.[UserID]
+LEFT OUTER JOIN {databaseOwner}[{objectQualifier}Files] AS F ON {databaseOwner}{objectQualifier}RIW_fn_GetProfilePropertyValue(U.[UserId],'Photo') = CONVERT(VARCHAR, F.[FileId])
+WHERE  EM.[EstimateMessageId] = @EstimateMessageId AND EM.EstimateId = @EstimateId
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Estimate_Messages_Get]    Script Date: 01/15/2013 12:16:42 ******/
+
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}RIW_Estimate_Messages_GetList] (
+
+	@EstimateId int
+
+)
+AS
+
+SELECT	EM.[EstimateMessageId]
+		,EM.[MessageText]
+		,EM.[CreatedByUser]
+		,EM.[CreatedOnDate]
+		,EM.[Allowed]
+		,U.[DisplayName]
+		,'Avatar' = F.[Folder] + F.[FileName]
+
+FROM {databaseOwner}[{objectQualifier}RIW_EstimateMessages] EM
+INNER JOIN {databaseOwner}[{objectQualifier}Users] AS U ON EM.[CreatedByUser] = U.[UserID]
+LEFT OUTER JOIN {databaseOwner}[{objectQualifier}Files] AS F ON {databaseOwner}{objectQualifier}RIW_fn_GetProfilePropertyValue(U.[UserId],'Photo') = CONVERT(VARCHAR, F.[FileId])
+WHERE  EM.[EstimateId] = @EstimateId
+ORDER BY EM.[CreatedOnDate] DESC
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_EstimateItems_GetList]    Script Date: 01/15/2013 12:16:42 ******/
+
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}RIW_EstimateItems_GetList] (
+
+	@PortalId int
+	,@EstimateId int
+	,@Lang varchar(5)
+
+)
+AS
+SELECT  EI.[EstimateItemId]
+		,EI.[ProductId]
+		,P.[IsDeleted]
+		,P.[ProductRef]
+		,P.[Barcode]
+		,P.[ProductUnit]
+		,UT.[UnitTypeTitle]
+		,UT.[UnitTypeAbbv]
+		,PL.[ProductName]
+		,PL.[Summary]
+		,'QtyStockSet' = (CASE WHEN EXISTS 
+				(SELECT 1 FROM {databaseOwner}[{objectQualifier}RIW_ProductOption] PO WHERE P.[ProductId] = PO.[ProductId])
+				THEN 
+					 Isnull((SELECT Sum(POV.[QtyStockSet]) 
+							 FROM   {databaseOwner}[{objectQualifier}RIW_ProductOption] POV
+							 WHERE  POV.[ProductId] = P.[ProductId]), 0) + [QtyStockSet]
+				ELSE
+					[QtyStockSet]
+				END)
+		--,'ProdDesc' = SUBSTRING(P.[ProdDesc],1,10)
+		--,PF.[Finan_Sale_Price]
+		--,PF.[Finan_Special_Price]
+		,PF.[Finan_Cost]
+		,PF.[Finan_Manager]
+		,PF.[Finan_SalesPerson]
+		,PF.[Finan_Rep]
+		,PF.[Finan_Tech]
+		,PF.[Finan_Telemarketing]
+		,EI.[CreatedOnDate] AS CreatedDate
+		,EI.[ModifiedOnDate] AS ModifiedDate
+		,ISNULL(EI.[ProductEstimateOriginalPrice], 0) AS ProductEstimateOriginalPrice
+		,ISNULL(EI.[ProductEstimatePrice], 0) AS ProductEstimatePrice
+		,ISNULL(EI.[ProductDiscount], 0) AS ProductDiscount
+		,ISNULL(EI.[ProductQty], 0) AS ProductQty
+		,(ISNULL(EI.[ProductQty], 0) * (ISNULL(EI.[ProductEstimatePrice], 0))) - ((EI.[ProductEstimateOriginalPrice] / 100 * EI.[ProductDiscount]) * EI.[ProductQty]) AS ExtendedAmount
+		--,(ISNULL(EI.[ProductQty], 0) * (ISNULL(EI.[ProductEstimatePrice], 0))) AS TotalAmount		
+		--,(CASE WHEN PF.[Finan_Special_Price] > 0 AND GETDATE() BETWEEN P.[SaleStartDate] AND P.[SaleEndDate] THEN PF.[Finan_Special_Price] ELSE PF.[Finan_Sale_Price] END) AS UnitValue
+		--,( STUFF( ( SELECT ', '  + '<a id="cat_' + CONVERT(NVARCHAR,PC.[CategoryId]) + '" onclick="my.openCat(this.id)">' + CL.[CategoryName] + '</a>' FROM {databaseOwner}[{objectQualifier}RIW_ProductCategory] PC INNER JOIN {databaseOwner}[{objectQualifier}RIW_CategoryLang] AS CL ON PC.[CategoryId] = CL.[CategoryId] WHERE PC.[ProductId] = P.[ProductId] FOR XML PATH('') ), 1, 2, '' ) ) AS CategoriesNames
+		,( STUFF( ( SELECT ', '  + CL.[CategoryName] FROM {databaseOwner}[{objectQualifier}RIW_ProductCategory] PC INNER JOIN {databaseOwner}[{objectQualifier}RIW_CategoryLang] AS CL ON PC.[CategoryId] = CL.[CategoryId] WHERE PC.[ProductId] = P.[ProductId] FOR XML PATH('') ), 1, 2, '' ) ) AS CategoriesNames
+		,(SELECT TOP 1 ProductImageId FROM {databaseOwner}[{objectQualifier}RIW_ProductImage] WHERE [ProductId] = P.[ProductId] ORDER BY [ListOrder]) AS ProductImageId
+		,(SELECT TOP 1 Extension FROM {databaseOwner}[{objectQualifier}RIW_ProductImage] WHERE [ProductId] = P.[ProductId] ORDER BY [ListOrder]) AS Extension
+		,(CASE WHEN P.[SaleStartDate] BETWEEN Getdate() AND P.[SaleEndDate]
+			THEN ISNULL(PF.[Finan_Special_Price], 0) 
+				ELSE ISNULL(PF.[Finan_Sale_Price], 0) END) AS UnitValue
+		,'ItemIndex' = ROW_NUMBER() OVER (ORDER BY EI.[EstimateItemId])
+FROM {databaseOwner}[{objectQualifier}RIW_EstimateItems] EI
+	INNER JOIN {databaseOwner}[{objectQualifier}RIW_Products] AS P ON EI.[ProductId] = P.[ProductId]
+	INNER JOIN {databaseOwner}[{objectQualifier}RIW_ProductFinance] AS PF ON P.[ProductId] = PF.[ProductId]
+	INNER JOIN {databaseOwner}[{objectQualifier}RIW_ProductLang] AS PL ON P.[ProductId] = PL.[ProductId] AND PL.[Lang] = @Lang
+	INNER JOIN {databaseOwner}[{objectQualifier}RIW_UnitTypes] AS UT ON P.[ProductUnit] = UT.[UnitTypeId]
+WHERE  EI.[EstimateId] = @EstimateId
+GO
+
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Estimate_Get]    Script Date: 01/15/2013 12:16:42 ******/
+
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}RIW_Estimates_Get] (
+
+	@EstimateId int
+	,@PortalId int
+	,@GetAll bit
+
+)
+AS
+
+SELECT	E.[PortalId]
+		,E.[PersonId]
+		,E.[EstimateId]
+		,E.[EstimateTitle]
+		,E.[Inst]
+		,E.[ViewPrice]
+		,S.[StatusTitle]
+		,E.[Discount]
+		,(SELECT (SUM(EI.[ProductEstimatePrice] * EI.[ProductQty]) - ((SUM(EI.[ProductEstimatePrice] * EI.[ProductQty]) * E.[Discount] / 100))) FROM {databaseOwner}[{objectQualifier}RIW_EstimateItems] AS EI WHERE EI.[EstimateId] = E.[EstimateId]) AS TotalAmount -- ROUND(E.[TotalAmount], 2) AS TotalAmount
+		,E.[SalesRep]
+		,E.[PayOption]
+		,E.[PayForm]
+		,E.[Guid]
+		,E.[StatusId]
+		,E.[Locked]
+		,E.[PayCondDisc]
+		,E.[PayCondIn]
+		,E.[PayInDays]
+		,E.[PayCondInst]
+		,E.[PayCondN]
+		,E.[PayCondPerc]
+		,E.[PayCondId]
+		,E.[PayCondType]
+		,E.[PayCondInterval]
+		,E.[TotalPayments]
+		,ROUND(E.[TotalPayCond], 2) AS TotalPayCond
+		,E.[IsDeleted]
+		,E.[CCF]
+		,E.[CRO]
+		,E.[CRZ]
+		,E.[Canceled]
+		,E.[CardAmount]
+		,E.[CashAmount]
+		,E.[ChequeAmount]
+		,E.[ChequePreAmount]
+		,E.[Coupon]
+		,E.[CouponAttached]
+		,E.[CovenantAmount]
+		,E.[CreditAmount]
+		,E.[DavDate]
+		,E.[Extras]
+		,E.[GNF]
+		,E.[NumDoc]
+		,E.[NumFab]
+		,E.[NumMachine]
+		,E.[OtherDiscount]
+		,E.[SequencialDav]
+		,E.[TicketAmount]
+		,E.[CreatedByUser]
+		,E.[ModifiedByUser]
+		,E.[CreatedOnDate]
+		,E.[ModifiedOnDate]
+		,E.[Comment]
+		,'ClientEmail' = C.[Email]
+		,'ClientEIN' = C.[EIN]
+		,'ClientStateTax' = C.[StateTax]
+		,'ClientCityTax' = C.[CityTax]
+		,'ClientCompanyName' = C.[CompanyName]
+		,'ClientFirstName' = {databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(C.[FirstName])
+		,'ClientLastName' = {databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(C.[LastName])
+		,'ClientDisplayName' = CASE WHEN C.[CompanyName] <> '' THEN {databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(C.[CompanyName]) ELSE {databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(C.[FirstName]) + ' ' + {databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(C.[LastName]) END
+		,'ClientTelephone' = C.[Telephone]
+		,'ClientCell' = C.[Cell]
+		,'ClientFax' = C.[Fax]
+		,'ClientZero800s' = C.[Zero800s]
+		,'ClientAddress' = ( SELECT TOP 1 CA.[Street] FROM {databaseOwner}[{objectQualifier}RIW_PeopleAddresses] CA WHERE CA.[PersonId] = C.[PersonId] ORDER BY CA.[ViewOrder] )
+		,'ClientUnit' = ( SELECT TOP 1 CA.[Unit] FROM {databaseOwner}[{objectQualifier}RIW_PeopleAddresses] CA WHERE CA.[PersonId] = C.[PersonId] ORDER BY CA.[ViewOrder] )
+		,'ClientComplement' = ( SELECT TOP 1 CA.[Complement] FROM {databaseOwner}[{objectQualifier}RIW_PeopleAddresses] CA WHERE CA.[PersonId] = C.[PersonId] ORDER BY CA.[ViewOrder] )
+		,'ClientDistrict' = ( SELECT TOP 1 CA.[District] FROM {databaseOwner}[{objectQualifier}RIW_PeopleAddresses] CA WHERE CA.[PersonId] = C.[PersonId] ORDER BY CA.[ViewOrder] )
+		,'ClientCity' = ( SELECT TOP 1 CA.[City] FROM {databaseOwner}[{objectQualifier}RIW_PeopleAddresses] CA WHERE CA.[PersonId] = C.[PersonId] ORDER BY CA.[ViewOrder] )
+		,'ClientRegion' = ( SELECT TOP 1 CA.[Region] FROM {databaseOwner}[{objectQualifier}RIW_PeopleAddresses] CA WHERE CA.[PersonId] = C.[PersonId] ORDER BY CA.[ViewOrder] )
+		,'ClientPostalCode' = ( SELECT TOP 1 CA.[PostalCode] FROM {databaseOwner}[{objectQualifier}RIW_PeopleAddresses] CA WHERE CA.[PersonId] = C.[PersonId] ORDER BY CA.[ViewOrder] )
+		,'SalesRepName' = SU.DisplayName
+		,'SalesRepEmail' = SU.Email
+		,'SalesRepPhone' = {databaseOwner}{objectQualifier}RIW_fn_GetProfilePropertyValue(SU.UserId,'Telephone')
+		,'CurrentTimestamp' = CONVERT(bigint, E.[CurrentTimestamp])
+FROM {databaseOwner}[{objectQualifier}RIW_Estimates] E
+LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIW_Statuses] S ON E.[StatusId] = S.[StatusId]
+LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIW_People] C ON E.[PersonId] = C.[PersonId]
+LEFT OUTER JOIN {databaseOwner}[{objectQualifier}Users] SU ON C.SalesRep = SU.UserId
+WHERE	((@PortalId IS NULL) OR (E.[PortalId] = @PortalId))
+AND		((E.[EstimateId] = @EstimateId)
+AND		((@GetAll = 'True') OR (NOT E.[StatusId] = (SELECT [StatusId] FROM {databaseOwner}[{objectQualifier}RIW_Statuses] WHERE [StatusTitle] = 'Venda' AND [PortalId] = E.[PortalId]))))
+GO
+
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Estimates_GetList]    Script Date: 01/15/2013 12:16:42 ******/
+
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}RIW_Estimates_GetList] (
+
+	@PortalId int
+	,@PersonId int
+	,@UserId int
+	,@SalesRep int
+	,@StatusId int
+	,@StartDate datetime
+	,@EndDate datetime
+	,@FilterSearch nvarchar(60)
+	,@FilterField varchar(40)
+	,@GetAll bit
+	,@IsDeleted nvarchar(5)
+	,@PageIndex int
+	,@PageSize int
+	,@SortCol nvarchar(20)
+	,@OrderDesc nvarchar(4)
+
+)
+
+AS 
+	BEGIN 
+		IF NOT @UserId IS NULL SET @PersonId = (SELECT PersonId FROM {databaseOwner}[{objectQualifier}RIW_People] WHERE UserId = @UserId)
+		DECLARE @Sold int	SET @Sold = (SELECT [StatusId] FROM {databaseOwner}[{objectQualifier}RIW_Statuses] WHERE [StatusTitle] = 'Vendas' AND [PortalId] = @PortalId)
+		DECLARE @SQL nvarchar(4000) 
+
+		-- clean up filter 
+		SET @FilterSearch = Replace(@FilterSearch, '''', '''''') 
+		SET @SQL = ' SELECT ' 
+
+		SET @SQL = @SQL + ' row,PortalId,EstimateId,EstimateTitle,PersonId,ViewPrice,IsDeleted,CreatedByUser,CreatedOnDate,ModifiedByUser,ModifiedOnDate,Discount,StatusId,Guid,TotalAmount,PayCondId,PayCondDisc,PayCondIn,PayInDays,PayCondInst,PayCondN,PayCondPerc,PayCondType,PayCondInterval,TotalPayments,TotalPayCond,StatusColor,StatusTitle,ClientCompanyName,CompanyName,ClientFirstName,FirstName,ClientLastName,LastName,ClientDisplayName,ClientTelephone,ClientCell,SalesRepName,TotalRows '
+		SET @SQL = @SQL + ' FROM ' 
+		SET @SQL = @SQL + ' (select ROW_NUMBER() OVER ( ORDER BY ' 
+		
+		IF @SortCol = 'EstimateId' 
+			BEGIN 
+				IF @OrderDESC = 'desc'
+					SET @SQL = @SQL 
+						+ ' E.[EstimateId] DESC ' 
+				ELSE 
+					SET @SQL = @SQL 
+						+ ' E.[EstimateId] ' 
+			END 
+		IF @SortCol = 'EstimateTitle' 
+			BEGIN 
+				IF @OrderDESC = 'desc'
+					SET @SQL = @SQL 
+						+ ' E.[EstimateTitle] DESC ' 
+				ELSE 
+					SET @SQL = @SQL 
+						+ ' E.[EstimateTitle] ' 
+			END 
+		IF @SortCol = 'ClientDisplayName' 
+			BEGIN 
+				IF @OrderDESC = 'desc'
+					SET @SQL = @SQL 
+						+ ' C.[DisplayName] DESC ' 
+				ELSE 
+					SET @SQL = @SQL 
+						+ ' C.[DisplayName] ' 
+			END 
+		IF @SortCol = 'ClientCompanyName' 
+			BEGIN 
+				IF @OrderDESC = 'desc'
+					SET @SQL = @SQL 
+						+ ' C.[CompanyName] DESC ' 
+				ELSE 
+					SET @SQL = @SQL 
+						+ ' C.[CompanyName] ' 
+			END 
+		IF @SortCol = 'CreatedOnDate' 
+			BEGIN 
+				IF @OrderDESC = 'desc'
+					SET @SQL = @SQL 
+						+ ' E.[CreatedOnDate] DESC ' 
+				ELSE 
+					SET @SQL = @SQL 
+						+ ' E.[CreatedOnDate] ' 
+			END 
+		IF @SortCol = 'ModifiedDate' 
+			BEGIN 
+				IF @OrderDESC = 'desc'
+					SET @SQL = @SQL 
+						+ ' E.[ModifiedDate] DESC ' 
+				ELSE 
+					SET @SQL = @SQL 
+						+ ' E.[ModifiedDate] ' 
+			END 
+		IF @SortCol = '' 
+			BEGIN 
+				SET @SQL = @SQL + ' E.[EstimateId] ' 
+			END 
+			
+		SET @SQL = @SQL + ') AS row, ' 
+		SET @SQL = @SQL + ' E.[PortalId], ' 
+		SET @SQL = @SQL + ' E.[EstimateId], ' 
+		SET @SQL = @SQL + ' E.[EstimateTitle], ' 
+		SET @SQL = @SQL + ' E.[PersonId], ' 
+		SET @SQL = @SQL + ' E.[ViewPrice], ' 
+		SET @SQL = @SQL + ' E.[IsDeleted], ' 
+		SET @SQL = @SQL + ' E.[CreatedByUser], ' 
+		SET @SQL = @SQL + ' E.[CreatedOnDate], ' 
+		SET @SQL = @SQL + ' E.[ModifiedByUser], ' 
+		SET @SQL = @SQL + ' E.[ModifiedOnDate], ' 
+		SET @SQL = @SQL + ' E.[Discount], ' 
+		SET @SQL = @SQL + ' E.[StatusId], ' 
+		SET @SQL = @SQL + ' UPPER(E.[Guid]) AS Guid, ' 
+		SET @SQL = @SQL + ' ISNULL((SELECT (SUM(EI.[ProductEstimatePrice] * EI.[ProductQty]) - ((SUM(EI.[ProductEstimatePrice] * EI.[ProductQty]) * E.[Discount] / 100))) FROM {databaseOwner}[{objectQualifier}RIW_EstimateItems] AS EI WHERE EI.[EstimateId] = E.[EstimateId]), 0) AS TotalAmount, ' 
+		SET @SQL = @SQL + ' E.[PayCondId], ' 
+		SET @SQL = @SQL + ' E.[PayCondDisc], ' 
+		SET @SQL = @SQL + ' E.[PayCondIn], ' 
+		SET @SQL = @SQL + ' E.[PayInDays], '
+		SET @SQL = @SQL + ' E.[PayCondInst], ' 
+		SET @SQL = @SQL + ' E.[PayCondN], ' 
+		SET @SQL = @SQL + ' E.[PayCondPerc], ' 
+		SET @SQL = @SQL + ' E.[PayCondType], ' 
+		SET @SQL = @SQL + ' E.[PayCondInterval], ' 
+		SET @SQL = @SQL + ' E.[TotalPayments], ' 
+		SET @SQL = @SQL + ' E.[TotalPayCond], ' 
+		SET @SQL = @SQL + ' S.[StatusColor], ' 
+		SET @SQL = @SQL + ' S.[StatusTitle], ' 
+		SET @SQL = @SQL + ' C.[CompanyName], ' 
+		SET @SQL = @SQL + ' C.[FirstName], ' 
+		SET @SQL = @SQL + ' C.[LastName], ' 
+		SET @SQL = @SQL + ' {databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(C.[CompanyName]) AS ClientCompanyName, ' 
+		SET @SQL = @SQL + ' {databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(C.[FirstName]) AS ClientFirstName, ' 
+		SET @SQL = @SQL + ' {databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(C.[LastName]) AS ClientLastName, ' 
+		SET @SQL = @SQL + ' CASE WHEN C.[CompanyName] <> '''' THEN {databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(C.[CompanyName]) ELSE {databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(C.[FirstName]) + '' '' + {databaseOwner}{objectQualifier}RIW_fn_udf_TitleCase(C.[LastName]) END AS ClientDisplayName, ' 
+		SET @SQL = @SQL + ' CASE WHEN NOT C.[Telephone] = '''' THEN ''('' + SUBSTRING(C.[Telephone],1,2) + '') '' + SUBSTRING(C.[Telephone],3,4) + ''-'' + SUBSTRING(C.[Telephone],7,4) ELSE '''' END AS ClientTelephone, ' 
+		SET @SQL = @SQL + ' CASE WHEN NOT C.[Cell] = '''' THEN ''('' + SUBSTRING(C.[Cell],1,2) + '') '' + SUBSTRING(C.[Cell],3,4) + ''-'' + SUBSTRING(C.[Cell],7,4) ELSE '''' END AS ClientCell, ' 
+		SET @SQL = @SQL + ' SP.[DisplayName] AS SalesRepName, ' 
+		SET @SQL = @SQL + ' TotalRows = Count(*) OVER() ' 
+		SET @SQL = @SQL + ' FROM {databaseOwner}[{objectQualifier}RIW_Estimates] E ' 
+		SET @SQL = @SQL + ' LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIW_Statuses] S ON E.[StatusId] = S.[StatusId] '
+		SET @SQL = @SQL + ' LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIW_People] C ON E.[PersonId] = C.[PersonId] '
+		SET @SQL = @SQL + ' LEFT OUTER JOIN {databaseOwner}[{objectQualifier}Users] SP ON E.[SalesRep] = SP.[UserId] '
+		SET @SQL = @SQL + ' WHERE E.[PortalId] = ' + CONVERT(nvarchar(5), @PortalId) 
+		
+		IF (( @PersonId > 0 ))
+			BEGIN
+				SET @SQL = @SQL + ' and E.[PersonId] = ' + CONVERT(nvarchar(5), @PersonId)
+			END
+			   
+		IF (( @SalesRep > 0 ))
+			BEGIN
+				SET @SQL = @SQL + ' and E.[SalesRep] = ' + CONVERT(nvarchar(5), @SalesRep)
+			END
+			   
+		IF (( @StatusId > 0 ))
+			BEGIN
+				SET @SQL = @SQL + ' and E.[StatusId] = ' + CONVERT(nvarchar(5), @StatusId)
+			END
+			   
+		IF (( @IsDeleted != '' ))
+			BEGIN
+				IF (( @IsDeleted = 'True' ))
+					SET @SQL = @SQL + ' and E.[IsDeleted] = 1 ' 
+				ELSE 
+					SET @SQL = @SQL 
+					   + ' and E.[IsDeleted] = 0 ' 
+			END
+					   
+		IF (( @GetAll = 'False' ))
+			BEGIN
+				SET @SQL = @SQL + ' and NOT E.[StatusId] = ' + CONVERT(nvarchar(5), 10)
+		END
+		
+		IF (( @FilterSearch != '' ))
+			BEGIN 
+				IF (( @FilterField != '' ))
+					IF (( @FilterField = 'EstimateId' ))
+						BEGIN
+							SET @SQL = @SQL 
+								+ ' and (E.[EstimateId] = ' + CONVERT(nvarchar(5), @FilterSearch)
+						END
+					IF (( @FilterField = 'EstimateTitle' ))
+						BEGIN
+							SET @SQL = @SQL 
+								+ ' and (E.[EstimateTitle] collate Latin1_General_CI_AI like ''%'
+								+ @FilterSearch + '%'' ' 
+						END
+					IF (( @FilterField = 'CompanyName' ))
+						BEGIN 
+							SET @SQL = @SQL 
+								+ ' and (C.[CompanyName] collate Latin1_General_CI_AI like ''%'
+								+ @FilterSearch + '%'' ' 
+						END 
+					IF (( @FilterField = 'FirstName' ))
+						BEGIN 
+							SET @SQL = @SQL 
+								+ ' and (C.[FirstName] collate Latin1_General_CI_AI like ''%'
+								+ @FilterSearch + '%'' ' 
+						END 
+					IF (( @FilterField = 'LastName' ))
+						BEGIN 
+							SET @SQL = @SQL 
+								+ ' and (C.[LastName] collate Latin1_General_CI_AI like ''%'
+								+ @FilterSearch + '%'' ' 
+						END 
+					IF (( @FilterField = 'DisplayName' ))
+						BEGIN 
+							SET @SQL = @SQL 
+								+ ' and (C.[DisplayName] collate Latin1_General_CI_AI like ''%'
+								+ @FilterSearch + '%'' ' 
+						END 
+					IF (( @FilterField = 'CreatedOnDate' ))
+						BEGIN
+							SET @SQL = @SQL 
+								+ ' and (E.[CreatedOnDate] collate Latin1_General_CI_AI = '''
+								+ @FilterSearch + ''' ' 
+						END
+					IF (( @FilterField = 'ModifiedOnDate' ))
+						BEGIN
+							SET @SQL = @SQL 
+								+ ' and (E.[ModifiedOnDate] collate Latin1_General_CI_AI = '''
+								+ @FilterSearch + ''' ' 
+						END	
+				--ELSE
+				--	SET @SQL = @SQL 
+				--		 + ' and E.[EstimateId] = ' + CONVERT(nvarchar(5), @FilterSearch)
+				
+				SET @SQL = @SQL + ')' 	
+			END 
+
+	SET @SQL = @SQL + ') AS RIW_Estimates ' 
+
+	IF @PageSize > 0 
+		BEGIN 
+			SET @SQL = @SQL + ' WHERE Row between ((' 
+					 + CONVERT(nvarchar(15), (@PageIndex - 1)) 
+					 + ' * ' + CONVERT(nvarchar(15), @PageSize) 
+					 + ') + 1) and ' 
+					 + CONVERT(nvarchar(15), (@PageIndex*@PageSize)) 
+		END 
+
+		EXEC Sp_executesql @SQL 
+	END
+GO
+
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_Davs_GetList]    Script Date: 01/15/2013 12:16:42 ******/
+
+CREATE PROCEDURE [dbo].[RIW_Davs_GetList] (
+
+	@PortalId int
+	,@PersonId int
+	,@UserId int
+	,@SalesRep int
+	,@StatusId int
+	,@StartDate datetime
+	,@EndDate datetime
+	,@FilterSearch nvarchar(60)
+	,@FilterField varchar(40)
+	,@GetAll bit
+	,@PageIndex int
+	,@PageSize int
+	,@SortCol nvarchar(20)
+	,@OrderDesc nvarchar(4)
+
+)
+
+AS 
+BEGIN 
+	IF NOT @UserId IS NULL SET @PersonId = (SELECT PersonId FROM {databaseOwner}[{objectQualifier}RIW_People] WHERE UserId = @UserId)
+	DECLARE @SQL nvarchar(4000) 
+
+	-- clean up filter 
+	SET @FilterSearch = Replace(@FilterSearch, '''', '''''') 
+	SET @SQL = ' SELECT ' 
+
+	SET @SQL = @SQL + ' row,PortalId,EstimateId,EstimateTitle,PersonId,ViewPrice,IsDeleted,CreatedByUser,CreatedOnDate,ModifiedByUser,ModifiedOnDate,Discount,StatusId,Guid,TotalAmount,PayCondId,PayCondDisc,PayCondIn,PayInDays,PayCondInst,PayCondN,PayCondPerc,PayCondType,PayCondInterval,TotalPayments,TotalPayCond,StatusColor,StatusTitle,ClientCompanyName,CompanyName,ClientFirstName,FirstName,ClientLastName,LastName,ClientDisplayName,ClientTelephone,ClientCell,SalesRepName,NumDoc,SequencialDav,Coupon,CouponAttached,NumFab,NumMachine,CCF,CRZ,CRO,GNF,DavDate,Canceled,OtherDiscount,Extras,CashAmount,ChequeAmount,ChequePreAmount,CardAmount,CreditAmount,CovenantAmount,TicketAmount,TotalRows '
+	SET @SQL = @SQL + ' FROM ' 
+	SET @SQL = @SQL + ' (select ROW_NUMBER() OVER ( ORDER BY ' 
+	
+	IF @SortCol = 'EstimateId' 
+		BEGIN 
+			IF @OrderDESC = 'desc'
+				SET @SQL = @SQL 
+					+ ' E.[EstimateId] DESC ' 
+			ELSE 
+				SET @SQL = @SQL 
+					+ ' E.[EstimateId] ' 
+		END 
+	IF @SortCol = 'EstimateTitle' 
+		BEGIN 
+			IF @OrderDESC = 'desc'
+				SET @SQL = @SQL 
+					+ ' E.[EstimateTitle] DESC ' 
+			ELSE 
+				SET @SQL = @SQL 
+					+ ' E.[EstimateTitle] ' 
+		END 
+	IF @SortCol = 'ClientDisplayName' 
+		BEGIN 
+			IF @OrderDESC = 'desc'
+				SET @SQL = @SQL 
+					+ ' C.[DisplayName] DESC ' 
+			ELSE 
+				SET @SQL = @SQL 
+					+ ' C.[DisplayName] ' 
+		END 
+	IF @SortCol = 'ClientCompanyName' 
+		BEGIN 
+			IF @OrderDESC = 'desc'
+				SET @SQL = @SQL 
+					+ ' C.[CompanyName] DESC ' 
+			ELSE 
+				SET @SQL = @SQL 
+					+ ' C.[CompanyName] ' 
+		END 
+	IF @SortCol = 'CreatedOnDate' 
+		BEGIN 
+			IF @OrderDESC = 'desc'
+				SET @SQL = @SQL 
+					+ ' E.[CreatedOnDate] DESC ' 
+			ELSE 
+				SET @SQL = @SQL 
+					+ ' E.[CreatedOnDate] ' 
+		END 
+	IF @SortCol = 'ModifiedDate' 
+		BEGIN 
+			IF @OrderDESC = 'desc'
+				SET @SQL = @SQL 
+					+ ' E.[ModifiedDate] DESC ' 
+			ELSE 
+				SET @SQL = @SQL 
+					+ ' E.[ModifiedDate] ' 
+		END 
+	IF @SortCol = '' 
+		BEGIN 
+			SET @SQL = @SQL + ' E.[EstimateId] ' 
+		END 
+		
+	SET @SQL = @SQL + ') AS row, ' 
+	SET @SQL = @SQL + ' E.[PortalId], ' 
+	SET @SQL = @SQL + ' E.[EstimateId], ' 
+	SET @SQL = @SQL + ' E.[EstimateTitle], ' 
+	SET @SQL = @SQL + ' E.[PersonId], ' 
+	SET @SQL = @SQL + ' E.[ViewPrice], ' 
+	SET @SQL = @SQL + ' E.[IsDeleted], ' 
+	SET @SQL = @SQL + ' E.[CreatedByUser], ' 
+	SET @SQL = @SQL + ' E.[CreatedOnDate], ' 
+	SET @SQL = @SQL + ' E.[ModifiedByUser], ' 
+	SET @SQL = @SQL + ' E.[ModifiedOnDate], ' 
+	SET @SQL = @SQL + ' E.[Discount], ' 
+	SET @SQL = @SQL + ' E.[StatusId], ' 
+	SET @SQL = @SQL + ' UPPER(E.[Guid]) AS Guid, ' 
+	SET @SQL = @SQL + ' ISNULL((SELECT (SUM(EI.[ProductEstimatePrice] * EI.[ProductQty]) - ((SUM(EI.[ProductEstimatePrice] * EI.[ProductQty]) * E.[Discount] / 100))) FROM {databaseOwner}[{objectQualifier}RIW_EstimateItems] AS EI WHERE EI.[EstimateId] = E.[EstimateId]), 0) AS TotalAmount, ' 
+	SET @SQL = @SQL + ' E.[PayCondId], ' 
+	SET @SQL = @SQL + ' E.[PayCondDisc], ' 
+	SET @SQL = @SQL + ' E.[PayCondIn], ' 
+	SET @SQL = @SQL + ' E.[PayInDays], '
+	SET @SQL = @SQL + ' E.[PayCondInst], ' 
+	SET @SQL = @SQL + ' E.[PayCondN], ' 
+	SET @SQL = @SQL + ' E.[PayCondPerc], ' 
+	SET @SQL = @SQL + ' E.[PayCondType], ' 
+	SET @SQL = @SQL + ' E.[PayCondInterval], ' 
+	SET @SQL = @SQL + ' E.[TotalPayments], ' 
+	SET @SQL = @SQL + ' E.[TotalPayCond], ' 
+	SET @SQL = @SQL + ' S.[StatusColor], ' 
+	SET @SQL = @SQL + ' S.[StatusTitle], ' 
+	SET @SQL = @SQL + ' C.[CompanyName], ' 
+	SET @SQL = @SQL + ' C.[FirstName], ' 
+	SET @SQL = @SQL + ' C.[LastName], ' 
+	SET @SQL = @SQL + ' dbo.RIW_fn_udf_TitleCase(C.[CompanyName]) AS ClientCompanyName, ' 
+	SET @SQL = @SQL + ' dbo.RIW_fn_udf_TitleCase(C.[FirstName]) AS ClientFirstName, ' 
+	SET @SQL = @SQL + ' dbo.RIW_fn_udf_TitleCase(C.[LastName]) AS ClientLastName, ' 
+	SET @SQL = @SQL + ' CASE WHEN C.[CompanyName] <> '''' THEN dbo.RIW_fn_udf_TitleCase(C.[CompanyName]) ELSE dbo.RIW_fn_udf_TitleCase(C.[FirstName]) + '' '' + dbo.RIW_fn_udf_TitleCase(C.[LastName]) END AS ClientDisplayName, ' 
+	SET @SQL = @SQL + ' CASE WHEN NOT C.[Telephone] = '''' THEN ''('' + SUBSTRING(C.[Telephone],1,2) + '') '' + SUBSTRING(C.[Telephone],3,4) + ''-'' + SUBSTRING(C.[Telephone],7,4) ELSE '''' END AS ClientTelephone, ' 
+	SET @SQL = @SQL + ' CASE WHEN NOT C.[Cell] = '''' THEN ''('' + SUBSTRING(C.[Cell],1,2) + '') '' + SUBSTRING(C.[Cell],3,4) + ''-'' + SUBSTRING(C.[Cell],7,4) ELSE '''' END AS ClientCell, ' 
+	SET @SQL = @SQL + ' SP.[DisplayName] AS SalesRepName, ' 
+	SET @SQL = @SQL + ' E.[NumDoc], '
+	SET @SQL = @SQL + ' E.[SequencialDav], '
+	SET @SQL = @SQL + ' E.[Coupon], '
+	SET @SQL = @SQL + ' E.[CouponAttached], '
+	SET @SQL = @SQL + ' E.[NumFab], '
+	SET @SQL = @SQL + ' E.[NumMachine], '
+	SET @SQL = @SQL + ' E.[CCF], '
+	SET @SQL = @SQL + ' E.[CRZ], '
+	SET @SQL = @SQL + ' E.[CRO], '
+	SET @SQL = @SQL + ' E.[GNF], '
+	SET @SQL = @SQL + ' E.[DavDate], '
+	SET @SQL = @SQL + ' E.[Canceled], '
+	SET @SQL = @SQL + ' E.[OtherDiscount], '
+	SET @SQL = @SQL + ' E.[Extras], '
+	SET @SQL = @SQL + ' E.[CashAmount], '
+	SET @SQL = @SQL + ' E.[ChequeAmount], '
+	SET @SQL = @SQL + ' E.[ChequePreAmount], '
+	SET @SQL = @SQL + ' E.[CardAmount], '
+	SET @SQL = @SQL + ' E.[CreditAmount], '
+	SET @SQL = @SQL + ' E.[CovenantAmount], '
+	SET @SQL = @SQL + ' E.[TicketAmount], '
+	SET @SQL = @SQL + ' TotalRows = Count(*) OVER() ' 
+	SET @SQL = @SQL + ' FROM {databaseOwner}[{objectQualifier}RIW_Estimates] E ' 
+	SET @SQL = @SQL + ' LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIW_Statuses] S ON E.[StatusId] = S.[StatusId] '
+	SET @SQL = @SQL + ' LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIW_People] C ON E.[PersonId] = C.[PersonId] '
+	SET @SQL = @SQL + ' LEFT OUTER JOIN {databaseOwner}[{objectQualifier}Users] SP ON E.[SalesRep] = SP.[UserId] '
+	SET @SQL = @SQL + ' WHERE E.[PortalId] = ' + CONVERT(nvarchar(5), @PortalId) 
+	
+	IF (( @PersonId > 0 ))
+		BEGIN
+			SET @SQL = @SQL + ' and E.[PersonId] = ' + CONVERT(nvarchar(5), @PersonId)
+		END
+		   
+	IF (( @SalesRep > 0 ))
+		BEGIN
+			SET @SQL = @SQL + ' and E.[SalesRep] = ' + CONVERT(nvarchar(5), @SalesRep)
+		END
+				   
+	IF (( @GetAll = 'False' ))
+		BEGIN
+			SET @SQL = @SQL + ' and E.[StatusId] = ' + CONVERT(nvarchar(5), @StatusId)
+	END
+	
+	IF (( @FilterSearch != '' ))
+		BEGIN 
+			IF (( @FilterField != '' ))
+				IF (( @FilterField = 'EstimateId' ))
+					BEGIN
+						SET @SQL = @SQL 
+							+ ' and (E.[EstimateId] = ' + CONVERT(nvarchar(5), @FilterSearch)
+					END
+				IF (( @FilterField = 'EstimateTitle' ))
+					BEGIN
+						SET @SQL = @SQL 
+							+ ' and (E.[EstimateTitle] collate Latin1_General_CI_AI like ''%'
+							+ @FilterSearch + '%'' ' 
+					END
+				IF (( @FilterField = 'CompanyName' ))
+					BEGIN 
+						SET @SQL = @SQL 
+							+ ' and (C.[CompanyName] collate Latin1_General_CI_AI like ''%'
+							+ @FilterSearch + '%'' ' 
+					END 
+				IF (( @FilterField = 'FirstName' ))
+					BEGIN 
+						SET @SQL = @SQL 
+							+ ' and (C.[FirstName] collate Latin1_General_CI_AI like ''%'
+							+ @FilterSearch + '%'' ' 
+					END 
+				IF (( @FilterField = 'LastName' ))
+					BEGIN 
+						SET @SQL = @SQL 
+							+ ' and (C.[LastName] collate Latin1_General_CI_AI like ''%'
+							+ @FilterSearch + '%'' ' 
+					END 
+				IF (( @FilterField = 'DisplayName' ))
+					BEGIN 
+						SET @SQL = @SQL 
+							+ ' and (C.[DisplayName] collate Latin1_General_CI_AI like ''%'
+							+ @FilterSearch + '%'' ' 
+					END 
+				IF (( @FilterField = 'CreatedOnDate' ))
+					BEGIN
+						SET @SQL = @SQL 
+							+ ' and (E.[CreatedOnDate] collate Latin1_General_CI_AI = '''
+							+ @FilterSearch + ''' ' 
+					END
+				IF (( @FilterField = 'ModifiedOnDate' ))
+					BEGIN
+						SET @SQL = @SQL 
+							+ ' and (E.[ModifiedOnDate] collate Latin1_General_CI_AI = '''
+							+ @FilterSearch + ''' ' 
+					END	
+			--ELSE
+			--	SET @SQL = @SQL 
+			--		 + ' and E.[EstimateId] = ' + CONVERT(nvarchar(5), @FilterSearch)
+			
+			SET @SQL = @SQL + ')' 	
+		END 
+
+SET @SQL = @SQL + ') AS RIW_Estimates ' 
+
+IF @PageSize > 0 
+	BEGIN 
+		SET @SQL = @SQL + ' WHERE Row between ((' 
+				 + CONVERT(nvarchar(15), (@PageIndex - 1)) 
+				 + ' * ' + CONVERT(nvarchar(15), @PageSize) 
+				 + ') + 1) and ' 
+				 + CONVERT(nvarchar(15), (@PageIndex*@PageSize)) 
+	END 
+
+	EXEC Sp_executesql @SQL 
+END
+GO
+
+
+
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_PayConds_Get]    Script Date: 12/05/2013 11:26:06 ******/
+
+CREATE PROCEDURE [dbo].[RIW_PayConds_Get] (
+
+	@PortalId int
+	,@PayCondType int
+	,@PayCondStart money
+
+)
+AS
+
+SELECT	PC.[PortalId]
+	,PC.[PayCondId]
+	,PC.[PayCondType]
+	,PC.[PayCondTitle]
+	,PF.PayFormTitle
+	,PC.[PayCondStart]
+	,PC.[PayCondN]
+	,PC.[PayCondPerc]
+	,PC.[PayCondIn]
+	,PC.[PayInDays]
+	,PC.[PayCondDisc]
+	,PC.[PayCondInterval]
+	,PC.[DiscountGroupId]
+	,PC.[CreatedByUser]
+	,PC.[CreatedOnDate]
+	,PC.[ModifiedByUser]
+	,PC.[ModifiedOnDate]
+	,'Parcela' = CASE WHEN @PayCondStart > 0 THEN ROUND(CASE WHEN (PC.[PayCondIn] > 0) THEN {databaseOwner}{objectQualifier}RIW_PMT(PC.[PayCondPerc]/100, (PC.[PayCondN] - 1), -(@PayCondStart - (@PayCondStart / 100 * PC.[PayCondIn])), 0, 0) ELSE {databaseOwner}{objectQualifier}RIW_PMT(PC.[PayCondPerc]/100, PC.[PayCondN], -@PayCondStart, 0, 0) END, 2) ELSE '0' END
+	,'PayIn' = ROUND(@PayCondStart / 100 * PC.[PayCondIn], 2)
+	,'TotalParcelado' = CASE WHEN @PayCondStart > 0 THEN CASE WHEN (PC.[PayCondIn] > 0) THEN ROUND({databaseOwner}{objectQualifier}RIW_PMT(PC.[PayCondPerc]/100, (PC.[PayCondN] - 1), -(@PayCondStart - (@PayCondStart / 100 * PC.[PayCondIn])), 0, 0), 2) * (PC.[PayCondN] - 1) ELSE ROUND({databaseOwner}{objectQualifier}RIW_PMT(PC.[PayCondPerc]/100, PC.[PayCondN], -@PayCondStart, 0, 0), 2) * PC.[PayCondN] END ELSE '0' END
+	,'Intervalo' = CASE WHEN (PC.[PayCondInterval] < 0) THEN 'A Vista' ELSE (CASE WHEN (PC.[PayCondInterval] > 0) THEN CONVERT(NVARCHAR,PC.[PayCondInterval]) + ' dias' ELSE 'Mensal' END) END
+	--,'TotalPayCond' = CASE WHEN @PayCondStart > 0 THEN ROUND(CASE WHEN (PC.[PayCondIn] > 0) THEN (@PayCondStart / 100 * PC.[PayCondIn]) + ROUND({databaseOwner}{objectQualifier}RIW_PMT(PC.[PayCondPerc]/100, (PC.[PayCondN] - 1), -(@PayCondStart - (@PayCondStart / 100 * PC.[PayCondIn])), 0, 0), 2) * (PC.[PayCondN] - 1) ELSE @PayCondStart + ROUND({databaseOwner}{objectQualifier}RIW_PMT(PC.[PayCondPerc]/100, (PC.[PayCondN] - 1), -(@PayCondStart - (@PayCondStart / 100 * PC.[PayCondIn])), 0, 0), 2) * (PC.[PayCondN] - 1) END, 2) ELSE '0' END
+
+FROM	{databaseOwner}[{objectQualifier}RIW_PayConditions] PC
+LEFT OUTER JOIN {databaseOwner}[{objectQualifier}RIW_PayForms] PF ON PC.PayCondType = PF.PayFormId
+WHERE	(((@PortalId IS NULL) OR (PC.[PortalId] = @PortalId))
+AND		((@PayCondType IS NULL) OR (PC.[PayCondType] = @PayCondType)) 
+--AND		((@PayCondStart IS NULL) OR ((PC.[PayCondStart] > 0) AND (@PayCondStart >= PC.[PayCondStart]))))
+AND		((@PayCondStart IS NULL) OR (@PayCondStart >= PC.[PayCondStart])))
+--AND		(NOT PC.[PayCondType] = 0))
+ORDER BY PC.[PayCondType]
+GO
+
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIW_PayForms_GetList]    Script Date: 01/15/2013 12:16:43 ******/
+
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}RIW_PayForms_GetList] (
+
+	@portalId int
+	,@isDeleted varchar(5)
+	
+)
+AS
+
+SELECT	DISTINCT PF.PayFormId
+		,PF.PayFormTitle
+		--,PF.IsDeleted
+		--,PF.CreatedByUser
+		--,PF.CreatedOnDate
+		--,PF.ModifiedByUser
+		--,PF.ModifiedOnDate
+
+FROM {databaseOwner}[{objectQualifier}RIW_PayForms] PF
+INNER JOIN {databaseOwner}[{objectQualifier}RIW_PayConditions] PC ON PF.PayFormId = PC.PayCondType
+WHERE	((PF.PortalId = @portalId)
+AND		((@isDeleted = '') OR (PF.IsDeleted = @isDeleted)))
+GO
+
+
+
+/************************************************************/
+/*****              SqlDataProvider                     *****/
+/************************************************************/

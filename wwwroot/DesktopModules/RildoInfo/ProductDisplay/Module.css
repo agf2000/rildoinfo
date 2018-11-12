@@ -1,0 +1,8 @@
+﻿
+.owl-item { width: 270px !important; }
+#divSale { height: 300px; padding: 10px 15px 0 15px; text-align: center; }
+#divSale .title { font: Normal Bold 16px/15px "Trebuchet MS", Arial, Helvetica, sans-serif; }
+#divSale div.title { height: 35px; }
+#divSale div.productImg { height: 170px; line-height: 170px; width: 270px; }
+#divSale .productImg { margin: 0 auto; display: table-cell; vertical-align: middle; }
+#divSale .intro { height: 60px; text-align: left; }

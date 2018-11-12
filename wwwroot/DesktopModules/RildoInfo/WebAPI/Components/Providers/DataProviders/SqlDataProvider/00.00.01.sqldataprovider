@@ -1,0 +1,109 @@
+﻿
+/************************************************************/
+/*****              SqlDataProvider                     *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/***** Note: To manually execute this script you must   *****/
+/*****       perform a search AND replace operation     *****/
+/*****       for {databaseOwner} AND {objectQualifier}  *****/
+/*****                                                  *****/
+/************************************************************/
+
+
+/** Create Tables **/
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_DiscountGroups]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_DiscountGroups](
+		[PortalId] [int] NOT NULL,
+		[DiscountGroupId] [int] IDENTITY(1,1) NOT NULL,
+		[DiscountTitle] [nvarchar](100) NOT NULL,
+		[DiscountDesc] [nvarchar](500) NULL,
+		[DiscountPercent] [float] NULL,
+		[DiscountValue] [float] NULL,
+		[DiscountBase] [float] NULL,
+		[IsDeleted] [bit] NULL,
+		[CreatedOnDate] [smalldatetime] NOT NULL,
+		[CreatedByUser] [int] NOT NULL,
+		[ModifiedOnDate] [smalldatetime] NOT NULL,
+		[ModifiedByUser] [int] NOT NULL,
+	 CONSTRAINT [PK_RIW_DiscountGroups] PRIMARY KEY CLUSTERED 
+	(
+		[DiscountGroupId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = Object_id(N'{databaseOwner}[{objectQualifier}RIW_Statuses]') AND type IN ( N'U' )) 
+  BEGIN 
+	CREATE TABLE {databaseOwner}[{objectQualifier}RIW_Statuses](
+		[PortalId] [int] NOT NULL,
+		[StatusId] [int] IDENTITY(1,1) NOT NULL,
+		[StatusTitle] [nvarchar](100) NULL,
+		[StatusColor] [nvarchar](10) NULL,
+		[IsReadOnly] [bit] NULL,
+		[IsDeleted] [bit] NULL,
+		[CreatedByUser] [int] NULL,
+		[CreatedOnDate] [smalldatetime] NULL,
+		[ModifiedByUser] [int] NULL,
+		[ModifiedOnDate] [smalldatetime] NULL,
+	 CONSTRAINT [PK_RIW_Statuses] PRIMARY KEY CLUSTERED 
+	(
+		[StatusId] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+  END
+GO
+
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIW_Settings]') AND type in (N'U'))
+BEGIN
+CREATE TABLE {databaseOwner}[{objectQualifier}RIW_Settings](
+	[AppSettingId] [int] IDENTITY(1,1) NOT NULL,
+	[PortalId] [int] NOT NULL,
+	[SettingName] [nvarchar](50) NOT NULL,
+	[SettingValue] [nvarchar](2000) NULL,
+	[CreatedByUser] [int] NULL,
+	[CreatedOnDate] [datetime] NULL,
+	[ModifiedByUser] [int] NULL,
+	[ModifiedOnDate] [datetime] NULL,
+	[CultureCode] [nvarchar](10) NULL,
+ CONSTRAINT [PK_RIW_Settings] PRIMARY KEY NONCLUSTERED 
+(
+	[AppSettingId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+END
+GO
+
+
+/** Create Stored Procedures **/
+
+
+INSERT INTO {databaseOwner}{objectQualifier}hostsettings (
+
+	SettingName
+	, SettingValue
+	, SettingIsSecure 
+	, CreatedByUserId
+	, CreatedOnDate
+	, LastModifiedByUserId
+	, LastModifiedOnDate
+)
+
+VALUES (
+	'AUM_DoNotRewriteRegEx'
+	,'/DesktopModules/|/Providers|/LinkClick\.aspx|/SignalR'
+	, 0
+	, -1
+	, GETDATE()
+	, -1
+	, GETDATE()
+)
+
+/************************************************************/
+/*****              SqlDataProvider                     *****/
+/************************************************************/

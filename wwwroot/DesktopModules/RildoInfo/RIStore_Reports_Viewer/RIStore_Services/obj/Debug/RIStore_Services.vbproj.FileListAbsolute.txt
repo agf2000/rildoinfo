@@ -1,0 +1,9 @@
+E:\Projects\RIStore\RIStore_7x\wwwroot\bin\RI.Modules.RIStore_Services.dll
+E:\Projects\RIStore\RIStore_7x\wwwroot\bin\RI.Modules.RIStore_Services.pdb
+E:\Projects\RIStore\RIStore_7x\wwwroot\bin\RI.Modules.RIStore_Services.xml
+E:\Projects\RIStore\RIStore_7x\wwwroot\DesktopModules\RildoInfo\RIStore_Services\obj\Debug\RIStore_Services.vbproj.GenerateResource.Cache
+E:\Projects\RIStore\RIStore_7x\wwwroot\DesktopModules\RildoInfo\RIStore_Services\obj\Debug\RI.Modules.RIStore_Services.dll
+E:\Projects\RIStore\RIStore_7x\wwwroot\DesktopModules\RildoInfo\RIStore_Services\obj\Debug\RI.Modules.RIStore_Services.xml
+E:\Projects\RIStore\RIStore_7x\wwwroot\DesktopModules\RildoInfo\RIStore_Services\obj\Debug\RI.Modules.RIStore_Services.pdb
+E:\Projects\RIStore\RIStore_7x\wwwroot\DesktopModules\RildoInfo\RIStore_Services\obj\Debug\Resources.resources
+E:\Projects\RIStore\RIStore_7x\wwwroot\DesktopModules\RildoInfo\RIStore_Services\obj\Debug\RIStore_Services.vbprojResolveAssemblyReference.cache

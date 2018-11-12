@@ -1,0 +1,1811 @@
+﻿/************************************************************/
+/*****              SqlDataProvider                     *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/***** Note: To manually execute this script you must   *****/
+/*****       perform a search and replace operation     *****/
+/*****       for {databaseOwner} and {objectQualifier}  *****/
+/*****                                                  *****/
+/************************************************************/
+
+
+/** Alter RISTORE Tables **/
+
+
+
+/** Drop RISTORE Tables **/
+
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIS_AppointmentData]    Script Date: 01/15/2013 14:41:52 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_AppointmentData]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIS_AppointmentData]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIS_AttributeOptions]    Script Date: 01/15/2013 14:41:52 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_AttributeOptions]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIS_AttributeOptions]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIS_Brands]    Script Date: 01/15/2013 14:41:52 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_Brands]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIS_Brands]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIS_Cashiers]    Script Date: 01/15/2013 14:41:52 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_Cashiers]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIS_Cashiers]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIS_Categories]    Script Date: 01/15/2013 14:41:52 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_Categories]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIS_Categories]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIS_CatPermission]    Script Date: 01/15/2013 14:41:52 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_CatPermission]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIS_CatPermission]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIS_CatProducts]    Script Date: 01/15/2013 14:41:52 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_CatProducts]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIS_CatProducts]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIS_ClientAddresses]    Script Date: 01/15/2013 14:41:52 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_ClientAddresses]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIS_ClientAddresses]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIS_ClientBankRefs]    Script Date: 01/15/2013 14:41:53 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_ClientBankRefs]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIS_ClientBankRefs]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIS_ClientCommRefs]    Script Date: 01/15/2013 14:41:53 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_ClientCommRefs]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIS_ClientCommRefs]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIS_ClientContacts]    Script Date: 01/15/2013 14:41:53 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_ClientContacts]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIS_ClientContacts]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIS_ClientDocs]    Script Date: 01/15/2013 14:41:53 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_ClientDocs]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIS_ClientDocs]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIS_ClientHistories]    Script Date: 01/15/2013 14:41:53 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_ClientHistories]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIS_ClientHistories]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIS_ClientIncomeSources]    Script Date: 01/15/2013 14:41:53 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_ClientIncomeSources]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIS_ClientIncomeSources]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIS_ClientIndustries]    Script Date: 01/15/2013 14:41:53 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_ClientIndustries]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIS_ClientIndustries]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIS_ClientPartners]    Script Date: 01/15/2013 14:41:53 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_ClientPartners]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIS_ClientPartners]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIS_ClientPartnersBanks]    Script Date: 01/15/2013 14:41:53 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_ClientPartnersBanks]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIS_ClientPartnersBanks]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIS_ClientPartnerBankRefs]    Script Date: 01/15/2013 14:41:53 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_ClientPartnerBankRefs]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIS_ClientPartnerBankRefs]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIS_ClientPersonalRefs]    Script Date: 01/15/2013 14:41:53 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_ClientPersonalRefs]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIS_ClientPersonalRefs]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIS_Clients]    Script Date: 01/15/2013 14:41:53 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_Clients]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIS_Clients]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIS_DiscountGroups]    Script Date: 01/15/2013 14:41:53 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_DiscountGroups]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIS_DiscountGroups]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIS_Estimate]    Script Date: 01/15/2013 14:41:53 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_Estimate]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIS_Estimate]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIS_EstimateComments]    Script Date: 01/15/2013 14:41:54 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_EstimateComments]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIS_EstimateComments]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIS_EstimateDetail]    Script Date: 01/15/2013 14:41:54 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_EstimateDetail]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIS_EstimateDetail]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIS_EstimateDetailRemoved]    Script Date: 01/15/2013 14:41:54 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_EstimateDetailRemoved]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIS_EstimateDetailRemoved]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIS_EstimateHistories]    Script Date: 01/15/2013 14:41:54 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_EstimateHistories]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIS_EstimateHistories]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIS_EstimateMsgs]    Script Date: 01/15/2013 14:41:54 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_EstimateMsgs]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIS_EstimateMsgs]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIS_Industries]    Script Date: 01/15/2013 14:41:54 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_Industries]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIS_Industries]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIS_BrandModels]    Script Date: 01/15/2013 14:41:54 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_BrandModels]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIS_BrandModels]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIS_PayConditions]    Script Date: 01/15/2013 14:41:54 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_PayConditions]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIS_PayConditions]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIS_PayConditionsSelections]    Script Date: 01/15/2013 14:41:54 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_PayConditionsSelections]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIS_PayConditionsSelections]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIS_PayForms]    Script Date: 01/15/2013 14:41:54 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_PayForms]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIS_PayForms]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIS_ProdOptionsSelections]    Script Date: 01/15/2013 14:41:54 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_ProdOptionsSelections]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIS_ProdOptionsSelections]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIS_ProductImages]    Script Date: 01/15/2013 14:41:54 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_ProductImages]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIS_ProductImages]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIS_Products]    Script Date: 01/15/2013 14:41:55 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_Products]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIS_Products]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIS_ProductsFinan]    Script Date: 01/15/2013 14:41:55 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_ProductsFinan]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIS_ProductsFinan]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIS_ProductsOptions]    Script Date: 01/15/2013 14:41:55 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_ProductsOptions]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIS_ProductsOptions]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIS_ProductsTemplates]    Script Date: 01/15/2013 14:41:55 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_ProductsTemplates]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIS_ProductsTemplates]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIS_ProductsTemplatesHistory]    Script Date: 01/15/2013 14:41:55 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_ProductsTemplatesHistory]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIS_ProductsTemplatesHistory]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIS_ProductVideos]    Script Date: 01/15/2013 14:41:55 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_ProductVideos]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIS_ProductVideos]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIS_Reports]    Script Date: 01/15/2013 14:41:55 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_Reports]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIS_Reports]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIS_Service_Order_ProductsAndServices]    Script Date: 01/15/2013 14:41:55 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_Service_Order_ProductsAndServices]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIS_Service_Order_ProductsAndServices]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIS_Service_Order_Symptoms]    Script Date: 01/15/2013 14:41:55 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_Service_Order_Symptoms]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIS_Service_Order_Symptoms]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIS_Service_Orders]    Script Date: 01/15/2013 14:41:55 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_Service_Orders]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIS_Service_Orders]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIS_Services]    Script Date: 01/15/2013 14:41:55 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_Services]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIS_Services]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIS_Statuses]    Script Date: 01/15/2013 14:41:55 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_Statuses]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIS_Statuses]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIS_UnitTypes]    Script Date: 01/15/2013 14:41:56 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_UnitTypes]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIS_UnitTypes]
+GO
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}RIS_KitItems]    Script Date: 01/15/2013 14:41:56 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_KitItems]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}RIS_KitItems]
+GO
+
+
+/** Drop RISTORE Stored Procedures **/
+
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Users_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Users_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Users_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Users_GetByRolename]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Users_GetByRolename]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Users_GetByRolename]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_User_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_User_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_User_Get]
+GO
+
+/****** Object:  UserDefinedFunction {databaseOwner}[{objectQualifier}RIS_fn_GetProfilePropertyValue]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_fn_GetProfilePropertyValue]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+DROP FUNCTION {databaseOwner}[{objectQualifier}RIS_fn_GetProfilePropertyValue]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Product_Video_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Product_Video_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Product_Video_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Product_Videos_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Product_Videos_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Product_Videos_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_InitialData_Add]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_InitialData_Add]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_InitialData_Add]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_PayConds_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_PayConds_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_PayConds_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_New_Add]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_New_Add]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_New_Add]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_Delete]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_Delete]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_Delete]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_Add]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_Add]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_Add]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_Restore]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_Restore]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_Restore]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_Address_Restore]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_Address_Restore]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_Address_Restore]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Estimate_QE_Item_Remove]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Estimate_QE_Item_Remove]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Estimate_QE_Item_Remove]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Estimates_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Estimates_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Estimates_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_UnitTypes_Delete]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_UnitTypes_Delete]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_UnitTypes_Delete]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_UnitTypes_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_UnitTypes_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_UnitTypes_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Service_Orders_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Service_Orders_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Service_Orders_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Service_Update]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Service_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Service_Update]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_Search]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_Search]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_Search]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_Vendors_Search]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_Vendors_Search]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_Vendors_Search]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_Update]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_Update]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_Address_Update]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_Address_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_Address_Update]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_Contact_Update]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_Contact_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_Contact_Update]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_Status_Update]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_Status_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_Status_Update]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_Facts_Update]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_Facts_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_Facts_Update]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_Finance_Update]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_Finance_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_Finance_Update]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_Finances_Update]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_Finances_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_Finances_Update]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_Sent_Update]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_Sent_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_Sent_Update]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_User_Update]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_User_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_User_Update]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_User_Login_Update]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_User_Login_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_User_Login_Update]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_BankRef_Update]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_BankRef_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_BankRef_Update]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_CommRef_Update]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_CommRef_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_CommRef_Update]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_Doc_Update]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_Doc_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_Doc_Update]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_IncomeSource_Update]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_IncomeSource_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_IncomeSource_Update]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_Partner_Update]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_Partner_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_Partner_Update]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_PersonalRef_Update]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_PersonalRef_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_PersonalRef_Update]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_AppointmentData_Add]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_AppointmentData_Add]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_AppointmentData_Add]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_AppointmentData_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_AppointmentData_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_AppointmentData_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_AppointmentData_Remove]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_AppointmentData_Remove]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_AppointmentData_Remove]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_AppointmentData_Update]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_AppointmentData_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_AppointmentData_Update]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_AppointmentData_Update_Reminder]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_AppointmentData_Update_Reminder]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_AppointmentData_Update_Reminder]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_AppointmentsData_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_AppointmentsData_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_AppointmentsData_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_AppointmentsDataRes_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_AppointmentsDataRes_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_AppointmentsDataRes_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_AttrOption_Add]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_AttrOption_Add]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_AttrOption_Add]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_AttrOption_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_AttrOption_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_AttrOption_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_AttrOption_Remove]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_AttrOption_Remove]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_AttrOption_Remove]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_AttrOption_Update]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_AttrOption_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_AttrOption_Update]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_AttrOptions_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_AttrOptions_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_AttrOptions_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Brand_Add]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Brand_Add]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Brand_Add]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Brand_Delete]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Brand_Delete]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Brand_Delete]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Brand_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Brand_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Brand_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Brand_GetByCode]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Brand_GetByCode]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Brand_GetByCode]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Brand_GetByTitle]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Brand_GetByTitle]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Brand_GetByTitle]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Brand_Remove]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Brand_Remove]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Brand_Remove]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Brand_Restore]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Brand_Restore]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Brand_Restore]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Brand_Update]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Brand_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Brand_Update]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Cashiers_Add]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Cashiers_Add]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Cashiers_Add]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Categories_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Categories_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Categories_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Categories_GetByName]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Categories_GetByName]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Categories_GetByName]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Categories_GetByParentId]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Categories_GetByParentId]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Categories_GetByParentId]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Category_Add]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Category_Add]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Category_Add]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Category_Delete]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Category_Delete]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Category_Delete]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Category_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Category_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Category_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Category_GetByCode]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Category_GetByCode]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Category_GetByCode]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Category_GetByName]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Category_GetByName]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Category_GetByName]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Category_Remove]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Category_Remove]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Category_Remove]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Category_Restore]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Category_Restore]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Category_Restore]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Category_Update]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Category_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Category_Update]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Category_UpdateWImage]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Category_UpdateWImage]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Category_UpdateWImage]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Category_Permission_Add]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Category_Permission_Add]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Category_Permission_Add]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Category_Permissions_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Category_Permissions_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Category_Permissions_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Categories_RolePermissions_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Categories_RolePermissions_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Categories_RolePermissions_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Category_Permissions_Reset]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Category_Permissions_Reset]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Category_Permissions_Reset]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_Address_Add]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_Address_Add]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_Address_Add]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_Contact_Add]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_Contact_Add]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_Contact_Add]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_Industry_Add]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_Industry_Add]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_Industry_Add]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_BankRef_Add]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_BankRef_Add]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_BankRef_Add]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_CommRef_Add]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_CommRef_Add]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_CommRef_Add]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_Doc_Add]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_Doc_Add]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_Doc_Add]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_IncomeSource_Add]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_IncomeSource_Add]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_IncomeSource_Add]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Brands_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Brands_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Brands_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Clients_GetList]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Clients_GetList]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Clients_GetList]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Clients_GetByCoName]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Clients_GetByCoName]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Clients_GetByCoName]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Clients_GetCnpj]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Clients_GetCnpj]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Clients_GetCnpj]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Clients_GetCompanyName]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Clients_GetCompanyName]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Clients_GetCompanyName]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Clients_GetCpf]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Clients_GetCpf]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Clients_GetCpf]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Clients_Statuses_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Clients_Statuses_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Clients_Statuses_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_DiscountGroup_Add]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_DiscountGroup_Add]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_DiscountGroup_Add]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_DiscountGroup_Delete]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_DiscountGroup_Delete]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_DiscountGroup_Delete]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_DiscountGroup_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_DiscountGroup_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_DiscountGroup_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_DiscountGroup_Remove]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_DiscountGroup_Remove]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_DiscountGroup_Remove]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_DiscountGroup_Restore]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_DiscountGroup_Restore]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_DiscountGroup_Restore]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_DiscountGroup_Update]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_DiscountGroup_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_DiscountGroup_Update]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_Address_Delete]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_Address_Delete]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_Address_Delete]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Clients_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Clients_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Clients_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_Address_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_Address_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_Address_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_Addresses_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_Addresses_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_Addresses_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_AddressMain_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_AddressMain_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_AddressMain_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_Contact_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_Contact_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_Contact_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_Contacts_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_Contacts_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_Contacts_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_Finances_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_Finances_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_Finances_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_Industries_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_Industries_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_Industries_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_BankRef_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_BankRef_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_BankRef_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_BankRefs_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_BankRefs_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_BankRefs_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_GetByCoName]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_GetByCoName]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_GetByCoName]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_GetByEmail]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_GetByEmail]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_GetByEmail]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_CommRef_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_CommRef_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_CommRef_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_CommRefs_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_CommRefs_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_CommRefs_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_Doc_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_Doc_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_Doc_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_Docs_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_Docs_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_Docs_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_GetIdByUserId]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_GetIdByUserId]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_GetIdByUserId]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_IncomeSource_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_IncomeSource_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_IncomeSource_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_IncomeSources_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_IncomeSources_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_IncomeSources_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_GetNames]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_GetNames]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_GetNames]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_Partner_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_Partner_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_Partner_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_Partners_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_Partners_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_Partners_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_PartnerBankRef_Add]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_PartnerBankRef_Add]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_PartnerBankRef_Add]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_PartnerBankRef_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_PartnerBankRef_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_PartnerBankRef_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_PartnerBankRef_Update]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_PartnerBankRef_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_PartnerBankRef_Update]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_PartnerBankRefs_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_PartnerBankRefs_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_PartnerBankRefs_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_PartnerBankRef_Remove]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_PartnerBankRef_Remove]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_PartnerBankRef_Remove]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_PersonalRef_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_PersonalRef_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_PersonalRef_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_PersonalRefs_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_PersonalRefs_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_PersonalRefs_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_GetUser]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_GetUser]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_GetUser]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_History_Add]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_History_Add]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_History_Add]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_History_Delete]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_History_Delete]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_History_Delete]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_History_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_History_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_History_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_Remove]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_Remove]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_Remove]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_Address_Remove]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_Address_Remove]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_Address_Remove]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_Contact_Remove]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_Contact_Remove]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_Contact_Remove]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_Industries_Remove]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_Industries_Remove]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_Industries_Remove]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_BankRef_Remove]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_BankRef_Remove]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_BankRef_Remove]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_CommRef_Remove]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_CommRef_Remove]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_CommRef_Remove]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_Doc_Remove]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_Doc_Remove]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_Doc_Remove]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_IncomeSource_Remove]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_IncomeSource_Remove]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_IncomeSource_Remove]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_Partner_Remove]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_Partner_Remove]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_Partner_Remove]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_PersonalRef_Remove]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_PersonalRef_Remove]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_PersonalRef_Remove]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Estimate_Comments_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Estimate_Comments_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Estimate_Comments_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_EstimateDetail_Add]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_EstimateDetail_Add]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_EstimateDetail_Add]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_EstimateDetail_QE_Item_Add]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_EstimateDetail_QE_Item_Add]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_EstimateDetail_QE_Item_Add]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_EstimateDetail_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_EstimateDetail_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_EstimateDetail_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_EstimateDetail_Update]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_EstimateDetail_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_EstimateDetail_Update]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_EstimateDetail_QE_Update]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_EstimateDetail_QE_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_EstimateDetail_QE_Update]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_EstimateDetail_Product_Update]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_EstimateDetail_Product_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_EstimateDetail_Product_Update]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_DiscountGroups_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_DiscountGroups_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_DiscountGroups_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Estimate_Add]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Estimate_Add]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Estimate_Add]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Estimate_History_Add]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Estimate_History_Add]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Estimate_History_Add]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Estimate_Msg_Add]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Estimate_Msg_Add]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Estimate_Msg_Add]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Estimate_Delete]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Estimate_Delete]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Estimate_Delete]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Estimate_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Estimate_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Estimate_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Estimate_GetByGuid]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Estimate_GetByGuid]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Estimate_GetByGuid]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Estimate_Histories_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Estimate_Histories_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Estimate_Histories_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Estimate_Msgs_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Estimate_Msgs_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Estimate_Msgs_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Estimate_Print_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Estimate_Print_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Estimate_Print_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Estimate_Remove]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Estimate_Remove]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Estimate_Remove]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Estimate_Item_Remove]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Estimate_Item_Remove]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Estimate_Item_Remove]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Estimate_Restore]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Estimate_Restore]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Estimate_Restore]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Estimate_Item_Transfer]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Estimate_Item_Transfer]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Estimate_Item_Transfer]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Estimate_Update]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Estimate_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Estimate_Update]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Estimate_Client_Update]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Estimate_Client_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Estimate_Client_Update]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Estimate_New_Update]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Estimate_New_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Estimate_New_Update]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Estimate_QE_Update]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Estimate_QE_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Estimate_QE_Update]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Estimate_TotalAmount_Update]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Estimate_TotalAmount_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Estimate_TotalAmount_Update]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Estimate_PayCond_Update]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Estimate_PayCond_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Estimate_PayCond_Update]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Estimate_QE_PayCond_Update]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Estimate_QE_PayCond_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Estimate_QE_PayCond_Update]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Estimate_UpdateProductAdd]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Estimate_UpdateProductAdd]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Estimate_UpdateProductAdd]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Estimate_Status_Update]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Estimate_Status_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Estimate_Status_Update]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Estimate_Comment_Add]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Estimate_Comment_Add]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Estimate_Comment_Add]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_Partner_Add]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_Partner_Add]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_Partner_Add]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_PersonalRef_Add]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_PersonalRef_Add]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_PersonalRef_Add]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Client_CountSearch]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Client_CountSearch]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Client_CountSearch]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_PayForms_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_PayForms_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_PayForms_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_POSel_AddUpdate]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_POSel_AddUpdate]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_POSel_AddUpdate]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_POSel_Remove]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_POSel_Remove]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_POSel_Remove]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_POSels_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_POSels_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_POSels_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Product_Add]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Product_Add]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Product_Add]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Product_Category_Add]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Product_Category_Add]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Product_Category_Add]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Product_Video_Add]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Product_Video_Add]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Product_Video_Add]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Product_Delete]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Product_Delete]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Product_Delete]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Product_Finance_Add]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Product_Finance_Add]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Product_Finance_Add]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Product_Finan_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Product_Finan_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Product_Finan_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Product_Finances_Update]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Product_Finances_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Product_Finances_Update]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Product_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Product_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Product_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Product_GetCategories]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Product_GetCategories]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Product_GetCategories]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_PayForm_Add]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_PayForm_Add]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_PayForm_Add]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_PayForm_Delete]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_PayForm_Delete]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_PayForm_Delete]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_PayForm_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_PayForm_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_PayForm_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_PayForm_GetByTitle]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_PayForm_GetByTitle]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_PayForm_GetByTitle]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_PayForm_Remove]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_PayForm_Remove]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_PayForm_Remove]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_PayForm_Update]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_PayForm_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_PayForm_Update]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Industries_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Industries_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Industries_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Industry_Add]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Industry_Add]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Industry_Add]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Industry_Delete]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Industry_Delete]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Industry_Delete]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Industry_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Industry_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Industry_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Industry_GetByName]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Industry_GetByName]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Industry_GetByName]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Industry_Remove]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Industry_Remove]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Industry_Remove]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Industry_Restore]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Industry_Restore]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Industry_Restore]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Industry_Update]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Industry_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Industry_Update]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Model_Add]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Model_Add]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Model_Add]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Model_Delete]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Model_Delete]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Model_Delete]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Model_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Model_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Model_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Model_GetByTitle]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Model_GetByTitle]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Model_GetByTitle]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Model_Remove]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Model_Remove]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Model_Remove]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Model_Restore]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Model_Restore]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Model_Restore]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Model_Update]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Model_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Model_Update]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Models_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Models_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Models_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_ModelsByBrand_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_ModelsByBrand_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_ModelsByBrand_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_PayCond_Add]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_PayCond_Add]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_PayCond_Add]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_PayCond_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_PayCond_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_PayCond_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_PayCond_Remove]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_PayCond_Remove]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_PayCond_Remove]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_PayCond_RemoveByType]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_PayCond_RemoveByType]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_PayCond_RemoveByType]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_PayCond_Update]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_PayCond_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_PayCond_Update]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Product_Remove]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Product_Remove]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Product_Remove]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Product_Categories_Remove]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Product_Categories_Remove]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Product_Categories_Remove]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Product_Finances_Remove]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Product_Finances_Remove]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Product_Finances_Remove]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Product_Video_Remove]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Product_Video_Remove]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Product_Video_Remove]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Product_Restore]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Product_Restore]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Product_Restore]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Product_Search]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Product_Search]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Product_Search]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Product_SearchBasic]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Product_SearchBasic]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Product_SearchBasic]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Product_Update]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Product_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Product_Update]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Product_UpdateQuick]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Product_UpdateQuick]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Product_UpdateQuick]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Product_Finance_Update]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Product_Finance_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Product_Finance_Update]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Product_ShippingSpecs_Update]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Product_ShippingSpecs_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Product_ShippingSpecs_Update]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Product_Video_Update]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Product_Video_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Product_Video_Update]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_ProductImage_Add]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_ProductImage_Add]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_ProductImage_Add]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_ProductImage_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_ProductImage_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_ProductImage_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_ProductImage_Remove]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_ProductImage_Remove]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_ProductImage_Remove]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_ProductImage_Update]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_ProductImage_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_ProductImage_Update]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_ProductMedias_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_ProductMedias_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_ProductMedias_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_ProductOption_Add]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_ProductOption_Add]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_ProductOption_Add]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_ProductOptions_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_ProductOptions_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_ProductOptions_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_ProductOptions_Remove]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_ProductOptions_Remove]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_ProductOptions_Remove]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Products_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Products_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Products_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Products_GetByCategory]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Products_GetByCategory]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Products_GetByCategory]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Products_GetLatest]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Products_GetLatest]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Products_GetLatest]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Products_GetRef]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Products_GetRef]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Products_GetRef]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Products_GetSpecials]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Products_GetSpecials]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Products_GetSpecials]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Products_QuickSearch]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Products_QuickSearch]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Products_QuickSearch]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_ProductsTemplate_Add]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_ProductsTemplate_Add]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_ProductsTemplate_Add]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_ProductsTemplate_Delete]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_ProductsTemplate_Delete]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_ProductsTemplate_Delete]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_ProductsTemplate_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_ProductsTemplate_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_ProductsTemplate_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_ProductsTemplate_Update]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_ProductsTemplate_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_ProductsTemplate_Update]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_ProductsTemplateHistory_Add]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_ProductsTemplateHistory_Add]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_ProductsTemplateHistory_Add]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_ProductsTemplateHistory_Delete]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_ProductsTemplateHistory_Delete]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_ProductsTemplateHistory_Delete]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_ProductImages_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_ProductImages_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_ProductImages_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_ProductImages_GetAll]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_ProductImages_GetAll]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_ProductImages_GetAll]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_ProductMedia_Add]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_ProductMedia_Add]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_ProductMedia_Add]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_ProductMedia_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_ProductMedia_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_ProductMedia_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_ProductsTemplates_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_ProductsTemplates_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_ProductsTemplates_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_ProductsTemplatesHistories_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_ProductsTemplatesHistories_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_ProductsTemplatesHistories_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Service_Add]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Service_Add]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Service_Add]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Service_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Service_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Service_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Service_Order_Add]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Service_Order_Add]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Service_Order_Add]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Service_Order_Close]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Service_Order_Close]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Service_Order_Close]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Service_Order_Finan_Update]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Service_Order_Finan_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Service_Order_Finan_Update]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Service_Order_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Service_Order_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Service_Order_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Service_Order_PayCond_Update]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Service_Order_PayCond_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Service_Order_PayCond_Update]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Service_Order_Pre_Update]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Service_Order_Pre_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Service_Order_Pre_Update]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Service_Order_Print_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Service_Order_Print_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Service_Order_Print_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Service_Order_ProductAndService_Add]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Service_Order_ProductAndService_Add]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Service_Order_ProductAndService_Add]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Service_Order_ProductAndService_Delete]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Service_Order_ProductAndService_Delete]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Service_Order_ProductAndService_Delete]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Service_Order_ProductAndService_Update]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Service_Order_ProductAndService_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Service_Order_ProductAndService_Update]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Service_Order_Products_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Service_Order_Products_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Service_Order_Products_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Service_Order_Products_Sum]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Service_Order_Products_Sum]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Service_Order_Products_Sum]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Service_Order_ProductsAndServices_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Service_Order_ProductsAndServices_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Service_Order_ProductsAndServices_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Service_Order_Remove]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Service_Order_Remove]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Service_Order_Remove]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Service_Order_Services_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Service_Order_Services_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Service_Order_Services_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Service_Order_Services_Sum]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Service_Order_Services_Sum]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Service_Order_Services_Sum]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Service_Order_Symptom_Add]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Service_Order_Symptom_Add]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Service_Order_Symptom_Add]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Service_Order_Symptom_Complete]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Service_Order_Symptom_Complete]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Service_Order_Symptom_Complete]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Service_Order_Symptom_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Service_Order_Symptom_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Service_Order_Symptom_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Service_Order_Symptom_Remove]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Service_Order_Symptom_Remove]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Service_Order_Symptom_Remove]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Service_Order_Symptom_Update]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Service_Order_Symptom_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Service_Order_Symptom_Update]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_ProductsTemplatesHistory_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_ProductsTemplatesHistory_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_ProductsTemplatesHistory_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_ProductStock_Take]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_ProductStock_Take]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_ProductStock_Take]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_ProductStock_Return]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_ProductStock_Return]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_ProductStock_Return]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Service_Order_Symptoms_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Service_Order_Symptoms_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Service_Order_Symptoms_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Service_Order_Symptoms_GetComplete]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Service_Order_Symptoms_GetComplete]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Service_Order_Symptoms_GetComplete]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Service_Order_Update]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Service_Order_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Service_Order_Update]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Status_Add]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Status_Add]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Status_Add]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Status_Delete]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Status_Delete]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Status_Delete]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Status_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Status_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Status_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Status_GetByTitle]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Status_GetByTitle]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Status_GetByTitle]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Status_Remove]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Status_Remove]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Status_Remove]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Status_Update]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Status_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Status_Update]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Statuses_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Statuses_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Statuses_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_UnitType_Add]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_UnitType_Add]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_UnitType_Add]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_UnitType_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_UnitType_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_UnitType_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_UnitType_GetByTitle]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_UnitType_GetByTitle]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_UnitType_GetByTitle]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_UnitType_Update]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_UnitType_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_UnitType_Update]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_ProductMedia_Update]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_ProductMedia_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_ProductMedia_Update]
+GO
+
+/****** Object:  UserDefinedFunction {databaseOwner}[{objectQualifier}RIS_fn_udf_TitleCase]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_fn_udf_TitleCase]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+DROP FUNCTION {databaseOwner}[{objectQualifier}RIS_fn_udf_TitleCase]
+GO
+
+/****** Object:  UserDefinedFunction {databaseOwner}[{objectQualifier}RIS_FV]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_FV]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+DROP FUNCTION {databaseOwner}[{objectQualifier}RIS_FV]
+GO
+
+/****** Object:  UserDefinedFunction {databaseOwner}[{objectQualifier}RIS_IPMT]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_IPMT]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+DROP FUNCTION {databaseOwner}[{objectQualifier}RIS_IPMT]
+GO
+
+/****** Object:  UserDefinedFunction {databaseOwner}[{objectQualifier}RIS_PMT]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_PMT]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+DROP FUNCTION {databaseOwner}[{objectQualifier}RIS_PMT]
+GO
+
+/****** Object:  UserDefinedFunction {databaseOwner}[{objectQualifier}RIS_PPMT]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_PPMT]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+DROP FUNCTION {databaseOwner}[{objectQualifier}RIS_PPMT]
+GO
+
+/****** Object:  Assembly FinancialFunctions Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.assemblies asms WHERE asms.name = N'FinancialFunctions' and is_user_defined = 1)
+DROP ASSEMBLY [FinancialFunctions]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Lists_Countries_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Lists_Countries_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Lists_Countries_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Lists_Regions_Get]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_Lists_Regions_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Lists_Regions_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_EstimateDetail_QE_Item_Remove]    Script Date: 01/15/2013 12:17:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_Id(N'{databaseOwner}[{objectQualifier}RIS_EstimateDetail_QE_Item_Remove]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_EstimateDetail_QE_Item_Remove]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Kit_Add]    Script Date: 03/07/2013 06:42:22 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_Kit_Add]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Kit_Add]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Kit_Remove]    Script Date: 03/07/2013 06:42:22 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_Kit_Remove]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Kit_Remove]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Kit_Update]    Script Date: 03/07/2013 06:42:22 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_Kit_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Kit_Update]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_KitItem_Add]    Script Date: 03/07/2013 06:42:22 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_KitItem_Add]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_KitItem_Add]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_KitItem_Remove]    Script Date: 03/07/2013 06:42:22 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_KitItem_Remove]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_KitItem_Remove]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_KitItem_Update]    Script Date: 03/07/2013 06:42:22 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_KitItem_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_KitItem_Update]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_KitItems_Get]    Script Date: 03/07/2013 06:42:22 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_KitItems_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_KitItems_Get]
+GO
+
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}RIS_Kits_Get]    Script Date: 03/07/2013 06:42:22 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}RIS_Kits_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}RIS_Kits_Get]
+GO
+
+
+/************************************************************/
+/*****              SqlDataProvider                     *****/
+/************************************************************/
