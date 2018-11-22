@@ -118,6 +118,8 @@ Namespace Components.Models
         Public Property Finan_Cest As String Implements IReportInfo.Finan_Cest
 
         Public Property Finan_Pis As String Implements IReportInfo.Finan_Pis
+
+        Public Property Discount As Single Implements IReportInfo.Discount
     End Class
 
     Public Class ClientListReportInfo

@@ -21,6 +21,8 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Contacts", "wwwroot\Desktop
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ContactForm", "wwwroot\DesktopModules\RildoInfo\ContactForm\ContactForm.vbproj", "{B7A5B5FD-675E-4A37-AC5F-684174019F45}"
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Estimates", "wwwroot\DesktopModules\RildoInfo\Estimates\Estimates.vbproj", "{3FEC6F90-5BA8-476E-BE40-E39DB06FFEF1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{B7A5B5FD-675E-4A37-AC5F-684174019F45}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7A5B5FD-675E-4A37-AC5F-684174019F45}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B7A5B5FD-675E-4A37-AC5F-684174019F45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FEC6F90-5BA8-476E-BE40-E39DB06FFEF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FEC6F90-5BA8-476E-BE40-E39DB06FFEF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FEC6F90-5BA8-476E-BE40-E39DB06FFEF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FEC6F90-5BA8-476E-BE40-E39DB06FFEF1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

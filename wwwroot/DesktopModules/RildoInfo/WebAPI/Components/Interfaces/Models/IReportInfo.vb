@@ -115,6 +115,7 @@ Namespace Components.Interfaces.Models
 
         Property Finan_Pis As String
 
+        Property Discount As Single
     End Interface
 
     Public Interface IClientListReportInfo

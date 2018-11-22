@@ -619,8 +619,14 @@
                         field: 'Cost', title: 'Custo', width: 80, format: '{0:n}', attributes: { style: 'text-align: right' }, headerAttributes: { style: 'text-align: right' }, aggregates: ["sum"], footerTemplate: "#= kendo.toString(sum, 'n') #", footerAttributes: { style: 'text-align: right' }, groupFooterTemplate: "#= kendo.toString(sum, 'n')  #"
                     },
                     {
-                        field: 'Profit', title: 'Lucro', width: 120, format: '{0:n}', attributes: { style: 'text-align: right' }, headerAttributes: { style: 'text-align: right' }, aggregates: ["sum"], footerTemplate: "#= kendo.toString(sum, 'n') #", footerAttributes: { style: 'text-align: right' }, groupFooterTemplate: "#= kendo.toString(sum, 'n')  #"
+                        field: 'Profit', title: 'Lucro', width: 120, format: '{0:n}', attributes: { style: 'text-align: right' }, headerAttributes: { style: 'text-align: right' }, template: "# if (Discount > 0) { # #= kendo.toString((Profit - Math.ceil(TotalAmount/(Discount -1))), 'n') # # } else { # #= Profit # # } #", aggregates: ["sum"], footerTemplate: "#= kendo.toString(sum, 'n') #", footerAttributes: { style: 'text-align: right' }, groupFooterTemplate: "#= kendo.toString(sum, 'n')  #"
                     }
+                    //{
+                    //    field: 'Discount', title: 'Desconto', width: 120, format: '{0:n}', attributes: { style: 'text-align: right' }, headerAttributes: { style: 'text-align: right' }
+                    //}
+                    //{
+                    //    field: 'Profit', title: 'Lucro', width: 120, format: '{0:n}', attributes: { style: 'text-align: right' }, headerAttributes: { style: 'text-align: right' }, template: "#= Profit - (TotalAmount / (1 - (Discount))) #", aggregates: ["sum"], footerTemplate: "#= kendo.toString(sum, 'n') #", footerAttributes: { style: 'text-align: right' }, groupFooterTemplate: "#= kendo.toString(sum, 'n')  #"
+                    //}
                 );
                 break;
             case 2:
